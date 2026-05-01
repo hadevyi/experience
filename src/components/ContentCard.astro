@@ -1,0 +1,36 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  meta?: string;
+  tags?: string[];
+}
+
+const { href, title, description, meta, tags = [] } = Astro.props;
+---
+
+<a
+  href={href}
+  class="surface-card group block h-full p-6 no-underline transition-transform duration-200 hover:-translate-y-1"
+>
+  <div class="flex items-start justify-between gap-4">
+    {meta ? <p class="type-label uppercase text-ink/45">{meta}</p> : <span></span>}
+    <span class="type-subsection-title text-ink/30 transition-colors duration-200 group-hover:text-accent">
+      ↗
+    </span>
+  </div>
+  <h2 class="type-section-title mt-4 max-w-xl text-ink transition-colors duration-200 group-hover:text-accent">
+    {title}
+  </h2>
+  <p class="type-small mt-4 max-w-2xl text-ink/72">{description}</p>
+  {
+    tags.length > 0 && (
+      <div class="mt-6 flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span class="chip">{tag}</span>
+        ))}
+      </div>
+    )
+  }
+</a>
