@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import FloatingControls from '../components/FloatingControls.astro';
 import { siteMeta } from '../data/site';
 import '../styles/global.css';
 
@@ -8,9 +9,19 @@ interface Props {
   title?: string;
   description?: string;
   lang?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  mainClass?: string;
 }
 
-const { title, description = siteMeta.description, lang = 'ko' } = Astro.props;
+const {
+  title,
+  description = siteMeta.description,
+  lang = 'ko',
+  showHeader = true,
+  showFooter = true,
+  mainClass = 'mx-auto w-full max-w-[62rem] px-5 pb-24 pt-4 sm:px-8 lg:px-10'
+} = Astro.props;
 const pageTitle = title ? `${title} | ${siteMeta.title}` : siteMeta.title;
 const canonicalUrl = new URL(Astro.url.pathname, siteMeta.siteUrl).toString();
 const faviconSvg = `${siteMeta.rootPath}favicon.svg`;
@@ -24,7 +35,7 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,14 +83,42 @@ const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
         </>
       )
     }
+    <script is:inline>
+      (() => {
+        const themeStorageKey = 'hadevyi-theme';
+        const langStorageKey = 'hadevyi-lang';
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem(themeStorageKey);
+        const savedLang = localStorage.getItem(langStorageKey);
+        const resolvedTheme =
+          savedTheme === 'light' || savedTheme === 'dark'
+            ? savedTheme
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+        root.dataset.theme = resolvedTheme;
+        root.style.colorScheme = resolvedTheme;
+
+        if (savedLang === 'ko' || savedLang === 'en') {
+          root.lang = savedLang;
+        }
+
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute('content', resolvedTheme === 'dark' ? '#101014' : '#faf9fd');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div class="relative min-h-screen overflow-x-hidden">
-      <SiteHeader />
-      <main class="mx-auto w-full max-w-[62rem] px-5 pb-24 pt-4 sm:px-8 lg:px-10">
+      {showHeader && <SiteHeader />}
+      <main class={mainClass}>
         <slot />
       </main>
-      <SiteFooter />
+      {showFooter && <SiteFooter />}
+      <FloatingControls />
     </div>
   </body>
 </html>
