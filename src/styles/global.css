@@ -705,15 +705,23 @@ html[data-theme='dark'] .experience-archive-page {
 }
 
 .experience-rail-intro h2 {
+  max-width: 100%;
   margin: 0;
   color: var(--experience-ink);
   font-family: var(--font-display);
-  font-size: var(--type-section-title-size);
+  font-size: clamp(1.625rem, 2.25vw, 2.125rem);
   font-weight: 650;
-  line-height: var(--type-section-title-leading);
+  line-height: 1.16;
   letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
   white-space: pre-line;
   word-break: keep-all;
+}
+
+html:lang(en) .experience-rail-intro h2 {
+  font-size: clamp(1.55rem, 2.05vw, 2rem);
+  letter-spacing: -0.035em;
 }
 
 .experience-rail-intro span {
