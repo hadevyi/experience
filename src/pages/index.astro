@@ -98,6 +98,7 @@ const hasArchiveItems = archiveItems.length > 0;
     data-experience-archive
     data-sidebar-collapsed="false"
     data-category-collapsed="false"
+    data-tag-collapsed="false"
   >
     <aside class="experience-archive-rail" aria-label="경험정리 필터">
       <div class="experience-rail-inner">
@@ -298,64 +299,87 @@ const hasArchiveItems = archiveItems.length > 0;
             </div>
 
             <div class="experience-filter-row experience-filter-row-stacked">
-              <p class="experience-control-title" {...i18nText('경험태그', 'Tags')}>경험태그</p>
-              <div class="experience-tag-hint" data-tag-hint>
-                <span class="experience-tag-hint-kicker" {...i18nText('태그 안내', 'Tag Guide')}>
-                  태그 안내
-                </span>
-                <strong
-                  class="experience-tag-hint-title"
-                  data-tag-hint-title
-                  {...i18nText('필터 기준을 확인해보세요', 'Explore the filter meaning')}
-                >
-                  필터 기준을 확인해보세요
-                </strong>
-                <span
-                  class="experience-tag-hint-body"
-                  data-tag-hint-body
-                  {...i18nText(
-                    '태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.',
-                    'Hover or select a tag to see what it means.'
-                  )}
-                >
-                  태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.
-                </span>
-              </div>
-              <div class="experience-option-list" role="group" aria-label="경험태그 필터">
+              <div class="experience-control-header">
+                <span {...i18nText('경험태그', 'Tags')}>경험태그</span>
                 <button
                   type="button"
-                  class="archive-option archive-option-active"
-                  data-filter-group="tag"
-                  data-filter-value="all"
-                  data-tag-label-ko="전체"
-                  data-tag-label-en="All"
-                  data-tag-description-ko="모든 경험태그를 함께 봅니다."
-                  data-tag-description-en="Show every experience tag."
-                  {...i18nText('전체', 'All')}
+                  class="experience-filter-section-toggle"
+                  aria-expanded="true"
+                  aria-controls="experience-tag-panel"
+                  aria-label="경험태그 접기"
+                  {...i18nAttr('aria-label', '경험태그 접기', 'Hide tag filters')}
+                  data-tag-toggle
                 >
-                  전체
+                  <span
+                    class="experience-filter-section-toggle-label"
+                    data-tag-toggle-label
+                    {...i18nText('접기', 'Hide')}
+                  >
+                    접기
+                  </span>
+                  <span class="experience-filter-section-toggle-icon" aria-hidden="true" data-tag-toggle-icon>⌃</span>
                 </button>
-                {
-                  experienceTagKeys.map((tag) => {
-                    const tagLabel = getExperienceTagLabel(tag);
+              </div>
 
-                    return (
-                      <button
-                        type="button"
-                        class="archive-option experience-tag-option"
-                        data-filter-group="tag"
-                        data-filter-value={tag}
-                        data-tag-label-ko={tagLabel.ko}
-                        data-tag-label-en={tagLabel.en}
-                        data-tag-description-ko={tagLabel.description.ko}
-                        data-tag-description-en={tagLabel.description.en}
-                        {...tagAriaLabel(tagLabel)}
-                      >
-                        <span {...i18nText(tagLabel.ko, tagLabel.en)}>{tagLabel.ko}</span>
-                      </button>
-                    );
-                  })
-                }
+              <div id="experience-tag-panel" class="experience-tag-panel">
+                <div class="experience-tag-hint" data-tag-hint>
+                  <span class="experience-tag-hint-kicker" {...i18nText('태그 안내', 'Tag Guide')}>
+                    태그 안내
+                  </span>
+                  <strong
+                    class="experience-tag-hint-title"
+                    data-tag-hint-title
+                    {...i18nText('필터 기준을 확인해보세요', 'Explore the filter meaning')}
+                  >
+                    필터 기준을 확인해보세요
+                  </strong>
+                  <span
+                    class="experience-tag-hint-body"
+                    data-tag-hint-body
+                    {...i18nText(
+                      '태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.',
+                      'Hover or select a tag to see what it means.'
+                    )}
+                  >
+                    태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.
+                  </span>
+                </div>
+                <div class="experience-option-list" role="group" aria-label="경험태그 필터">
+                  <button
+                    type="button"
+                    class="archive-option archive-option-active"
+                    data-filter-group="tag"
+                    data-filter-value="all"
+                    data-tag-label-ko="전체"
+                    data-tag-label-en="All"
+                    data-tag-description-ko="모든 경험태그를 함께 봅니다."
+                    data-tag-description-en="Show every experience tag."
+                    {...i18nText('전체', 'All')}
+                  >
+                    전체
+                  </button>
+                  {
+                    experienceTagKeys.map((tag) => {
+                      const tagLabel = getExperienceTagLabel(tag);
+
+                      return (
+                        <button
+                          type="button"
+                          class="archive-option experience-tag-option"
+                          data-filter-group="tag"
+                          data-filter-value={tag}
+                          data-tag-label-ko={tagLabel.ko}
+                          data-tag-label-en={tagLabel.en}
+                          data-tag-description-ko={tagLabel.description.ko}
+                          data-tag-description-en={tagLabel.description.en}
+                          {...tagAriaLabel(tagLabel)}
+                        >
+                          <span {...i18nText(tagLabel.ko, tagLabel.en)}>{tagLabel.ko}</span>
+                        </button>
+                      );
+                    })
+                  }
+                </div>
               </div>
             </div>
           </div>
@@ -559,6 +583,9 @@ const hasArchiveItems = archiveItems.length > 0;
       const categoryToggle = root.querySelector('[data-category-toggle]');
       const categoryToggleLabel = root.querySelector('[data-category-toggle-label]');
       const categoryToggleIcon = root.querySelector('[data-category-toggle-icon]');
+      const tagToggle = root.querySelector('[data-tag-toggle]');
+      const tagToggleLabel = root.querySelector('[data-tag-toggle-label]');
+      const tagToggleIcon = root.querySelector('[data-tag-toggle-icon]');
       const tagHintTitle = root.querySelector('[data-tag-hint-title]');
       const tagHintBody = root.querySelector('[data-tag-hint-body]');
       const tagButtons = Array.from(root.querySelectorAll('[data-filter-group="tag"]'));
@@ -746,6 +773,35 @@ const hasArchiveItems = archiveItems.length > 0;
 
         if (categoryToggleIcon instanceof HTMLElement) {
           categoryToggleIcon.textContent = isCollapsed ? '⌄' : '⌃';
+        }
+      };
+
+      const setTagCollapsed = (isCollapsed) => {
+        const label = isCollapsed
+          ? { ko: '펼치기', en: 'Show' }
+          : { ko: '접기', en: 'Hide' };
+        const ariaLabel = isCollapsed
+          ? { ko: '경험태그 펼치기', en: 'Show tag filters' }
+          : { ko: '경험태그 접기', en: 'Hide tag filters' };
+
+        root.setAttribute('data-tag-collapsed', String(isCollapsed));
+
+        if (tagToggle instanceof HTMLButtonElement) {
+          tagToggle.setAttribute('aria-expanded', String(!isCollapsed));
+          tagToggle.dataset.i18nKo = ariaLabel.ko;
+          tagToggle.dataset.i18nEn = ariaLabel.en;
+          tagToggle.dataset.i18nAttr = 'aria-label';
+          tagToggle.setAttribute('aria-label', isEnglish() ? ariaLabel.en : ariaLabel.ko);
+        }
+
+        if (tagToggleLabel instanceof HTMLElement) {
+          tagToggleLabel.dataset.i18nKo = label.ko;
+          tagToggleLabel.dataset.i18nEn = label.en;
+          tagToggleLabel.textContent = isEnglish() ? label.en : label.ko;
+        }
+
+        if (tagToggleIcon instanceof HTMLElement) {
+          tagToggleIcon.textContent = isCollapsed ? '⌄' : '⌃';
         }
       };
 
@@ -1016,12 +1072,20 @@ const hasArchiveItems = archiveItems.length > 0;
         });
       }
 
+      if (tagToggle instanceof HTMLButtonElement) {
+        tagToggle.addEventListener('click', () => {
+          const isCollapsed = root.getAttribute('data-tag-collapsed') === 'true';
+          setTagCollapsed(!isCollapsed);
+        });
+      }
+
       const languageObserver = new MutationObserver(() => {
         updateDateDisplays();
         resetTagHint();
         if (activeCalendar) renderCalendar(activeCalendar);
         setSidebarCollapsed(root.getAttribute('data-sidebar-collapsed') === 'true');
         setCategoryCollapsed(root.getAttribute('data-category-collapsed') === 'true');
+        setTagCollapsed(root.getAttribute('data-tag-collapsed') === 'true');
       });
 
       languageObserver.observe(document.documentElement, {
@@ -1034,6 +1098,7 @@ const hasArchiveItems = archiveItems.length > 0;
       ['status', 'category', 'tag', 'sort', 'view'].forEach((group) => setActive(group));
       setSidebarCollapsed(false);
       setCategoryCollapsed(false);
+      setTagCollapsed(false);
       apply();
     })();
   </script>

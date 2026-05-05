@@ -1326,7 +1326,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   margin-bottom: 0;
 }
 
-.experience-category-toggle {
+.experience-category-toggle,
+.experience-filter-section-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1350,7 +1351,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
     transform 160ms ease;
 }
 
-.experience-category-toggle-label {
+.experience-category-toggle-label,
+.experience-filter-section-toggle-label {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -1359,13 +1361,15 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   white-space: nowrap;
 }
 
-.experience-category-toggle:hover {
+.experience-category-toggle:hover,
+.experience-filter-section-toggle:hover {
   background: var(--experience-accent-soft);
   color: var(--experience-ink);
   transform: translateY(-1px);
 }
 
-.experience-category-toggle-icon {
+.experience-category-toggle-icon,
+.experience-filter-section-toggle-icon {
   font-size: 0.75rem;
   line-height: 1;
 }
@@ -1430,7 +1434,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   margin-top: 0.7rem;
 }
 
-.experience-category-list {
+.experience-category-list,
+.experience-tag-panel {
   max-height: 12rem;
   overflow: hidden;
   opacity: 1;
@@ -1440,7 +1445,18 @@ html[data-theme='dark'] .experience-calendar-month-selected {
     visibility 160ms ease;
 }
 
+.experience-tag-panel {
+  max-height: 24rem;
+}
+
 .experience-archive-page[data-category-collapsed='true'] .experience-category-list {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.experience-archive-page[data-tag-collapsed='true'] .experience-tag-panel {
   max-height: 0;
   opacity: 0;
   pointer-events: none;
