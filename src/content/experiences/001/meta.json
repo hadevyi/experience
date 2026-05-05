@@ -1,0 +1,28 @@
+{
+  "number": "001",
+  "periods": [
+    {
+      "start": "2016-03",
+      "end": "2020-02"
+    }
+  ],
+  "category": "affiliation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": ["learning", "community", "reflection"],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/001/representative.jpg",
+    "alt": {
+      "ko": "인제대학교 로고",
+      "en": "Inje University logo"
+    },
+    "caption": {
+      "ko": "인제대학교",
+      "en": "Inje University"
+    }
+  },
+  "featured": true
+}
