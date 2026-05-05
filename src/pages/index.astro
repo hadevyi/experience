@@ -2,6 +2,23 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteMeta } from '../data/site';
+import {
+  formatExperiencePeriods,
+  getExperiencePairs,
+  getExperiencePeriodDateRanges,
+  getExperiencePeriodYears,
+  getLocalizedListItem,
+  getLocalizedText,
+  readExperienceOrder,
+  resolveExperienceStatus,
+  statusLabels
+} from '../data/experienceArchive';
+import {
+  experienceCategoryKeys,
+  experienceTagKeys,
+  getExperienceCategoryLabel,
+  getExperienceTagLabel
+} from '../data/experienceTaxonomy';
 
 const i18nText = (ko: string, en: string) => ({
   'data-i18n-ko': ko,
@@ -14,61 +31,60 @@ const i18nAttr = (attr: string, ko: string, en: string) => ({
   'data-i18n-en': en
 });
 
-const experiences = (await getCollection('experiences')).sort((a, b) => a.data.order - b.data.order);
+const localized = (value: { ko: string; en: string }) => i18nText(value.ko, value.en);
+const tagAriaLabel = (tag: { ko: string; en: string; description: { ko: string; en: string } }) =>
+  i18nAttr('aria-label', `${tag.ko}: ${tag.description.ko}`, `${tag.en}: ${tag.description.en}`);
+const localizedPairText = (
+  pair: Parameters<typeof getLocalizedText>[0],
+  field: Parameters<typeof getLocalizedText>[1]
+) => localized(getLocalizedText(pair, field));
+const localizedPairListItem = (
+  pair: Parameters<typeof getLocalizedListItem>[0],
+  field: Parameters<typeof getLocalizedListItem>[1],
+  index: number
+) => localized(getLocalizedListItem(pair, field, index));
+const searchableLocalizedList = (pair: Parameters<typeof getLocalizedListItem>[0], field: 'focus' | 'highlights') =>
+  [...pair.ko.data[field], ...((pair.en ?? pair.ko).data[field] ?? [])].join(' ');
 
-const categoryOptions = ['개발', '교육', '기록', '공유', '재능기부'] as const;
-const categoryLabels = {
-  개발: 'Development',
-  교육: 'Education',
-  기록: 'Writing',
-  공유: 'Sharing',
-  재능기부: 'Pro Bono'
-} as const;
-const statusLabels = {
-  now: {
-    ko: '진행중',
-    en: 'In progress'
-  },
-  done: {
-    ko: '완료',
-    en: 'Done'
-  }
-} as const;
-const devKeywords = ['개발', '프로젝트', '사이트', '정적', '구조', '기술', '콘텐츠'];
+const experiences = getExperiencePairs(await getCollection('experiences')).sort(
+  (a, b) => readExperienceOrder(a) - readExperienceOrder(b)
+);
 
-const resolveCategory = (entry: (typeof experiences)[number]) => {
-  const source = `${entry.data.title} ${entry.data.summary} ${entry.data.organization} ${entry.data.focus.join(' ')}`;
-
-  const matched = categoryOptions.find((category) => source.includes(category));
-  if (matched) return matched;
-
-  if (/(교육|멘토|강의|학습)/.test(source)) return '교육';
-  if (/(기록|콘텐츠|글|문서|리듬|메모)/.test(source)) return '기록';
-  if (/(공유|발표|커뮤니티)/.test(source)) return '공유';
-  if (/(봉사|기부|재능)/.test(source)) return '재능기부';
-
-  return '개발';
-};
-
-const resolveStatus = (period: string) => (period.includes('현재') ? 'now' : 'done');
 const archiveItems = experiences.map((entry) => {
-  const category = resolveCategory(entry);
-  const status = resolveStatus(entry.data.period);
-  const searchSource = `${entry.data.title} ${entry.data.summary} ${entry.data.organization} ${entry.data.period} ${entry.data.focus.join(' ')} ${category}`;
-  const isDev = devKeywords.some((keyword) => searchSource.includes(keyword));
+  const category = entry.meta.category;
+  const categoryLabel = getExperienceCategoryLabel(category);
+  const experienceTags = entry.meta.experienceTags ?? [];
+  const experienceTagLabels = experienceTags.map((tag) => getExperienceTagLabel(tag));
+  const entryPeriodYears = getExperiencePeriodYears(entry.meta);
+  const periodDateRanges = getExperiencePeriodDateRanges(entry.meta);
+  const periodLabel = {
+    ko: formatExperiencePeriods(entry.meta, 'ko'),
+    en: formatExperiencePeriods(entry.meta, 'en')
+  };
+  const status = resolveExperienceStatus(entry.meta.status);
+  const title = getLocalizedText(entry, 'title');
+  const summary = getLocalizedText(entry, 'summary');
+  const organization = getLocalizedText(entry, 'organization');
+  const tagSearchSource = experienceTagLabels
+    .map((tag) => `${tag.ko} ${tag.en} ${tag.description.ko} ${tag.description.en}`)
+    .join(' ');
+  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${searchableLocalizedList(entry, 'focus')} ${(entry.meta.projectDomains ?? []).join(' ')} ${(entry.meta.techTags ?? []).join(' ')} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
 
   return {
     entry,
     category,
+    categoryLabel,
+    experienceTags,
+    experienceTagLabels,
+    periodLabel,
+    periodDateRanges,
+    periodYears: entryPeriodYears,
     status,
     statusLabel: statusLabels[status],
-    searchSource,
-    isDev
+    searchSource
   };
 });
-
-const activeCount = archiveItems.filter((item) => item.status === 'now').length;
-const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).size;
+const hasArchiveItems = archiveItems.length > 0;
 ---
 
 <BaseLayout
@@ -77,7 +93,12 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
   showHeader={false}
   mainClass="min-h-screen w-full px-0 py-0"
 >
-  <section class="experience-archive-page" data-experience-archive data-sidebar-collapsed="false">
+  <section
+    class="experience-archive-page"
+    data-experience-archive
+    data-sidebar-collapsed="false"
+    data-category-collapsed="false"
+  >
     <aside class="experience-archive-rail" aria-label="경험정리 필터">
       <div class="experience-rail-inner">
         <div class="experience-rail-header">
@@ -109,12 +130,7 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
           <h1 class="sr-only" {...i18nText('당현아 경험정리', 'Dang Hyeona Experience')}>
             당현아 경험정리
           </h1>
-          <h2
-            {...i18nText(
-              '쌓아온 경험에서\n패턴을 발견합니다.',
-              'I find patterns\nin experience.'
-            )}
-          >
+          <h2 {...i18nText('쌓아온 경험에서\n패턴을 발견합니다.', 'I find patterns\nin experience.')}>
             쌓아온 경험에서
             패턴을 발견합니다.
           </h2>
@@ -130,43 +146,68 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
         </div>
 
         <div id="experience-filter-panel" class="experience-filter-panel">
-          <div class="experience-summary-grid experience-summary-grid-rail" aria-label="경험정리 요약">
-            <div class="experience-summary-card">
-              <span>{archiveItems.length}</span>
-              <strong {...i18nText('경험', 'Experiences')}>경험</strong>
-            </div>
-            <div class="experience-summary-card">
-              <span>{visibleCategoryCount}</span>
-              <strong {...i18nText('분류', 'Categories')}>분류</strong>
-            </div>
-            <div class="experience-summary-card">
-              <span>{activeCount}</span>
-              <strong {...i18nText('진행중', 'Now')}>진행중</strong>
-            </div>
-          </div>
-
           <div class="experience-filter-card">
-            <div class="experience-filter-row">
-              <p class="experience-control-title" {...i18nText('모드', 'Mode')}>모드</p>
-              <div class="experience-segmented" role="group" aria-label="개발 경험 필터">
-                <button
-                  type="button"
-                  class="archive-option archive-option-active"
-                  data-filter-group="dev"
-                  data-filter-value="all"
-                  {...i18nText('전체', 'All')}
-                >
-                  전체
-                </button>
-                <button
-                  type="button"
-                  class="archive-option"
-                  data-filter-group="dev"
-                  data-filter-value="dev"
-                  {...i18nText('개발', 'Dev')}
-                >
-                  개발
-                </button>
+            <label class="experience-filter-row experience-filter-search">
+              <span class="experience-control-title" {...i18nText('검색', 'Search')}>검색</span>
+              <input
+                type="search"
+                class="experience-search-input"
+                placeholder="제목, 조직, 키워드 검색"
+                {...i18nAttr('placeholder', '제목, 조직, 키워드 검색', 'Search title, organization, or keywords')}
+                data-archive-search
+              />
+            </label>
+
+            <div class="experience-filter-row experience-filter-row-stacked experience-filter-date-row">
+              <p class="experience-control-title" {...i18nText('기간', 'Period')}>기간</p>
+              <div class="experience-date-range" aria-label="기간 범위 필터">
+                <label class="experience-date-field">
+                  <span {...i18nText('시작', 'Start')}>시작</span>
+                  <div class="experience-date-picker">
+                    <button
+                      type="button"
+                      class="experience-date-trigger"
+                      aria-expanded="false"
+                      aria-haspopup="dialog"
+                      aria-label="시작 월 선택"
+                      data-date-trigger="periodStart"
+                      {...i18nAttr('aria-label', '시작 월 선택', 'Select start month')}
+                    >
+                      <span class="experience-date-display experience-date-placeholder" data-date-display="periodStart">
+                        연도. 월.
+                      </span>
+                      <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                        <path d="M6.5 3v2.4M13.5 3v2.4M4 8h12M4.8 4.8h10.4A1.8 1.8 0 0 1 17 6.6v8.6a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 15.2V6.6a1.8 1.8 0 0 1 1.8-1.8Z" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <div class="experience-calendar-popover" data-calendar-popover="periodStart" hidden></div>
+                  </div>
+                </label>
+
+                <span class="experience-range-separator" aria-hidden="true">~</span>
+
+                <label class="experience-date-field">
+                  <span {...i18nText('끝', 'End')}>끝</span>
+                  <div class="experience-date-picker">
+                    <button
+                      type="button"
+                      class="experience-date-trigger"
+                      aria-expanded="false"
+                      aria-haspopup="dialog"
+                      aria-label="끝 월 선택"
+                      data-date-trigger="periodEnd"
+                      {...i18nAttr('aria-label', '끝 월 선택', 'Select end month')}
+                    >
+                      <span class="experience-date-display experience-date-placeholder" data-date-display="periodEnd">
+                        연도. 월.
+                      </span>
+                      <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
+                        <path d="M6.5 3v2.4M13.5 3v2.4M4 8h12M4.8 4.8h10.4A1.8 1.8 0 0 1 17 6.6v8.6a1.8 1.8 0 0 1-1.8 1.8H4.8A1.8 1.8 0 0 1 3 15.2V6.6a1.8 1.8 0 0 1 1.8-1.8Z" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <div class="experience-calendar-popover" data-calendar-popover="periodEnd" hidden></div>
+                  </div>
+                </label>
               </div>
             </div>
 
@@ -203,23 +244,30 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
               </div>
             </div>
 
-            <label class="experience-filter-row experience-filter-search">
-              <span class="experience-control-title" {...i18nText('검색', 'Search')}>검색</span>
-              <input
-                type="search"
-                class="experience-search-input"
-                placeholder="제목, 조직, 키워드 검색"
-                {...i18nAttr('placeholder', '제목, 조직, 키워드 검색', 'Search title, organization, or keywords')}
-                data-archive-search
-              />
-            </label>
-
-            <div class="experience-filter-row">
+            <div class="experience-filter-row experience-filter-row-stacked">
               <div class="experience-control-header">
                 <span {...i18nText('분류', 'Category')}>분류</span>
-                <span aria-hidden="true">⌁</span>
+                <button
+                  type="button"
+                  class="experience-category-toggle"
+                  aria-expanded="true"
+                  aria-controls="experience-category-list"
+                  aria-label="분류 접기"
+                  {...i18nAttr('aria-label', '분류 접기', 'Hide category filters')}
+                  data-category-toggle
+                >
+                  <span
+                    class="experience-category-toggle-label"
+                    data-category-toggle-label
+                    {...i18nText('접기', 'Hide')}
+                  >
+                    접기
+                  </span>
+                  <span class="experience-category-toggle-icon" aria-hidden="true" data-category-toggle-icon>⌃</span>
+                </button>
               </div>
-              <div class="experience-category-list">
+
+              <div id="experience-category-list" class="experience-category-list">
                 <button
                   type="button"
                   class="archive-category archive-category-active"
@@ -230,17 +278,83 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
                   전체
                 </button>
                 {
-                  categoryOptions.map((category) => (
-                    <button
-                      type="button"
-                      class="archive-category"
-                      data-filter-group="category"
-                      data-filter-value={category}
-                      {...i18nText(category, categoryLabels[category])}
-                    >
-                      {category}
-                    </button>
-                  ))
+                  experienceCategoryKeys.map((category) => {
+                    const categoryLabel = getExperienceCategoryLabel(category);
+
+                    return (
+                      <button
+                        type="button"
+                        class="archive-category"
+                        data-filter-group="category"
+                        data-filter-value={category}
+                        {...i18nText(categoryLabel.ko, categoryLabel.en)}
+                      >
+                        {categoryLabel.ko}
+                      </button>
+                    );
+                  })
+                }
+              </div>
+            </div>
+
+            <div class="experience-filter-row experience-filter-row-stacked">
+              <p class="experience-control-title" {...i18nText('경험태그', 'Tags')}>경험태그</p>
+              <div class="experience-tag-hint" data-tag-hint>
+                <span class="experience-tag-hint-kicker" {...i18nText('태그 안내', 'Tag Guide')}>
+                  태그 안내
+                </span>
+                <strong
+                  class="experience-tag-hint-title"
+                  data-tag-hint-title
+                  {...i18nText('필터 기준을 확인해보세요', 'Explore the filter meaning')}
+                >
+                  필터 기준을 확인해보세요
+                </strong>
+                <span
+                  class="experience-tag-hint-body"
+                  data-tag-hint-body
+                  {...i18nText(
+                    '태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.',
+                    'Hover or select a tag to see what it means.'
+                  )}
+                >
+                  태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.
+                </span>
+              </div>
+              <div class="experience-option-list" role="group" aria-label="경험태그 필터">
+                <button
+                  type="button"
+                  class="archive-option archive-option-active"
+                  data-filter-group="tag"
+                  data-filter-value="all"
+                  data-tag-label-ko="전체"
+                  data-tag-label-en="All"
+                  data-tag-description-ko="모든 경험태그를 함께 봅니다."
+                  data-tag-description-en="Show every experience tag."
+                  {...i18nText('전체', 'All')}
+                >
+                  전체
+                </button>
+                {
+                  experienceTagKeys.map((tag) => {
+                    const tagLabel = getExperienceTagLabel(tag);
+
+                    return (
+                      <button
+                        type="button"
+                        class="archive-option experience-tag-option"
+                        data-filter-group="tag"
+                        data-filter-value={tag}
+                        data-tag-label-ko={tagLabel.ko}
+                        data-tag-label-en={tagLabel.en}
+                        data-tag-description-ko={tagLabel.description.ko}
+                        data-tag-description-en={tagLabel.description.en}
+                        {...tagAriaLabel(tagLabel)}
+                      >
+                        <span {...i18nText(tagLabel.ko, tagLabel.en)}>{tagLabel.ko}</span>
+                      </button>
+                    );
+                  })
                 }
               </div>
             </div>
@@ -256,112 +370,171 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
           {...i18nAttr('aria-label', '경험 목록', 'Experience list')}
           aria-label="경험 목록"
         >
-          <div class="experience-toolbar-card experience-toolbar-card-main" aria-label="목록 설정">
-            <div class="experience-toolbar-row">
-              <span class="experience-toolbar-label" {...i18nText('정렬', 'Sort')}>정렬</span>
-              <div class="experience-icon-toggle" role="group" aria-label="정렬">
-                <button
-                  type="button"
-                  class="archive-icon-option archive-sort-option archive-option-active"
-                  data-filter-group="sort"
-                  data-filter-value="asc"
-                  aria-label="오래된순"
-                  {...i18nAttr('aria-label', '오래된순', 'Oldest first')}
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 5v14m0-14 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <span class="archive-option-text" {...i18nText('오래된', 'Oldest')}>오래된</span>
-                </button>
-                <button
-                  type="button"
-                  class="archive-icon-option archive-sort-option"
-                  data-filter-group="sort"
-                  data-filter-value="desc"
-                  aria-label="최신순"
-                  {...i18nAttr('aria-label', '최신순', 'Newest first')}
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 19V5m0 14 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
-                  <span class="archive-option-text" {...i18nText('최신', 'Newest')}>최신</span>
-                </button>
-              </div>
-            </div>
+          {
+            hasArchiveItems && (
+              <div class="experience-toolbar-card experience-toolbar-card-main" aria-label="목록 설정">
+                <div class="experience-toolbar-row">
+                  <span class="experience-toolbar-label" {...i18nText('정렬', 'Sort')}>정렬</span>
+                  <div class="experience-icon-toggle" role="group" aria-label="정렬">
+                    <button
+                      type="button"
+                      class="archive-icon-option archive-sort-option archive-option-active"
+                      data-filter-group="sort"
+                      data-filter-value="asc"
+                      aria-label="오래된순"
+                      {...i18nAttr('aria-label', '오래된순', 'Oldest first')}
+                    >
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14m0-14 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span class="archive-option-text" {...i18nText('오래된', 'Oldest')}>오래된</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="archive-icon-option archive-sort-option"
+                      data-filter-group="sort"
+                      data-filter-value="desc"
+                      aria-label="최신순"
+                      {...i18nAttr('aria-label', '최신순', 'Newest first')}
+                    >
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 19V5m0 14 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span class="archive-option-text" {...i18nText('최신', 'Newest')}>최신</span>
+                    </button>
+                  </div>
+                </div>
 
-            <div class="experience-toolbar-row">
-              <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
-              <div class="experience-icon-toggle" role="group" aria-label="보기">
-                <button
-                  type="button"
-                  class="archive-icon-option archive-option-active"
-                  data-filter-group="view"
-                  data-filter-value="card"
-                  aria-label="카드형"
-                  {...i18nAttr('aria-label', '카드형', 'Card view')}
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
-                  </svg>
-                </button>
-                <button
-                  type="button"
-                  class="archive-icon-option"
-                  data-filter-group="view"
-                  data-filter-value="list"
-                  aria-label="리스트형"
-                  {...i18nAttr('aria-label', '리스트형', 'List view')}
-                >
-                  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                    <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                  </svg>
-                </button>
+                <div class="experience-toolbar-row">
+                  <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
+                  <div class="experience-icon-toggle" role="group" aria-label="보기">
+                    <button
+                      type="button"
+                      class="archive-icon-option archive-option-active"
+                      data-filter-group="view"
+                      data-filter-value="card"
+                      aria-label="카드형"
+                      {...i18nAttr('aria-label', '카드형', 'Card view')}
+                    >
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="archive-icon-option"
+                      data-filter-group="view"
+                      data-filter-value="list"
+                      aria-label="리스트형"
+                      {...i18nAttr('aria-label', '리스트형', 'List view')}
+                    >
+                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                        <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            )
+          }
 
           <div class="experience-card-grid" data-archive-list>
             {
-              archiveItems.map(({ entry, category, status, statusLabel, searchSource, isDev }, index) => (
-                <article
-                  class="experience-card archive-experience-item"
-                  data-search={searchSource.toLowerCase()}
-                  data-category={category}
-                  data-status={status}
-                  data-dev={String(isDev)}
-                  data-order={entry.data.order}
-                >
-                  <a href={`${siteMeta.rootPath}${entry.id}/`} class="experience-card-link">
-                    <div class="experience-card-topline">
-                      <span class="experience-card-number">{String(index + 1).padStart(2, '0')}</span>
-                      <span class="experience-card-badge" {...i18nText(category, categoryLabels[category])}>
-                        {category}
-                      </span>
-                    </div>
-                    <h3>{entry.data.title}</h3>
-                    <p>{entry.data.summary}</p>
-                    <div class="experience-card-meta">
-                      <span>{entry.data.organization}</span>
-                      <span>{entry.data.period}</span>
-                      <span {...i18nText(statusLabel.ko, statusLabel.en)}>{statusLabel.ko}</span>
-                    </div>
-                    <div class="experience-card-tags">
-                      {entry.data.focus.map((focus) => <span>{focus}</span>)}
-                    </div>
-                  </a>
-                </article>
-              ))
+              archiveItems.map(
+                ({
+                  entry,
+                  category,
+                  categoryLabel,
+                  experienceTags,
+                  experienceTagLabels,
+                  periodLabel,
+                  periodDateRanges,
+                  periodYears,
+                  status,
+                  statusLabel,
+                  searchSource
+                }, index) => (
+                  <article
+                    class="experience-card archive-experience-item"
+                    data-search={searchSource.toLowerCase()}
+                    data-category={category}
+                    data-status={status}
+                    data-period-years={periodYears.join(' ')}
+                    data-period-ranges={periodDateRanges.map((range) => `${range.start}..${range.end}`).join('|')}
+                    data-tags={experienceTags.join(' ')}
+                    data-order={readExperienceOrder(entry)}
+                  >
+                    <a href={`${siteMeta.rootPath}${entry.number}/`} class="experience-card-link">
+                      <div class="experience-card-topline">
+                        <span class="experience-card-number">
+                          {entry.meta.number ?? String(index + 1).padStart(3, '0')}
+                        </span>
+                        <span class="experience-card-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
+                          {categoryLabel.ko}
+                        </span>
+                      </div>
+                      <h3 {...localizedPairText(entry, 'title')}>{entry.ko.data.title}</h3>
+                      <p {...localizedPairText(entry, 'summary')}>{entry.ko.data.summary}</p>
+                      <div class="experience-card-meta">
+                        <span {...localizedPairText(entry, 'organization')}>{entry.ko.data.organization}</span>
+                        <span {...i18nText(periodLabel.ko, periodLabel.en)}>{periodLabel.ko}</span>
+                        <span {...i18nText(statusLabel.ko, statusLabel.en)}>{statusLabel.ko}</span>
+                      </div>
+                      <div class="experience-card-tags">
+                        {entry.ko.data.focus.map((focus, focusIndex) => (
+                          <span {...localizedPairListItem(entry, 'focus', focusIndex)}>{focus}</span>
+                        ))}
+                        {
+                          experienceTagLabels.map((tag) => (
+                            <span class="experience-tag-chip" {...tagAriaLabel(tag)}>
+                              <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>
+                              <span class="experience-tag-tooltip" aria-hidden="true">
+                                <span {...i18nText(tag.description.ko, tag.description.en)}>
+                                  {tag.description.ko}
+                                </span>
+                              </span>
+                            </span>
+                          ))
+                        }
+                        {category === 'project' && (entry.meta.projectDomains ?? []).map((domain) => <span>{domain}</span>)}
+                      </div>
+                    </a>
+                  </article>
+                )
+              )
             }
           </div>
 
-          <p
-            class="experience-empty"
-            data-archive-empty
-            hidden
-            {...i18nText('현재 조건에 맞는 경험 기록이 없습니다.', 'No experiences match the current filters.')}
-          >
-            현재 조건에 맞는 경험 기록이 없습니다.
-          </p>
+          {
+            hasArchiveItems ? (
+              <p
+                class="experience-empty"
+                data-archive-empty
+                hidden
+                {...i18nText('현재 조건에 맞는 경험 기록이 없습니다.', 'No experiences match the current filters.')}
+              >
+                현재 조건에 맞는 경험 기록이 없습니다.
+              </p>
+            ) : (
+              <div class="experience-empty-state">
+                <p class="experience-empty-kicker" {...i18nText('준비 중', 'Preparing')}>
+                  준비 중
+                </p>
+                <h3 {...i18nText('아직 등록된 경험이 없습니다.', 'No experiences have been added yet.')}>
+                  아직 등록된 경험이 없습니다.
+                </h3>
+                <p
+                  {...i18nText(
+                    '곧 템플릿 기준에 맞춰 경험을 하나씩 채워 넣을 예정입니다. 데이터가 추가되면 이 영역에 경험 카드가 표시됩니다.',
+                    'Experiences will be added one by one using the prepared templates. Once data is added, experience cards will appear here.'
+                  )}
+                >
+                  곧 템플릿 기준에 맞춰 경험을 하나씩 채워 넣을 예정입니다.
+                  데이터가 추가되면 이 영역에 경험 카드가 표시됩니다.
+                </p>
+              </div>
+            )
+          }
         </section>
       </div>
     </div>
@@ -376,21 +549,149 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
       const list = root.querySelector('[data-archive-list]');
       const items = Array.from(root.querySelectorAll('.archive-experience-item'));
       const buttons = Array.from(root.querySelectorAll('[data-filter-group]'));
+      const dateTriggers = Array.from(root.querySelectorAll('[data-date-trigger]'));
+      const dateDisplays = Array.from(root.querySelectorAll('[data-date-display]'));
+      const calendarPopovers = Array.from(root.querySelectorAll('[data-calendar-popover]'));
       const empty = root.querySelector('[data-archive-empty]');
       const railToggle = root.querySelector('[data-rail-toggle]');
       const railToggleLabel = root.querySelector('[data-rail-toggle-label]');
       const railToggleIcon = root.querySelector('[data-rail-toggle-icon]');
+      const categoryToggle = root.querySelector('[data-category-toggle]');
+      const categoryToggleLabel = root.querySelector('[data-category-toggle-label]');
+      const categoryToggleIcon = root.querySelector('[data-category-toggle-icon]');
+      const tagHintTitle = root.querySelector('[data-tag-hint-title]');
+      const tagHintBody = root.querySelector('[data-tag-hint-body]');
+      const tagButtons = Array.from(root.querySelectorAll('[data-filter-group="tag"]'));
 
       const state = {
-        dev: 'all',
+        periodStart: '',
+        periodEnd: '',
         status: 'all',
-        category: 'all',
+        category: [],
+        tag: [],
         sort: 'asc',
         view: 'card'
       };
 
+      const today = new Date();
+      let activeCalendar = '';
+      const calendarState = {
+        periodStart: new Date(today.getFullYear(), today.getMonth(), 1),
+        periodEnd: new Date(today.getFullYear(), today.getMonth(), 1)
+      };
+
+      const isEnglish = () => document.documentElement.lang === 'en';
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const toMonthValue = (date) =>
+        `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+      const parseMonthValue = (value) => {
+        const [year, month] = value.split('-').map(Number);
+        return new Date(year, month - 1, 1);
+      };
+      const toMonthRangeEnd = (value) => {
+        const [year, month] = value.split('-').map(Number);
+        const lastDay = new Date(year, month, 0).getDate();
+        return `${year}-${String(month).padStart(2, '0')}-${String(lastDay).padStart(2, '0')}`;
+      };
+      const formatDisplayDate = (value) => {
+        if (!value) return isEnglish() ? 'Year. Month.' : '연도. 월.';
+        const [year, month] = value.split('-');
+        return `${year}. ${month}.`;
+      };
+      const formatCalendarTitle = (date) => {
+        const year = date.getFullYear();
+        return isEnglish() ? `${year}` : `${year}년`;
+      };
+      const getPopover = (field) =>
+        calendarPopovers.find((popover) => popover.getAttribute('data-calendar-popover') === field);
+      const getTrigger = (field) =>
+        dateTriggers.find((trigger) => trigger.getAttribute('data-date-trigger') === field);
+
+      const updateDateDisplays = () => {
+        dateDisplays.forEach((display) => {
+          const field = display.getAttribute('data-date-display');
+          if (!field || !(field in state)) return;
+
+          const value = state[field];
+          display.textContent = formatDisplayDate(value);
+          display.classList.toggle('experience-date-placeholder', !value);
+        });
+      };
+
+      const setCalendarOpen = (field, isOpen) => {
+        const popover = getPopover(field);
+        const trigger = getTrigger(field);
+        if (!(popover instanceof HTMLElement) || !(trigger instanceof HTMLButtonElement)) return;
+
+        popover.hidden = !isOpen;
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        trigger.classList.toggle('experience-date-trigger-active', isOpen);
+      };
+
+      const closeCalendars = () => {
+        activeCalendar = '';
+        calendarPopovers.forEach((popover) => {
+          const field = popover.getAttribute('data-calendar-popover');
+          if (field) setCalendarOpen(field, false);
+        });
+      };
+
+      const renderCalendar = (field) => {
+        const popover = getPopover(field);
+        const yearDate = calendarState[field];
+        if (!(popover instanceof HTMLElement) || !(yearDate instanceof Date)) return;
+
+        const year = yearDate.getFullYear();
+        const selectedValue = state[field];
+        const todayValue = toMonthValue(today);
+        const months = Array.from({ length: 12 }, (_, index) => {
+          const value = `${year}-${String(index + 1).padStart(2, '0')}`;
+          const label = isEnglish() ? monthNames[index] : `${index + 1}월`;
+          const classes = [
+            'experience-calendar-month',
+            value === todayValue ? 'experience-calendar-month-today' : '',
+            value === selectedValue ? 'experience-calendar-month-selected' : ''
+          ].filter(Boolean).join(' ');
+
+          return `<button type="button" class="${classes}" data-calendar-month="${value}">${label}</button>`;
+        }).join('');
+
+        popover.innerHTML = `
+          <div class="experience-calendar-card" role="dialog" aria-label="${isEnglish() ? 'Month picker' : '월 선택'}">
+            <div class="experience-calendar-head">
+              <button type="button" class="experience-calendar-nav" data-calendar-action="prev" aria-label="${isEnglish() ? 'Previous year' : '이전 연도'}">‹</button>
+              <strong>${formatCalendarTitle(yearDate)}</strong>
+              <button type="button" class="experience-calendar-nav" data-calendar-action="next" aria-label="${isEnglish() ? 'Next year' : '다음 연도'}">›</button>
+            </div>
+            <div class="experience-calendar-months">${months}</div>
+            <div class="experience-calendar-foot">
+              <button type="button" data-calendar-action="clear">${isEnglish() ? 'Clear' : '삭제'}</button>
+              <button type="button" data-calendar-action="today">${isEnglish() ? 'This month' : '이번 달'}</button>
+            </div>
+          </div>
+        `;
+      };
+
+      const openCalendar = (field) => {
+        closeCalendars();
+
+        if (state[field]) {
+          const selected = parseMonthValue(state[field]);
+          calendarState[field] = new Date(selected.getFullYear(), selected.getMonth(), 1);
+        }
+
+        activeCalendar = field;
+        renderCalendar(field);
+        setCalendarOpen(field, true);
+      };
+
+      const setDateValue = (field, value) => {
+        state[field] = value;
+        updateDateDisplays();
+        apply();
+      };
+
       const setSidebarCollapsed = (isCollapsed) => {
-        const isEnglish = document.documentElement.lang === 'en';
         const label = isCollapsed
           ? { ko: '필터 열기', en: 'Show filters' }
           : { ko: '필터 접기', en: 'Hide filters' };
@@ -405,13 +706,13 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
           railToggle.dataset.i18nKo = ariaLabel.ko;
           railToggle.dataset.i18nEn = ariaLabel.en;
           railToggle.dataset.i18nAttr = 'aria-label';
-          railToggle.setAttribute('aria-label', isEnglish ? ariaLabel.en : ariaLabel.ko);
+          railToggle.setAttribute('aria-label', isEnglish() ? ariaLabel.en : ariaLabel.ko);
         }
 
         if (railToggleLabel instanceof HTMLElement) {
           railToggleLabel.dataset.i18nKo = label.ko;
           railToggleLabel.dataset.i18nEn = label.en;
-          railToggleLabel.textContent = isEnglish ? label.en : label.ko;
+          railToggleLabel.textContent = isEnglish() ? label.en : label.ko;
         }
 
         if (railToggleIcon instanceof HTMLElement) {
@@ -419,13 +720,112 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
         }
       };
 
-      const setActive = (group, value) => {
+      const setCategoryCollapsed = (isCollapsed) => {
+        const label = isCollapsed
+          ? { ko: '펼치기', en: 'Show' }
+          : { ko: '접기', en: 'Hide' };
+        const ariaLabel = isCollapsed
+          ? { ko: '분류 펼치기', en: 'Show category filters' }
+          : { ko: '분류 접기', en: 'Hide category filters' };
+
+        root.setAttribute('data-category-collapsed', String(isCollapsed));
+
+        if (categoryToggle instanceof HTMLButtonElement) {
+          categoryToggle.setAttribute('aria-expanded', String(!isCollapsed));
+          categoryToggle.dataset.i18nKo = ariaLabel.ko;
+          categoryToggle.dataset.i18nEn = ariaLabel.en;
+          categoryToggle.dataset.i18nAttr = 'aria-label';
+          categoryToggle.setAttribute('aria-label', isEnglish() ? ariaLabel.en : ariaLabel.ko);
+        }
+
+        if (categoryToggleLabel instanceof HTMLElement) {
+          categoryToggleLabel.dataset.i18nKo = label.ko;
+          categoryToggleLabel.dataset.i18nEn = label.en;
+          categoryToggleLabel.textContent = isEnglish() ? label.en : label.ko;
+        }
+
+        if (categoryToggleIcon instanceof HTMLElement) {
+          categoryToggleIcon.textContent = isCollapsed ? '⌄' : '⌃';
+        }
+      };
+
+      const resetTagHint = () => {
+        const selectedTags = Array.isArray(state.tag) ? state.tag : [];
+        const activeTagButton =
+          selectedTags.length === 1
+            ? tagButtons.find(
+                (button) =>
+                  button instanceof HTMLElement &&
+                  button.getAttribute('data-filter-value') === selectedTags[0]
+              )
+            : null;
+
+        if (activeTagButton instanceof HTMLElement) {
+          setTagHint(activeTagButton);
+          return;
+        }
+
+        if (tagHintTitle instanceof HTMLElement) {
+          const nextTitle = selectedTags.length > 1
+            ? isEnglish()
+              ? `${selectedTags.length} tags selected`
+              : `${selectedTags.length}개 태그 선택`
+            : isEnglish()
+              ? tagHintTitle.dataset.i18nEn
+              : tagHintTitle.dataset.i18nKo;
+          if (nextTitle) tagHintTitle.textContent = nextTitle;
+        }
+
+        if (tagHintBody instanceof HTMLElement) {
+          const nextBody = selectedTags.length > 1
+            ? isEnglish()
+              ? 'Experiences with any selected tag will be shown.'
+              : '선택한 태그 중 하나라도 포함된 경험을 보여줍니다.'
+            : isEnglish()
+              ? tagHintBody.dataset.i18nEn
+              : tagHintBody.dataset.i18nKo;
+          if (nextBody) tagHintBody.textContent = nextBody;
+        }
+      };
+
+      const setTagHint = (button) => {
+        if (!(button instanceof HTMLElement)) return;
+
+        const nextTitle = isEnglish()
+          ? button.dataset.tagLabelEn
+          : button.dataset.tagLabelKo;
+        const nextBody = isEnglish()
+          ? button.dataset.tagDescriptionEn
+          : button.dataset.tagDescriptionKo;
+
+        if (tagHintTitle instanceof HTMLElement && nextTitle) {
+          tagHintTitle.textContent = nextTitle;
+        }
+
+        if (tagHintBody instanceof HTMLElement && nextBody) {
+          tagHintBody.textContent = nextBody;
+        }
+      };
+
+      const setActive = (group) => {
+        const current = state[group];
+        const isMulti = Array.isArray(current);
+
         buttons
           .filter((button) => button.getAttribute('data-filter-group') === group)
           .forEach((button) => {
-            const isActive = button.getAttribute('data-filter-value') === value;
+            const optionValue = button.getAttribute('data-filter-value');
+            const isActive = isMulti
+              ? optionValue === 'all'
+                ? current.length === 0
+                : current.includes(optionValue)
+              : optionValue === current;
+
             button.classList.toggle('archive-option-active', isActive);
             button.classList.toggle('archive-category-active', isActive);
+            if (button instanceof HTMLButtonElement) {
+              button.setAttribute('aria-pressed', String(isActive));
+            }
           });
       };
 
@@ -443,19 +843,36 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
 
       const apply = () => {
         const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+        const hasPeriodFilter = Boolean(state.periodStart || state.periodEnd);
+        const selectedStart = state.periodStart ? `${state.periodStart}-01` : '0000-01-01';
+        const selectedEnd = state.periodEnd ? toMonthRangeEnd(state.periodEnd) : '9999-12-31';
+        const periodRangeStart = selectedStart <= selectedEnd ? selectedStart : selectedEnd;
+        const periodRangeEnd = selectedStart <= selectedEnd ? selectedEnd : selectedStart;
         let visibleCount = 0;
 
         items.forEach((item) => {
           const searchValue = item.getAttribute('data-search') || '';
           const category = item.getAttribute('data-category') || '';
           const status = item.getAttribute('data-status') || '';
-          const isDev = item.getAttribute('data-dev') === 'true';
+          const periodRanges = (item.getAttribute('data-period-ranges') || '')
+            .split('|')
+            .map((range) => range.split('..'))
+            .filter((range) => range.length === 2);
+          const tags = (item.getAttribute('data-tags') || '').split(' ');
 
           const matchesQuery = !query || searchValue.includes(query);
-          const matchesCategory = state.category === 'all' || category === state.category;
+          const matchesPeriod =
+            !hasPeriodFilter ||
+            periodRanges.length === 0 ||
+            periodRanges.some(([start, end]) => end >= periodRangeStart && start <= periodRangeEnd);
+          const selectedCategories = Array.isArray(state.category) ? state.category : [];
+          const selectedTags = Array.isArray(state.tag) ? state.tag : [];
+          const matchesCategory =
+            selectedCategories.length === 0 || selectedCategories.includes(category);
           const matchesStatus = state.status === 'all' || status === state.status;
-          const matchesDev = state.dev === 'all' || isDev;
-          const isVisible = matchesQuery && matchesCategory && matchesStatus && matchesDev;
+          const matchesTag =
+            selectedTags.length === 0 || selectedTags.some((tag) => tags.includes(tag));
+          const isVisible = matchesQuery && matchesPeriod && matchesCategory && matchesStatus && matchesTag;
 
           item.toggleAttribute('hidden', !isVisible);
           if (isVisible) visibleCount += 1;
@@ -478,10 +895,107 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
           const value = button.getAttribute('data-filter-value');
           if (!group || !value || !(group in state)) return;
 
-          state[group] = value;
-          setActive(group, value);
+          const current = state[group];
+
+          if (Array.isArray(current)) {
+            state[group] = value === 'all'
+              ? []
+              : current.includes(value)
+                ? current.filter((selectedValue) => selectedValue !== value)
+                : [...current, value];
+          } else {
+            state[group] = value;
+          }
+
+          setActive(group);
+          if (group === 'tag') {
+            const selectedTags = Array.isArray(state.tag) ? state.tag : [];
+            if (value !== 'all' && selectedTags.includes(value)) {
+              setTagHint(button);
+            } else {
+              resetTagHint();
+            }
+          }
           apply();
         });
+      });
+
+      tagButtons.forEach((button) => {
+        if (!(button instanceof HTMLElement)) return;
+
+        button.addEventListener('mouseenter', () => setTagHint(button));
+        button.addEventListener('focus', () => setTagHint(button));
+        button.addEventListener('mouseleave', resetTagHint);
+        button.addEventListener('blur', resetTagHint);
+      });
+
+      dateTriggers.forEach((trigger) => {
+        if (!(trigger instanceof HTMLButtonElement)) return;
+
+        trigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const field = trigger.getAttribute('data-date-trigger');
+          if (!field || !(field in state)) return;
+
+          if (activeCalendar === field) {
+            closeCalendars();
+            return;
+          }
+
+          openCalendar(field);
+        });
+      });
+
+      calendarPopovers.forEach((popover) => {
+        popover.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const field = popover.getAttribute('data-calendar-popover');
+          if (!field || !(field in state)) return;
+
+          const target = event.target instanceof Element
+            ? event.target.closest('[data-calendar-month], [data-calendar-action]')
+            : null;
+          if (!(target instanceof HTMLElement)) return;
+
+          const action = target.getAttribute('data-calendar-action');
+          if (action === 'prev' || action === 'next') {
+            const current = calendarState[field];
+            const direction = action === 'prev' ? -1 : 1;
+            calendarState[field] = new Date(current.getFullYear() + direction, current.getMonth(), 1);
+            renderCalendar(field);
+            return;
+          }
+
+          if (action === 'clear') {
+            setDateValue(field, '');
+            closeCalendars();
+            return;
+          }
+
+          if (action === 'today') {
+            const todayValue = toMonthValue(today);
+            calendarState[field] = new Date(today.getFullYear(), today.getMonth(), 1);
+            setDateValue(field, todayValue);
+            closeCalendars();
+            return;
+          }
+
+          const value = target.getAttribute('data-calendar-month');
+          if (value) {
+            setDateValue(field, value);
+            closeCalendars();
+          }
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target : null;
+        if (target?.closest('[data-date-trigger], [data-calendar-popover]')) return;
+        closeCalendars();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeCalendars();
       });
 
       if (search instanceof HTMLInputElement) {
@@ -495,7 +1009,31 @@ const visibleCategoryCount = new Set(archiveItems.map((item) => item.category)).
         });
       }
 
+      if (categoryToggle instanceof HTMLButtonElement) {
+        categoryToggle.addEventListener('click', () => {
+          const isCollapsed = root.getAttribute('data-category-collapsed') === 'true';
+          setCategoryCollapsed(!isCollapsed);
+        });
+      }
+
+      const languageObserver = new MutationObserver(() => {
+        updateDateDisplays();
+        resetTagHint();
+        if (activeCalendar) renderCalendar(activeCalendar);
+        setSidebarCollapsed(root.getAttribute('data-sidebar-collapsed') === 'true');
+        setCategoryCollapsed(root.getAttribute('data-category-collapsed') === 'true');
+      });
+
+      languageObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+      });
+
+      updateDateDisplays();
+      resetTagHint();
+      ['status', 'category', 'tag', 'sort', 'view'].forEach((group) => setActive(group));
       setSidebarCollapsed(false);
+      setCategoryCollapsed(false);
       apply();
     })();
   </script>

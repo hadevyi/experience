@@ -1,45 +1,136 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteMeta } from '../data/site';
+import {
+  formatExperiencePeriods,
+  getExperiencePairs,
+  getLocalizedEntry,
+  getLocalizedLink,
+  getLocalizedListItem,
+  getLocalizedSection,
+  getLocalizedText,
+  type ExperiencePair
+} from '../data/experienceArchive';
+import { getExperienceCategoryLabel, getExperienceTagLabel } from '../data/experienceTaxonomy';
+
+const i18nText = (ko: string, en: string) => ({
+  'data-i18n-ko': ko,
+  'data-i18n-en': en
+});
+
+const i18nAttr = (attr: string, ko: string, en: string) => ({
+  'data-i18n-attr': attr,
+  'data-i18n-ko': ko,
+  'data-i18n-en': en
+});
+
+const localized = (value: { ko: string; en: string }) => i18nText(value.ko, value.en);
+const tagAriaLabel = (tag: { ko: string; en: string; description: { ko: string; en: string } }) =>
+  i18nAttr('aria-label', `${tag.ko}: ${tag.description.ko}`, `${tag.en}: ${tag.description.en}`);
 
 export async function getStaticPaths() {
-  const experiences = await getCollection('experiences');
+  const experiences = getExperiencePairs(await getCollection('experiences'));
 
   return experiences.map((entry) => ({
-    params: { slug: entry.id },
+    params: { slug: entry.number },
     props: { entry }
   }));
 }
 
 interface Props {
-  entry: CollectionEntry<'experiences'>;
+  entry: ExperiencePair;
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const koContent = await render(getLocalizedEntry(entry, 'ko'));
+const enContent = await render(getLocalizedEntry(entry, 'en'));
+const KoContent = koContent.Content;
+const EnContent = enContent.Content;
+const title = getLocalizedText(entry, 'title');
+const summary = getLocalizedText(entry, 'summary');
+const oneLine = getLocalizedText(entry, 'oneLine');
+const organization = getLocalizedText(entry, 'organization');
+const categoryLabel = getExperienceCategoryLabel(entry.meta.category);
+const experienceTagLabels = (entry.meta.experienceTags ?? []).map((tag) => getExperienceTagLabel(tag));
+const periodLabel = {
+  ko: formatExperiencePeriods(entry.meta, 'ko'),
+  en: formatExperiencePeriods(entry.meta, 'en')
+};
+const structuredSections = entry.ko.data.sections
+  .map((_, index) => getLocalizedSection(entry, index))
+  .filter(
+    (section) =>
+      section.ko.body.trim().length > 0 || section.en.body.trim().length > 0
+  );
+const highlights = entry.ko.data.highlights.map((_, index) =>
+  getLocalizedListItem(entry, 'highlights', index)
+).filter(
+  (highlight) => highlight.ko.trim().length > 0 || highlight.en.trim().length > 0
+);
+const links = entry.ko.data.links.map((_, index) =>
+  getLocalizedLink(entry, index)
+);
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.summary}>
+<BaseLayout title={title.ko} description={summary.ko}>
   <article class="space-y-10">
     <section class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
       <div>
         <p class="eyebrow">Experience Detail</p>
-        <h1 class="type-display mt-5 text-ink">
-          {entry.data.title}
+        <h1 class="type-display mt-5 text-ink" {...localized(title)}>
+          {title.ko}
         </h1>
-        <p class="type-body mt-6 max-w-2xl text-ink/72">
-          {entry.data.summary}
+        {
+          (oneLine.ko || oneLine.en) && (
+            <p class="type-body mt-5 max-w-2xl font-medium text-accent" {...localized(oneLine)}>
+              {oneLine.ko}
+            </p>
+          )
+        }
+        <p class="type-body mt-6 max-w-2xl text-ink/72" {...localized(summary)}>
+          {summary.ko}
         </p>
       </div>
 
       <div class="surface-card p-6 sm:p-7">
         <p class="type-label-wide uppercase text-ink/40">Meta</p>
         <div class="mt-4 flex flex-wrap gap-2">
-          <span class="chip">{entry.data.organization}</span>
-          <span class="chip">{entry.data.period}</span>
-          {entry.data.focus.map((item) => <span class="chip">{item}</span>)}
+          <span class="chip">{entry.meta.number}</span>
+          <span class="chip" {...localized(categoryLabel)}>{categoryLabel.ko}</span>
+          <span class="chip">{entry.meta.status}</span>
+          <span class="chip" {...localized(organization)}>{organization.ko}</span>
+          <span class="chip" {...localized(periodLabel)}>{periodLabel.ko}</span>
+          {
+            experienceTagLabels.map((tag) => (
+              <span class="chip experience-tag-chip" {...tagAriaLabel(tag)}>
+                <span {...localized(tag)}>{tag.ko}</span>
+                <span class="experience-tag-tooltip" aria-hidden="true">
+                  <span {...localized(tag.description)}>{tag.description.ko}</span>
+                </span>
+              </span>
+            ))
+          }
+          {entry.ko.data.focus.map((_, index) => {
+            const item = getLocalizedListItem(entry, 'focus', index);
+            return <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>;
+          })}
+          {entry.meta.category === 'project' && (entry.meta.projectDomains ?? []).map((item) => <span class="chip">{item}</span>)}
+          {entry.meta.category === 'project' && (entry.meta.techTags ?? []).map((item) => <span class="chip">{item}</span>)}
         </div>
+
+        {
+          highlights.length > 0 && (
+            <ul class="mt-6 space-y-2 text-sm leading-6 text-ink/70">
+              {highlights.map((highlight) => (
+                <li class="flex gap-2">
+                  <span class="mt-2 size-1.5 rounded-full bg-accent/60" aria-hidden="true" />
+                  <span {...i18nText(highlight.ko, highlight.en)}>{highlight.ko}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
 
         <div class="mt-7">
           <a href={siteMeta.rootPath} class="button-primary type-small px-4 py-2">
@@ -50,9 +141,66 @@ const { Content } = await render(entry);
     </section>
 
     <section class="surface-card p-8 sm:p-10 lg:p-12">
-      <div class="rich-text mx-auto max-w-3xl">
-        <Content />
-      </div>
+      {
+        structuredSections.length > 0 ? (
+          <div class="mx-auto grid max-w-3xl gap-8">
+            {structuredSections.map((section) => (
+              <section class="border-b border-ink/10 pb-8 last:border-b-0 last:pb-0">
+                <p class="type-label-wide uppercase text-accent/80" {...i18nText(section.ko.label, section.en.label)}>{section.ko.label}</p>
+                <p class="type-body mt-4 whitespace-pre-line text-ink/76" {...i18nText(section.ko.body, section.en.body)}>{section.ko.body}</p>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div class="rich-text mx-auto max-w-3xl">
+            <div data-i18n-content="ko">
+              <KoContent />
+            </div>
+            <div data-i18n-content="en" hidden>
+              <EnContent />
+            </div>
+          </div>
+        )
+      }
     </section>
+
+    {
+      (links.length > 0 || (entry.meta.related ?? []).length > 0) && (
+        <section class="grid gap-4 md:grid-cols-2">
+          {links.length > 0 && (
+            <div class="surface-card p-6 sm:p-7">
+              <p class="type-label-wide uppercase text-ink/40">Links</p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                {links.map((link) => (
+                  <a href={link.ko.url} class="chip" target="_blank" rel="noreferrer">
+                    <span {...i18nText(link.ko.label, link.en.label)}>{link.ko.label}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {(entry.meta.related ?? []).length > 0 && (
+            <div class="surface-card p-6 sm:p-7">
+              <p class="type-label-wide uppercase text-ink/40">Related</p>
+              <div class="mt-4 space-y-3">
+                {(entry.meta.related ?? []).map((item) => (
+                  <p class="type-small text-ink/72">
+                    <span class="font-semibold text-ink">{item.number}</span>
+                    <span class="mx-2 text-ink/28">/</span>
+                    <span>{item.relation ?? 'reference'}</span>
+                    {item.note && (
+                      <span class="block pt-1 text-ink/56" {...i18nText(item.note.ko ?? '', item.note.en ?? item.note.ko ?? '')}>
+                        {item.note.ko}
+                      </span>
+                    )}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+        </section>
+      )
+    }
   </article>
 </BaseLayout>
