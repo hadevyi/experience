@@ -130,6 +130,14 @@
 
         element.textContent = nextText;
       });
+
+      document.querySelectorAll('[data-i18n-content]').forEach((element) => {
+        if (!(element instanceof HTMLElement)) {
+          return;
+        }
+
+        element.hidden = element.dataset.i18nContent !== lang;
+      });
     };
 
     const initialize = () => {
