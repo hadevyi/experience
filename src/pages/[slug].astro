@@ -4,12 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteMeta } from '../data/site';
 import {
   formatExperiencePeriods,
+  getExperienceDetailSections,
   getExperiencePairs,
   getLocalizedEntry,
   getLocalizedLink,
   getLocalizedListItem,
-  getLocalizedSection,
   getLocalizedText,
+  resolveExperienceStatus,
+  statusLabels,
   type ExperiencePair
 } from '../data/experienceArchive';
 import { getExperienceCategoryLabel, getExperienceTagLabel } from '../data/experienceTaxonomy';
@@ -57,12 +59,17 @@ const periodLabel = {
   ko: formatExperiencePeriods(entry.meta, 'ko'),
   en: formatExperiencePeriods(entry.meta, 'en')
 };
-const structuredSections = entry.ko.data.sections
-  .map((_, index) => getLocalizedSection(entry, index))
-  .filter(
-    (section) =>
-      section.ko.body.trim().length > 0 || section.en.body.trim().length > 0
-  );
+const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
+const representativeImage = entry.meta.representativeImage;
+const representativeImageAlt = {
+  ko: representativeImage?.alt?.ko ?? title.ko,
+  en: representativeImage?.alt?.en ?? title.en
+};
+const representativeImageCaption = {
+  ko: representativeImage?.caption?.ko ?? '',
+  en: representativeImage?.caption?.en ?? representativeImage?.caption?.ko ?? ''
+};
+const structuredSections = getExperienceDetailSections(entry);
 const highlights = entry.ko.data.highlights.map((_, index) =>
   getLocalizedListItem(entry, 'highlights', index)
 ).filter(
@@ -73,34 +80,87 @@ const links = entry.ko.data.links.map((_, index) =>
 );
 ---
 
-<BaseLayout title={title.ko} description={summary.ko}>
-  <article class="space-y-10">
-    <section class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-      <div>
-        <p class="eyebrow">Experience Detail</p>
-        <h1 class="type-display mt-5 text-ink" {...localized(title)}>
+<BaseLayout
+  title={title.ko}
+  description={summary.ko}
+  showHeader={false}
+  mainClass="experience-detail-main mx-auto w-full max-w-[62rem] px-5 pb-24 pt-5 sm:px-8 lg:px-10"
+>
+  <article class="experience-detail-page">
+    <nav class="experience-detail-nav" {...i18nAttr('aria-label', '경험 상세 탐색', 'Experience detail navigation')}>
+      <a href={siteMeta.rootPath} class="experience-back-link">
+        <span aria-hidden="true">←</span>
+        <span {...i18nText('목록으로 돌아가기', 'Back to list')}>목록으로 돌아가기</span>
+      </a>
+    </nav>
+
+    <section class="experience-detail-hero">
+      <div class="experience-detail-hero-main">
+        <p class="experience-detail-kicker">
+          <span>{entry.meta.number}</span>
+          <span aria-hidden="true">/</span>
+          <span {...localized(categoryLabel)}>{categoryLabel.ko}</span>
+        </p>
+        <h1 class="experience-detail-title" {...localized(title)}>
           {title.ko}
         </h1>
         {
           (oneLine.ko || oneLine.en) && (
-            <p class="type-body mt-5 max-w-2xl font-medium text-accent" {...localized(oneLine)}>
+            <p class="experience-detail-one-line" {...localized(oneLine)}>
               {oneLine.ko}
             </p>
           )
         }
-        <p class="type-body mt-6 max-w-2xl text-ink/72" {...localized(summary)}>
+        <p class="experience-detail-summary" {...localized(summary)}>
           {summary.ko}
         </p>
+
+        {
+          highlights.length > 0 && (
+            <ul class="experience-detail-highlight-list">
+              {highlights.map((highlight) => (
+                <li>
+                  <span aria-hidden="true" />
+                  <span {...i18nText(highlight.ko, highlight.en)}>{highlight.ko}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
 
-      <div class="surface-card p-6 sm:p-7">
-        <p class="type-label-wide uppercase text-ink/40">Meta</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="chip">{entry.meta.number}</span>
-          <span class="chip" {...localized(categoryLabel)}>{categoryLabel.ko}</span>
-          <span class="chip">{entry.meta.status}</span>
-          <span class="chip" {...localized(organization)}>{organization.ko}</span>
-          <span class="chip" {...localized(periodLabel)}>{periodLabel.ko}</span>
+      <aside class="experience-detail-record-card" {...i18nAttr('aria-label', '경험 기본 정보', 'Experience information')}>
+        {
+          representativeImage && (
+            <figure class="experience-detail-image-card">
+              <img src={representativeImage.src} {...i18nAttr('alt', representativeImageAlt.ko, representativeImageAlt.en)} />
+              {
+                representativeImageCaption.ko && (
+                  <figcaption {...i18nText(representativeImageCaption.ko, representativeImageCaption.en)}>
+                    {representativeImageCaption.ko}
+                  </figcaption>
+                )
+              }
+            </figure>
+          )
+        }
+
+        <dl class="experience-detail-info">
+          <div>
+            <dt {...i18nText('기간', 'Period')}>기간</dt>
+            <dd {...localized(periodLabel)}>{periodLabel.ko}</dd>
+          </div>
+          <div>
+            <dt {...i18nText('기관', 'Organization')}>기관</dt>
+            <dd {...localized(organization)}>{organization.ko}</dd>
+          </div>
+          <div>
+            <dt {...i18nText('상태', 'Status')}>상태</dt>
+            <dd {...i18nText(statusLabel.ko, statusLabel.en)}>{statusLabel.ko}</dd>
+          </div>
+        </dl>
+
+        <div class="experience-detail-chip-group">
           {
             experienceTagLabels.map((tag) => (
               <span class="chip experience-tag-chip" {...tagAriaLabel(tag)}>
@@ -111,43 +171,23 @@ const links = entry.ko.data.links.map((_, index) =>
               </span>
             ))
           }
-          {entry.ko.data.focus.map((_, index) => {
-            const item = getLocalizedListItem(entry, 'focus', index);
-            return <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>;
-          })}
           {entry.meta.category === 'project' && (entry.meta.projectDomains ?? []).map((item) => <span class="chip">{item}</span>)}
           {entry.meta.category === 'project' && (entry.meta.techTags ?? []).map((item) => <span class="chip">{item}</span>)}
         </div>
-
-        {
-          highlights.length > 0 && (
-            <ul class="mt-6 space-y-2 text-sm leading-6 text-ink/70">
-              {highlights.map((highlight) => (
-                <li class="flex gap-2">
-                  <span class="mt-2 size-1.5 rounded-full bg-accent/60" aria-hidden="true" />
-                  <span {...i18nText(highlight.ko, highlight.en)}>{highlight.ko}</span>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-
-        <div class="mt-7">
-          <a href={siteMeta.rootPath} class="button-primary type-small px-4 py-2">
-            목록으로 돌아가기
-          </a>
-        </div>
-      </div>
+      </aside>
     </section>
 
-    <section class="surface-card p-8 sm:p-10 lg:p-12">
+    <section class="experience-detail-body">
       {
         structuredSections.length > 0 ? (
-          <div class="mx-auto grid max-w-3xl gap-8">
-            {structuredSections.map((section) => (
-              <section class="border-b border-ink/10 pb-8 last:border-b-0 last:pb-0">
-                <p class="type-label-wide uppercase text-accent/80" {...i18nText(section.ko.label, section.en.label)}>{section.ko.label}</p>
-                <p class="type-body mt-4 whitespace-pre-line text-ink/76" {...i18nText(section.ko.body, section.en.body)}>{section.ko.body}</p>
+          <div class="experience-detail-section-list">
+            {structuredSections.map((section, index) => (
+              <section class="experience-detail-section">
+                <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
+                <div class="experience-detail-section-content">
+                  <h2 class="experience-detail-section-label" {...i18nText(section.ko.label, section.en.label)}>{section.ko.label}</h2>
+                  <p class="experience-detail-section-body" {...i18nText(section.ko.body, section.en.body)}>{section.ko.body}</p>
+                </div>
               </section>
             ))}
           </div>
@@ -169,7 +209,7 @@ const links = entry.ko.data.links.map((_, index) =>
         <section class="grid gap-4 md:grid-cols-2">
           {links.length > 0 && (
             <div class="surface-card p-6 sm:p-7">
-              <p class="type-label-wide uppercase text-ink/40">Links</p>
+              <p class="type-label-wide uppercase text-ink/40" {...i18nText('Links', 'Links')}>Links</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 {links.map((link) => (
                   <a href={link.ko.url} class="chip" target="_blank" rel="noreferrer">
@@ -182,7 +222,7 @@ const links = entry.ko.data.links.map((_, index) =>
 
           {(entry.meta.related ?? []).length > 0 && (
             <div class="surface-card p-6 sm:p-7">
-              <p class="type-label-wide uppercase text-ink/40">Related</p>
+              <p class="type-label-wide uppercase text-ink/40" {...i18nText('이어지는 경험', 'Related')}>이어지는 경험</p>
               <div class="mt-4 space-y-3">
                 {(entry.meta.related ?? []).map((item) => (
                   <p class="type-small text-ink/72">

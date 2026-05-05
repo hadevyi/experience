@@ -7,7 +7,6 @@ import {
   getExperiencePairs,
   getExperiencePeriodDateRanges,
   getExperiencePeriodYears,
-  getLocalizedListItem,
   getLocalizedText,
   readExperienceOrder,
   resolveExperienceStatus,
@@ -38,13 +37,6 @@ const localizedPairText = (
   pair: Parameters<typeof getLocalizedText>[0],
   field: Parameters<typeof getLocalizedText>[1]
 ) => localized(getLocalizedText(pair, field));
-const localizedPairListItem = (
-  pair: Parameters<typeof getLocalizedListItem>[0],
-  field: Parameters<typeof getLocalizedListItem>[1],
-  index: number
-) => localized(getLocalizedListItem(pair, field, index));
-const searchableLocalizedList = (pair: Parameters<typeof getLocalizedListItem>[0], field: 'focus' | 'highlights') =>
-  [...pair.ko.data[field], ...((pair.en ?? pair.ko).data[field] ?? [])].join(' ');
 
 const experiences = getExperiencePairs(await getCollection('experiences')).sort(
   (a, b) => readExperienceOrder(a) - readExperienceOrder(b)
@@ -65,10 +57,15 @@ const archiveItems = experiences.map((entry) => {
   const title = getLocalizedText(entry, 'title');
   const summary = getLocalizedText(entry, 'summary');
   const organization = getLocalizedText(entry, 'organization');
+  const representativeImage = entry.meta.representativeImage;
+  const representativeImageAlt = {
+    ko: representativeImage?.alt?.ko ?? title.ko,
+    en: representativeImage?.alt?.en ?? title.en
+  };
   const tagSearchSource = experienceTagLabels
     .map((tag) => `${tag.ko} ${tag.en} ${tag.description.ko} ${tag.description.en}`)
     .join(' ');
-  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${searchableLocalizedList(entry, 'focus')} ${(entry.meta.projectDomains ?? []).join(' ')} ${(entry.meta.techTags ?? []).join(' ')} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
+  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${(entry.meta.projectDomains ?? []).join(' ')} ${(entry.meta.techTags ?? []).join(' ')} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
 
   return {
     entry,
@@ -81,6 +78,8 @@ const archiveItems = experiences.map((entry) => {
     periodYears: entryPeriodYears,
     status,
     statusLabel: statusLabels[status],
+    representativeImage,
+    representativeImageAlt,
     searchSource
   };
 });
@@ -476,10 +475,13 @@ const hasArchiveItems = archiveItems.length > 0;
                   periodYears,
                   status,
                   statusLabel,
+                  representativeImage,
+                  representativeImageAlt,
                   searchSource
                 }, index) => (
                   <article
                     class="experience-card archive-experience-item"
+                    data-has-visual={representativeImage ? 'true' : 'false'}
                     data-search={searchSource.toLowerCase()}
                     data-category={category}
                     data-status={status}
@@ -497,6 +499,16 @@ const hasArchiveItems = archiveItems.length > 0;
                           {categoryLabel.ko}
                         </span>
                       </div>
+                      {
+                        representativeImage && (
+                          <figure class="experience-card-visual">
+                            <img
+                              src={representativeImage.src}
+                              {...i18nAttr('alt', representativeImageAlt.ko, representativeImageAlt.en)}
+                            />
+                          </figure>
+                        )
+                      }
                       <h3 {...localizedPairText(entry, 'title')}>{entry.ko.data.title}</h3>
                       <p {...localizedPairText(entry, 'summary')}>{entry.ko.data.summary}</p>
                       <div class="experience-card-meta">
@@ -505,9 +517,6 @@ const hasArchiveItems = archiveItems.length > 0;
                         <span {...i18nText(statusLabel.ko, statusLabel.en)}>{statusLabel.ko}</span>
                       </div>
                       <div class="experience-card-tags">
-                        {entry.ko.data.focus.map((focus, focusIndex) => (
-                          <span {...localizedPairListItem(entry, 'focus', focusIndex)}>{focus}</span>
-                        ))}
                         {
                           experienceTagLabels.map((tag) => (
                             <span class="experience-tag-chip" {...tagAriaLabel(tag)}>
