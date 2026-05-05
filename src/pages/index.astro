@@ -15,8 +15,12 @@ import {
 import {
   experienceCategoryKeys,
   experienceTagKeys,
+  getProjectDomainLabel,
   getExperienceCategoryLabel,
-  getExperienceTagLabel
+  getExperienceTagLabel,
+  getTechTagLabel,
+  projectDomainKeys,
+  techTagKeys
 } from '../data/experienceTaxonomy';
 
 const i18nText = (ko: string, en: string) => ({
@@ -47,6 +51,8 @@ const archiveItems = experiences.map((entry) => {
   const categoryLabel = getExperienceCategoryLabel(category);
   const experienceTags = entry.meta.experienceTags ?? [];
   const experienceTagLabels = experienceTags.map((tag) => getExperienceTagLabel(tag));
+  const projectDomainLabels = (entry.meta.projectDomains ?? []).map((domain) => getProjectDomainLabel(domain));
+  const techTagLabels = (entry.meta.techTags ?? []).map((tag) => getTechTagLabel(tag));
   const entryPeriodYears = getExperiencePeriodYears(entry.meta);
   const periodDateRanges = getExperiencePeriodDateRanges(entry.meta);
   const periodLabel = {
@@ -65,7 +71,13 @@ const archiveItems = experiences.map((entry) => {
   const tagSearchSource = experienceTagLabels
     .map((tag) => `${tag.ko} ${tag.en} ${tag.description.ko} ${tag.description.en}`)
     .join(' ');
-  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${(entry.meta.projectDomains ?? []).join(' ')} ${(entry.meta.techTags ?? []).join(' ')} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
+  const projectSearchSource = [
+    ...(entry.meta.projectDomains ?? []),
+    ...(entry.meta.techTags ?? []),
+    ...projectDomainLabels.flatMap((label) => [label.ko, label.en]),
+    ...techTagLabels.flatMap((label) => [label.ko, label.en])
+  ].join(' ');
+  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${projectSearchSource} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
 
   return {
     entry,
@@ -73,6 +85,8 @@ const archiveItems = experiences.map((entry) => {
     categoryLabel,
     experienceTags,
     experienceTagLabels,
+    projectDomainLabels,
+    techTagLabels,
     periodLabel,
     periodDateRanges,
     periodYears: entryPeriodYears,
@@ -98,6 +112,7 @@ const hasArchiveItems = archiveItems.length > 0;
     data-sidebar-collapsed="false"
     data-category-collapsed="false"
     data-tag-collapsed="false"
+    data-project-filter-collapsed="true"
   >
     <aside class="experience-archive-rail" aria-label="경험정리 필터">
       <div class="experience-rail-inner">
@@ -381,6 +396,124 @@ const hasArchiveItems = archiveItems.length > 0;
                 </div>
               </div>
             </div>
+
+            <div class="experience-filter-row experience-filter-row-stacked">
+              <div class="experience-control-header">
+                <span {...i18nText('프로젝트 필터', 'Project Filters')}>프로젝트 필터</span>
+                <button
+                  type="button"
+                  class="experience-filter-section-toggle"
+                  aria-expanded="false"
+                  aria-controls="experience-project-filter-panel"
+                  aria-label="프로젝트 필터 펼치기"
+                  {...i18nAttr('aria-label', '프로젝트 필터 펼치기', 'Show project filters')}
+                  data-project-filter-toggle
+                >
+                  <span
+                    class="experience-filter-section-toggle-label"
+                    data-project-filter-toggle-label
+                    {...i18nText('펼치기', 'Show')}
+                  >
+                    펼치기
+                  </span>
+                  <span class="experience-filter-section-toggle-icon" aria-hidden="true" data-project-filter-toggle-icon>
+                    ⌄
+                  </span>
+                </button>
+              </div>
+
+              <div id="experience-project-filter-panel" class="experience-project-filter-panel">
+                {
+                  projectDomainKeys.length > 0 ? (
+                    <div class="experience-project-filter-group">
+                      <p class="experience-project-filter-label" {...i18nText('프로젝트 도메인', 'Project Domain')}>
+                        프로젝트 도메인
+                      </p>
+                      <div class="experience-option-list" role="group" aria-label="프로젝트 도메인 필터">
+                        <button
+                          type="button"
+                          class="archive-option archive-option-active"
+                          data-filter-group="projectDomain"
+                          data-filter-value="all"
+                          {...i18nText('전체', 'All')}
+                        >
+                          전체
+                        </button>
+                        {
+                          projectDomainKeys.map((domain) => {
+                            const label = getProjectDomainLabel(domain);
+
+                            return (
+                              <button
+                                type="button"
+                                class="archive-option"
+                                data-filter-group="projectDomain"
+                                data-filter-value={domain}
+                                {...i18nText(label.ko, label.en)}
+                              >
+                                {label.ko}
+                              </button>
+                            );
+                          })
+                        }
+                      </div>
+                    </div>
+                  ) : null
+                }
+
+                {
+                  techTagKeys.length > 0 ? (
+                    <div class="experience-project-filter-group">
+                      <p class="experience-project-filter-label" {...i18nText('기술 태그', 'Tech Tags')}>
+                        기술 태그
+                      </p>
+                      <div class="experience-option-list" role="group" aria-label="기술 태그 필터">
+                        <button
+                          type="button"
+                          class="archive-option archive-option-active"
+                          data-filter-group="techTag"
+                          data-filter-value="all"
+                          {...i18nText('전체', 'All')}
+                        >
+                          전체
+                        </button>
+                        {
+                          techTagKeys.map((tag) => {
+                            const label = getTechTagLabel(tag);
+
+                            return (
+                              <button
+                                type="button"
+                                class="archive-option"
+                                data-filter-group="techTag"
+                                data-filter-value={tag}
+                                {...i18nText(label.ko, label.en)}
+                              >
+                                {label.ko}
+                              </button>
+                            );
+                          })
+                        }
+                      </div>
+                    </div>
+                  ) : null
+                }
+
+                {
+                  projectDomainKeys.length === 0 && techTagKeys.length === 0 ? (
+                    <p
+                      class="experience-project-filter-empty"
+                      {...i18nText(
+                        '프로젝트 경험을 추가하면 도메인과 기술 태그가 표시됩니다.',
+                        'Project domains and tech tags will appear once project experiences are added.'
+                      )}
+                    >
+                      프로젝트 경험을 추가하면 도메인과 기술 태그가 표시됩니다.
+                    </p>
+                  ) : null
+                }
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -470,6 +603,8 @@ const hasArchiveItems = archiveItems.length > 0;
                   categoryLabel,
                   experienceTags,
                   experienceTagLabels,
+                  projectDomainLabels,
+                  techTagLabels,
                   periodLabel,
                   periodDateRanges,
                   periodYears,
@@ -488,6 +623,8 @@ const hasArchiveItems = archiveItems.length > 0;
                     data-period-years={periodYears.join(' ')}
                     data-period-ranges={periodDateRanges.map((range) => `${range.start}..${range.end}`).join('|')}
                     data-tags={experienceTags.join(' ')}
+                    data-project-domains={(entry.meta.projectDomains ?? []).join(' ')}
+                    data-tech-tags={(entry.meta.techTags ?? []).join(' ')}
                     data-order={readExperienceOrder(entry)}
                   >
                     <a href={`${siteMeta.rootPath}${entry.number}/`} class="experience-card-link">
@@ -529,7 +666,16 @@ const hasArchiveItems = archiveItems.length > 0;
                             </span>
                           ))
                         }
-                        {category === 'project' && (entry.meta.projectDomains ?? []).map((domain) => <span>{domain}</span>)}
+                        {
+                          category === 'project' &&
+                            projectDomainLabels.map((domain) => (
+                              <span {...i18nText(domain.ko, domain.en)}>{domain.ko}</span>
+                            ))
+                        }
+                        {
+                          category === 'project' &&
+                            techTagLabels.map((tag) => <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>)
+                        }
                       </div>
                     </a>
                   </article>
@@ -595,6 +741,9 @@ const hasArchiveItems = archiveItems.length > 0;
       const tagToggle = root.querySelector('[data-tag-toggle]');
       const tagToggleLabel = root.querySelector('[data-tag-toggle-label]');
       const tagToggleIcon = root.querySelector('[data-tag-toggle-icon]');
+      const projectFilterToggle = root.querySelector('[data-project-filter-toggle]');
+      const projectFilterToggleLabel = root.querySelector('[data-project-filter-toggle-label]');
+      const projectFilterToggleIcon = root.querySelector('[data-project-filter-toggle-icon]');
       const tagHintTitle = root.querySelector('[data-tag-hint-title]');
       const tagHintBody = root.querySelector('[data-tag-hint-body]');
       const tagButtons = Array.from(root.querySelectorAll('[data-filter-group="tag"]'));
@@ -605,6 +754,8 @@ const hasArchiveItems = archiveItems.length > 0;
         status: 'all',
         category: [],
         tag: [],
+        projectDomain: [],
+        techTag: [],
         sort: 'asc',
         view: 'card'
       };
@@ -814,6 +965,35 @@ const hasArchiveItems = archiveItems.length > 0;
         }
       };
 
+      const setProjectFilterCollapsed = (isCollapsed) => {
+        const label = isCollapsed
+          ? { ko: '펼치기', en: 'Show' }
+          : { ko: '접기', en: 'Hide' };
+        const ariaLabel = isCollapsed
+          ? { ko: '프로젝트 필터 펼치기', en: 'Show project filters' }
+          : { ko: '프로젝트 필터 접기', en: 'Hide project filters' };
+
+        root.setAttribute('data-project-filter-collapsed', String(isCollapsed));
+
+        if (projectFilterToggle instanceof HTMLButtonElement) {
+          projectFilterToggle.setAttribute('aria-expanded', String(!isCollapsed));
+          projectFilterToggle.dataset.i18nKo = ariaLabel.ko;
+          projectFilterToggle.dataset.i18nEn = ariaLabel.en;
+          projectFilterToggle.dataset.i18nAttr = 'aria-label';
+          projectFilterToggle.setAttribute('aria-label', isEnglish() ? ariaLabel.en : ariaLabel.ko);
+        }
+
+        if (projectFilterToggleLabel instanceof HTMLElement) {
+          projectFilterToggleLabel.dataset.i18nKo = label.ko;
+          projectFilterToggleLabel.dataset.i18nEn = label.en;
+          projectFilterToggleLabel.textContent = isEnglish() ? label.en : label.ko;
+        }
+
+        if (projectFilterToggleIcon instanceof HTMLElement) {
+          projectFilterToggleIcon.textContent = isCollapsed ? '⌄' : '⌃';
+        }
+      };
+
       const resetTagHint = () => {
         const selectedTags = Array.isArray(state.tag) ? state.tag : [];
         const activeTagButton =
@@ -924,6 +1104,8 @@ const hasArchiveItems = archiveItems.length > 0;
             .map((range) => range.split('..'))
             .filter((range) => range.length === 2);
           const tags = (item.getAttribute('data-tags') || '').split(' ');
+          const projectDomains = (item.getAttribute('data-project-domains') || '').split(' ');
+          const techTags = (item.getAttribute('data-tech-tags') || '').split(' ');
 
           const matchesQuery = !query || searchValue.includes(query);
           const matchesPeriod =
@@ -932,12 +1114,26 @@ const hasArchiveItems = archiveItems.length > 0;
             periodRanges.some(([start, end]) => end >= periodRangeStart && start <= periodRangeEnd);
           const selectedCategories = Array.isArray(state.category) ? state.category : [];
           const selectedTags = Array.isArray(state.tag) ? state.tag : [];
+          const selectedProjectDomains = Array.isArray(state.projectDomain) ? state.projectDomain : [];
+          const selectedTechTags = Array.isArray(state.techTag) ? state.techTag : [];
           const matchesCategory =
             selectedCategories.length === 0 || selectedCategories.includes(category);
           const matchesStatus = state.status === 'all' || status === state.status;
           const matchesTag =
             selectedTags.length === 0 || selectedTags.some((tag) => tags.includes(tag));
-          const isVisible = matchesQuery && matchesPeriod && matchesCategory && matchesStatus && matchesTag;
+          const matchesProjectDomain =
+            selectedProjectDomains.length === 0 ||
+            selectedProjectDomains.some((domain) => projectDomains.includes(domain));
+          const matchesTechTag =
+            selectedTechTags.length === 0 || selectedTechTags.some((tag) => techTags.includes(tag));
+          const isVisible =
+            matchesQuery &&
+            matchesPeriod &&
+            matchesCategory &&
+            matchesStatus &&
+            matchesTag &&
+            matchesProjectDomain &&
+            matchesTechTag;
 
           item.toggleAttribute('hidden', !isVisible);
           if (isVisible) visibleCount += 1;
@@ -1088,6 +1284,13 @@ const hasArchiveItems = archiveItems.length > 0;
         });
       }
 
+      if (projectFilterToggle instanceof HTMLButtonElement) {
+        projectFilterToggle.addEventListener('click', () => {
+          const isCollapsed = root.getAttribute('data-project-filter-collapsed') === 'true';
+          setProjectFilterCollapsed(!isCollapsed);
+        });
+      }
+
       const languageObserver = new MutationObserver(() => {
         updateDateDisplays();
         resetTagHint();
@@ -1095,6 +1298,7 @@ const hasArchiveItems = archiveItems.length > 0;
         setSidebarCollapsed(root.getAttribute('data-sidebar-collapsed') === 'true');
         setCategoryCollapsed(root.getAttribute('data-category-collapsed') === 'true');
         setTagCollapsed(root.getAttribute('data-tag-collapsed') === 'true');
+        setProjectFilterCollapsed(root.getAttribute('data-project-filter-collapsed') === 'true');
       });
 
       languageObserver.observe(document.documentElement, {
@@ -1104,10 +1308,11 @@ const hasArchiveItems = archiveItems.length > 0;
 
       updateDateDisplays();
       resetTagHint();
-      ['status', 'category', 'tag', 'sort', 'view'].forEach((group) => setActive(group));
+      ['status', 'category', 'tag', 'projectDomain', 'techTag', 'sort', 'view'].forEach((group) => setActive(group));
       setSidebarCollapsed(false);
       setCategoryCollapsed(false);
       setTagCollapsed(false);
+      setProjectFilterCollapsed(true);
       apply();
     })();
   </script>

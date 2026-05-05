@@ -14,7 +14,12 @@ import {
   statusLabels,
   type ExperiencePair
 } from '../data/experienceArchive';
-import { getExperienceCategoryLabel, getExperienceTagLabel } from '../data/experienceTaxonomy';
+import {
+  getProjectDomainLabel,
+  getExperienceCategoryLabel,
+  getExperienceTagLabel,
+  getTechTagLabel
+} from '../data/experienceTaxonomy';
 
 const i18nText = (ko: string, en: string) => ({
   'data-i18n-ko': ko,
@@ -55,6 +60,8 @@ const oneLine = getLocalizedText(entry, 'oneLine');
 const organization = getLocalizedText(entry, 'organization');
 const categoryLabel = getExperienceCategoryLabel(entry.meta.category);
 const experienceTagLabels = (entry.meta.experienceTags ?? []).map((tag) => getExperienceTagLabel(tag));
+const projectDomainLabels = (entry.meta.projectDomains ?? []).map((domain) => getProjectDomainLabel(domain));
+const techTagLabels = (entry.meta.techTags ?? []).map((tag) => getTechTagLabel(tag));
 const periodLabel = {
   ko: formatExperiencePeriods(entry.meta, 'ko'),
   en: formatExperiencePeriods(entry.meta, 'en')
@@ -171,8 +178,16 @@ const links = entry.ko.data.links.map((_, index) =>
               </span>
             ))
           }
-          {entry.meta.category === 'project' && (entry.meta.projectDomains ?? []).map((item) => <span class="chip">{item}</span>)}
-          {entry.meta.category === 'project' && (entry.meta.techTags ?? []).map((item) => <span class="chip">{item}</span>)}
+          {
+            entry.meta.category === 'project' &&
+              projectDomainLabels.map((item) => (
+                <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>
+              ))
+          }
+          {
+            entry.meta.category === 'project' &&
+              techTagLabels.map((item) => <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>)
+          }
         </div>
       </aside>
     </section>

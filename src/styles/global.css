@@ -1656,7 +1656,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .experience-category-list,
-.experience-tag-panel {
+.experience-tag-panel,
+.experience-project-filter-panel {
   max-height: 12rem;
   overflow: hidden;
   opacity: 1;
@@ -1668,6 +1669,12 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-tag-panel {
   max-height: 24rem;
+}
+
+.experience-project-filter-panel {
+  display: grid;
+  gap: 0.9rem;
+  max-height: 22rem;
 }
 
 .experience-archive-page[data-category-collapsed='true'] .experience-category-list {
@@ -1682,6 +1689,40 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
+}
+
+.experience-archive-page[data-project-filter-collapsed='true'] .experience-project-filter-panel {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.experience-project-filter-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.experience-project-filter-label {
+  margin: 0;
+  color: var(--experience-ink-faint);
+  font-size: var(--type-micro-size);
+  font-weight: 750;
+  line-height: var(--type-micro-leading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.experience-project-filter-empty {
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 72%, transparent);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--experience-surface-strong) 76%, transparent);
+  padding: 0.78rem 0.9rem;
+  color: var(--experience-ink-muted);
+  font-size: var(--type-caption-size);
+  font-weight: 600;
+  line-height: 1.55;
 }
 
 .experience-segmented {
