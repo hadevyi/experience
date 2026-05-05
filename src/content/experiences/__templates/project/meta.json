@@ -1,0 +1,17 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM",
+      "end": "YYYY-MM"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "draft",
+  "experienceTags": ["problem-solving", "structuring"],
+  "projectDomains": ["Web"],
+  "techTags": ["기술명"],
+  "related": [],
+  "featured": false
+}

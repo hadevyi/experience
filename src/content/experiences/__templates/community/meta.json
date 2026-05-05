@@ -1,0 +1,17 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM",
+      "end": "YYYY-MM"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "draft",
+  "experienceTags": [],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "featured": false
+}

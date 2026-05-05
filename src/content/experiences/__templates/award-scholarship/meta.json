@@ -1,0 +1,16 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "featured": false
+}

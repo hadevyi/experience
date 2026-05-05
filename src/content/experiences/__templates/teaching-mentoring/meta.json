@@ -1,0 +1,17 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM",
+      "end": "YYYY-MM"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "draft",
+  "experienceTags": ["teaching", "mentoring", "knowledge-sharing"],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "featured": false
+}
