@@ -43,3 +43,44 @@
 ```
 
 `current`와 `end`는 동시에 쓰지 않습니다.
+
+## 분류 작성
+
+`category`는 경험이 어떤 성격인지 나타내는 대표 분류입니다. 하나의 경험은 하나의 `category`만 가집니다.
+
+- `project`: 프로젝트 자체가 중심인 경험
+- `affiliation`: 학교, 회사, 교육기관, 커뮤니티처럼 소속 자체가 중요한 전환점인 경험
+- `work-experience`: 회사, 인턴, 프리랜서, 근로, 외주처럼 실제 업무 흐름 안에서 수행한 경험
+- `learning-growth`: 내가 배우고 성장한 과정이 중심인 경험
+- `teaching-mentoring`: 내가 강의하거나 멘토링한 경험
+- `community`: 활동, 운영, 커뮤니티 참여가 중심인 경험
+- `award-scholarship`: 수상이나 장학처럼 인정받은 결과가 중심인 경험
+- `media-interview`: 외부 소개, 미디어, 인터뷰 경험
+
+`organization`은 "어디에서 발생했는가"를 나타내는 값이고, `category: "affiliation"`은 "소속 자체가 기록의 주제인가"를 나타내는 값입니다.
+
+## 대표 사진 작성
+
+대표 사진은 경험 자체에 연결되는 값이므로 `meta.json`에 작성합니다. 사진이 없으면 `null` 그대로 둡니다.
+사진이 있는 경험만 객체로 바꿔 작성합니다.
+
+```json
+{
+  "representativeImage": {
+    "src": "/experience/images/001/representative.webp",
+    "alt": {
+      "ko": "O to I 프로젝트 실행 화면",
+      "en": "O to I project screen"
+    },
+    "caption": {
+      "ko": "개인 체질 맞춤 건강관리 웹 사이트 대표 화면",
+      "en": "Representative screen of the personal health care web project"
+    }
+  }
+}
+```
+
+- `src`: 이미지 경로입니다. 값이 비어 있으면 안 됩니다.
+- `alt`: 접근성을 위한 대체 텍스트입니다. 화면에 직접 보이는 설명은 아니지만 가능하면 작성합니다.
+- `caption`: 상세 페이지에서 이미지 아래 설명이 필요할 때 사용합니다.
+- 카드나 상세 화면은 `representativeImage`가 없거나 `null`이면 이미지 영역을 생략하는 것을 기준으로 합니다.

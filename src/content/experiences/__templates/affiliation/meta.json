@@ -6,12 +6,13 @@
       "end": "YYYY-MM"
     }
   ],
-  "category": "career",
+  "category": "affiliation",
   "visibility": "public",
   "status": "draft",
   "experienceTags": [],
   "projectDomains": [],
   "techTags": [],
   "related": [],
+  "representativeImage": null,
   "featured": false
 }

@@ -22,8 +22,6 @@ export const statusLabels = {
   }
 } as const;
 
-export const devKeywords = ['개발', '프로젝트', '사이트', '정적', '구조', '기술', '콘텐츠'];
-
 export type ExperienceStatus = 'draft' | 'in-progress' | 'done';
 export type ExperienceVisibility = 'public' | 'private';
 export type ExperiencePeriodPointPrecision = 'year' | 'month' | 'day' | 'minute';
@@ -42,6 +40,17 @@ export interface ExperienceRelated {
     ko?: string;
     en?: string;
   };
+}
+
+export interface ExperienceLocalizedMetaText {
+  ko?: string;
+  en?: string;
+}
+
+export interface ExperienceRepresentativeImage {
+  src: string;
+  alt?: ExperienceLocalizedMetaText;
+  caption?: ExperienceLocalizedMetaText;
 }
 
 export interface ExperiencePeriod {
@@ -69,6 +78,7 @@ export interface ExperienceMeta {
   projectDomains?: string[];
   techTags?: string[];
   related?: ExperienceRelated[];
+  representativeImage?: ExperienceRepresentativeImage | null;
   featured?: boolean;
 }
 
@@ -139,6 +149,14 @@ const validateExperiencePeriods = (number: string, periods: ExperiencePeriod[]) 
       }
     }
   });
+};
+
+const validateRepresentativeImage = (number: string, image?: ExperienceRepresentativeImage | null) => {
+  if (!image) return;
+
+  if (typeof image.src !== 'string' || image.src.trim().length === 0) {
+    throw new Error(`Experience ${number} representativeImage must include a non-empty "src".`);
+  }
 };
 
 const formatExperiencePeriodPoint = (point: ParsedExperiencePeriodPoint) => {
@@ -237,6 +255,7 @@ const metaByNumber = new Map(
     const number = path.match(/\/(\d{3})\/meta\.json$/)?.[1] ?? meta.number;
 
     validateExperiencePeriods(number, meta.periods);
+    validateRepresentativeImage(number, meta.representativeImage);
 
     if (!isExperienceCategoryKey(meta.category)) {
       throw new Error(

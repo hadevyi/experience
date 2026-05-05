@@ -1,46 +1,52 @@
 export const experienceCategoryConfig = {
   project: {
     ko: '프로젝트',
-    en: 'Project',
-    isDevelopment: true
+    en: 'Project'
   },
-  career: {
-    ko: '커리어',
-    en: 'Career',
-    isDevelopment: false
+  affiliation: {
+    ko: '소속/기관',
+    en: 'Affiliation'
+  },
+  'work-experience': {
+    ko: '업무경험',
+    en: 'Work'
   },
   'learning-growth': {
     ko: '학습/성장',
-    en: 'Learning',
-    isDevelopment: false
+    en: 'Learning'
   },
   'teaching-mentoring': {
     ko: '강의/멘토링',
-    en: 'Teaching',
-    isDevelopment: false
+    en: 'Teaching'
   },
   community: {
     ko: '활동/커뮤니티',
-    en: 'Community',
-    isDevelopment: false
+    en: 'Community'
   },
   'award-scholarship': {
     ko: '수상/장학',
-    en: 'Awards',
-    isDevelopment: false
+    en: 'Awards'
   },
   'media-interview': {
     ko: '미디어/인터뷰',
-    en: 'Media',
-    isDevelopment: false
+    en: 'Media'
   }
 } as const;
 
 export type ExperienceCategoryKey = keyof typeof experienceCategoryConfig;
 
-export const experienceCategoryKeys = Object.keys(
-  experienceCategoryConfig
-) as ExperienceCategoryKey[];
+export const experienceCategoryOrder = [
+  'affiliation',
+  'work-experience',
+  'project',
+  'learning-growth',
+  'teaching-mentoring',
+  'community',
+  'award-scholarship',
+  'media-interview'
+] as const satisfies readonly ExperienceCategoryKey[];
+
+export const experienceCategoryKeys = experienceCategoryOrder;
 
 export const isExperienceCategoryKey = (value: string): value is ExperienceCategoryKey =>
   value in experienceCategoryConfig;

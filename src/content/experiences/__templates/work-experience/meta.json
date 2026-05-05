@@ -6,12 +6,12 @@
       "end": "YYYY-MM"
     }
   ],
-  "category": "project",
+  "category": "work-experience",
   "visibility": "public",
   "status": "draft",
-  "experienceTags": ["problem-solving", "structuring"],
-  "projectDomains": ["Web"],
-  "techTags": ["기술명"],
+  "experienceTags": [],
+  "projectDomains": [],
+  "techTags": [],
   "related": [],
   "representativeImage": null,
   "featured": false
