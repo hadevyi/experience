@@ -89,6 +89,17 @@ export interface ExperiencePair {
   en?: ExperienceEntry;
 }
 
+export interface ExperienceLocalizedSection {
+  ko: {
+    label: string;
+    body: string;
+  };
+  en: {
+    label: string;
+    body: string;
+  };
+}
+
 const metaModules = import.meta.glob('../content/experiences/*/meta.json', {
   eager: true,
   import: 'default'
@@ -340,7 +351,7 @@ export const getLocalizedText = (
 
 export const getLocalizedListItem = (
   pair: ExperiencePair,
-  field: 'focus' | 'highlights',
+  field: 'highlights',
   index: number
 ) => ({
   ko: pair.ko.data[field][index] ?? '',
@@ -352,6 +363,53 @@ export const getLocalizedSection = (pair: ExperiencePair, index: number) => {
   const en = (pair.en ?? pair.ko).data.sections[index] ?? ko;
 
   return { ko, en };
+};
+
+const affiliationSectionLabels = {
+  reason: {
+    ko: '속하게 된 이유',
+    en: 'Why I Joined'
+  },
+  startingContext: {
+    ko: '시작 당시의 맥락',
+    en: 'Starting Context'
+  },
+  connectedExperiences: {
+    ko: '이어진 경험',
+    en: 'Connected Experiences'
+  },
+  meaning: {
+    ko: '남은 의미',
+    en: 'What It Means Now'
+  }
+} as const;
+
+type AffiliationSectionKey = keyof typeof affiliationSectionLabels;
+
+const affiliationSectionKeys = Object.keys(affiliationSectionLabels) as AffiliationSectionKey[];
+
+export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLocalizedSection[] => {
+  if (pair.meta.category === 'affiliation' && pair.ko.data.affiliation) {
+    const koAffiliation = pair.ko.data.affiliation;
+    const enAffiliation = (pair.en ?? pair.ko).data.affiliation ?? koAffiliation;
+
+    return affiliationSectionKeys
+      .map((key) => ({
+        ko: {
+          label: affiliationSectionLabels[key].ko,
+          body: koAffiliation[key] ?? ''
+        },
+        en: {
+          label: affiliationSectionLabels[key].en,
+          body: enAffiliation[key] ?? koAffiliation[key] ?? ''
+        }
+      }))
+      .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
+  }
+
+  return pair.ko.data.sections
+    .map((_, index) => getLocalizedSection(pair, index))
+    .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
 };
 
 export const getLocalizedLink = (pair: ExperiencePair, index: number) => {
