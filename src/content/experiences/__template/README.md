@@ -59,6 +59,30 @@
 
 `organization`은 "어디에서 발생했는가"를 나타내는 값이고, `category: "affiliation"`은 "소속 자체가 기록의 주제인가"를 나타내는 값입니다.
 
+## 프로젝트 도메인과 기술 태그 작성
+
+`projectDomains`와 `techTags`는 프로젝트 경험을 찾기 위한 보조 필터입니다.
+자유롭게 문자열을 입력하지 않고, `src/data/experienceTaxonomy.ts`에 등록된 키만 사용합니다.
+
+```json
+{
+  "category": "project",
+  "projectDomains": ["web"],
+  "techTags": ["csharp", "aspnet"]
+}
+```
+
+현재 등록된 프로젝트 도메인:
+
+- `web`: 웹
+
+현재 등록된 기술 태그:
+
+- `csharp`: C#
+- `aspnet`: ASP.NET
+
+새 도메인이나 기술이 필요하면 경험 파일에 임의로 적기보다 `experienceTaxonomy.ts`에 먼저 추가한 뒤, 그 키를 `meta.json`에서 연결합니다.
+
 ## 소속/기관 양식 작성
 
 `category`가 `affiliation`인 경험은 공용 `sections` 대신 `affiliation` 객체를 사용합니다.

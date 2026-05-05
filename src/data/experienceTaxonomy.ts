@@ -193,3 +193,38 @@ export const isExperienceTagKey = (value: string): value is ExperienceTagKey =>
   value in experienceTagConfig;
 
 export const getExperienceTagLabel = (tag: ExperienceTagKey) => experienceTagConfig[tag];
+
+export const projectDomainConfig = {
+  web: {
+    ko: '웹',
+    en: 'Web'
+  }
+} as const;
+
+export type ProjectDomainKey = keyof typeof projectDomainConfig;
+
+export const projectDomainKeys = Object.keys(projectDomainConfig) as ProjectDomainKey[];
+
+export const isProjectDomainKey = (value: string): value is ProjectDomainKey =>
+  value in projectDomainConfig;
+
+export const getProjectDomainLabel = (domain: ProjectDomainKey) => projectDomainConfig[domain];
+
+export const techTagConfig = {
+  csharp: {
+    ko: 'C#',
+    en: 'C#'
+  },
+  aspnet: {
+    ko: 'ASP.NET',
+    en: 'ASP.NET'
+  }
+} as const;
+
+export type TechTagKey = keyof typeof techTagConfig;
+
+export const techTagKeys = Object.keys(techTagConfig) as TechTagKey[];
+
+export const isTechTagKey = (value: string): value is TechTagKey => value in techTagConfig;
+
+export const getTechTagLabel = (tag: TechTagKey) => techTagConfig[tag];

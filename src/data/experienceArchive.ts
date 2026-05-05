@@ -3,8 +3,12 @@ import {
   experienceCategoryConfig,
   isExperienceCategoryKey,
   isExperienceTagKey,
+  isProjectDomainKey,
+  isTechTagKey,
   type ExperienceCategoryKey,
-  type ExperienceTagKey
+  type ExperienceTagKey,
+  type ProjectDomainKey,
+  type TechTagKey
 } from './experienceTaxonomy';
 
 export const experienceLanguages = ['ko', 'en'] as const;
@@ -75,8 +79,8 @@ export interface ExperienceMeta {
   visibility: ExperienceVisibility;
   status: ExperienceStatus;
   experienceTags?: ExperienceTagKey[];
-  projectDomains?: string[];
-  techTags?: string[];
+  projectDomains?: ProjectDomainKey[];
+  techTags?: TechTagKey[];
   related?: ExperienceRelated[];
   representativeImage?: ExperienceRepresentativeImage | null;
   featured?: boolean;
@@ -280,6 +284,18 @@ const metaByNumber = new Map(
 
     if (invalidTags.length > 0) {
       throw new Error(`Invalid experienceTags "${invalidTags.join(', ')}" in experience ${number}.`);
+    }
+
+    const invalidProjectDomains = (meta.projectDomains ?? []).filter((domain) => !isProjectDomainKey(domain));
+
+    if (invalidProjectDomains.length > 0) {
+      throw new Error(`Invalid projectDomains "${invalidProjectDomains.join(', ')}" in experience ${number}.`);
+    }
+
+    const invalidTechTags = (meta.techTags ?? []).filter((tag) => !isTechTagKey(tag));
+
+    if (invalidTechTags.length > 0) {
+      throw new Error(`Invalid techTags "${invalidTechTags.join(', ')}" in experience ${number}.`);
     }
 
     return [number, meta] as const;

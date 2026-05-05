@@ -10,8 +10,8 @@
   "visibility": "public",
   "status": "draft",
   "experienceTags": ["problem-solving", "structuring"],
-  "projectDomains": ["Web"],
-  "techTags": ["기술명"],
+  "projectDomains": ["web"],
+  "techTags": ["csharp", "aspnet"],
   "related": [],
   "representativeImage": null,
   "featured": false
