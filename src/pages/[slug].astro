@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteMeta } from '../data/site';
 import {
+  experienceRelationLabels,
   formatExperiencePeriods,
   getExperienceDetailSections,
   getExperiencePairs,
@@ -54,6 +55,8 @@ const koContent = await render(getLocalizedEntry(entry, 'ko'));
 const enContent = await render(getLocalizedEntry(entry, 'en'));
 const KoContent = koContent.Content;
 const EnContent = enContent.Content;
+const allExperiencePairs = getExperiencePairs(await getCollection('experiences'));
+const experienceByNumber = new Map(allExperiencePairs.map((item) => [item.number, item]));
 const title = getLocalizedText(entry, 'title');
 const summary = getLocalizedText(entry, 'summary');
 const oneLine = getLocalizedText(entry, 'oneLine');
@@ -67,14 +70,43 @@ const periodLabel = {
   en: formatExperiencePeriods(entry.meta, 'en')
 };
 const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
+const koProject = entry.ko.data.project;
+const enProject = (entry.en ?? entry.ko).data.project ?? koProject;
+const formatProjectTechStack = (
+  items: Array<{ name: string; version?: string; note?: string }> | undefined
+) =>
+  (items ?? [])
+    .map((item) => [item.name, item.version].filter(Boolean).join(' '))
+    .filter(Boolean)
+    .join(', ');
+const projectInfoRows =
+  entry.meta.category === 'project' && koProject
+    ? [
+        {
+          label: { ko: '소속/주최', en: 'Host' },
+          value: { ko: koProject.host, en: enProject?.host || koProject.host }
+        },
+        {
+          label: { ko: '직책/역할', en: 'Position / Role' },
+          value: { ko: koProject.position, en: enProject?.position || koProject.position }
+        },
+        {
+          label: { ko: '기술 스택', en: 'Tech Stack' },
+          value: {
+            ko: formatProjectTechStack(koProject.techStack),
+            en: formatProjectTechStack(enProject?.techStack ?? koProject.techStack)
+          }
+        },
+        {
+          label: { ko: '배포 상세', en: 'Deployment' },
+          value: { ko: koProject.deployment, en: enProject?.deployment || koProject.deployment }
+        }
+      ].filter((item) => item.value.ko.trim().length > 0 || item.value.en.trim().length > 0)
+    : [];
 const representativeImage = entry.meta.representativeImage;
 const representativeImageAlt = {
   ko: representativeImage?.alt?.ko ?? title.ko,
   en: representativeImage?.alt?.en ?? title.en
-};
-const representativeImageCaption = {
-  ko: representativeImage?.caption?.ko ?? '',
-  en: representativeImage?.caption?.en ?? representativeImage?.caption?.ko ?? ''
 };
 const structuredSections = getExperienceDetailSections(entry);
 const highlights = entry.ko.data.highlights.map((_, index) =>
@@ -85,6 +117,28 @@ const highlights = entry.ko.data.highlights.map((_, index) =>
 const links = entry.ko.data.links.map((_, index) =>
   getLocalizedLink(entry, index)
 );
+const relatedItems = (entry.meta.related ?? []).map((item) => {
+  const relatedEntry = experienceByNumber.get(item.number);
+  const relationLabel = experienceRelationLabels[item.relation ?? 'related'];
+  const relatedTitle = relatedEntry
+    ? getLocalizedText(relatedEntry, 'title')
+    : {
+        ko: item.number,
+        en: item.number
+      };
+  const note = {
+    ko: item.note?.ko ?? '',
+    en: item.note?.en ?? item.note?.ko ?? ''
+  };
+
+  return {
+    ...item,
+    href: relatedEntry ? `${siteMeta.rootPath}${relatedEntry.number}/` : '',
+    relationLabel,
+    title: relatedTitle,
+    note
+  };
+});
 ---
 
 <BaseLayout
@@ -141,13 +195,6 @@ const links = entry.ko.data.links.map((_, index) =>
           representativeImage && (
             <figure class="experience-detail-image-card">
               <img src={representativeImage.src} {...i18nAttr('alt', representativeImageAlt.ko, representativeImageAlt.en)} />
-              {
-                representativeImageCaption.ko && (
-                  <figcaption {...i18nText(representativeImageCaption.ko, representativeImageCaption.en)}>
-                    {representativeImageCaption.ko}
-                  </figcaption>
-                )
-              }
             </figure>
           )
         }
@@ -157,10 +204,21 @@ const links = entry.ko.data.links.map((_, index) =>
             <dt {...i18nText('기간', 'Period')}>기간</dt>
             <dd {...localized(periodLabel)}>{periodLabel.ko}</dd>
           </div>
-          <div>
-            <dt {...i18nText('기관', 'Organization')}>기관</dt>
-            <dd {...localized(organization)}>{organization.ko}</dd>
-          </div>
+          {
+            projectInfoRows.length > 0 ? (
+              projectInfoRows.map((item) => (
+                <div>
+                  <dt {...localized(item.label)}>{item.label.ko}</dt>
+                  <dd {...localized(item.value)}>{item.value.ko}</dd>
+                </div>
+              ))
+            ) : (
+              <div>
+                <dt {...i18nText('기관', 'Organization')}>기관</dt>
+                <dd {...localized(organization)}>{organization.ko}</dd>
+              </div>
+            )
+          }
           <div>
             <dt {...i18nText('상태', 'Status')}>상태</dt>
             <dd {...i18nText(statusLabel.ko, statusLabel.en)}>{statusLabel.ko}</dd>
@@ -220,40 +278,60 @@ const links = entry.ko.data.links.map((_, index) =>
     </section>
 
     {
-      (links.length > 0 || (entry.meta.related ?? []).length > 0) && (
-        <section class="grid gap-4 md:grid-cols-2">
-          {links.length > 0 && (
-            <div class="surface-card p-6 sm:p-7">
-              <p class="type-label-wide uppercase text-ink/40" {...i18nText('Links', 'Links')}>Links</p>
-              <div class="mt-4 flex flex-wrap gap-2">
-                {links.map((link) => (
-                  <a href={link.ko.url} class="chip" target="_blank" rel="noreferrer">
-                    <span {...i18nText(link.ko.label, link.en.label)}>{link.ko.label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
+      links.length > 0 && (
+        <section class="experience-detail-link-panel">
+          <p class="type-label-wide uppercase text-ink/40" {...i18nText('Links', 'Links')}>Links</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {links.map((link) => (
+              <a href={link.ko.url} class="chip" target="_blank" rel="noreferrer">
+                <span {...i18nText(link.ko.label, link.en.label)}>{link.ko.label}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-          {(entry.meta.related ?? []).length > 0 && (
-            <div class="surface-card p-6 sm:p-7">
-              <p class="type-label-wide uppercase text-ink/40" {...i18nText('이어지는 경험', 'Related')}>이어지는 경험</p>
-              <div class="mt-4 space-y-3">
-                {(entry.meta.related ?? []).map((item) => (
-                  <p class="type-small text-ink/72">
-                    <span class="font-semibold text-ink">{item.number}</span>
-                    <span class="mx-2 text-ink/28">/</span>
-                    <span>{item.relation ?? 'reference'}</span>
-                    {item.note && (
-                      <span class="block pt-1 text-ink/56" {...i18nText(item.note.ko ?? '', item.note.en ?? item.note.ko ?? '')}>
-                        {item.note.ko}
-                      </span>
-                    )}
+    {
+      relatedItems.length > 0 && (
+        <section class="experience-related-panel">
+          <div class="experience-related-heading">
+            <p class="type-label-wide uppercase text-ink/40" {...i18nText('연결된 맥락', 'Connected Context')}>연결된 맥락</p>
+            <p class="type-small text-ink/54" {...i18nText('이 경험과 함께 보면 좋은 기준점을 연결합니다.', 'Reference points connected to this experience.')}>
+              이 경험과 함께 보면 좋은 기준점을 연결합니다.
+            </p>
+          </div>
+
+          <div class="experience-related-list">
+            {relatedItems.map((item) => (
+              <div class="experience-related-card">
+                {item.href ? (
+                  <a href={item.href} class="experience-related-link">
+                    <span class="experience-related-relation" {...localized(item.relationLabel)}>
+                      {item.relationLabel.ko}
+                    </span>
+                    <span class="experience-related-title" {...localized(item.title)}>
+                      {item.title.ko}
+                    </span>
+                  </a>
+                ) : (
+                  <div class="experience-related-link">
+                    <span class="experience-related-relation" {...localized(item.relationLabel)}>
+                      {item.relationLabel.ko}
+                    </span>
+                    <span class="experience-related-title" {...localized(item.title)}>
+                      {item.title.ko}
+                    </span>
+                  </div>
+                )}
+                {(item.note.ko || item.note.en) && (
+                  <p class="experience-related-note" {...i18nText(item.note.ko, item.note.en)}>
+                    {item.note.ko}
                   </p>
-                ))}
+                )}
               </div>
-            </div>
-          )}
+            ))}
+          </div>
         </section>
       )
     }
