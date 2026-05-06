@@ -30,12 +30,14 @@ export type ExperienceStatus = 'draft' | 'in-progress' | 'done';
 export type ExperienceVisibility = 'public' | 'private';
 export type ExperiencePeriodPointPrecision = 'year' | 'month' | 'day' | 'minute';
 export type ExperienceRelation =
+  | 'affiliation'
+  | 'award'
   | 'previous'
   | 'next'
   | 'source'
   | 'result'
   | 'reference'
-  | 'same-context';
+  | 'related';
 
 export interface ExperienceRelated {
   number: string;
@@ -45,6 +47,44 @@ export interface ExperienceRelated {
     en?: string;
   };
 }
+
+export const experienceRelationLabels = {
+  affiliation: {
+    ko: '소속',
+    en: 'Affiliation'
+  },
+  award: {
+    ko: '수상',
+    en: 'Award'
+  },
+  previous: {
+    ko: '이전',
+    en: 'Previous'
+  },
+  next: {
+    ko: '다음',
+    en: 'Next'
+  },
+  source: {
+    ko: '출처',
+    en: 'Source'
+  },
+  result: {
+    ko: '결과',
+    en: 'Result'
+  },
+  reference: {
+    ko: '참고',
+    en: 'Reference'
+  },
+  related: {
+    ko: '연관',
+    en: 'Related'
+  }
+} as const satisfies Record<ExperienceRelation, ExperienceLocalizedMetaText>;
+
+const isExperienceRelation = (value: string): value is ExperienceRelation =>
+  value in experienceRelationLabels;
 
 export interface ExperienceLocalizedMetaText {
   ko?: string;
@@ -298,6 +338,16 @@ const metaByNumber = new Map(
       throw new Error(`Invalid techTags "${invalidTechTags.join(', ')}" in experience ${number}.`);
     }
 
+    const invalidRelations = (meta.related ?? []).flatMap((item) => {
+      const relation = item.relation as string | undefined;
+
+      return relation && !isExperienceRelation(relation) ? [relation] : [];
+    });
+
+    if (invalidRelations.length > 0) {
+      throw new Error(`Invalid related relation "${invalidRelations.join(', ')}" in experience ${number}.`);
+    }
+
     return [number, meta] as const;
   })
 );
@@ -404,6 +454,39 @@ type AffiliationSectionKey = keyof typeof affiliationSectionLabels;
 
 const affiliationSectionKeys = Object.keys(affiliationSectionLabels) as AffiliationSectionKey[];
 
+const projectSectionLabels = {
+  participationReason: {
+    ko: '참여 이유',
+    en: 'Why I Joined'
+  },
+  description: {
+    ko: '프로젝트 설명',
+    en: 'Project Description'
+  },
+  responsibilities: {
+    ko: '프로젝트 내 역할',
+    en: 'My Responsibilities'
+  },
+  technicalDetails: {
+    ko: '구현과 기술 상세',
+    en: 'Implementation Details'
+  },
+  deployment: {
+    ko: '배포 상세',
+    en: 'Deployment'
+  },
+  result: {
+    ko: '결과와 배운 점',
+    en: 'Outcome and Learning'
+  }
+} as const;
+
+type ProjectSectionKey = keyof typeof projectSectionLabels;
+
+const projectSectionKeys = Object.keys(projectSectionLabels) as ProjectSectionKey[];
+
+const formatProjectResponsibilities = (items: string[]) => items.map((item) => `• ${item}`).join('\n');
+
 export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLocalizedSection[] => {
   if (pair.meta.category === 'affiliation' && pair.ko.data.affiliation) {
     const koAffiliation = pair.ko.data.affiliation;
@@ -420,6 +503,35 @@ export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLoc
           body: enAffiliation[key] ?? koAffiliation[key] ?? ''
         }
       }))
+      .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
+  }
+
+  if (pair.meta.category === 'project' && pair.ko.data.project) {
+    const koProject = pair.ko.data.project;
+    const enProject = (pair.en ?? pair.ko).data.project ?? koProject;
+
+    return projectSectionKeys
+      .map((key) => {
+        const koBody =
+          key === 'responsibilities'
+            ? formatProjectResponsibilities(koProject.responsibilities)
+            : koProject[key] ?? '';
+        const enBody =
+          key === 'responsibilities'
+            ? formatProjectResponsibilities(enProject.responsibilities ?? koProject.responsibilities)
+            : enProject[key] ?? koProject[key] ?? '';
+
+        return {
+          ko: {
+            label: projectSectionLabels[key].ko,
+            body: koBody
+          },
+          en: {
+            label: projectSectionLabels[key].en,
+            body: enBody
+          }
+        };
+      })
       .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
   }
 

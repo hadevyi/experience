@@ -83,6 +83,39 @@
 
 새 도메인이나 기술이 필요하면 경험 파일에 임의로 적기보다 `experienceTaxonomy.ts`에 먼저 추가한 뒤, 그 키를 `meta.json`에서 연결합니다.
 
+## 프로젝트 양식 작성
+
+`category`가 `project`인 경험은 공용 `sections` 대신 `project` 객체를 사용합니다.
+프로젝트는 소속/주최, 직책/역할, 기술 스택, 배포 상세처럼 면접이나 포트폴리오에서 바로 확인해야 하는 정보가 많기 때문입니다.
+
+```yaml
+project:
+  host: |
+    소속, 주최, 수업명, 팀명처럼 프로젝트가 발생한 맥락을 적습니다.
+  position: |
+    직책과 역할을 함께 적습니다. 예) 팀장 / Backend, Frontend, Database, Presentation
+  participationReason: |
+    왜 참여했는지, 왜 이 주제를 선택했는지 적습니다.
+  description: |
+    프로젝트가 무엇을 만들었고, 누구의 어떤 문제를 다루었는지 적습니다.
+  responsibilities:
+    - 내가 맡은 구현/기획/운영 범위를 항목별로 적습니다.
+  techStack:
+    - name: C#
+      version: 버전이 있으면 적습니다.
+      note: 버전 외에 남길 설명이 있으면 적습니다.
+  deployment: |
+    배포 여부, 배포 URL, 로컬 시연, 사내/수업 환경처럼 실행 방식을 적습니다.
+  technicalDetails: |
+    주요 기능, 설계 방식, 기술 선택 이유, 버전 정보, 구현하면서 중요했던 의사결정을 적습니다.
+  result: |
+    결과, 평가, 아쉬움, 배운 점, 다음 경험으로 이어진 점을 적습니다.
+sections: []
+```
+
+`techTags`는 필터용 키이고, `project.techStack`은 상세 화면에 보여줄 실제 기술 스택 정보입니다.
+프로젝트에서 기술 버전이 중요하면 `version`까지 적고, 버전을 확인할 수 없으면 비워두되 `technicalDetails`에 기록이 남아 있지 않다고 적어둡니다.
+
 ## 소속/기관 양식 작성
 
 `category`가 `affiliation`인 경험은 공용 `sections` 대신 `affiliation` 객체를 사용합니다.
@@ -129,3 +162,31 @@ affiliation:
 - `alt`: 접근성을 위한 대체 텍스트입니다. 화면에 직접 보이는 설명은 아니지만 가능하면 작성합니다.
 - `caption`: 상세 페이지에서 이미지 아래 설명이 필요할 때 사용합니다.
 - 카드나 상세 화면은 `representativeImage`가 없거나 `null`이면 이미지 영역을 생략하는 것을 기준으로 합니다.
+
+## 연결된 경험 작성
+
+`related`는 다른 경험과의 맥락을 연결할 때 사용합니다. 화면에는 `number` 자체가 아니라, 연결된 경험의 제목과 관계 라벨이 표시됩니다.
+
+```json
+{
+  "related": [
+    {
+      "number": "001",
+      "relation": "affiliation"
+    }
+  ]
+}
+```
+
+사용 가능한 관계:
+
+- `affiliation`: 소속
+- `award`: 수상
+- `previous`: 이전
+- `next`: 다음
+- `related`: 연관
+- `source`: 출처
+- `result`: 결과
+- `reference`: 참고
+
+관계 설명이 꼭 필요할 때만 `note`를 추가합니다. 단순히 "어떤 경험과 연결되는지"만 보여주면 충분한 경우에는 `number`와 `relation`만 작성합니다.

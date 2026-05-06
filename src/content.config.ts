@@ -11,6 +11,28 @@ const affiliationSchema = z
   })
   .optional();
 
+const projectSchema = z
+  .object({
+    host: z.string().default(''),
+    position: z.string().default(''),
+    participationReason: z.string().default(''),
+    description: z.string().default(''),
+    responsibilities: z.array(z.string()).default([]),
+    techStack: z
+      .array(
+        z.object({
+          name: z.string(),
+          version: z.string().default(''),
+          note: z.string().default('')
+        })
+      )
+      .default([]),
+    deployment: z.string().default(''),
+    technicalDetails: z.string().default(''),
+    result: z.string().default('')
+  })
+  .optional();
+
 const experiences = defineCollection({
   loader: glob({
     pattern: ['*/ko.mdx', '*/en.mdx', '!__*/**', '!**/__*/**'],
@@ -23,6 +45,7 @@ const experiences = defineCollection({
     oneLine: z.string().default(''),
     highlights: z.array(z.string()).default([]),
     affiliation: affiliationSchema,
+    project: projectSchema,
     sections: z
       .array(
         z.object({
