@@ -12,7 +12,12 @@
   "experienceTags": ["learning", "community", "reflection"],
   "projectDomains": [],
   "techTags": [],
-  "related": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/001/representative.jpg",
     "alt": {

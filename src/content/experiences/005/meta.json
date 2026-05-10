@@ -1,0 +1,38 @@
+{
+  "number": "005",
+  "periods": [
+    {
+      "start": "2016-08-29",
+      "end": "2020-02-14"
+    }
+  ],
+  "category": "affiliation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "community",
+    "collaboration",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/005/representative.jpg",
+    "alt": {
+      "ko": "Database LAB 대표 이미지",
+      "en": "Representative image for Database LAB"
+    },
+    "caption": {
+      "ko": "Database LAB",
+      "en": "Database LAB"
+    }
+  },
+  "featured": false
+}

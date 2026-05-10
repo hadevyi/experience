@@ -1,0 +1,40 @@
+{
+  "number": "003",
+  "periods": [
+    {
+      "start": "2016-03-02",
+      "end": "2016-12-18"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "operation",
+    "structuring",
+    "documentation",
+    "community",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/003/representative.jpg",
+    "alt": {
+      "ko": "2016년 1학년 대표 이미지",
+      "en": "Representative image for the 2016 first-year representative experience"
+    },
+    "caption": {
+      "ko": "2016년 1학년 대표",
+      "en": "2016 First-Year Representative"
+    }
+  },
+  "featured": false
+}

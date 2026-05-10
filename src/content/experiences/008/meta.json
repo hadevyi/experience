@@ -1,0 +1,38 @@
+{
+  "number": "008",
+  "periods": [
+    {
+      "start": "2017-03-06",
+      "end": "2017-12-17"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "collaboration",
+    "community",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/008/representative.jpg",
+    "alt": {
+      "ko": "제33대 UBUNTU 학과학생회 대표 이미지",
+      "en": "Representative image for the 33rd UBUNTU Department Student Council"
+    },
+    "caption": {
+      "ko": "2017년 UBUNTU 컴퓨터공학부 학과학생회",
+      "en": "2017 UBUNTU Department Student Council of the Department of Computer Engineering"
+    }
+  },
+  "featured": false
+}

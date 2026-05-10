@@ -2,31 +2,55 @@
   "number": "002",
   "periods": [
     {
-      "start": "2016-10-26",
-      "end": "2016-12-06"
+      "start": "2016-03",
+      "end": "2020-02"
     }
   ],
-  "category": "project",
+  "category": "affiliation",
   "visibility": "public",
   "status": "done",
-  "experienceTags": ["problem-solving", "coordination", "structuring", "learning", "ownership"],
-  "projectDomains": ["web"],
-  "techTags": ["csharp", "aspnet"],
+  "experienceTags": ["learning", "community", "reflection"],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
       "number": "001",
+      "relation": "university"
+    },
+    {
+      "number": "003",
+      "relation": "activity"
+    },
+    {
+      "number": "004",
+      "relation": "activity"
+    },
+    {
+      "number": "005",
       "relation": "affiliation"
+    },
+    {
+      "number": "006",
+      "relation": "project"
+    },
+    {
+      "number": "007",
+      "relation": "activity"
+    },
+    {
+      "number": "008",
+      "relation": "activity"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/002/representative.jpg",
+    "src": "/experience/images/experiences/002/representative.png",
     "alt": {
-      "ko": "O to I 프로젝트 대표 이미지",
-      "en": "Representative image for the O to I project"
+      "ko": "인제대학교 컴퓨터공학과 공식 로고",
+      "en": "Official logo of the Department of Computer Engineering at Inje University"
     },
     "caption": {
-      "ko": "개인 체질 맞춤 건강관리 웹 사이트 O to I",
-      "en": "O to I personalized health management web service"
+      "ko": "인제대학교 컴퓨터공학과 공식 홈페이지 로고",
+      "en": "Official website logo of the Department of Computer Engineering, Inje University"
     }
   },
   "featured": true

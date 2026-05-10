@@ -1,0 +1,38 @@
+{
+  "number": "004",
+  "periods": [
+    {
+      "start": "2016-03-02",
+      "end": "2016-12-18"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "collaboration",
+    "community",
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/004/representative.jpg",
+    "alt": {
+      "ko": "제32대 COX 학과학생회 대표 이미지",
+      "en": "Representative image for the 32nd COX Department Student Council"
+    },
+    "caption": {
+      "ko": "제32대 COX 학과학생회",
+      "en": "32nd COX Department Student Council"
+    }
+  },
+  "featured": false
+}
