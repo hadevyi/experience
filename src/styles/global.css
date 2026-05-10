@@ -2220,22 +2220,26 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 }
 
 .experience-card-grid-list .experience-card[data-has-visual='true'] .experience-card-link {
-  grid-template-columns: minmax(8.5rem, 11.5rem) minmax(0, 1fr);
+  grid-template-columns: minmax(8.75rem, 11rem) minmax(0, 1fr);
 }
 
 .experience-card-grid-list .experience-card-visual {
   grid-column: 1;
   grid-row: 1 / span 5;
-  align-self: stretch;
+  align-self: start;
+  aspect-ratio: 16 / 9;
   margin: 0;
-  min-height: 8rem;
-  padding: 0.65rem;
+  min-height: 0;
+  padding: 0;
+  background: color-mix(in srgb, var(--experience-surface-strong) 92%, #ffffff);
 }
 
 .experience-card-grid-list .experience-card-visual img {
+  width: 100%;
   height: 100%;
   aspect-ratio: auto;
   object-fit: contain;
+  object-position: center;
 }
 
 .experience-card-grid-list .experience-card-topline,
@@ -2397,19 +2401,20 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   }
 
   .experience-card-grid-list .experience-card[data-has-visual='true'] .experience-card-link {
-    grid-template-columns: 6.25rem minmax(0, 1fr);
+    grid-template-columns: 6.75rem minmax(0, 1fr);
     column-gap: 0.95rem;
   }
 
   .experience-card-grid-list .experience-card-visual {
     align-self: start;
-    min-height: 6.25rem;
-    padding: 0.45rem;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+    padding: 0;
     border-radius: 1rem;
   }
 
   .experience-card-grid-list .experience-card-visual img {
-    border-radius: 0.7rem;
+    border-radius: inherit;
   }
 
   .experience-card-grid-list .experience-card-topline {
