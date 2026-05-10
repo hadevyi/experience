@@ -708,6 +708,24 @@ const hasArchiveItems = archiveItems.length > 0;
           </div>
 
           {
+            hasArchiveItems && (
+              <div class="experience-load-more" data-archive-pagination hidden>
+                <button
+                  type="button"
+                  class="experience-load-more-button"
+                  data-archive-load-more
+                  {...i18nText('더보기', 'Load more')}
+                >
+                  더보기
+                </button>
+                <p class="experience-load-more-count" data-archive-count>
+                  0개 중 0개를 보고 있어요
+                </p>
+              </div>
+            )
+          }
+
+          {
             hasArchiveItems ? (
               <p
                 class="experience-empty"
@@ -755,6 +773,9 @@ const hasArchiveItems = archiveItems.length > 0;
       const dateDisplays = Array.from(root.querySelectorAll('[data-date-display]'));
       const calendarPopovers = Array.from(root.querySelectorAll('[data-calendar-popover]'));
       const empty = root.querySelector('[data-archive-empty]');
+      const pagination = root.querySelector('[data-archive-pagination]');
+      const paginationCount = root.querySelector('[data-archive-count]');
+      const loadMoreButton = root.querySelector('[data-archive-load-more]');
       const railToggle = root.querySelector('[data-rail-toggle]');
       const railToggleLabel = root.querySelector('[data-rail-toggle-label]');
       const railToggleIcon = root.querySelector('[data-rail-toggle-icon]');
@@ -780,8 +801,10 @@ const hasArchiveItems = archiveItems.length > 0;
         projectDomain: [],
         techTag: [],
         sort: 'desc',
-        view: 'card'
+        view: 'card',
+        visibleLimit: 9
       };
+      const visiblePageSize = 9;
 
       const today = new Date();
       let activeCalendar = '';
@@ -897,6 +920,7 @@ const hasArchiveItems = archiveItems.length > 0;
 
       const setDateValue = (field, value) => {
         state[field] = value;
+        resetVisibleLimit();
         updateDateDisplays();
         apply();
       };
@@ -1097,16 +1121,38 @@ const hasArchiveItems = archiveItems.length > 0;
           });
       };
 
-      const sortItems = () => {
-        if (!(list instanceof HTMLElement)) return;
-
+      const getSortedItems = () => {
         const sorted = [...items].sort((a, b) => {
           const first = Number(a.getAttribute('data-order') || 0);
           const second = Number(b.getAttribute('data-order') || 0);
           return state.sort === 'asc' ? first - second : second - first;
         });
 
-        sorted.forEach((item) => list.append(item));
+        if (list instanceof HTMLElement) {
+          sorted.forEach((item) => list.append(item));
+        }
+
+        return sorted;
+      };
+
+      const resetVisibleLimit = () => {
+        state.visibleLimit = visiblePageSize;
+      };
+
+      const updatePagination = (matchedCount, shownCount) => {
+        if (pagination instanceof HTMLElement) {
+          pagination.hidden = matchedCount === 0;
+        }
+
+        if (paginationCount instanceof HTMLElement) {
+          paginationCount.textContent = isEnglish()
+            ? `Showing ${shownCount} of ${matchedCount} experiences`
+            : `${matchedCount}개 중 ${shownCount}개를 보고 있어요`;
+        }
+
+        if (loadMoreButton instanceof HTMLButtonElement) {
+          loadMoreButton.hidden = matchedCount <= shownCount;
+        }
       };
 
       const apply = () => {
@@ -1116,9 +1162,10 @@ const hasArchiveItems = archiveItems.length > 0;
         const selectedEnd = state.periodEnd ? toMonthRangeEnd(state.periodEnd) : '9999-12-31';
         const periodRangeStart = selectedStart <= selectedEnd ? selectedStart : selectedEnd;
         const periodRangeEnd = selectedStart <= selectedEnd ? selectedEnd : selectedStart;
-        let visibleCount = 0;
+        let matchedCount = 0;
+        let shownCount = 0;
 
-        items.forEach((item) => {
+        getSortedItems().forEach((item) => {
           const searchValue = item.getAttribute('data-search') || '';
           const category = item.getAttribute('data-category') || '';
           const status = item.getAttribute('data-status') || '';
@@ -1157,20 +1204,26 @@ const hasArchiveItems = archiveItems.length > 0;
             matchesTag &&
             matchesProjectDomain &&
             matchesTechTag;
+          let shouldShow = false;
 
-          item.toggleAttribute('hidden', !isVisible);
-          if (isVisible) visibleCount += 1;
+          if (isVisible) {
+            matchedCount += 1;
+            shouldShow = matchedCount <= state.visibleLimit;
+            if (shouldShow) shownCount += 1;
+          }
+
+          item.toggleAttribute('hidden', !shouldShow);
         });
 
         if (empty instanceof HTMLElement) {
-          empty.hidden = visibleCount !== 0;
+          empty.hidden = matchedCount !== 0;
         }
 
         if (list instanceof HTMLElement) {
           list.classList.toggle('experience-card-grid-list', state.view === 'list');
         }
 
-        sortItems();
+        updatePagination(matchedCount, shownCount);
       };
 
       buttons.forEach((button) => {
@@ -1189,6 +1242,10 @@ const hasArchiveItems = archiveItems.length > 0;
                 : [...current, value];
           } else {
             state[group] = value;
+          }
+
+          if (!['sort', 'view'].includes(group)) {
+            resetVisibleLimit();
           }
 
           setActive(group);
@@ -1283,7 +1340,17 @@ const hasArchiveItems = archiveItems.length > 0;
       });
 
       if (search instanceof HTMLInputElement) {
-        search.addEventListener('input', apply);
+        search.addEventListener('input', () => {
+          resetVisibleLimit();
+          apply();
+        });
+      }
+
+      if (loadMoreButton instanceof HTMLButtonElement) {
+        loadMoreButton.addEventListener('click', () => {
+          state.visibleLimit += visiblePageSize;
+          apply();
+        });
       }
 
       if (railToggle instanceof HTMLButtonElement) {
@@ -1322,6 +1389,7 @@ const hasArchiveItems = archiveItems.length > 0;
         setCategoryCollapsed(root.getAttribute('data-category-collapsed') === 'true');
         setTagCollapsed(root.getAttribute('data-tag-collapsed') === 'true');
         setProjectFilterCollapsed(root.getAttribute('data-project-filter-collapsed') === 'true');
+        apply();
       });
 
       languageObserver.observe(document.documentElement, {
