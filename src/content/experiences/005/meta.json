@@ -21,6 +21,10 @@
     {
       "number": "002",
       "relation": "department"
+    },
+    {
+      "number": "009",
+      "relation": "extended-activity"
     }
   ],
   "representativeImage": {
