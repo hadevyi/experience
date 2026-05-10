@@ -1,0 +1,47 @@
+{
+  "number": "012",
+  "periods": [
+    {
+      "start": "2017-09-12",
+      "end": "2017-12-05"
+    }
+  ],
+  "category": "project",
+  "teamSize": 3,
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "structuring",
+    "learning",
+    "ownership",
+    "collaboration"
+  ],
+  "projectDomains": [
+    "desktop"
+  ],
+  "techTags": [
+    "java",
+    "awt",
+    "swing",
+    "mysql"
+  ],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/012/representative.jpg",
+    "alt": {
+      "ko": "EWS 프로젝트 대표 이미지",
+      "en": "Representative image for the EWS project"
+    },
+    "caption": {
+      "ko": "영단어 학습 데스크톱 애플리케이션 EWS",
+      "en": "EWS English word study desktop application"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,39 @@
+{
+  "number": "011",
+  "periods": [
+    {
+      "start": "2017-09-07",
+      "end": "2018-02-09"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "learning",
+    "structuring",
+    "collaboration",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/011/representative.jpg",
+    "alt": {
+      "ko": "교내 창업동아리 앱벌레 대표 이미지",
+      "en": "Representative image for the Appbug campus startup club activity"
+    },
+    "caption": {
+      "ko": "2017년 교내 창업동아리 앱벌레",
+      "en": "2017 campus startup club Appbug"
+    }
+  },
+  "featured": false
+}
