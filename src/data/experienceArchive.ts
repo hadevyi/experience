@@ -36,6 +36,8 @@ export type ExperienceRelation =
   | 'project'
   | 'activity'
   | 'award'
+  | 'lab-recommendation'
+  | 'extended-activity'
   | 'previous-role'
   | 'previous'
   | 'next'
@@ -77,6 +79,14 @@ export const experienceRelationLabels = {
   award: {
     ko: '수상',
     en: 'Award'
+  },
+  'lab-recommendation': {
+    ko: '랩실 추천',
+    en: 'Lab recommendation'
+  },
+  'extended-activity': {
+    ko: '이어진 활동',
+    en: 'Extended activity'
   },
   'previous-role': {
     ko: '이전 역할',

@@ -357,6 +357,8 @@ links:
 
 - `affiliation`: 소속
 - `award`: 수상
+- `lab-recommendation`: 랩실 추천
+- `extended-activity`: 이어진 활동
 - `previous`: 이전
 - `next`: 다음
 - `related`: 연관
