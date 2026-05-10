@@ -677,17 +677,29 @@ type LearningGrowthSectionKey = keyof typeof learningGrowthSectionLabels;
 const learningGrowthSectionKeys = Object.keys(learningGrowthSectionLabels) as LearningGrowthSectionKey[];
 
 const teachingMentoringSectionLabels = {
-  audienceGoal: {
-    ko: '대상과 목표',
-    en: 'Audience and Goal'
+  audience: {
+    ko: '대상',
+    en: 'Audience'
   },
-  preparation: {
-    ko: '준비와 설계',
-    en: 'Preparation'
+  reason: {
+    ko: '참여하게 된 이유',
+    en: 'Reason for Participating'
   },
-  outcome: {
+  content: {
+    ko: '전달한 내용',
+    en: 'Content Delivered'
+  },
+  approach: {
+    ko: '준비와 진행 방식',
+    en: 'Preparation and Approach'
+  },
+  response: {
     ko: '반응과 결과',
     en: 'Response and Outcome'
+  },
+  learning: {
+    ko: '남은 배움',
+    en: 'Learning'
   }
 } as const;
 

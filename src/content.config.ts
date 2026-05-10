@@ -79,9 +79,12 @@ const learningGrowthSchema = z
 
 const teachingMentoringSchema = z
   .object({
-    audienceGoal: z.string().default(''),
-    preparation: z.string().default(''),
-    outcome: z.string().default('')
+    audience: z.string().default(''),
+    reason: z.string().default(''),
+    content: z.string().default(''),
+    approach: z.string().default(''),
+    response: z.string().default(''),
+    learning: z.string().default('')
   })
   .optional();
 
