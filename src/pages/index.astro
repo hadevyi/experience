@@ -53,6 +53,13 @@ const archiveItems = experiences.map((entry) => {
   const experienceTagLabels = experienceTags.map((tag) => getExperienceTagLabel(tag));
   const projectDomainLabels = (entry.meta.projectDomains ?? []).map((domain) => getProjectDomainLabel(domain));
   const techTagLabels = (entry.meta.techTags ?? []).map((tag) => getTechTagLabel(tag));
+  const cardTagLabels = [
+    ...experienceTagLabels.map((tag) => ({ ...tag, kind: 'experience' as const })),
+    ...projectDomainLabels.map((tag) => ({ ...tag, kind: 'plain' as const })),
+    ...techTagLabels.map((tag) => ({ ...tag, kind: 'plain' as const }))
+  ];
+  const cardVisibleTagLabels = cardTagLabels.slice(0, 6);
+  const cardHiddenTagCount = Math.max(cardTagLabels.length - cardVisibleTagLabels.length, 0);
   const entryPeriodYears = getExperiencePeriodYears(entry.meta);
   const periodDateRanges = getExperiencePeriodDateRanges(entry.meta);
   const periodLabel = {
@@ -62,6 +69,11 @@ const archiveItems = experiences.map((entry) => {
   const status = resolveExperienceStatus(entry.meta.status);
   const title = getLocalizedText(entry, 'title');
   const summary = getLocalizedText(entry, 'summary');
+  const oneLine = getLocalizedText(entry, 'oneLine');
+  const previewText = {
+    ko: oneLine.ko.trim() || summary.ko,
+    en: oneLine.en.trim() || summary.en
+  };
   const organization = getLocalizedText(entry, 'organization');
   const representativeImage = entry.meta.representativeImage;
   const representativeImageAlt = {
@@ -77,7 +89,7 @@ const archiveItems = experiences.map((entry) => {
     ...projectDomainLabels.flatMap((label) => [label.ko, label.en]),
     ...techTagLabels.flatMap((label) => [label.ko, label.en])
   ].join(' ');
-  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${projectSearchSource} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
+  const searchSource = `${entry.meta.number} ${title.ko} ${title.en} ${summary.ko} ${summary.en} ${oneLine.ko} ${oneLine.en} ${organization.ko} ${organization.en} ${periodLabel.ko} ${periodLabel.en} ${projectSearchSource} ${category} ${categoryLabel.ko} ${categoryLabel.en} ${experienceTags.join(' ')} ${tagSearchSource}`;
 
   return {
     entry,
@@ -87,6 +99,8 @@ const archiveItems = experiences.map((entry) => {
     experienceTagLabels,
     projectDomainLabels,
     techTagLabels,
+    cardVisibleTagLabels,
+    cardHiddenTagCount,
     periodLabel,
     periodDateRanges,
     periodYears: entryPeriodYears,
@@ -94,6 +108,7 @@ const archiveItems = experiences.map((entry) => {
     statusLabel: statusLabels[status],
     representativeImage,
     representativeImageAlt,
+    previewText,
     searchSource
   };
 });
@@ -602,9 +617,8 @@ const hasArchiveItems = archiveItems.length > 0;
                   category,
                   categoryLabel,
                   experienceTags,
-                  experienceTagLabels,
-                  projectDomainLabels,
-                  techTagLabels,
+                  cardVisibleTagLabels,
+                  cardHiddenTagCount,
                   periodLabel,
                   periodDateRanges,
                   periodYears,
@@ -612,6 +626,7 @@ const hasArchiveItems = archiveItems.length > 0;
                   statusLabel,
                   representativeImage,
                   representativeImageAlt,
+                  previewText,
                   searchSource
                 }, index) => (
                   <article
@@ -647,7 +662,7 @@ const hasArchiveItems = archiveItems.length > 0;
                         )
                       }
                       <h3 {...localizedPairText(entry, 'title')}>{entry.ko.data.title}</h3>
-                      <p {...localizedPairText(entry, 'summary')}>{entry.ko.data.summary}</p>
+                      <p {...localized(previewText)}>{previewText.ko}</p>
                       <div class="experience-card-meta">
                         <span {...localizedPairText(entry, 'organization')}>{entry.ko.data.organization}</span>
                         <span {...i18nText(periodLabel.ko, periodLabel.en)}>{periodLabel.ko}</span>
@@ -655,26 +670,34 @@ const hasArchiveItems = archiveItems.length > 0;
                       </div>
                       <div class="experience-card-tags">
                         {
-                          experienceTagLabels.map((tag) => (
-                            <span class="experience-tag-chip" {...tagAriaLabel(tag)}>
-                              <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>
-                              <span class="experience-tag-tooltip" aria-hidden="true">
-                                <span {...i18nText(tag.description.ko, tag.description.en)}>
-                                  {tag.description.ko}
+                          cardVisibleTagLabels.map((tag) =>
+                            tag.kind === 'experience' ? (
+                              <span class="experience-tag-chip" {...tagAriaLabel(tag)}>
+                                <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>
+                                <span class="experience-tag-tooltip" aria-hidden="true">
+                                  <span {...i18nText(tag.description.ko, tag.description.en)}>
+                                    {tag.description.ko}
+                                  </span>
                                 </span>
                               </span>
+                            ) : (
+                              <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>
+                            )
+                          )
+                        }
+                        {
+                          cardHiddenTagCount > 0 && (
+                            <span
+                              class="experience-card-more-chip"
+                              {...i18nAttr(
+                                'aria-label',
+                                `그 외 ${cardHiddenTagCount}개 태그`,
+                                `${cardHiddenTagCount} more tags`
+                              )}
+                            >
+                              +{cardHiddenTagCount}
                             </span>
-                          ))
-                        }
-                        {
-                          category === 'project' &&
-                            projectDomainLabels.map((domain) => (
-                              <span {...i18nText(domain.ko, domain.en)}>{domain.ko}</span>
-                            ))
-                        }
-                        {
-                          category === 'project' &&
-                            techTagLabels.map((tag) => <span {...i18nText(tag.ko, tag.en)}>{tag.ko}</span>)
+                          )
                         }
                       </div>
                     </a>

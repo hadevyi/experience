@@ -12,14 +12,12 @@ import {
   getLocalizedListItem,
   getLocalizedText,
   resolveExperienceStatus,
-  statusLabels,
-  type ExperiencePair
+  statusLabels
 } from '../data/experienceArchive';
 import {
   getProjectDomainLabel,
   getExperienceCategoryLabel,
-  getExperienceTagLabel,
-  getTechTagLabel
+  getExperienceTagLabel
 } from '../data/experienceTaxonomy';
 
 const i18nText = (ko: string, en: string) => ({
@@ -46,10 +44,6 @@ export async function getStaticPaths() {
   }));
 }
 
-interface Props {
-  entry: ExperiencePair;
-}
-
 const { entry } = Astro.props;
 const koContent = await render(getLocalizedEntry(entry, 'ko'));
 const enContent = await render(getLocalizedEntry(entry, 'en'));
@@ -60,11 +54,14 @@ const experienceByNumber = new Map(allExperiencePairs.map((item) => [item.number
 const title = getLocalizedText(entry, 'title');
 const summary = getLocalizedText(entry, 'summary');
 const oneLine = getLocalizedText(entry, 'oneLine');
+const shouldShowSummary =
+  summary.ko.trim().length > 0 &&
+  summary.en.trim().length > 0 &&
+  (summary.ko.trim() !== oneLine.ko.trim() || summary.en.trim() !== oneLine.en.trim());
 const organization = getLocalizedText(entry, 'organization');
 const categoryLabel = getExperienceCategoryLabel(entry.meta.category);
 const experienceTagLabels = (entry.meta.experienceTags ?? []).map((tag) => getExperienceTagLabel(tag));
 const projectDomainLabels = (entry.meta.projectDomains ?? []).map((domain) => getProjectDomainLabel(domain));
-const techTagLabels = (entry.meta.techTags ?? []).map((tag) => getTechTagLabel(tag));
 const periodLabel = {
   ko: formatExperiencePeriods(entry.meta, 'ko'),
   en: formatExperiencePeriods(entry.meta, 'en')
@@ -72,33 +69,85 @@ const periodLabel = {
 const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
 const koProject = entry.ko.data.project;
 const enProject = (entry.en ?? entry.ko).data.project ?? koProject;
-const formatProjectTechStack = (
-  items: Array<{ name: string; version?: string; note?: string }> | undefined
-) =>
-  (items ?? [])
-    .map((item) => [item.name, item.version].filter(Boolean).join(' '))
-    .filter(Boolean)
-    .join(', ');
+const projectTechCategoryLabels = {
+  language: {
+    ko: '언어',
+    en: 'Language'
+  },
+  framework: {
+    ko: '프레임워크',
+    en: 'Framework'
+  },
+  database: {
+    ko: '데이터베이스',
+    en: 'Database'
+  },
+  tool: {
+    ko: '도구',
+    en: 'Tool'
+  },
+  environment: {
+    ko: '개발환경',
+    en: 'Environment'
+  },
+  platform: {
+    ko: '플랫폼',
+    en: 'Platform'
+  },
+  other: {
+    ko: '기타',
+    en: 'Other'
+  }
+} as const;
+const projectTechStackItems = (koProject?.techStack ?? []).map((item, index) => {
+  const enItem = enProject?.techStack?.[index] ?? item;
+  const category = item.category ?? 'other';
+
+  return {
+    category,
+    categoryLabel: projectTechCategoryLabels[category],
+    ko: item,
+    en: enItem
+  };
+});
+const hasProjectTechStack = entry.meta.category === 'project' && projectTechStackItems.length > 0;
+const formatProjectDomainValue = (language: 'ko' | 'en') =>
+  projectDomainLabels.map((item) => item[language]).filter(Boolean).join(', ');
+const formatProjectTeamSize = (language: 'ko' | 'en') => {
+  if (!entry.meta.teamSize) {
+    return '';
+  }
+
+  if (language === 'ko') {
+    return `${entry.meta.teamSize}인`;
+  }
+
+  return entry.meta.teamSize === 1 ? '1 person' : `${entry.meta.teamSize} people`;
+};
 const projectInfoRows =
   entry.meta.category === 'project' && koProject
     ? [
         {
+          label: { ko: '도메인', en: 'Domain' },
+          value: {
+            ko: formatProjectDomainValue('ko'),
+            en: formatProjectDomainValue('en')
+          }
+        },
+        {
           label: { ko: '소속/주최', en: 'Host' },
           value: { ko: koProject.host, en: enProject?.host || koProject.host }
+        },
+        {
+          label: { ko: '참여 인원', en: 'Team Size' },
+          value: { ko: formatProjectTeamSize('ko'), en: formatProjectTeamSize('en') }
         },
         {
           label: { ko: '직책/역할', en: 'Position / Role' },
           value: { ko: koProject.position, en: enProject?.position || koProject.position }
         },
         {
-          label: { ko: '기술 스택', en: 'Tech Stack' },
-          value: {
-            ko: formatProjectTechStack(koProject.techStack),
-            en: formatProjectTechStack(enProject?.techStack ?? koProject.techStack)
-          }
-        },
-        {
-          label: { ko: '배포 상세', en: 'Deployment' },
+          label: { ko: '배포/실행', en: 'Run / Deployment' },
           value: { ko: koProject.deployment, en: enProject?.deployment || koProject.deployment }
         }
       ].filter((item) => item.value.ko.trim().length > 0 || item.value.en.trim().length > 0)
@@ -109,6 +158,18 @@ const representativeImageAlt = {
   en: representativeImage?.alt?.en ?? title.en
 };
 const structuredSections = getExperienceDetailSections(entry);
+const structuredDetailBlocks = structuredSections.flatMap((section, index) => {
+  const blocks = [{ type: 'section', section }] as Array<
+    | { type: 'section'; section: (typeof structuredSections)[number] }
+    | { type: 'techStack' }
+  >;
+
+  if (index === 0 && hasProjectTechStack) {
+    blocks.push({ type: 'techStack' });
+  }
+
+  return blocks;
+});
 const highlights = entry.ko.data.highlights.map((_, index) =>
   getLocalizedListItem(entry, 'highlights', index)
 ).filter(
@@ -126,6 +187,15 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
         ko: item.number,
         en: item.number
       };
+  const relatedPeriodLabel = relatedEntry
+    ? {
+        ko: formatExperiencePeriods(relatedEntry.meta, 'ko'),
+        en: formatExperiencePeriods(relatedEntry.meta, 'en')
+      }
+    : {
+        ko: '',
+        en: ''
+      };
   const note = {
     ko: item.note?.ko ?? '',
     en: item.note?.en ?? item.note?.ko ?? ''
@@ -136,9 +206,10 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
     href: relatedEntry ? `${siteMeta.rootPath}${relatedEntry.number}/` : '',
     relationLabel,
     title: relatedTitle,
+    periodLabel: relatedPeriodLabel,
     note
   };
-});
+}).sort((a, b) => Number(a.number) - Number(b.number));
 ---
 
 <BaseLayout
@@ -172,9 +243,28 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
             </p>
           )
         }
-        <p class="experience-detail-summary" {...localized(summary)}>
-          {summary.ko}
-        </p>
+        {
+          shouldShowSummary && (
+            <p class="experience-detail-summary" {...localized(summary)}>
+              {summary.ko}
+            </p>
+          )
+        }
+
+        {
+          links.length > 0 && (
+            <div class="experience-detail-hero-links" {...i18nAttr('aria-label', '공개 링크', 'Public links')}>
+              <div class="experience-detail-hero-link-list">
+                {links.map((link) => (
+                  <a href={link.ko.url} class="experience-detail-hero-link" rel="noreferrer">
+                    <span {...i18nText(link.ko.label, link.en.label)}>{link.ko.label}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )
+        }
 
         {
           highlights.length > 0 && (
@@ -236,16 +326,6 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
               </span>
             ))
           }
-          {
-            entry.meta.category === 'project' &&
-              projectDomainLabels.map((item) => (
-                <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>
-              ))
-          }
-          {
-            entry.meta.category === 'project' &&
-              techTagLabels.map((item) => <span class="chip" {...i18nText(item.ko, item.en)}>{item.ko}</span>)
-          }
         </div>
       </aside>
     </section>
@@ -254,15 +334,46 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
       {
         structuredSections.length > 0 ? (
           <div class="experience-detail-section-list">
-            {structuredSections.map((section, index) => (
-              <section class="experience-detail-section">
-                <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
-                <div class="experience-detail-section-content">
-                  <h2 class="experience-detail-section-label" {...i18nText(section.ko.label, section.en.label)}>{section.ko.label}</h2>
-                  <p class="experience-detail-section-body" {...i18nText(section.ko.body, section.en.body)}>{section.ko.body}</p>
-                </div>
-              </section>
-            ))}
+            {structuredDetailBlocks.map((block, index) =>
+              block.type === 'techStack' ? (
+                <section class="experience-detail-section experience-detail-tech-section">
+                  <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div class="experience-detail-section-content experience-detail-tech-content">
+                    <h2 class="experience-detail-section-label" {...i18nText('기술 스택', 'Tech Stack')}>기술 스택</h2>
+                    <div class="experience-detail-tech-grid">
+                      {projectTechStackItems.map((item) => (
+                        <article class="experience-detail-tech-card">
+                          <p class="experience-detail-tech-category" {...localized(item.categoryLabel)}>
+                            {item.categoryLabel.ko}
+                          </p>
+                          <h3 class="experience-detail-tech-name" {...i18nText(item.ko.name, item.en.name)}>
+                            {item.ko.name}
+                          </h3>
+                          {(item.ko.version || item.en.version) && (
+                            <p class="experience-detail-tech-version" {...i18nText(item.ko.version, item.en.version)}>
+                              {item.ko.version}
+                            </p>
+                          )}
+                          {(item.ko.note || item.en.note) && (
+                            <p class="experience-detail-tech-note" {...i18nText(item.ko.note, item.en.note)}>
+                              {item.ko.note}
+                            </p>
+                          )}
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              ) : (
+                <section class="experience-detail-section">
+                  <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div class="experience-detail-section-content">
+                    <h2 class="experience-detail-section-label" {...i18nText(block.section.ko.label, block.section.en.label)}>{block.section.ko.label}</h2>
+                    <p class="experience-detail-section-body" {...i18nText(block.section.ko.body, block.section.en.body)}>{block.section.ko.body}</p>
+                  </div>
+                </section>
+              )
+            )}
           </div>
         ) : (
           <div class="rich-text mx-auto max-w-3xl">
@@ -276,21 +387,6 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
         )
       }
     </section>
-
-    {
-      links.length > 0 && (
-        <section class="experience-detail-link-panel">
-          <p class="type-label-wide uppercase text-ink/40" {...i18nText('Links', 'Links')}>Links</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {links.map((link) => (
-              <a href={link.ko.url} class="chip" target="_blank" rel="noreferrer">
-                <span {...i18nText(link.ko.label, link.en.label)}>{link.ko.label}</span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )
-    }
 
     {
       relatedItems.length > 0 && (
@@ -313,6 +409,13 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                     <span class="experience-related-title" {...localized(item.title)}>
                       {item.title.ko}
                     </span>
+                    {
+                      (item.periodLabel.ko || item.periodLabel.en) && (
+                        <span class="experience-related-period" {...localized(item.periodLabel)}>
+                          {item.periodLabel.ko}
+                        </span>
+                      )
+                    }
                   </a>
                 ) : (
                   <div class="experience-related-link">
@@ -322,6 +425,13 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                     <span class="experience-related-title" {...localized(item.title)}>
                       {item.title.ko}
                     </span>
+                    {
+                      (item.periodLabel.ko || item.periodLabel.en) && (
+                        <span class="experience-related-period" {...localized(item.periodLabel)}>
+                          {item.periodLabel.ko}
+                        </span>
+                      )
+                    }
                   </div>
                 )}
                 {(item.note.ko || item.note.en) && (

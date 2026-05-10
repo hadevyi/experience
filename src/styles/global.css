@@ -701,6 +701,29 @@ html[data-theme='dark'] {
     word-break: keep-all;
   }
 
+  .experience-detail-hero-links {
+    @apply mt-6 flex flex-wrap items-center gap-3;
+  }
+
+  .experience-detail-hero-link-list {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .experience-detail-hero-link {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 font-semibold no-underline transition;
+    border-color: color-mix(in srgb, var(--theme-accent) 24%, var(--theme-border));
+    background-color: color-mix(in srgb, var(--theme-accent) 7%, var(--theme-surface-strong));
+    color: color-mix(in srgb, var(--theme-accent) 78%, var(--theme-ink));
+    font-size: var(--type-caption-size);
+    line-height: var(--type-caption-leading);
+  }
+
+  .experience-detail-hero-link:hover {
+    border-color: color-mix(in srgb, var(--theme-accent) 44%, var(--theme-border));
+    background-color: color-mix(in srgb, var(--theme-accent) 12%, var(--theme-surface-strong));
+    color: var(--theme-accent);
+  }
+
   .experience-detail-info {
     @apply mt-4 grid gap-0;
   }
@@ -784,9 +807,53 @@ html[data-theme='dark'] {
   .experience-detail-section-body {
     @apply mt-4 whitespace-pre-line;
     font-size: var(--type-body-size);
-    line-height: 1.82;
+    line-height: 1.74;
     color: var(--theme-ink-soft);
     text-wrap: pretty;
+    word-break: keep-all;
+  }
+
+  .experience-detail-tech-content {
+    max-width: 100%;
+  }
+
+  .experience-detail-tech-grid {
+    @apply mt-5 grid gap-3 sm:grid-cols-2;
+  }
+
+  .experience-detail-tech-card {
+    @apply rounded-[1.25rem] border p-4;
+    border-color: var(--theme-border);
+    background-color: color-mix(in srgb, var(--theme-surface-strong) 72%, transparent);
+  }
+
+  .experience-detail-tech-category {
+    @apply m-0 font-semibold uppercase;
+    font-size: var(--type-micro-size);
+    line-height: var(--type-micro-leading);
+    letter-spacing: var(--type-label-tracking);
+    color: color-mix(in srgb, var(--theme-accent) 70%, var(--theme-ink-muted));
+  }
+
+  .experience-detail-tech-name {
+    @apply m-0 mt-2 font-semibold;
+    font-size: var(--type-small-size);
+    line-height: var(--type-small-leading);
+    color: var(--theme-ink);
+  }
+
+  .experience-detail-tech-version {
+    @apply m-0 mt-1;
+    font-size: var(--type-caption-size);
+    line-height: var(--type-caption-leading);
+    color: var(--theme-ink-muted);
+  }
+
+  .experience-detail-tech-note {
+    @apply m-0 mt-3;
+    font-size: var(--type-caption-size);
+    line-height: 1.62;
+    color: var(--theme-ink-soft);
     word-break: keep-all;
   }
 
@@ -827,10 +894,18 @@ html[data-theme='dark'] {
   }
 
   .experience-related-title {
-    @apply min-w-0 truncate font-semibold;
+    @apply min-w-0 flex-1 truncate font-semibold;
     font-size: var(--type-small-size);
     line-height: var(--type-small-leading);
     color: var(--theme-ink);
+  }
+
+  .experience-related-period {
+    @apply shrink-0 text-right;
+    font-size: var(--type-caption-size);
+    line-height: var(--type-caption-leading);
+    color: var(--theme-ink-muted);
+    font-variant-numeric: tabular-nums;
   }
 
   .experience-related-card:has(a):hover {
@@ -876,12 +951,17 @@ html[data-theme='dark'] {
     }
 
     .experience-related-link {
-      @apply items-start;
+      @apply flex-wrap items-start;
     }
 
     .experience-related-title {
       @apply whitespace-normal;
+      flex-basis: calc(100% - 4.75rem);
       word-break: keep-all;
+    }
+
+    .experience-related-period {
+      @apply ml-[4.25rem] w-full text-left;
     }
 
     .experience-related-note {
@@ -918,8 +998,10 @@ html[data-theme='dark'] {
   --experience-shadow: var(--theme-shadow);
   --experience-ambient-glow: var(--theme-selection-bg);
   display: grid;
+  height: 100svh;
   min-height: 100svh;
   grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+  overflow: hidden;
   background-color: var(--theme-paper);
   background-image: var(--theme-backdrop);
   color: var(--experience-ink-muted);
@@ -931,10 +1013,10 @@ html[data-theme='dark'] {
 }
 
 .experience-archive-rail {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow-y: auto;
+  position: relative;
+  align-self: stretch;
+  min-height: 0;
+  overflow: hidden;
   border-right: 1px solid var(--experience-line);
   background:
     linear-gradient(180deg, var(--theme-surface-strong), var(--experience-surface)),
@@ -948,10 +1030,30 @@ html[data-theme='dark'] .experience-archive-page {
 
 .experience-rail-inner {
   display: flex;
-  min-height: 100%;
+  height: 100%;
+  min-height: 0;
   flex-direction: column;
   gap: 0.875rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: clamp(1.25rem, 2vw, 1.75rem);
+  scrollbar-gutter: stable;
+}
+
+.experience-rail-inner::-webkit-scrollbar,
+.experience-archive-content::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+.experience-rail-inner::-webkit-scrollbar-thumb,
+.experience-archive-content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--experience-accent) 22%, transparent);
+}
+
+.experience-rail-inner::-webkit-scrollbar-track,
+.experience-archive-content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .experience-rail-header {
@@ -1480,11 +1582,13 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   min-height: 2.85rem;
   align-items: center;
   gap: 0.55rem;
-  border: 1px solid var(--experience-line);
+  border: 1px solid color-mix(in srgb, var(--experience-line) 86%, transparent);
   border-radius: 999px;
-  background: color-mix(in srgb, var(--experience-surface) 84%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--experience-surface-strong) 92%, transparent), color-mix(in srgb, var(--experience-surface) 86%, transparent)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--experience-accent-soft) 64%, transparent), transparent 72%);
   padding: 0.32rem 0.36rem 0.32rem 0.85rem;
-  box-shadow: 0 10px 26px rgba(49, 43, 72, 0.045);
+  box-shadow: 0 12px 30px rgba(49, 43, 72, 0.052);
   backdrop-filter: blur(16px);
 }
 
@@ -1848,6 +1952,10 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-archive-content {
   min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .experience-content-shell {
@@ -1863,8 +1971,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 1.05rem;
+  margin-top: 1.15rem;
 }
 
 .experience-card {
@@ -1873,12 +1981,13 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-card-link {
   display: flex;
+  height: 100%;
   min-height: 100%;
   flex-direction: column;
-  border: 1px solid var(--experience-line);
+  border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
   border-radius: 1.5rem;
   background:
-    linear-gradient(180deg, var(--theme-surface-strong), var(--experience-surface)),
+    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
     radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 13rem);
   padding: clamp(1.1rem, 2vw, 1.5rem);
   color: inherit;
@@ -1892,7 +2001,9 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-card-link:hover {
   border-color: color-mix(in srgb, var(--experience-accent) 34%, var(--experience-line));
-  box-shadow: var(--experience-shadow);
+  box-shadow:
+    var(--experience-shadow),
+    0 0 0 1px color-mix(in srgb, var(--experience-accent) 10%, transparent);
   transform: translateY(-2px);
 }
 
@@ -1929,30 +2040,38 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-card-visual {
   display: grid;
   place-items: center;
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
   margin: 1rem 0 0;
   overflow: hidden;
-  border: 1px solid var(--experience-line);
-  border-radius: 1.1rem;
-  background: #ffffff;
-  padding: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--experience-line-strong) 72%, transparent);
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--experience-accent-soft) 72%, transparent), transparent 48%),
+    linear-gradient(145deg, color-mix(in srgb, var(--experience-surface-strong) 86%, #ffffff), color-mix(in srgb, var(--experience-surface) 88%, #ffffff));
+  padding: 0;
 }
 
 .experience-card-visual img {
   display: block;
   width: 100%;
-  aspect-ratio: 1.8 / 1;
-  border-radius: 0.75rem;
+  height: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--experience-surface-strong) 92%, #ffffff);
   object-fit: contain;
+  box-shadow: none;
 }
 
 .experience-card h3 {
-  margin: 1rem 0 0;
+  margin: 0.95rem 0 0;
   color: var(--experience-ink);
   font-family: var(--font-display);
   font-size: var(--type-card-title-size);
-  font-weight: 650;
-  line-height: var(--type-card-title-leading);
-  letter-spacing: -0.018em;
+  font-weight: 760;
+  line-height: 1.28;
+  letter-spacing: -0.024em;
   word-break: keep-all;
 }
 
@@ -1963,16 +2082,16 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .experience-card p {
-  margin: 0.8rem 0 0;
-  color: var(--experience-ink-soft);
+  margin: 0.58rem 0 0;
+  color: var(--experience-ink-muted);
   font-size: var(--type-small-size);
-  line-height: var(--type-small-leading);
+  line-height: 1.6;
   word-break: keep-all;
 }
 
 .experience-card-grid:not(.experience-card-grid-list) .experience-card p {
   display: -webkit-box;
-  min-height: calc(var(--type-small-size) * var(--type-small-leading) * 2);
+  min-height: calc(var(--type-small-size) * 1.6 * 2);
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -1980,10 +2099,11 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .experience-card-meta {
-  margin-top: 1.15rem;
-  color: var(--experience-ink-muted);
+  margin-top: 0.82rem;
+  color: var(--experience-ink-faint);
   font-size: var(--type-caption-size);
   line-height: var(--type-caption-leading);
+  font-weight: 650;
 }
 
 .experience-card-meta span:not(:last-child)::after {
@@ -2000,24 +2120,40 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-card-tags {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 0.45rem;
   margin-top: auto;
   padding-top: 1.1rem;
 }
 
 .experience-card-tags > span {
+  display: inline-flex;
+  box-sizing: border-box;
+  min-height: 1.85rem;
+  align-items: center;
   border: 1px solid var(--experience-line);
   border-radius: 999px;
   background: var(--experience-surface-strong);
-  padding: 0.33rem 0.55rem;
+  padding: 0.32rem 0.56rem;
   color: var(--experience-ink-muted);
   font-size: var(--type-caption-size);
-  line-height: var(--type-caption-leading);
+  line-height: 1.1;
   font-weight: 600;
+  white-space: nowrap;
+}
+
+.experience-card-grid:not(.experience-card-grid-list) .experience-card-tags {
+  min-height: 4.95rem;
 }
 
 .experience-tag-chip {
   position: relative;
+}
+
+.experience-card-more-chip {
+  border-color: color-mix(in srgb, var(--experience-accent) 28%, var(--experience-line));
+  background: var(--experience-accent-soft);
+  color: color-mix(in srgb, var(--experience-accent) 72%, var(--experience-ink));
 }
 
 .experience-tag-tooltip {
@@ -2160,17 +2296,32 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 @media (max-width: 1023px) {
   .experience-archive-page {
     display: block;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
   }
 
   .experience-archive-rail {
     position: relative;
     height: auto;
+    min-height: auto;
+    overflow: visible;
     border-right: 0;
     border-bottom: 1px solid var(--experience-line);
   }
 
   .experience-rail-inner {
+    height: auto;
     min-height: auto;
+    overflow: visible;
+    overscroll-behavior: auto;
+    scrollbar-gutter: auto;
+  }
+
+  .experience-archive-content {
+    overflow: visible;
+    overscroll-behavior: auto;
+    scrollbar-gutter: auto;
   }
 
   .experience-archive-page[data-sidebar-collapsed='true'] .experience-rail-inner {
