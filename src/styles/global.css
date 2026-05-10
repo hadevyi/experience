@@ -1001,6 +1001,7 @@ html[data-theme='dark'] {
   height: 100svh;
   min-height: 100svh;
   grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
+  align-items: stretch;
   overflow: hidden;
   background-color: var(--theme-paper);
   background-image: var(--theme-backdrop);
@@ -1034,8 +1035,9 @@ html[data-theme='dark'] .experience-archive-page {
   min-height: 0;
   flex-direction: column;
   gap: 0.875rem;
+  overflow-x: hidden;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  overscroll-behavior: auto;
   padding: clamp(1.25rem, 2vw, 1.75rem);
   scrollbar-gutter: stable;
 }
@@ -1186,6 +1188,7 @@ html:lang(en) .experience-rail-intro h2 {
 }
 
 .experience-archive-page[data-sidebar-collapsed='true'] .experience-rail-intro {
+  display: none;
   width: 0;
   opacity: 0;
   pointer-events: none;
@@ -1194,7 +1197,10 @@ html:lang(en) .experience-rail-intro h2 {
 }
 
 .experience-archive-page[data-sidebar-collapsed='true'] .experience-filter-panel {
+  display: none;
   max-height: 0;
+  max-width: 0;
+  overflow: hidden;
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
@@ -1953,8 +1959,9 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-archive-content {
   min-width: 0;
   min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  overscroll-behavior: auto;
   scrollbar-gutter: stable;
 }
 
