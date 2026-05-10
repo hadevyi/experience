@@ -653,13 +653,15 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-image-card {
-    @apply m-0 overflow-hidden rounded-[1.1rem] border p-4;
+    @apply m-0 overflow-hidden rounded-[1.1rem] border p-0;
+    aspect-ratio: 1.8 / 1;
     border-color: var(--theme-border);
     background-color: #ffffff;
   }
 
   .experience-detail-image-card img {
-    @apply block aspect-[1.55/1] w-full rounded-[0.8rem] object-contain;
+    @apply block h-full w-full object-contain;
+    border-radius: inherit;
   }
 
   .experience-detail-kicker {
