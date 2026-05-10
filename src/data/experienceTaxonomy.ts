@@ -198,6 +198,10 @@ export const projectDomainConfig = {
   web: {
     ko: '웹',
     en: 'Web'
+  },
+  desktop: {
+    ko: '데스크톱 앱',
+    en: 'Desktop App'
   }
 } as const;
 
@@ -211,6 +215,18 @@ export const isProjectDomainKey = (value: string): value is ProjectDomainKey =>
 export const getProjectDomainLabel = (domain: ProjectDomainKey) => projectDomainConfig[domain];
 
 export const techTagConfig = {
+  java: {
+    ko: 'Java',
+    en: 'Java'
+  },
+  awt: {
+    ko: 'AWT',
+    en: 'AWT'
+  },
+  swing: {
+    ko: 'Swing',
+    en: 'Swing'
+  },
   csharp: {
     ko: 'C#',
     en: 'C#'
@@ -222,6 +238,10 @@ export const techTagConfig = {
   sqlserver: {
     ko: 'SQL Server',
     en: 'SQL Server'
+  },
+  mysql: {
+    ko: 'MySQL',
+    en: 'MySQL'
   }
 } as const;
 
