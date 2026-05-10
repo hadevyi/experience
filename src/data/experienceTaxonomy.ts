@@ -218,6 +218,10 @@ export const techTagConfig = {
   aspnet: {
     ko: 'ASP.NET',
     en: 'ASP.NET'
+  },
+  sqlserver: {
+    ko: 'SQL Server',
+    en: 'SQL Server'
   }
 } as const;
 

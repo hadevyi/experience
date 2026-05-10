@@ -31,7 +31,12 @@ export type ExperienceVisibility = 'public' | 'private';
 export type ExperiencePeriodPointPrecision = 'year' | 'month' | 'day' | 'minute';
 export type ExperienceRelation =
   | 'affiliation'
+  | 'university'
+  | 'department'
+  | 'project'
+  | 'activity'
   | 'award'
+  | 'previous-role'
   | 'previous'
   | 'next'
   | 'source'
@@ -53,9 +58,29 @@ export const experienceRelationLabels = {
     ko: '소속',
     en: 'Affiliation'
   },
+  university: {
+    ko: '학교',
+    en: 'University'
+  },
+  department: {
+    ko: '학과',
+    en: 'Department'
+  },
+  project: {
+    ko: '프로젝트',
+    en: 'Project'
+  },
+  activity: {
+    ko: '활동',
+    en: 'Activity'
+  },
   award: {
     ko: '수상',
     en: 'Award'
+  },
+  'previous-role': {
+    ko: '이전 역할',
+    en: 'Previous role'
   },
   previous: {
     ko: '이전',
@@ -118,6 +143,7 @@ export interface ExperienceMeta {
   category: ExperienceCategoryKey;
   visibility: ExperienceVisibility;
   status: ExperienceStatus;
+  teamSize?: number;
   experienceTags?: ExperienceTagKey[];
   projectDomains?: ProjectDomainKey[];
   techTags?: TechTagKey[];
@@ -212,6 +238,7 @@ const validateRepresentativeImage = (number: string, image?: ExperienceRepresent
   if (typeof image.src !== 'string' || image.src.trim().length === 0) {
     throw new Error(`Experience ${number} representativeImage must include a non-empty "src".`);
   }
+
 };
 
 const formatExperiencePeriodPoint = (point: ParsedExperiencePeriodPoint) => {
@@ -375,6 +402,49 @@ export const getExperienceMeta = (number: string) => {
   return meta;
 };
 
+type ExperienceTemplateField =
+  | 'affiliation'
+  | 'project'
+  | 'community'
+  | 'workExperience'
+  | 'learningGrowth'
+  | 'teachingMentoring'
+  | 'awardScholarship'
+  | 'mediaInterview';
+
+const experienceTemplateFieldByCategory = {
+  affiliation: 'affiliation',
+  project: 'project',
+  community: 'community',
+  'work-experience': 'workExperience',
+  'learning-growth': 'learningGrowth',
+  'teaching-mentoring': 'teachingMentoring',
+  'award-scholarship': 'awardScholarship',
+  'media-interview': 'mediaInterview'
+} as const satisfies Record<ExperienceCategoryKey, ExperienceTemplateField>;
+
+const validateExperienceCategoryTemplate = (
+  number: string,
+  language: ExperienceLanguage,
+  category: ExperienceCategoryKey,
+  entry: ExperienceEntry
+) => {
+  const templateField = experienceTemplateFieldByCategory[category];
+  const templateValue = entry.data[templateField];
+
+  if (!templateValue) {
+    throw new Error(
+      `Experience ${number}/${language}.mdx must use "${templateField}" because its category is "${category}".`
+    );
+  }
+
+  if (entry.data.sections.length > 0) {
+    throw new Error(
+      `Experience ${number}/${language}.mdx uses category "${category}", so "sections" must stay empty. Use "${templateField}" instead.`
+    );
+  }
+};
+
 export const getExperiencePairs = (entries: ExperienceEntry[]) => {
   const grouped = new Map<string, Partial<Record<ExperienceLanguage, ExperienceEntry>>>();
 
@@ -390,12 +460,20 @@ export const getExperiencePairs = (entries: ExperienceEntry[]) => {
       throw new Error(`Missing ko.mdx for experience ${number}`);
     }
 
-    return {
+    const pair = {
       number,
       meta: getExperienceMeta(number),
       ko: localizedEntries.ko,
       en: localizedEntries.en
     };
+
+    validateExperienceCategoryTemplate(number, 'ko', pair.meta.category, pair.ko);
+
+    if (pair.en) {
+      validateExperienceCategoryTemplate(number, 'en', pair.meta.category, pair.en);
+    }
+
+    return pair;
   });
 };
 
@@ -432,21 +510,25 @@ export const getLocalizedSection = (pair: ExperiencePair, index: number) => {
 };
 
 const affiliationSectionLabels = {
+  overview: {
+    ko: '소속/기관 소개',
+    en: 'Affiliation Overview'
+  },
   reason: {
     ko: '속하게 된 이유',
     en: 'Why I Joined'
   },
   startingContext: {
-    ko: '시작 당시의 맥락',
-    en: 'Starting Context'
+    ko: '합류 당시',
+    en: 'When I Joined'
   },
-  connectedExperiences: {
-    ko: '이어진 경험',
-    en: 'Connected Experiences'
+  challenges: {
+    ko: '어려웠던 점',
+    en: 'Challenges'
   },
-  meaning: {
-    ko: '남은 의미',
-    en: 'What It Means Now'
+  gains: {
+    ko: '얻은 것',
+    en: 'What I Gained'
   }
 } as const;
 
@@ -455,27 +537,39 @@ type AffiliationSectionKey = keyof typeof affiliationSectionLabels;
 const affiliationSectionKeys = Object.keys(affiliationSectionLabels) as AffiliationSectionKey[];
 
 const projectSectionLabels = {
-  participationReason: {
-    ko: '참여 이유',
-    en: 'Why I Joined'
+  overview: {
+    ko: '프로젝트 개요',
+    en: 'Project Overview'
   },
-  description: {
-    ko: '프로젝트 설명',
-    en: 'Project Description'
+  teamComposition: {
+    ko: '팀 구성',
+    en: 'Team Composition'
   },
-  responsibilities: {
-    ko: '프로젝트 내 역할',
-    en: 'My Responsibilities'
+  background: {
+    ko: '기획 배경',
+    en: 'Planning Background'
   },
-  technicalDetails: {
-    ko: '구현과 기술 상세',
-    en: 'Implementation Details'
+  scope: {
+    ko: '목표와 구현 범위',
+    en: 'Goal and Scope'
   },
-  deployment: {
-    ko: '배포 상세',
-    en: 'Deployment'
+  contribution: {
+    ko: '내 역할과 기여',
+    en: 'My Role and Contribution'
   },
-  result: {
+  roleDetails: {
+    ko: '실제 구현/기여 상세',
+    en: 'Implementation / Contribution Details'
+  },
+  implementation: {
+    ko: '설계와 구현',
+    en: 'Design and Implementation'
+  },
+  challenges: {
+    ko: '어려웠던 점과 해결',
+    en: 'Challenges and Solutions'
+  },
+  outcome: {
     ko: '결과와 배운 점',
     en: 'Outcome and Learning'
   }
@@ -485,7 +579,197 @@ type ProjectSectionKey = keyof typeof projectSectionLabels;
 
 const projectSectionKeys = Object.keys(projectSectionLabels) as ProjectSectionKey[];
 
+interface ProjectTeamCompositionItem {
+  role: string;
+  count: number;
+  note?: string;
+}
+
 const formatProjectResponsibilities = (items: string[]) => items.map((item) => `• ${item}`).join('\n');
+
+const isProjectTeamComposition = (value: unknown[]): value is ProjectTeamCompositionItem[] =>
+  value.every((item) => typeof item === 'object' && item !== null && 'role' in item && 'count' in item);
+
+const formatProjectTeamComposition = (
+  items: ProjectTeamCompositionItem[],
+  language: ExperienceLanguage
+) =>
+  items
+    .map((item) => {
+      const count = language === 'ko' ? `${item.count}명` : item.count === 1 ? '1 person' : `${item.count} people`;
+      const note = item.note ? ` - ${item.note}` : '';
+
+      return `• ${item.role} ${count}${note}`;
+    })
+    .join('\n');
+
+const communitySectionLabels = {
+  overview: {
+    ko: '활동/커뮤니티 소개',
+    en: 'Activity / Community Overview'
+  },
+  motivation: {
+    ko: '참여한 이유',
+    en: 'Why I Joined'
+  },
+  role: {
+    ko: '맡은 역할',
+    en: 'My Role'
+  },
+  contribution: {
+    ko: '기여한 방식',
+    en: 'How I Contributed'
+  },
+  challenges: {
+    ko: '어려웠던 점',
+    en: 'Challenges'
+  },
+  impact: {
+    ko: '남은 영향',
+    en: 'Impact'
+  }
+} as const;
+
+type CommunitySectionKey = keyof typeof communitySectionLabels;
+
+const communitySectionKeys = Object.keys(communitySectionLabels) as CommunitySectionKey[];
+
+const workExperienceSectionLabels = {
+  context: {
+    ko: '조직과 책임',
+    en: 'Organization and Responsibility'
+  },
+  responsibilities: {
+    ko: '맡은 일',
+    en: 'Responsibilities'
+  },
+  collaboration: {
+    ko: '협업 방식',
+    en: 'Collaboration'
+  },
+  outcome: {
+    ko: '결과와 변화',
+    en: 'Outcome and Change'
+  }
+} as const;
+
+type WorkExperienceSectionKey = keyof typeof workExperienceSectionLabels;
+
+const workExperienceSectionKeys = Object.keys(workExperienceSectionLabels) as WorkExperienceSectionKey[];
+
+const learningGrowthSectionLabels = {
+  background: {
+    ko: '시작 배경',
+    en: 'Starting Point'
+  },
+  learning: {
+    ko: '배운 내용',
+    en: 'What I Learned'
+  },
+  change: {
+    ko: '이후 변화',
+    en: 'What Changed'
+  }
+} as const;
+
+type LearningGrowthSectionKey = keyof typeof learningGrowthSectionLabels;
+
+const learningGrowthSectionKeys = Object.keys(learningGrowthSectionLabels) as LearningGrowthSectionKey[];
+
+const teachingMentoringSectionLabels = {
+  audienceGoal: {
+    ko: '대상과 목표',
+    en: 'Audience and Goal'
+  },
+  preparation: {
+    ko: '준비와 설계',
+    en: 'Preparation'
+  },
+  outcome: {
+    ko: '반응과 결과',
+    en: 'Response and Outcome'
+  }
+} as const;
+
+type TeachingMentoringSectionKey = keyof typeof teachingMentoringSectionLabels;
+
+const teachingMentoringSectionKeys = Object.keys(teachingMentoringSectionLabels) as TeachingMentoringSectionKey[];
+
+const awardScholarshipSectionLabels = {
+  criteria: {
+    ko: '인정받은 기준',
+    en: 'Recognition Criteria'
+  },
+  relatedActivity: {
+    ko: '연결된 활동',
+    en: 'Related Activity'
+  },
+  meaning: {
+    ko: '나에게 남은 의미',
+    en: 'Meaning'
+  }
+} as const;
+
+type AwardScholarshipSectionKey = keyof typeof awardScholarshipSectionLabels;
+
+const awardScholarshipSectionKeys = Object.keys(awardScholarshipSectionLabels) as AwardScholarshipSectionKey[];
+
+const mediaInterviewSectionLabels = {
+  background: {
+    ko: '소개된 배경',
+    en: 'Background'
+  },
+  topics: {
+    ko: '다룬 주제',
+    en: 'Topics'
+  },
+  message: {
+    ko: '전달하고 싶었던 메시지',
+    en: 'Message'
+  }
+} as const;
+
+type MediaInterviewSectionKey = keyof typeof mediaInterviewSectionLabels;
+
+const mediaInterviewSectionKeys = Object.keys(mediaInterviewSectionLabels) as MediaInterviewSectionKey[];
+
+type StructuredBodyValue = string | string[] | ProjectTeamCompositionItem[] | undefined;
+
+const normalizeStructuredBody = (value: StructuredBodyValue, language: ExperienceLanguage) => {
+  if (!Array.isArray(value)) {
+    return value ?? '';
+  }
+
+  if (isProjectTeamComposition(value)) {
+    return formatProjectTeamComposition(value, language);
+  }
+
+  return formatProjectResponsibilities(value);
+};
+
+const buildStructuredSections = <Key extends string>(
+  labels: Record<Key, { ko: string; en: string }>,
+  keys: readonly Key[],
+  koData: Record<Key, StructuredBodyValue>,
+  enData: Record<Key, StructuredBodyValue>
+): ExperienceLocalizedSection[] =>
+  keys
+    .map((key) => {
+      const koBody = normalizeStructuredBody(koData[key], 'ko');
+      const enBody = normalizeStructuredBody(enData[key], 'en') || koBody;
+
+      return {
+        ko: {
+          label: labels[key].ko,
+          body: koBody
+        },
+        en: {
+          label: labels[key].en,
+          body: enBody
+        }
+      };
+    })
+    .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
 
 export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLocalizedSection[] => {
   if (pair.meta.category === 'affiliation' && pair.ko.data.affiliation) {
@@ -510,29 +794,84 @@ export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLoc
     const koProject = pair.ko.data.project;
     const enProject = (pair.en ?? pair.ko).data.project ?? koProject;
 
-    return projectSectionKeys
-      .map((key) => {
-        const koBody =
-          key === 'responsibilities'
-            ? formatProjectResponsibilities(koProject.responsibilities)
-            : koProject[key] ?? '';
-        const enBody =
-          key === 'responsibilities'
-            ? formatProjectResponsibilities(enProject.responsibilities ?? koProject.responsibilities)
-            : enProject[key] ?? koProject[key] ?? '';
+    return buildStructuredSections(
+      projectSectionLabels,
+      projectSectionKeys,
+      koProject,
+      enProject
+    );
+  }
 
-        return {
-          ko: {
-            label: projectSectionLabels[key].ko,
-            body: koBody
-          },
-          en: {
-            label: projectSectionLabels[key].en,
-            body: enBody
-          }
-        };
-      })
-      .filter((section) => section.ko.body.trim().length > 0 || section.en.body.trim().length > 0);
+  if (pair.meta.category === 'community' && pair.ko.data.community) {
+    const koCommunity = pair.ko.data.community;
+    const enCommunity = (pair.en ?? pair.ko).data.community ?? koCommunity;
+
+    return buildStructuredSections(
+      communitySectionLabels,
+      communitySectionKeys,
+      koCommunity,
+      enCommunity
+    );
+  }
+
+  if (pair.meta.category === 'work-experience' && pair.ko.data.workExperience) {
+    const koWorkExperience = pair.ko.data.workExperience;
+    const enWorkExperience = (pair.en ?? pair.ko).data.workExperience ?? koWorkExperience;
+
+    return buildStructuredSections(
+      workExperienceSectionLabels,
+      workExperienceSectionKeys,
+      koWorkExperience,
+      enWorkExperience
+    );
+  }
+
+  if (pair.meta.category === 'learning-growth' && pair.ko.data.learningGrowth) {
+    const koLearningGrowth = pair.ko.data.learningGrowth;
+    const enLearningGrowth = (pair.en ?? pair.ko).data.learningGrowth ?? koLearningGrowth;
+
+    return buildStructuredSections(
+      learningGrowthSectionLabels,
+      learningGrowthSectionKeys,
+      koLearningGrowth,
+      enLearningGrowth
+    );
+  }
+
+  if (pair.meta.category === 'teaching-mentoring' && pair.ko.data.teachingMentoring) {
+    const koTeachingMentoring = pair.ko.data.teachingMentoring;
+    const enTeachingMentoring = (pair.en ?? pair.ko).data.teachingMentoring ?? koTeachingMentoring;
+
+    return buildStructuredSections(
+      teachingMentoringSectionLabels,
+      teachingMentoringSectionKeys,
+      koTeachingMentoring,
+      enTeachingMentoring
+    );
+  }
+
+  if (pair.meta.category === 'award-scholarship' && pair.ko.data.awardScholarship) {
+    const koAwardScholarship = pair.ko.data.awardScholarship;
+    const enAwardScholarship = (pair.en ?? pair.ko).data.awardScholarship ?? koAwardScholarship;
+
+    return buildStructuredSections(
+      awardScholarshipSectionLabels,
+      awardScholarshipSectionKeys,
+      koAwardScholarship,
+      enAwardScholarship
+    );
+  }
+
+  if (pair.meta.category === 'media-interview' && pair.ko.data.mediaInterview) {
+    const koMediaInterview = pair.ko.data.mediaInterview;
+    const enMediaInterview = (pair.en ?? pair.ko).data.mediaInterview ?? koMediaInterview;
+
+    return buildStructuredSections(
+      mediaInterviewSectionLabels,
+      mediaInterviewSectionKeys,
+      koMediaInterview,
+      enMediaInterview
+    );
   }
 
   return pair.ko.data.sections
