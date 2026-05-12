@@ -90,9 +90,17 @@ const teachingMentoringSchema = z
 
 const awardScholarshipSchema = z
   .object({
-    criteria: z.string().default(''),
-    relatedActivity: z.string().default(''),
-    meaning: z.string().default('')
+    overview: z.string().default(''),
+    criteria: z
+      .array(
+        z.object({
+          label: z.string(),
+          detail: z.string().default('')
+        })
+      )
+      .default([]),
+    application: z.string().default(''),
+    resultBenefit: z.string().default('')
   })
   .optional();
 

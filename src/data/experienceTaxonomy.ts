@@ -202,6 +202,10 @@ export const projectDomainConfig = {
   desktop: {
     ko: '데스크톱 앱',
     en: 'Desktop App'
+  },
+  iot: {
+    ko: 'IoT',
+    en: 'IoT'
   }
 } as const;
 
@@ -242,6 +246,10 @@ export const techTagConfig = {
   mysql: {
     ko: 'MySQL',
     en: 'MySQL'
+  },
+  sensor: {
+    ko: 'Sensor',
+    en: 'Sensor'
   }
 } as const;
 

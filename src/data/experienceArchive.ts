@@ -37,6 +37,7 @@ export type ExperienceRelation =
   | 'activity'
   | 'award'
   | 'lab-recommendation'
+  | 'lab-team'
   | 'extended-activity'
   | 'previous-role'
   | 'previous'
@@ -44,6 +45,8 @@ export type ExperienceRelation =
   | 'source'
   | 'result'
   | 'reference'
+  | 'parent-experience'
+  | 'detailed-experience'
   | 'related';
 
 export interface ExperienceRelated {
@@ -84,6 +87,10 @@ export const experienceRelationLabels = {
     ko: '랩실 추천',
     en: 'Lab recommendation'
   },
+  'lab-team': {
+    ko: '랩실 기반 팀 구성',
+    en: 'Lab-based team'
+  },
   'extended-activity': {
     ko: '이어진 활동',
     en: 'Extended activity'
@@ -111,6 +118,14 @@ export const experienceRelationLabels = {
   reference: {
     ko: '참고',
     en: 'Reference'
+  },
+  'parent-experience': {
+    ko: '상위 경험',
+    en: 'Parent experience'
+  },
+  'detailed-experience': {
+    ko: '세부 경험',
+    en: 'Detailed experience'
   },
   related: {
     ko: '연관',
@@ -595,6 +610,11 @@ interface ProjectTeamCompositionItem {
   note?: string;
 }
 
+interface AwardScholarshipCriterionItem {
+  label: string;
+  detail?: string;
+}
+
 const formatProjectResponsibilities = (items: string[]) => items.map((item) => `• ${item}`).join('\n');
 
 const isProjectTeamComposition = (value: unknown[]): value is ProjectTeamCompositionItem[] =>
@@ -610,6 +630,18 @@ const formatProjectTeamComposition = (
       const note = item.note ? ` - ${item.note}` : '';
 
       return `• ${item.role} ${count}${note}`;
+    })
+    .join('\n');
+
+const isAwardScholarshipCriteria = (value: unknown[]): value is AwardScholarshipCriterionItem[] =>
+  value.every((item) => typeof item === 'object' && item !== null && 'label' in item);
+
+const formatAwardScholarshipCriteria = (items: AwardScholarshipCriterionItem[]) =>
+  items
+    .map((item) => {
+      const detail = item.detail ? `: ${item.detail}` : '';
+
+      return `• ${item.label}${detail}`;
     })
     .join('\n');
 
@@ -718,17 +750,21 @@ type TeachingMentoringSectionKey = keyof typeof teachingMentoringSectionLabels;
 const teachingMentoringSectionKeys = Object.keys(teachingMentoringSectionLabels) as TeachingMentoringSectionKey[];
 
 const awardScholarshipSectionLabels = {
+  overview: {
+    ko: '수상/장학 개요',
+    en: 'Award or Scholarship Overview'
+  },
   criteria: {
-    ko: '인정받은 기준',
-    en: 'Recognition Criteria'
+    ko: '선정 기준',
+    en: 'Selection Criteria'
   },
-  relatedActivity: {
-    ko: '연결된 활동',
-    en: 'Related Activity'
+  application: {
+    ko: '신청/선발 방식',
+    en: 'Application and Selection'
   },
-  meaning: {
-    ko: '나에게 남은 의미',
-    en: 'Meaning'
+  resultBenefit: {
+    ko: '결과와 혜택',
+    en: 'Result and Benefit'
   }
 } as const;
 
@@ -755,7 +791,12 @@ type MediaInterviewSectionKey = keyof typeof mediaInterviewSectionLabels;
 
 const mediaInterviewSectionKeys = Object.keys(mediaInterviewSectionLabels) as MediaInterviewSectionKey[];
 
-type StructuredBodyValue = string | string[] | ProjectTeamCompositionItem[] | undefined;
+type StructuredBodyValue =
+  | string
+  | string[]
+  | ProjectTeamCompositionItem[]
+  | AwardScholarshipCriterionItem[]
+  | undefined;
 
 const normalizeStructuredBody = (value: StructuredBodyValue, language: ExperienceLanguage) => {
   if (!Array.isArray(value)) {
@@ -764,6 +805,10 @@ const normalizeStructuredBody = (value: StructuredBodyValue, language: Experienc
 
   if (isProjectTeamComposition(value)) {
     return formatProjectTeamComposition(value, language);
+  }
+
+  if (isAwardScholarshipCriteria(value)) {
+    return formatAwardScholarshipCriteria(value);
   }
 
   return formatProjectResponsibilities(value);
