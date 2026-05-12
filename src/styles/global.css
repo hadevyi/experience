@@ -852,7 +852,7 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-tech-note {
-    @apply m-0 mt-3;
+    @apply m-0 mt-3 whitespace-pre-line;
     font-size: var(--type-caption-size);
     line-height: 1.62;
     color: var(--theme-ink-soft);

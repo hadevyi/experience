@@ -111,6 +111,13 @@ const projectTechStackItems = (koProject?.techStack ?? []).map((item, index) => 
   };
 });
 const hasProjectTechStack = entry.meta.category === 'project' && projectTechStackItems.length > 0;
+const koAwardScholarship = entry.ko.data.awardScholarship;
+const enAwardScholarship = (entry.en ?? entry.ko).data.awardScholarship ?? koAwardScholarship;
+const awardCriteriaItems = (koAwardScholarship?.criteria ?? []).map((item, index) => ({
+  ko: item,
+  en: enAwardScholarship?.criteria?.[index] ?? item
+}));
+const hasAwardCriteria = entry.meta.category === 'award-scholarship' && awardCriteriaItems.length > 0;
 const formatProjectDomainValue = (language: 'ko' | 'en') =>
   projectDomainLabels.map((item) => item[language]).filter(Boolean).join(', ');
 const formatProjectTeamSize = (language: 'ko' | 'en') => {
@@ -162,10 +169,19 @@ const structuredDetailBlocks = structuredSections.flatMap((section, index) => {
   const blocks = [{ type: 'section', section }] as Array<
     | { type: 'section'; section: (typeof structuredSections)[number] }
     | { type: 'techStack' }
+    | { type: 'awardCriteria' }
   >;
 
   if (index === 0 && hasProjectTechStack) {
     blocks.push({ type: 'techStack' });
+  }
+
+  if (hasAwardCriteria && section.ko.label === '선정 기준') {
+    return [{ type: 'awardCriteria' }] as Array<
+      | { type: 'section'; section: (typeof structuredSections)[number] }
+      | { type: 'techStack' }
+      | { type: 'awardCriteria' }
+    >;
   }
 
   return blocks;
@@ -357,6 +373,27 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                           {(item.ko.note || item.en.note) && (
                             <p class="experience-detail-tech-note" {...i18nText(item.ko.note, item.en.note)}>
                               {item.ko.note}
+                            </p>
+                          )}
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              ) : block.type === 'awardCriteria' ? (
+                <section class="experience-detail-section experience-detail-tech-section experience-detail-award-criteria-section">
+                  <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
+                  <div class="experience-detail-section-content experience-detail-tech-content">
+                    <h2 class="experience-detail-section-label" {...i18nText('선정 기준', 'Selection Criteria')}>선정 기준</h2>
+                    <div class="experience-detail-tech-grid experience-detail-award-criteria-grid">
+                      {awardCriteriaItems.map((item) => (
+                        <article class="experience-detail-tech-card experience-detail-award-criteria-card">
+                          <h3 class="experience-detail-tech-name" {...i18nText(item.ko.label, item.en.label)}>
+                            {item.ko.label}
+                          </h3>
+                          {(item.ko.detail || item.en.detail) && (
+                            <p class="experience-detail-tech-note" {...i18nText(item.ko.detail, item.en.detail)}>
+                              {item.ko.detail}
                             </p>
                           )}
                         </article>
