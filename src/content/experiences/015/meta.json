@@ -1,0 +1,36 @@
+{
+  "number": "015",
+  "periods": [
+    {
+      "start": "2017-09"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "documentation",
+    "ownership",
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/015/representative.jpg",
+    "alt": {
+      "ko": "운봉문화재단 장학금 증빙 이미지",
+      "en": "Representative image for the Woonbong Cultural Foundation scholarship"
+    },
+    "caption": {
+      "ko": "2017년 운봉문화재단 장학금",
+      "en": "2017 Woonbong Cultural Foundation Scholarship"
+    }
+  },
+  "featured": false
+}

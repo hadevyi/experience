@@ -2,21 +2,29 @@
   "number": "008",
   "periods": [
     {
-      "start": "2017-03-06",
-      "end": "2017-12-17"
+      "start": "2016-10-26",
+      "end": "2016-12-06"
     }
   ],
-  "category": "community",
+  "category": "project",
+  "teamSize": 4,
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
-    "collaboration",
-    "community",
+    "problem-solving",
+    "coordination",
+    "structuring",
+    "learning",
     "ownership"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "csharp",
+    "aspnet",
+    "sqlserver"
+  ],
   "related": [
     {
       "number": "002",
@@ -26,13 +34,13 @@
   "representativeImage": {
     "src": "/experience/images/experiences/008/representative.jpg",
     "alt": {
-      "ko": "제33대 UBUNTU 학과학생회 대표 이미지",
-      "en": "Representative image for the 33rd UBUNTU Department Student Council"
+      "ko": "O to I 프로젝트 대표 이미지",
+      "en": "Representative image for the O to I project"
     },
     "caption": {
-      "ko": "2017년 UBUNTU 컴퓨터공학부 학과학생회",
-      "en": "2017 UBUNTU Department Student Council of the Department of Computer Engineering"
+      "ko": "개인 체질 맞춤 건강관리 웹 사이트 O to I",
+      "en": "O to I personalized health management web service"
     }
   },
-  "featured": false
+  "featured": true
 }

@@ -1,0 +1,38 @@
+{
+  "number": "013",
+  "periods": [
+    {
+      "start": "2017-08-28",
+      "end": "2018-11-02"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "teaching",
+    "mentoring",
+    "volunteering",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/013/representative.jpg",
+    "alt": {
+      "ko": "고교생 전공 체험 대표단 대표 이미지",
+      "en": "Representative image for the major experience representative activity"
+    },
+    "caption": {
+      "ko": "고교생 전공 체험 대표단",
+      "en": "Major experience representative activity for high school students"
+    }
+  },
+  "featured": false
+}

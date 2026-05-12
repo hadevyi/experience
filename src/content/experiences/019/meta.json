@@ -1,0 +1,38 @@
+{
+  "number": "019",
+  "periods": [
+    {
+      "start": "2018-03-05",
+      "end": "2018-12-16"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "coordination",
+    "structuring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/019/representative.jpg",
+    "alt": {
+      "ko": "2018년 컴퓨터공학부 학술 운영 대표 이미지",
+      "en": "Representative image for 2018 Computer Engineering academic operations"
+    },
+    "caption": {
+      "ko": "2018년 컴퓨터공학부 학술 운영",
+      "en": "2018 Computer Engineering Academic Operations"
+    }
+  },
+  "featured": false
+}

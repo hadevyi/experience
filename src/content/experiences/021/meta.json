@@ -1,0 +1,41 @@
+{
+  "number": "021",
+  "periods": [
+    {
+      "start": "2018-06-25",
+      "end": "2020-01-31"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "documentation",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    },
+    {
+      "number": "022",
+      "relation": "detailed-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/021/representative.jpg",
+    "alt": {
+      "ko": "국가 근로 장학생 대표 이미지",
+      "en": "Representative image for the National Work-Study Student experience"
+    },
+    "caption": {
+      "ko": "국가 근로 장학생",
+      "en": "National Work-Study Student"
+    }
+  },
+  "featured": false
+}

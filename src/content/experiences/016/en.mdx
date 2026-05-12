@@ -1,0 +1,77 @@
+---
+title: EWS
+organization: Inje University Department of Computer Engineering
+summary: EWS was a Java project from my second-year Java course. It started from the inconvenience I felt while preparing for English vocabulary tests, and it implemented a flow for studying words, taking tests, checking results, and reviewing incorrect answers.
+oneLine: An English word study desktop application
+highlights:
+  - Built a Java AWT/Swing desktop application
+  - Implemented study, test, result, incorrect-word save, and retest flows
+  - Completed the intended feature scope and received the highest score in class
+project:
+  host: Second-year Java project course
+  position: Team lead / screen implementation, database design, design, presentation
+  teamComposition:
+    - role: Project members
+      count: 3
+  techStack:
+    - category: language
+      name: Java
+      version: ""
+    - category: framework
+      name: AWT / Swing
+      version: ""
+    - category: database
+      name: MySQL
+      version: ""
+    - category: database
+      name: MySQL Connector/J
+      version: "5.1.45"
+    - category: environment
+      name: Eclipse
+      version: Oxygen
+    - category: tool
+      name: HeidiSQL
+      version: ""
+  deployment: Local implementation and presentation
+  overview: |
+    EWS is a Java desktop application for repeatedly studying English words, taking a test, and reviewing the words answered incorrectly.
+
+    The study screen displays words, the test screen lets the user type answers from meanings, and the result screen shows correct and incorrect answers.
+  background: |
+    The project focused on solving an inconvenience I felt while preparing for an English vocabulary test.
+
+    Instead of stopping at simple memorization, the project was designed so that users could check the words they needed to study again and save the incorrect-word list after a test.
+  scope: |
+    The main scope included vocabulary study, word tests, result review, incorrect-word review, incorrect-word export, retesting, and word add/search features.
+
+    From the code, the study screen retrieves random words from MySQL, and the test screen checks answers for 30 words. The result screen shows the number of correct and incorrect answers, while the incorrect-word screen lets users review failed words or export them to `Incorrect_Word.txt`.
+  contribution: |
+    I served as the project lead and was responsible for the overall design, SW/TW/MV/RW page features, and database design and implementation.
+
+    In the code, the study, test, more-view, incorrect-word, and result screens are separated, and each screen transition is connected with word data retrieval and update flows.
+  roleDetails:
+    - Overall screen design and image-button based UI composition
+    - SW study screen and TW test screen implementation
+    - MV more-view screen with add and search features
+    - RW incorrect-word screen with save and retest flows
+    - MySQL-based word data retrieval and incorrect-answer status update flow
+  implementation: |
+    Each screen was implemented as a `JFrame` using Java AWT/Swing. From the main screen, users can enter the study or more-view flows. The study screen shows words on a timed interval and also supports moving to the next word manually.
+
+    Data is connected through `VocaDAO`, which uses JDBC to access the MySQL `eng_voca` database. Word retrieval, word creation, and incorrect-answer status updates are handled through the DAO, and the `passed` value is used to distinguish incorrect words and retest targets.
+
+    The incorrect-word screen displays failed words in a table and can export them to an `Incorrect_Word.txt` file.
+  challenges: |
+    The functional problems were relatively quick to solve, but arranging the GUI as intended and shaping the screen flow was difficult. I had to connect the study, test, result, and incorrect-word screens naturally within Java AWT/Swing, while also adjusting image buttons and screen transitions by hand.
+
+    Because I proposed the topic from a need I personally felt, defining the final feature scope was also challenging. There were also differences in participation within the team, so as the team lead I had to keep progress aligned and encourage participation.
+  outcome: |
+    In the end, we implemented all of the features we aimed for, and this project also received the highest score in class. It was the first project where I completed 100% of the feature scope I had set, so the satisfaction was especially high.
+
+    Looking back, the code structure and UI polish still leave room for improvement. Since we had to solve the problem within the stack covered in class, the options were limited, but building the desired flow within those constraints became a useful reference point for later projects.
+sections: []
+links:
+  - type: repository
+    label: GitHub Repository
+    url: https://github.com/hadevyi/English-Word-Study
+---

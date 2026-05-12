@@ -19,7 +19,7 @@
     },
     {
       "number": "003",
-      "relation": "activity"
+      "relation": "award"
     },
     {
       "number": "004",
@@ -27,19 +27,43 @@
     },
     {
       "number": "005",
-      "relation": "affiliation"
+      "relation": "activity"
     },
     {
       "number": "006",
-      "relation": "project"
+      "relation": "award"
     },
     {
       "number": "007",
-      "relation": "activity"
+      "relation": "affiliation"
     },
     {
       "number": "008",
+      "relation": "project"
+    },
+    {
+      "number": "009",
+      "relation": "award"
+    },
+    {
+      "number": "011",
       "relation": "activity"
+    },
+    {
+      "number": "012",
+      "relation": "activity"
+    },
+    {
+      "number": "019",
+      "relation": "activity"
+    },
+    {
+      "number": "023",
+      "relation": "award"
+    },
+    {
+      "number": "024",
+      "relation": "project"
     }
   ],
   "representativeImage": {

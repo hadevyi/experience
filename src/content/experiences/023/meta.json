@@ -1,0 +1,35 @@
+{
+  "number": "023",
+  "periods": [
+    {
+      "start": "2018-06-25"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/023/representative.jpg",
+    "alt": {
+      "ko": "인제인성 장학사정관 학업장려 대표 이미지",
+      "en": "Representative image for the Inje Character scholarship"
+    },
+    "caption": {
+      "ko": "인제인성(장학사정관)학업장려",
+      "en": "Inje Character Scholarship"
+    }
+  },
+  "featured": false
+}

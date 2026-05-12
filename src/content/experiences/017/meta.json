@@ -1,0 +1,40 @@
+{
+  "number": "017",
+  "periods": [
+    {
+      "start": "2017-12"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "ownership",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "014",
+      "relation": "activity"
+    },
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/017/representative.jpg",
+    "alt": {
+      "ko": "창업역량강화 비교과 특별장학 대표 이미지",
+      "en": "Representative image for the entrepreneurship competency extracurricular scholarship"
+    },
+    "caption": {
+      "ko": "2017년 창업역량강화 비교과 특별장학",
+      "en": "2017 Entrepreneurship Competency Extracurricular Scholarship"
+    }
+  },
+  "featured": false
+}

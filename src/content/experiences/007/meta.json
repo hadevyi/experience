@@ -2,19 +2,17 @@
   "number": "007",
   "periods": [
     {
-      "start": "2017-03-06",
-      "end": "2017-12-17"
+      "start": "2016-08-29",
+      "end": "2020-02-14"
     }
   ],
-  "category": "community",
+  "category": "affiliation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "operation",
-    "structuring",
-    "documentation",
+    "learning",
     "community",
+    "collaboration",
     "ownership"
   ],
   "projectDomains": [],
@@ -22,22 +20,26 @@
   "related": [
     {
       "number": "002",
-      "relation": "affiliation"
+      "relation": "department"
     },
     {
-      "number": "003",
-      "relation": "previous-role"
+      "number": "010",
+      "relation": "extended-activity"
+    },
+    {
+      "number": "024",
+      "relation": "lab-team"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/007/representative.jpg",
     "alt": {
-      "ko": "2017년 2학년 대표 이미지",
-      "en": "Representative image for the 2017 second-year representative experience"
+      "ko": "Database LAB 대표 이미지",
+      "en": "Representative image for Database LAB"
     },
     "caption": {
-      "ko": "2017년 2학년 대표",
-      "en": "2017 Second-Year Representative"
+      "ko": "Database LAB",
+      "en": "Database LAB"
     }
   },
   "featured": false

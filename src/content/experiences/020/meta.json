@@ -1,0 +1,36 @@
+{
+  "number": "020",
+  "periods": [
+    {
+      "start": "2018-03-05",
+      "end": "2019-12-20"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/020/representative.jpg",
+    "alt": {
+      "ko": "이공계 국가우수장학생 대표 이미지",
+      "en": "Representative image for the National Science and Engineering Scholarship"
+    },
+    "caption": {
+      "ko": "이공계 국가우수장학생",
+      "en": "National Science and Engineering Scholarship"
+    }
+  },
+  "featured": false
+}

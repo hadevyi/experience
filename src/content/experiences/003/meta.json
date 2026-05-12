@@ -2,38 +2,30 @@
   "number": "003",
   "periods": [
     {
-      "start": "2016-03-02",
-      "end": "2016-12-18"
+      "start": "2016-03-02"
     }
   ],
-  "category": "community",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
-  "experienceTags": [
-    "coordination",
-    "operation",
-    "structuring",
-    "documentation",
-    "community",
-    "ownership"
-  ],
+  "experienceTags": ["learning", "ownership"],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
       "number": "002",
-      "relation": "affiliation"
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/003/representative.jpg",
     "alt": {
-      "ko": "2016년 1학년 대표 이미지",
-      "en": "Representative image for the 2016 first-year representative experience"
+      "ko": "2016년 신입생 성적 우수 장학금 대표 이미지",
+      "en": "Representative image for the 2016 freshman academic excellence scholarship"
     },
     "caption": {
-      "ko": "2016년 1학년 대표",
-      "en": "2016 First-Year Representative"
+      "ko": "2016년 신입생 성적 우수 장학금",
+      "en": "2016 Freshman Academic Excellence Scholarship"
     }
   },
   "featured": false

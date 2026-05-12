@@ -2,41 +2,30 @@
   "number": "009",
   "periods": [
     {
-      "start": "2017-03-01",
-      "end": "2019-12-31"
+      "start": "2016-12"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
-  "experienceTags": [
-    "teaching",
-    "mentoring",
-    "knowledge-sharing",
-    "operation",
-    "collaboration"
-  ],
+  "experienceTags": ["learning", "ownership"],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "005",
-      "relation": "lab-recommendation"
-    },
-    {
-      "number": "001",
-      "relation": "affiliation"
+      "number": "002",
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/009/representative.jpg",
     "alt": {
-      "ko": "영재교육원 TA 대표 이미지",
-      "en": "Representative image for the Gifted Education Center TA activity"
+      "ko": "2016년 2학기 성적우수장학 A 대표 이미지",
+      "en": "Representative image for the Fall 2016 Grade A academic excellence scholarship"
     },
     "caption": {
-      "ko": "영재교육원 TA",
-      "en": "Gifted Education Center TA"
+      "ko": "2016년 2학기 성적우수장학 A",
+      "en": "Fall 2016 Grade A Academic Excellence Scholarship"
     }
   },
   "featured": false

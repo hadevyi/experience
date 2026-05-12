@@ -2,45 +2,31 @@
   "number": "006",
   "periods": [
     {
-      "start": "2016-10-26",
-      "end": "2016-12-06"
+      "start": "2016-06"
     }
   ],
-  "category": "project",
-  "teamSize": 4,
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
-  "experienceTags": [
-    "problem-solving",
-    "coordination",
-    "structuring",
-    "learning",
-    "ownership"
-  ],
-  "projectDomains": [
-    "web"
-  ],
-  "techTags": [
-    "csharp",
-    "aspnet",
-    "sqlserver"
-  ],
+  "experienceTags": ["learning", "ownership"],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
       "number": "002",
-      "relation": "affiliation"
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/006/representative.jpg",
     "alt": {
-      "ko": "O to I 프로젝트 대표 이미지",
-      "en": "Representative image for the O to I project"
+      "ko": "2016년 1학기 성적우수장학 A 대표 이미지",
+      "en": "Representative image for the Spring 2016 Grade A academic excellence scholarship"
     },
     "caption": {
-      "ko": "개인 체질 맞춤 건강관리 웹 사이트 O to I",
-      "en": "O to I personalized health management web service"
+      "ko": "2016년 1학기 성적우수장학 A",
+      "en": "Spring 2016 Grade A Academic Excellence Scholarship"
     }
   },
-  "featured": true
+  "featured": false
 }

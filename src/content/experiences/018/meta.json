@@ -1,0 +1,38 @@
+{
+  "number": "018",
+  "periods": [
+    {
+      "start": "2017-11",
+      "end": "2018-05"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "documentation",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/018/representative.jpg",
+    "alt": {
+      "ko": "2018 WE:ONE 소프트웨어대 학생회 대표 이미지",
+      "en": "Representative image for the 2018 WE:ONE Software College student council"
+    },
+    "caption": {
+      "ko": "2018 WE:ONE 소프트웨어대 학생회",
+      "en": "2018 WE:ONE Software College Student Council"
+    }
+  },
+  "featured": false
+}

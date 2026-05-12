@@ -1,0 +1,68 @@
+---
+title: DB Leap
+organization: Department of Computer Engineering, Inje University
+summary: A junior-year pre-capstone design project for a hand-gesture-based mouse control system.
+oneLine: A hand-gesture-based mouse control system
+highlights:
+  - Junior-year pre-capstone design project
+  - Hand-gesture-based mouse control system
+  - WinForms UI, sensor value tuning, and demo operation
+project:
+  host: Junior-year pre-capstone design course, Department of Computer Engineering
+  position: Team member / WinForms UI, sensor value tuning, demo operation
+  teamComposition:
+    - role: Team member
+      count: 4
+      note: Pre-capstone design team project
+  techStack:
+    - category: language
+      name: C# / .NET Framework
+      version: .NET Framework 4.5
+      note: WinForms desktop application
+    - category: platform
+      name: Leap Motion
+      version: Leap SDK 3.2.1
+      note: Used hand-gesture input for mouse control actions
+    - category: framework
+      name: MetroFramework
+      version: 1.2.0.3
+      note: Used for the WinForms UI
+    - category: tool
+      name: Visual Studio
+      version: ""
+      note: Project development environment
+  deployment: Local execution and presentation demo
+  overview: |
+    DB Leap was a junior-year pre-capstone design project focused on controlling a mouse through hand gestures recognized by a Leap Motion sensor.
+    At my university, pre-capstone design was treated as a stage that could lead into a graduation project, so we were careful about forming the team.
+  background: |
+    The project explored how sensor input could be connected to real control actions.
+    More than simply building screens, the important part was making the sensor values and user gestures feel connected.
+  scope: |
+    We built mouse movement, left click, right click, drag, scroll, and detail control flows using hand-gesture input.
+    The project focused on receiving sensor input in a desktop application and connecting it to actual mouse control actions.
+  contribution: |
+    I participated as a team member and worked on the WinForms UI, sensor value tuning, and live demo operation.
+    During the presentation, I operated the demo next to the presenter so the features could be shown smoothly.
+  roleDetails:
+    - Built and organized the WinForms UI according to the demo flow.
+    - Adjusted correction criteria for unstable vector values coming from the Leap Motion sensor.
+    - Checked that Move, Left Click, Right Click, Drag, Scroll, and Detail Control actions could be demonstrated naturally.
+    - Operated the live demo during the presentation.
+  implementation: |
+    We connected Leap Motion sensor input to mouse control actions.
+    Because the incoming sensor values could fluctuate sharply, I adjusted how vector values were normalized before they triggered control actions.
+    The UI was organized so each feature could be understood and demonstrated step by step.
+  challenges: |
+    This was my first project using a sensor, so tracing errors was difficult in itself.
+    I had to distinguish whether a problem came from code, sensor input, or gesture thresholds.
+    At the time, I did not yet know how to use Git properly, so my UI work and sensor value adjustments were not fully reflected in the Git history.
+    Not being able to leave my actual contributions as code history was the biggest regret, and it later made me value collaboration records and documentation more.
+  outcome: |
+    The project received a strong course evaluation, then led to a department-representative campus competition and later international competitions as a university representative.
+    It gave me experience connecting UI work with real sensor input and considering demo stability in a hardware-linked application.
+sections: []
+links:
+  - label: GitHub
+    url: https://github.com/inje-illab/DB-Leap
+---

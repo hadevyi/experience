@@ -10,10 +10,12 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
+    "coordination",
     "operation",
-    "collaboration",
+    "structuring",
+    "documentation",
     "community",
-    "learning"
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -26,12 +28,12 @@
   "representativeImage": {
     "src": "/experience/images/experiences/004/representative.jpg",
     "alt": {
-      "ko": "제32대 COX 학과학생회 대표 이미지",
-      "en": "Representative image for the 32nd COX Department Student Council"
+      "ko": "2016년 1학년 대표 이미지",
+      "en": "Representative image for the 2016 first-year representative experience"
     },
     "caption": {
-      "ko": "제32대 COX 학과학생회",
-      "en": "32nd COX Department Student Council"
+      "ko": "2016년 1학년 대표",
+      "en": "2016 First-Year Representative"
     }
   },
   "featured": false

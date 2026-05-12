@@ -1,0 +1,42 @@
+{
+  "number": "022",
+  "periods": [
+    {
+      "start": "2018-06-25",
+      "end": "2019-09-10"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "documentation",
+    "community",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "021",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/022/representative.jpg",
+    "alt": {
+      "ko": "소프트웨어교육원 및 디지털정보원 대표 이미지",
+      "en": "Representative image for Software Education Center and Digital Information Center work"
+    },
+    "caption": {
+      "ko": "소프트웨어교육원 및 디지털정보원",
+      "en": "Software Education Center and Digital Information Center"
+    }
+  },
+  "featured": false
+}

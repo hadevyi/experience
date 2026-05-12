@@ -1,0 +1,68 @@
+---
+title: DB Leap
+organization: 인제대학교 컴퓨터공학부
+summary: 3학년 프리캡스톤디자인에서 진행한 손동작 기반 마우스 제어 시스템 프로젝트입니다.
+oneLine: 손동작을 이용한 마우스 제어 시스템
+highlights:
+  - 3학년 프리캡스톤디자인 프로젝트
+  - 손동작 기반 마우스 제어 시스템
+  - WinForms UI, 센서값 조정, 시연 담당
+project:
+  host: 인제대학교 컴퓨터공학부 3학년 프리캡스톤디자인
+  position: 팀원 / WinForms UI, 센서값 조정, 시연 담당
+  teamComposition:
+    - role: 팀원
+      count: 4
+      note: 프리캡스톤디자인 팀 프로젝트
+  techStack:
+    - category: language
+      name: C# / .NET Framework
+      version: .NET Framework 4.5
+      note: WinForms 기반 데스크톱 애플리케이션
+    - category: platform
+      name: Leap Motion
+      version: Leap SDK 3.2.1
+      note: 손동작 입력을 받아 마우스 제어 동작으로 연결
+    - category: framework
+      name: MetroFramework
+      version: 1.2.0.3
+      note: WinForms UI 구성에 사용
+    - category: tool
+      name: Visual Studio
+      version: ""
+      note: 프로젝트 개발 환경
+  deployment: 로컬 실행 및 발표 시연
+  overview: |
+    DB Leap은 Leap Motion 센서로 손동작을 인식해 마우스를 제어하는 시스템을 목표로 한 3학년 프리캡스톤디자인 프로젝트입니다.
+    우리 학교에서 프리캡스톤디자인은 졸업작품의 사전 작업처럼 이어질 수 있는 성격이 있어, 팀 구성부터 신중하게 진행했습니다.
+  background: |
+    센서를 활용해 손동작을 실제 제어 동작으로 연결해보는 프로젝트였습니다.
+    단순한 화면 구현보다 센서 입력값과 사용자 동작이 자연스럽게 연결되는지를 확인하는 것이 중요했습니다.
+  scope: |
+    손동작 기반 입력을 활용해 마우스 이동, 좌클릭, 우클릭, 드래그, 스크롤, 세부 제어 화면을 구성했습니다.
+    데스크톱 애플리케이션에서 센서 입력을 받아 실제 마우스 제어 흐름으로 이어지게 하는 데 초점을 두었습니다.
+  contribution: |
+    팀원으로 참여해 WinForms UI 구현과 센서 데이터 값 조정, 발표 현장 시연 담당을 맡았습니다.
+    발표자가 설명하는 동안 옆에서 실제 시연 동작을 진행하며, 기능이 안정적으로 보이도록 흐름을 맞췄습니다.
+  roleDetails:
+    - WinForms 기반 화면 UI를 구현하고 시연 흐름에 맞게 화면 구성을 정리했습니다.
+    - Leap Motion 센서로 들어오는 벡터 값이 튀는 문제를 줄이기 위해 보정 기준을 조정했습니다.
+    - Move, Left Click, Right Click, Drag, Scroll, Detail Control 동작이 시연에서 자연스럽게 보이도록 확인했습니다.
+    - 발표 현장에서 발표자 옆에서 직접 기능을 조작하는 시연 담당 역할을 맡았습니다.
+  implementation: |
+    Leap Motion 센서 입력을 받아 손동작을 마우스 제어 동작으로 연결했습니다.
+    센서에서 들어오는 값이 순간적으로 튀는 경우가 있어, 벡터 값을 정돈하고 제어 동작으로 이어지는 기준을 조정했습니다.
+    UI는 기능별 동작을 이해하기 쉽도록 구성하고, 발표 시연에서 단계별로 보여줄 수 있도록 정리했습니다.
+  challenges: |
+    센서를 사용하는 프로젝트가 처음이라 오류를 추적하는 것 자체가 어려웠습니다.
+    코드 문제인지, 센서 입력값 문제인지, 제스처 기준 문제인지 구분하면서 확인해야 했습니다.
+    당시에는 Git을 제대로 다룰 줄 몰라서, 실제로 맡았던 UI 작업과 센서 데이터 값 조정 과정이 Git 기록으로 충분히 남지 못했습니다.
+    직접 기여한 작업을 코드 이력으로 남기지 못한 점이 가장 아쉬웠고, 이후 협업과 기록의 중요성을 더 크게 느끼게 된 계기가 되었습니다.
+  outcome: |
+    수업에서 좋은 성적을 얻었고, 이후 학과 대표로 교내 대회에 참여한 뒤 학교 대표로 국제 대회까지 이어졌습니다.
+    센서 기반 프로젝트에서 UI와 실제 입력값이 맞물리는 과정을 경험했고, 시연 안정성까지 고려하는 프로젝트 경험이 되었습니다.
+sections: []
+links:
+  - label: GitHub
+    url: https://github.com/inje-illab/DB-Leap
+---
