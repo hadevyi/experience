@@ -70,6 +70,22 @@ const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
 const koProject = entry.ko.data.project;
 const enProject = (entry.en ?? entry.ko).data.project ?? koProject;
 const projectTechCategoryLabels = {
+  frontend: {
+    ko: '프론트엔드',
+    en: 'Frontend'
+  },
+  backend: {
+    ko: '백엔드/API',
+    en: 'Backend / API'
+  },
+  infra: {
+    ko: '인프라',
+    en: 'Infra'
+  },
+  design: {
+    ko: '디자인/협업',
+    en: 'Design / Collaboration'
+  },
   language: {
     ko: '언어',
     en: 'Language'
@@ -110,6 +126,28 @@ const projectTechStackItems = (koProject?.techStack ?? []).map((item, index) => 
     en: enItem
   };
 });
+const projectTechStackGroups = projectTechStackItems.reduce<
+  Array<{
+    category: string;
+    categoryLabel: (typeof projectTechCategoryLabels)[keyof typeof projectTechCategoryLabels];
+    items: typeof projectTechStackItems;
+  }>
+>((groups, item) => {
+  const existingGroup = groups.find((group) => group.category === item.category);
+
+  if (existingGroup) {
+    existingGroup.items.push(item);
+    return groups;
+  }
+
+  groups.push({
+    category: item.category,
+    categoryLabel: item.categoryLabel,
+    items: [item]
+  });
+
+  return groups;
+}, []);
 const hasProjectTechStack = entry.meta.category === 'project' && projectTechStackItems.length > 0;
 const koAwardScholarship = entry.ko.data.awardScholarship;
 const enAwardScholarship = (entry.en ?? entry.ko).data.awardScholarship ?? koAwardScholarship;
@@ -357,24 +395,30 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                   <div class="experience-detail-section-content experience-detail-tech-content">
                     <h2 class="experience-detail-section-label" {...i18nText('기술 스택', 'Tech Stack')}>기술 스택</h2>
                     <div class="experience-detail-tech-grid">
-                      {projectTechStackItems.map((item) => (
-                        <article class="experience-detail-tech-card">
-                          <p class="experience-detail-tech-category" {...localized(item.categoryLabel)}>
-                            {item.categoryLabel.ko}
+                      {projectTechStackGroups.map((group) => (
+                        <article class="experience-detail-tech-card experience-detail-tech-group-card">
+                          <p class="experience-detail-tech-category" {...localized(group.categoryLabel)}>
+                            {group.categoryLabel.ko}
                           </p>
-                          <h3 class="experience-detail-tech-name" {...i18nText(item.ko.name, item.en.name)}>
-                            {item.ko.name}
-                          </h3>
-                          {(item.ko.version || item.en.version) && (
-                            <p class="experience-detail-tech-version" {...i18nText(item.ko.version, item.en.version)}>
-                              {item.ko.version}
-                            </p>
-                          )}
-                          {(item.ko.note || item.en.note) && (
-                            <p class="experience-detail-tech-note" {...i18nText(item.ko.note, item.en.note)}>
-                              {item.ko.note}
-                            </p>
-                          )}
+                          <div class="experience-detail-tech-item-list">
+                            {group.items.map((item) => (
+                              <div class="experience-detail-tech-item">
+                                <h3 class="experience-detail-tech-name" {...i18nText(item.ko.name, item.en.name)}>
+                                  {item.ko.name}
+                                </h3>
+                                {(item.ko.version || item.en.version) && (
+                                  <p class="experience-detail-tech-version" {...i18nText(item.ko.version, item.en.version)}>
+                                    {item.ko.version}
+                                  </p>
+                                )}
+                                {(item.ko.note || item.en.note) && (
+                                  <p class="experience-detail-tech-note" {...i18nText(item.ko.note, item.en.note)}>
+                                    {item.ko.note}
+                                  </p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         </article>
                       ))}
                     </div>

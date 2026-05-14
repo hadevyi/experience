@@ -829,6 +829,10 @@ html[data-theme='dark'] {
     background-color: color-mix(in srgb, var(--theme-surface-strong) 72%, transparent);
   }
 
+  .experience-detail-tech-group-card {
+    @apply p-5;
+  }
+
   .experience-detail-tech-category {
     @apply m-0 font-semibold uppercase;
     font-size: var(--type-micro-size);
@@ -838,10 +842,23 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-tech-name {
-    @apply m-0 mt-2 font-semibold;
+    @apply m-0 font-semibold;
     font-size: var(--type-small-size);
     line-height: var(--type-small-leading);
     color: var(--theme-ink);
+  }
+
+  .experience-detail-tech-item-list {
+    @apply mt-4 grid gap-3;
+  }
+
+  .experience-detail-tech-item {
+    @apply border-t pt-3;
+    border-color: color-mix(in srgb, var(--theme-border) 72%, transparent);
+  }
+
+  .experience-detail-tech-item:first-child {
+    @apply border-t-0 pt-0;
   }
 
   .experience-detail-tech-version {
