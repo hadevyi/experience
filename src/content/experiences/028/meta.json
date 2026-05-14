@@ -1,0 +1,37 @@
+{
+  "number": "028",
+  "periods": [
+    {
+      "start": "2019-07-01",
+      "end": "2019-08-30"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "collaboration",
+    "problem-solving"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "029",
+      "relation": "detailed-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/028/representative.jpg",
+    "alt": {
+      "ko": "한국전자통신연구원 인턴 대표 이미지",
+      "en": "Representative image for the ETRI internship"
+    },
+    "caption": {
+      "ko": "한국전자통신연구원(ETRI) 인턴",
+      "en": "ETRI Internship"
+    }
+  },
+  "featured": false
+}

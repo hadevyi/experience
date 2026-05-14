@@ -1,0 +1,45 @@
+{
+  "number": "027",
+  "periods": [
+    {
+      "start": "2019-05-08",
+      "end": "2020-02-06"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "collaboration",
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "026",
+      "relation": "project"
+    },
+    {
+      "number": "002",
+      "relation": "department"
+    },
+    {
+      "number": "034",
+      "relation": "award"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/027/representative.jpg",
+    "alt": {
+      "ko": "교내 창업동아리 WowSup 대표 이미지",
+      "en": "Representative image for the WowSup campus startup club"
+    },
+    "caption": {
+      "ko": "교내 창업동아리 WowSup",
+      "en": "Campus Startup Club WowSup"
+    }
+  },
+  "featured": false
+}

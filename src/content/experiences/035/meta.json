@@ -1,0 +1,45 @@
+{
+  "number": "035",
+  "periods": [
+    {
+      "start": "2019-12-20",
+      "end": "2019-12-23"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "collaboration",
+    "knowledge-sharing",
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "024",
+      "relation": "project"
+    },
+    {
+      "number": "031",
+      "relation": "recommendation"
+    },
+    {
+      "number": "033",
+      "relation": "recommendation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/035/representative.jpg",
+    "alt": {
+      "ko": "동계 한중일 글로벌 캡스톤디자인 경진대회 대표 이미지",
+      "en": "Representative image for the 2019 Winter Korea-China-Japan Global Capstone Design Competition"
+    },
+    "caption": {
+      "ko": "2019 동계 한중일 글로벌 캡스톤디자인 경진대회",
+      "en": "2019 Winter Korea-China-Japan Global Capstone Design Competition"
+    }
+  },
+  "featured": false
+}

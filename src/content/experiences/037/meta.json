@@ -1,0 +1,39 @@
+{
+  "number": "037",
+  "periods": [
+    {
+      "start": "2020-02-14"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "reflection"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    },
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/037/representative.jpg",
+    "alt": {
+      "ko": "학부 차석 졸업 소프트웨어대 학장상 대표 이미지",
+      "en": "Representative image for the College of Software Dean's Award for graduating second in the department"
+    },
+    "caption": {
+      "ko": "학부 차석 졸업 소프트웨어대 학장상",
+      "en": "College of Software Dean's Award"
+    }
+  },
+  "featured": false
+}

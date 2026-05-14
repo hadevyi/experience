@@ -1,0 +1,51 @@
+{
+  "number": "026",
+  "periods": [
+    {
+      "start": "2018-12",
+      "end": "2019-03"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "teamSize": 4,
+  "experienceTags": [
+    "problem-solving",
+    "collaboration",
+    "structuring"
+  ],
+  "projectDomains": [
+    "mobile"
+  ],
+  "techTags": [
+    "java",
+    "android",
+    "firebase",
+    "retrofit",
+    "zeplin",
+    "aws-ec2"
+  ],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    },
+    {
+      "number": "027",
+      "relation": "activity"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/026/representative.jpg",
+    "alt": {
+      "ko": "WowSup 프로젝트 대표 이미지",
+      "en": "Representative image for the WowSup project"
+    },
+    "caption": {
+      "ko": "외국어 학습 채팅 & 커뮤니티 애플리케이션 WowSup",
+      "en": "WowSup foreign-language learning chat and community application"
+    }
+  },
+  "featured": false
+}

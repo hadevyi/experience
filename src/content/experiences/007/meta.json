@@ -12,8 +12,7 @@
   "experienceTags": [
     "learning",
     "community",
-    "collaboration",
-    "ownership"
+    "collaboration"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -28,6 +27,10 @@
     },
     {
       "number": "024",
+      "relation": "lab-team"
+    },
+    {
+      "number": "031",
       "relation": "lab-team"
     }
   ],

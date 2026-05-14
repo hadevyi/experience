@@ -1,0 +1,50 @@
+{
+  "number": "029",
+  "periods": [
+    {
+      "start": "2019-07-01",
+      "end": "2019-08-30"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "teamSize": 2,
+  "experienceTags": [
+    "problem-solving",
+    "learning",
+    "structuring"
+  ],
+  "projectDomains": [
+    "desktop",
+    "ai-ml"
+  ],
+  "techTags": [
+    "python",
+    "opencv",
+    "tkinter",
+    "pillow",
+    "numpy",
+    "keras",
+    "scikit-learn",
+    "ai-ml"
+  ],
+  "related": [
+    {
+      "number": "028",
+      "relation": "parent-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/029/representative.jpg",
+    "alt": {
+      "ko": "배경제거 편집기 프로젝트 대표 이미지",
+      "en": "Representative image for the background removal editor project"
+    },
+    "caption": {
+      "ko": "수동/자동 배경제거 편집기",
+      "en": "Manual and automatic background removal editor"
+    }
+  },
+  "featured": false
+}

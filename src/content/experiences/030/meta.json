@@ -1,0 +1,41 @@
+{
+  "number": "030",
+  "periods": [
+    {
+      "start": "2019-09-11",
+      "end": "2019-12-20"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "documentation",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "021",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "001",
+      "relation": "university"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/030/representative.jpg",
+    "alt": {
+      "ko": "예비군연대 전산사무원 근무 대표 이미지",
+      "en": "Representative image for the reserve forces office work experience"
+    },
+    "caption": {
+      "ko": "인제대학교 예비군연대 전산사무원 근무",
+      "en": "Inje University Reserve Forces Office Administrative Work"
+    }
+  },
+  "featured": false
+}

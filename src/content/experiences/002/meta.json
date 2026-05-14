@@ -9,7 +9,10 @@
   "category": "affiliation",
   "visibility": "public",
   "status": "done",
-  "experienceTags": ["learning", "community", "reflection"],
+  "experienceTags": [
+    "learning",
+    "community"
+  ],
   "projectDomains": [],
   "techTags": [],
   "related": [
@@ -64,6 +67,10 @@
     {
       "number": "024",
       "relation": "project"
+    },
+    {
+      "number": "032",
+      "relation": "award"
     }
   ],
   "representativeImage": {

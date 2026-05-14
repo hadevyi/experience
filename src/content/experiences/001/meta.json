@@ -9,7 +9,11 @@
   "category": "affiliation",
   "visibility": "public",
   "status": "done",
-  "experienceTags": ["learning", "community", "reflection"],
+  "experienceTags": [
+    "learning",
+    "community",
+    "reflection"
+  ],
   "projectDomains": [],
   "techTags": [],
   "related": [

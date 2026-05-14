@@ -1,0 +1,35 @@
+{
+  "number": "032",
+  "periods": [
+    {
+      "start": "2019-10"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "documentation",
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/032/representative.jpg",
+    "alt": {
+      "ko": "2019년 인제인성 장학사정관 학업장려 대표 이미지",
+      "en": "Representative image for the 2019 Inje Character scholarship"
+    },
+    "caption": {
+      "ko": "2019년 인제인성(장학사정관)학업장려",
+      "en": "2019 Inje Character Scholarship"
+    }
+  },
+  "featured": false
+}
