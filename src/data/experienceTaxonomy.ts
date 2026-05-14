@@ -128,11 +128,11 @@ export const experienceTagConfig = {
     }
   },
   documentation: {
-    ko: '기록',
+    ko: '문서화',
     en: 'Documentation',
     description: {
-      ko: '내용을 남기고 정리한 경험',
-      en: 'Experiences where I documented and organized what happened.'
+      ko: '정보를 문서나 자료로 정리해 전달한 경험',
+      en: 'Experiences where I organized information into documents or materials for others.'
     }
   },
   'knowledge-sharing': {
@@ -203,6 +203,14 @@ export const projectDomainConfig = {
     ko: '데스크톱 앱',
     en: 'Desktop App'
   },
+  mobile: {
+    ko: '모바일 앱',
+    en: 'Mobile App'
+  },
+  'ai-ml': {
+    ko: 'AI/ML',
+    en: 'AI/ML'
+  },
   iot: {
     ko: 'IoT',
     en: 'IoT'
@@ -222,6 +230,22 @@ export const techTagConfig = {
   java: {
     ko: 'Java',
     en: 'Java'
+  },
+  android: {
+    ko: 'Android',
+    en: 'Android'
+  },
+  firebase: {
+    ko: 'Firebase',
+    en: 'Firebase'
+  },
+  retrofit: {
+    ko: 'Retrofit',
+    en: 'Retrofit'
+  },
+  zeplin: {
+    ko: 'Zeplin',
+    en: 'Zeplin'
   },
   awt: {
     ko: 'AWT',
@@ -246,6 +270,46 @@ export const techTagConfig = {
   mysql: {
     ko: 'MySQL',
     en: 'MySQL'
+  },
+  python: {
+    ko: 'Python',
+    en: 'Python'
+  },
+  keras: {
+    ko: 'Keras',
+    en: 'Keras'
+  },
+  opencv: {
+    ko: 'OpenCV',
+    en: 'OpenCV'
+  },
+  tkinter: {
+    ko: 'Tkinter',
+    en: 'Tkinter'
+  },
+  pillow: {
+    ko: 'Pillow',
+    en: 'Pillow'
+  },
+  numpy: {
+    ko: 'NumPy',
+    en: 'NumPy'
+  },
+  'scikit-learn': {
+    ko: 'scikit-learn',
+    en: 'scikit-learn'
+  },
+  'ai-ml': {
+    ko: 'AI/ML',
+    en: 'AI/ML'
+  },
+  'aws-ec2': {
+    ko: 'AWS EC2',
+    en: 'AWS EC2'
+  },
+  'aws-s3': {
+    ko: 'AWS S3',
+    en: 'AWS S3'
   },
   sensor: {
     ko: 'Sensor',

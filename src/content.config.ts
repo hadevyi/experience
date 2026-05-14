@@ -29,7 +29,19 @@ const projectSchema = z
       .array(
         z.object({
           category: z
-            .enum(['language', 'framework', 'database', 'tool', 'environment', 'platform', 'other'])
+            .enum([
+              'frontend',
+              'backend',
+              'infra',
+              'design',
+              'language',
+              'framework',
+              'database',
+              'tool',
+              'environment',
+              'platform',
+              'other'
+            ])
             .default('other'),
           name: z.string(),
           version: z.string().default(''),
