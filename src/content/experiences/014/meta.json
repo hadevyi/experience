@@ -2,18 +2,18 @@
   "number": "014",
   "periods": [
     {
-      "start": "2017-09-07",
-      "end": "2018-02-09"
+      "start": "2017-08-28",
+      "end": "2018-11-02"
     }
   ],
-  "category": "community",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "collaboration",
-    "structuring",
-    "coordination",
-    "learning"
+    "teaching",
+    "mentoring",
+    "knowledge-sharing",
+    "volunteering"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -21,21 +21,17 @@
     {
       "number": "001",
       "relation": "affiliation"
-    },
-    {
-      "number": "017",
-      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/014/representative.jpg",
     "alt": {
-      "ko": "교내 창업동아리 앱벌레 대표 이미지",
-      "en": "Representative image for the Appbug campus startup club activity"
+      "ko": "고교생 전공 체험 대표단 대표 이미지",
+      "en": "Representative image for the major experience representative activity"
     },
     "caption": {
-      "ko": "2017년 교내 창업동아리 앱벌레",
-      "en": "2017 campus startup club Appbug"
+      "ko": "고교생 전공 체험 대표단",
+      "en": "Major experience representative activity for high school students"
     }
   },
   "featured": false

@@ -1,95 +1,29 @@
 ---
-title: Manual and Automatic Background Removal Editor
+title: ETRI Internship
 organization: Electronics and Telecommunications Research Institute (ETRI)
-summary: An AI-based video background removal project completed as a two-person team during my ETRI internship. We implemented a manual editor, automatic background removal experiments, performance evaluation flow, and summarized the results in a short two-page paper.
-oneLine: Internship project implementing manual editing and Autoencoder-based background removal
+summary: A summer internship where I participated as a research trainee at ETRI's Busan Joint Research Office, working on an interactive media and AI-based video editing task.
+oneLine: Research internship introducing me to AI and interactive media work
 highlights:
-  - Implemented a Python-based manual and automatic background removal editor
-  - Experimented with video background removal using OpenCV GrabCut and a Keras Autoencoder
-  - Evaluated performance with F-measure and wrote a short two-page paper
-project:
-  host: ETRI Internship
-  position: Python Development / AI Model Application / Editor Implementation / Performance Evaluation
-  teamComposition:
-    - role: Python Development / AI Model Application / Editor Implementation / Performance Evaluation
-      count: 2
-      note: Completed the internship task as a two-person team
-  techStack:
-    - category: language
-      name: Python
-      version: "3.6"
-      note: Used to implement the editor and automatic background removal experiments
-    - category: platform
-      name: Tkinter
-      version: ""
-      note: Used to build the desktop editor UI
-    - category: framework
-      name: OpenCV
-      version: ""
-      note: Used for video frame processing, GrabCut, mask generation, and video I/O
-    - category: framework
-      name: Pillow
-      version: ""
-      note: Used for image loading and manual editing flows
-    - category: framework
-      name: NumPy
-      version: ""
-      note: Used for frame and mask array processing
-    - category: framework
-      name: Keras
-      version: ""
-      note: Used to build and train the Autoencoder model
-    - category: other
-      name: scikit-learn
-      version: ""
-      note: Used for F-measure based performance evaluation
-    - category: other
-      name: AI/ML
-      version: ""
-      note: Experimented with applying foreground/background separation from the first frame to the full video
-  deployment: Internship task demo and short two-page paper
-  overview: |
-    This was a manual and automatic background removal editor and performance evaluation project completed during my ETRI internship.
+  - Summer 2019 internship
+  - Research trainee at the Busan Joint Research Office under the Smart ICT Convergence Research Group
+  - Worked on an AI-based video editing task in a two-person team
+workExperience:
+  context: |
+    This was a summer 2019 internship at the Busan Joint Research Office under the Smart ICT Convergence Research Group of the Electronics and Telecommunications Research Institute (ETRI).
 
-    The core idea was to separate foreground and background in the first frame of a video and apply that reference to the full video. We worked on both a manual editor for correcting the background and an Autoencoder-based automatic background removal experiment, followed by performance evaluation.
-  background: |
-    The main keyword of the internship task was interactive media.
+    In my lab, students usually spent vacation periods either doing external internships or continuing lab-based study. Since this was my last vacation before graduation, I decided to apply. Many senior lab members had also done this internship, and among two team options, I chose the AI-related track.
+  responsibilities: |
+    The main keyword throughout the internship was interactive media.
 
-    We explored how foreground/background information from the first frame of a video could be applied to later frames. To do that, we prepared both a human-correctable editor and an automation experiment.
-  scope: |
-    The project scope was divided into a manual editor, automatic background removal experiments, and performance evaluation.
+    My task was to work on an AI-based video editing flow where foreground and background separation from the first frame of a video could be applied to the rest of the video. The implementation details are documented separately in the connected background removal editor project, while this record focuses on the internship environment and working style.
+  collaboration: |
+    There were four interns in total, divided into two-person teams.
 
-    In the manual editor, we loaded video frames, corrected foreground and background areas with a brush, moved between frames, selected colors, saved results, extracted video frames, and rebuilt video output. In the automatic background removal experiment, we used the first-frame background information as training data and applied the result to the full video.
-    Since automatic results needed a performance baseline, we also structured the manually corrected output as a reference for comparison.
-  contribution: |
-    As a two-person team, we completed the implementation scope discussed for the project.
-
-    We implemented a Python-based desktop editor, used OpenCV GrabCut for background correction, ran Keras Autoencoder experiments for automatic background removal, generated mask videos, and evaluated results with F-measure. The final result was summarized in a short two-page paper.
-  roleDetails:
-    - Implemented the manual background removal editor UI and editing flow with Tkinter and Pillow.
-    - Implemented video frame extraction, mask processing, and video saving with OpenCV.
-    - Ran Keras Autoencoder experiments based on the corrected first-frame result.
-    - Built an F-measure based evaluation flow to compare automatic output with manual reference videos.
-    - Summarized the project results in a short two-page paper.
-  implementation: |
-    The manual editor was built with a Tkinter UI and OpenCV/Pillow image processing flow.
-    It included brush size control, foreground/background color selection, frame navigation, Undo/Redo, video cutting, and save flows.
-
-    The automatic background removal experiment used the foreground/background separation result from the first frame as training data, then applied a Keras Autoencoder to later video frames. We compared experiments that split frames into 10x10, 20x20, and 40x40 units. For performance evaluation, we generated mask videos and compared manual and automatic outputs.
-  challenges: |
-    I had to study Python and AI models while applying them directly to the task.
-
-    Video processing was harder than working with a single image because consistency across frames mattered. It was also difficult to improve the CNN/Autoencoder logic in a GPU environment and decide how to lower loss, because results changed depending on each case and the quality of the video.
-
-    At first, the goal was closer to building a generally effective separation model, but that scope was too broad to validate reliably within the internship period. We narrowed the goal to optimizing around one frame of one video and applying that reference to the full video.
+    I worked with one other intern on the task, learning how to understand the assignment within a research institute setting and study what was needed while applying it directly.
   outcome: |
-    We implemented the manual/automatic background removal editor and performance evaluation flow, then summarized the results in a short two-page paper.
+    This was the first time Python became necessary for my work, so I had to study it and apply it almost immediately. It was difficult, but it was meaningful to learn AI concepts and apply them to a real task.
 
-    In the experiment, we compared 10x10, 20x20, and 40x40 units. F-measure was measured at 0.9614, 0.9702, and 0.9787, while loss decreased to 0.0035, 0.0020, and 0.0014 respectively. Training time increased to 420 seconds, 1014 seconds, and 1320 seconds, so we compared both output quality and training cost.
-
-    In the paper, we compared the manually corrected reference with the automated experimental output and summarized the before-and-after results and limitations.
-
-    Through this project, I applied Python, OpenCV, and Keras to a real task and experienced how AI could be used experimentally in image processing and video editing.
+    Through this experience, I was introduced to research-institute development, practical development flow, and the image processing and video editing domain. Most importantly, this internship helped me decide that I wanted to continue as a developer.
 sections: []
 links: []
 ---

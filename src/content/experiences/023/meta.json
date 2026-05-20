@@ -2,33 +2,39 @@
   "number": "023",
   "periods": [
     {
-      "start": "2018-06-25"
+      "start": "2018-06-25",
+      "end": "2019-09-10"
     }
   ],
-  "category": "award-scholarship",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
+    "operation",
     "documentation",
-    "learning"
+    "collaboration"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "002",
-      "relation": "department"
+      "number": "022",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "001",
+      "relation": "university"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/023/representative.jpg",
     "alt": {
-      "ko": "인제인성 장학사정관 학업장려 대표 이미지",
-      "en": "Representative image for the Inje Character scholarship"
+      "ko": "소프트웨어교육원 및 디지털정보원 대표 이미지",
+      "en": "Representative image for Software Education Center and Digital Information Center work"
     },
     "caption": {
-      "ko": "인제인성(장학사정관)학업장려",
-      "en": "Inje Character Scholarship"
+      "ko": "소프트웨어교육원 및 디지털정보원",
+      "en": "Software Education Center and Digital Information Center"
     }
   },
   "featured": false

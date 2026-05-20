@@ -3,7 +3,7 @@
   "periods": [
     {
       "start": "2018-06-25",
-      "end": "2019-09-10"
+      "end": "2020-01-31"
     }
   ],
   "category": "work-experience",
@@ -18,23 +18,23 @@
   "techTags": [],
   "related": [
     {
-      "number": "021",
-      "relation": "parent-experience"
-    },
-    {
       "number": "001",
       "relation": "university"
+    },
+    {
+      "number": "023",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/022/representative.jpg",
     "alt": {
-      "ko": "소프트웨어교육원 및 디지털정보원 대표 이미지",
-      "en": "Representative image for Software Education Center and Digital Information Center work"
+      "ko": "국가 근로 장학생 대표 이미지",
+      "en": "Representative image for the National Work-Study Student experience"
     },
     "caption": {
-      "ko": "소프트웨어교육원 및 디지털정보원",
-      "en": "Software Education Center and Digital Information Center"
+      "ko": "국가 근로 장학생",
+      "en": "National Work-Study Student"
     }
   },
   "featured": false

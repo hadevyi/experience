@@ -2,39 +2,48 @@
   "number": "030",
   "periods": [
     {
-      "start": "2019-09-11",
-      "end": "2019-12-20"
+      "start": "2019-07-01",
+      "end": "2019-08-30"
     }
   ],
-  "category": "work-experience",
+  "category": "project",
   "visibility": "public",
   "status": "done",
+  "teamSize": 2,
   "experienceTags": [
-    "operation",
-    "documentation",
-    "collaboration"
+    "problem-solving",
+    "learning",
+    "structuring"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "desktop",
+    "ai-ml"
+  ],
+  "techTags": [
+    "python",
+    "opencv",
+    "tkinter",
+    "pillow",
+    "numpy",
+    "keras",
+    "scikit-learn",
+    "ai-ml"
+  ],
   "related": [
     {
-      "number": "021",
+      "number": "029",
       "relation": "parent-experience"
-    },
-    {
-      "number": "001",
-      "relation": "university"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/030/representative.jpg",
     "alt": {
-      "ko": "예비군연대 전산사무원 근무 대표 이미지",
-      "en": "Representative image for the reserve forces office work experience"
+      "ko": "배경제거 편집기 프로젝트 대표 이미지",
+      "en": "Representative image for the background removal editor project"
     },
     "caption": {
-      "ko": "인제대학교 예비군연대 전산사무원 근무",
-      "en": "Inje University Reserve Forces Office Administrative Work"
+      "ko": "수동/자동 배경제거 편집기",
+      "en": "Manual and automatic background removal editor"
     }
   },
   "featured": false

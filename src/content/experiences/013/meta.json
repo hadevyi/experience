@@ -2,36 +2,36 @@
   "number": "013",
   "periods": [
     {
-      "start": "2017-08-28",
-      "end": "2018-11-02"
+      "start": "2017-03-06",
+      "end": "2017-12-17"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "teaching",
-    "mentoring",
-    "knowledge-sharing",
-    "volunteering"
+    "operation",
+    "coordination",
+    "documentation",
+    "collaboration"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "001",
+      "number": "002",
       "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/013/representative.jpg",
     "alt": {
-      "ko": "고교생 전공 체험 대표단 대표 이미지",
-      "en": "Representative image for the major experience representative activity"
+      "ko": "제33대 UBUNTU 학과학생회 대표 이미지",
+      "en": "Representative image for the 33rd UBUNTU Department Student Council"
     },
     "caption": {
-      "ko": "고교생 전공 체험 대표단",
-      "en": "Major experience representative activity for high school students"
+      "ko": "2017년 UBUNTU 컴퓨터공학부 학과학생회",
+      "en": "2017 UBUNTU Department Student Council of the Department of Computer Engineering"
     }
   },
   "featured": false

@@ -2,17 +2,14 @@
   "number": "007",
   "periods": [
     {
-      "start": "2016-08-29",
-      "end": "2020-02-14"
+      "start": "2016-06"
     }
   ],
-  "category": "affiliation",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning",
-    "community",
-    "collaboration"
+    "learning"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -20,29 +17,17 @@
     {
       "number": "002",
       "relation": "department"
-    },
-    {
-      "number": "010",
-      "relation": "extended-activity"
-    },
-    {
-      "number": "024",
-      "relation": "lab-team"
-    },
-    {
-      "number": "031",
-      "relation": "lab-team"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/007/representative.jpg",
     "alt": {
-      "ko": "Database LAB 대표 이미지",
-      "en": "Representative image for Database LAB"
+      "ko": "2016년 1학기 성적우수장학 A 대표 이미지",
+      "en": "Representative image for the Spring 2016 Grade A academic excellence scholarship"
     },
     "caption": {
-      "ko": "Database LAB",
-      "en": "Database LAB"
+      "ko": "2016년 1학기 성적우수장학 A",
+      "en": "Spring 2016 Grade A Academic Excellence Scholarship"
     }
   },
   "featured": false

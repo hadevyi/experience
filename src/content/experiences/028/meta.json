@@ -2,35 +2,43 @@
   "number": "028",
   "periods": [
     {
-      "start": "2019-07-01",
-      "end": "2019-08-30"
+      "start": "2019-05-08",
+      "end": "2020-02-06"
     }
   ],
-  "category": "work-experience",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning",
+    "operation",
     "collaboration",
-    "problem-solving"
+    "learning"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "029",
-      "relation": "detailed-experience"
+      "number": "027",
+      "relation": "project"
+    },
+    {
+      "number": "002",
+      "relation": "department"
+    },
+    {
+      "number": "035",
+      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/028/representative.jpg",
     "alt": {
-      "ko": "한국전자통신연구원 인턴 대표 이미지",
-      "en": "Representative image for the ETRI internship"
+      "ko": "교내 창업동아리 WowSup 대표 이미지",
+      "en": "Representative image for the WowSup campus startup club"
     },
     "caption": {
-      "ko": "한국전자통신연구원(ETRI) 인턴",
-      "en": "ETRI Internship"
+      "ko": "교내 창업동아리 WowSup",
+      "en": "Campus Startup Club WowSup"
     }
   },
   "featured": false

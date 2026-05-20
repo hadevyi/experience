@@ -2,40 +2,40 @@
   "number": "011",
   "periods": [
     {
-      "start": "2017-03-06",
-      "end": "2017-12-17"
+      "start": "2017-03-01",
+      "end": "2019-12-31"
     }
   ],
-  "category": "community",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "operation",
-    "documentation",
-    "ownership"
+    "teaching",
+    "mentoring",
+    "knowledge-sharing",
+    "operation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "002",
-      "relation": "affiliation"
+      "number": "008",
+      "relation": "lab-recommendation"
     },
     {
-      "number": "004",
-      "relation": "previous-role"
+      "number": "001",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/011/representative.jpg",
     "alt": {
-      "ko": "2017년 2학년 대표 이미지",
-      "en": "Representative image for the 2017 second-year representative experience"
+      "ko": "영재교육원 TA 대표 이미지",
+      "en": "Representative image for the Gifted Education Center TA activity"
     },
     "caption": {
-      "ko": "2017년 2학년 대표",
-      "en": "2017 Second-Year Representative"
+      "ko": "영재교육원 TA",
+      "en": "Gifted Education Center TA"
     }
   },
   "featured": false

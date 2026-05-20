@@ -34,42 +34,46 @@
     },
     {
       "number": "006",
-      "relation": "award"
+      "relation": "activity"
     },
     {
       "number": "007",
-      "relation": "affiliation"
-    },
-    {
-      "number": "008",
-      "relation": "project"
-    },
-    {
-      "number": "009",
       "relation": "award"
     },
     {
-      "number": "011",
-      "relation": "activity"
+      "number": "008",
+      "relation": "affiliation"
+    },
+    {
+      "number": "009",
+      "relation": "project"
+    },
+    {
+      "number": "010",
+      "relation": "award"
     },
     {
       "number": "012",
       "relation": "activity"
     },
     {
-      "number": "019",
+      "number": "013",
       "relation": "activity"
     },
     {
-      "number": "023",
-      "relation": "award"
+      "number": "020",
+      "relation": "activity"
     },
     {
       "number": "024",
+      "relation": "award"
+    },
+    {
+      "number": "025",
       "relation": "project"
     },
     {
-      "number": "032",
+      "number": "033",
       "relation": "award"
     }
   ],

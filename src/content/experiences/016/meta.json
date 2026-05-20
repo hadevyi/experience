@@ -2,44 +2,32 @@
   "number": "016",
   "periods": [
     {
-      "start": "2017-09-12",
-      "end": "2017-12-05"
+      "start": "2017-09"
     }
   ],
-  "category": "project",
-  "teamSize": 3,
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
-    "structuring",
-    "learning",
-    "collaboration"
+    "learning"
   ],
-  "projectDomains": [
-    "desktop"
-  ],
-  "techTags": [
-    "java",
-    "awt",
-    "swing",
-    "mysql"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
-      "number": "002",
-      "relation": "department"
+      "number": "001",
+      "relation": "university"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/016/representative.jpg",
     "alt": {
-      "ko": "EWS 프로젝트 대표 이미지",
-      "en": "Representative image for the EWS project"
+      "ko": "운봉문화재단 장학금 증빙 이미지",
+      "en": "Representative image for the Woonbong Cultural Foundation scholarship"
     },
     "caption": {
-      "ko": "영단어 학습 데스크톱 애플리케이션 EWS",
-      "en": "EWS English word study desktop application"
+      "ko": "2017년 운봉문화재단 장학금",
+      "en": "2017 Woonbong Cultural Foundation Scholarship"
     }
   },
   "featured": false

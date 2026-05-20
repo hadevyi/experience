@@ -2,39 +2,39 @@
   "number": "031",
   "periods": [
     {
-      "start": "2019-10-01"
+      "start": "2019-09-11",
+      "end": "2019-12-20"
     }
   ],
-  "category": "award-scholarship",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
     "operation",
-    "collaboration",
-    "ownership"
+    "documentation",
+    "collaboration"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "024",
-      "relation": "project"
+      "number": "022",
+      "relation": "parent-experience"
     },
     {
-      "number": "007",
-      "relation": "lab-team"
+      "number": "001",
+      "relation": "university"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/031/representative.jpg",
     "alt": {
-      "ko": "2019 인제대 캡스톤디자인 경진대회 대표 이미지",
-      "en": "Representative image for the 2019 Inje Capstone Design Competition"
+      "ko": "예비군연대 전산사무원 근무 대표 이미지",
+      "en": "Representative image for the reserve forces office work experience"
     },
     "caption": {
-      "ko": "2019 인제대 캡스톤디자인 경진대회",
-      "en": "2019 Inje Capstone Design Competition"
+      "ko": "인제대학교 예비군연대 전산사무원 근무",
+      "en": "Inje University Reserve Forces Office Administrative Work"
     }
   },
   "featured": false

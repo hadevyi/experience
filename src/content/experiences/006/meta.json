@@ -2,14 +2,17 @@
   "number": "006",
   "periods": [
     {
-      "start": "2016-06"
+      "start": "2016-03-02",
+      "end": "2016-12-18"
     }
   ],
-  "category": "award-scholarship",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning"
+    "coordination",
+    "documentation",
+    "community"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -22,12 +25,8 @@
   "representativeImage": {
     "src": "/experience/images/experiences/006/representative.jpg",
     "alt": {
-      "ko": "2016년 1학기 성적우수장학 A 대표 이미지",
-      "en": "Representative image for the Spring 2016 Grade A academic excellence scholarship"
-    },
-    "caption": {
-      "ko": "2016년 1학기 성적우수장학 A",
-      "en": "Spring 2016 Grade A Academic Excellence Scholarship"
+      "ko": "컴퓨터공학부 학술동아리 IMAGINE 1학년 대표 이미지",
+      "en": "Representative image for the IMAGINE academic club first-year representative role"
     }
   },
   "featured": false

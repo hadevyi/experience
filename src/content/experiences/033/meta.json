@@ -2,39 +2,33 @@
   "number": "033",
   "periods": [
     {
-      "start": "2019-10-31",
-      "end": "2019-11-02"
+      "start": "2019-10"
     }
   ],
   "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "collaboration",
-    "knowledge-sharing",
+    "documentation",
     "learning"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "031",
-      "relation": "recommendation"
-    },
-    {
-      "number": "024",
-      "relation": "project"
+      "number": "002",
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/033/representative.jpg",
     "alt": {
-      "ko": "제5회 학생창업 국제 컨퍼런스&교류회 대표 이미지",
-      "en": "Representative image for the 5th Student Startup International Conference & Exchange"
+      "ko": "2019년 인제인성 장학사정관 학업장려 대표 이미지",
+      "en": "Representative image for the 2019 Inje Character scholarship"
     },
     "caption": {
-      "ko": "제5회 학생창업 국제 컨퍼런스&교류회",
-      "en": "5th Student Startup International Conference & Exchange"
+      "ko": "2019년 인제인성(장학사정관)학업장려",
+      "en": "2019 Inje Character Scholarship"
     }
   },
   "featured": false

@@ -2,38 +2,39 @@
   "number": "034",
   "periods": [
     {
-      "start": "2019-11"
+      "start": "2019-10-31",
+      "end": "2019-11-02"
     }
   ],
   "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
     "collaboration",
+    "knowledge-sharing",
     "learning"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "027",
-      "relation": "activity"
+      "number": "032",
+      "relation": "recommendation"
     },
     {
-      "number": "001",
-      "relation": "university"
+      "number": "025",
+      "relation": "project"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/034/representative.jpg",
     "alt": {
-      "ko": "2019년 창업역량강화 비교과 특별장학 대표 이미지",
-      "en": "Representative image for the 2019 entrepreneurship competency extracurricular scholarship"
+      "ko": "제5회 학생창업 국제 컨퍼런스&교류회 대표 이미지",
+      "en": "Representative image for the 5th Student Startup International Conference & Exchange"
     },
     "caption": {
-      "ko": "2019년 WowSup 창업역량강화 비교과 특별장학",
-      "en": "2019 WowSup Entrepreneurship Competency Extracurricular Scholarship"
+      "ko": "제5회 학생창업 국제 컨퍼런스&교류회",
+      "en": "5th Student Startup International Conference & Exchange"
     }
   },
   "featured": false

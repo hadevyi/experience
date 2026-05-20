@@ -1,74 +1,33 @@
 ---
-title: "O to I"
-organization: Inje University, Department of Computer Engineering
-summary: This was my first major project, built with a team of first-year students around an open-ended class topic. It was my first experience coordinating team schedules and implementation scope while designing both the screens and data flow of a web service.
-oneLine: Personalized health management web service
+title: Database LAB
+organization: Research Lab, Department of Computer Engineering, Inje University
+summary: As an undergraduate researcher in a lab with an academic standard, I learned beyond regular classes through Git, projects, seminars, and assistant work.
+oneLine: Lab affiliation where I found a place and people to learn with
 highlights:
-  - Coordinated schedule and roles as team lead in my first major project
-  - Built the shared structure through Master Page, member-only Diet, and database design
-  - Earned strong feedback while learning the importance of scope management
-project:
-  host: First-semester major project class
-  position: Team Lead / Development, Database, Design, Presentation
-  teamComposition:
-    - role: Project team members
-      count: 4
-      note: First-year student team
-  techStack:
-    - category: language
-      name: "C#"
-      version: ""
-    - category: framework
-      name: "ASP.NET Web Forms"
-      version: ".NET Framework 4.0 / 4.5 runtime setting"
-    - category: database
-      name: "SQL Server"
-      version: "SQLEXPRESS"
-    - category: environment
-      name: "Visual Studio"
-      version: "2015"
-  deployment: Local implementation and demo
+  - Joined after being recommended by the lab lead following my first-semester academic result
+  - Participated in self-directed learning and seminars in an undergraduate research lab
+  - Experienced Git, daily commit routines, projects, and assistant work beyond coursework
+  - Built a learning community with people I still keep in touch with
+affiliation:
   overview: |
-    O to I was a health management web service for healthier dieting and lifestyle management. Users could enter height, weight, target weight, constitution, and diet information, then check BMI, calculate diet calories, and view different Diet content depending on their login status.
-
-    The goal was not only to show static information, but also to let users enter their own status, follow diet and exercise recommendation flows, and leave records through community and customer support features.
-  background: |
-    At the time, wellness and healthy living were becoming common topics of interest, and the class project allowed each team to choose its own theme. Through team discussions, we chose to build a health management service that recommended diet and exercise information based on each user's constitution and status, rather than focusing only on weight loss.
-
-    Because the team consisted of first-year students, defining the implementation scope and dividing work into manageable pieces became an important part of the project.
-  scope: |
-    According to the wiki, the main scope included About O to I, Diet, BMI measurement, member-only Diet, Community, and Customer Service. The member-only Diet flow aimed to calculate calories by menu and allow new menu-calorie registration, while Customer Service included member inquiries and admin replies.
-
-    The codebase includes signup and login, constitution calculation, BMI calculation, Food_db-based diet calorie totals, guestbook and free board features, customer inquiries and admin replies, an admin member list, and member deletion. However, not every planned feature reached the same level of finish. The admin page and inquiry flow existed in code, but remained areas where the polish and completion level fell short of the original plan.
-  contribution: |
-    As team lead, I introduced WBS, checked team progress about twice a week, and coordinated schedules and task distribution.
-
-    I focused on Master Page development, visual design application, the member-only Diet flow, database design, and the final presentation. In the member-only Diet area, I worked on calculating calories from selected meals and connecting those values with user body information so users could see changes more clearly.
-  roleDetails:
-    - Built the Master Page structure and applied the shared visual design
-    - Implemented the member-only Diet screens and diet calorie calculation flow
-    - Connected BMI calculation with user body information and result display
-    - Designed the database relationships for users, diet data, boards, and customer support
-    - Coordinated the schedule with WBS and prepared the final presentation
-  implementation: |
-    The project used an ASP.NET Web Forms structure with .aspx pages and code-behind files. Master Pages were used to share layout across menus. It was also a concept covered in class, so I applied it to keep the overall layout consistent across the service.
-
-    Member and non-member screens were separated so visitors could try some features before signing up, while saved or extended functionality could lead naturally into registration. The code also includes separate flows based on login status and Forms Authentication-based login handling.
-
-    Based on the code, the data layer used a local SQL Server SQLEXPRESS database named sqlexpress2. During signup, user data was inserted into user_db, and questionnaire answers were used to calculate and store each user's constitution value.
-
-    In the Diet area, BMI was calculated from height and weight, and selected menu calories were summed from Food_db. The goal was to make changing user numbers, such as BMI and diet calories, visible in the service flow.
+    Database LAB was an undergraduate research lab led by a professor whose field was databases.
+    The lab encouraged assistant work and self-directed learning, and members had to maintain a certain academic standard to continue.
+    It naturally became a place where we supported each other's learning and continued projects and external activities together.
+  reason: |
+    After doing well in my first semester, the lab lead senior invited me to join.
+    I had spent many nights studying alone in the club room, and the senior noticed that effort and recommended me.
+    More than anything, I liked having seniors I could ask for help and a place I belonged to within the university.
+  startingContext: |
+    At first, I did not even know how to ask good questions, and I felt awkward around the seniors.
+    I began to settle in after a returning student in my year joined the lab as well, and I gradually learned how to follow the lab's learning rhythm.
   challenges: |
-    The hardest part was database design. As implementation progressed, new data needs kept appearing, and we had to repeatedly revisit tables and relationships.
-
-    Because this was my first time handling different types of data together, including user information, constitution, diet, boards, and customer support, the database structure changed often. When the design became unclear, I used the data mind map approach we were learning in class to reorganize the data and relationships, then discussed the table and feature scope again with the team.
-  outcome: |
-    The project received the best evaluation in the class, and that result gave me confidence during my first major project.
-
-    At the same time, we were only able to implement about 80% of what we had planned. The admin page and customer support flow had basic code paths, but they remained areas that did not reach the level of completion I had hoped for. Looking back, this was my first web project and my first experience leading development. It became a starting point for understanding that schedule coordination and scope management matter just as much as the final result.
+    There were many things to do beyond regular coursework.
+    Learning Git, receiving internship recommendations, studying independently, and keeping up with missions like daily commits all felt unfamiliar.
+    In the beginning, it was difficult simply to adjust to the standards and pace of the lab.
+  gains: |
+    It became one of the most meaningful parts of my undergraduate years because I learned many things I could not have learned from classes alone.
+    During exam periods, we helped each other with the subjects we were strongest in and shared notes as we studied together.
+    I still keep in touch with many of the people I met there.
 sections: []
-links:
-  - type: repository
-    label: GitHub Repository
-    url: https://github.com/hadevyi/O-to-I
+links: []
 ---

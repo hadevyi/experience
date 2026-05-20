@@ -2,37 +2,45 @@
   "number": "025",
   "periods": [
     {
-      "start": "2018-11",
-      "end": "2019-12-31"
+      "start": "2018-08-27",
+      "end": "2019-10-25"
     }
   ],
-  "category": "community",
+  "category": "project",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "improvement",
-    "operation",
-    "coordination",
-    "documentation",
-    "ownership"
+    "problem-solving",
+    "learning",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "desktop",
+    "iot"
+  ],
+  "techTags": [
+    "csharp",
+    "sensor"
+  ],
   "related": [
     {
       "number": "002",
       "relation": "department"
+    },
+    {
+      "number": "008",
+      "relation": "lab-team"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/025/representative.jpg",
     "alt": {
-      "ko": "PLUS+ 컴퓨터공학부 학생회 대표 이미지",
-      "en": "Representative image for the PLUS+ Computer Engineering student council"
+      "ko": "DB Leap 프로젝트 대표 이미지",
+      "en": "Representative image for the DB Leap project"
     },
     "caption": {
-      "ko": "PLUS+ 컴퓨터공학부 학생회",
-      "en": "PLUS+ Computer Engineering Student Council"
+      "ko": "손동작을 이용한 마우스 제어 시스템 DB Leap",
+      "en": "DB Leap hand-gesture mouse control system"
     }
   },
   "featured": false

@@ -2,13 +2,17 @@
   "number": "015",
   "periods": [
     {
-      "start": "2017-09"
+      "start": "2017-09-07",
+      "end": "2018-02-09"
     }
   ],
-  "category": "award-scholarship",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
+    "collaboration",
+    "structuring",
+    "coordination",
     "learning"
   ],
   "projectDomains": [],
@@ -16,18 +20,22 @@
   "related": [
     {
       "number": "001",
-      "relation": "university"
+      "relation": "affiliation"
+    },
+    {
+      "number": "018",
+      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/015/representative.jpg",
     "alt": {
-      "ko": "운봉문화재단 장학금 증빙 이미지",
-      "en": "Representative image for the Woonbong Cultural Foundation scholarship"
+      "ko": "교내 창업동아리 앱벌레 대표 이미지",
+      "en": "Representative image for the Appbug campus startup club activity"
     },
     "caption": {
-      "ko": "2017년 운봉문화재단 장학금",
-      "en": "2017 Woonbong Cultural Foundation Scholarship"
+      "ko": "2017년 교내 창업동아리 앱벌레",
+      "en": "2017 campus startup club Appbug"
     }
   },
   "featured": false

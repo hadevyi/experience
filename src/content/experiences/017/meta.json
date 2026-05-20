@@ -2,37 +2,44 @@
   "number": "017",
   "periods": [
     {
-      "start": "2017-12"
+      "start": "2017-09-12",
+      "end": "2017-12-05"
     }
   ],
-  "category": "award-scholarship",
+  "category": "project",
+  "teamSize": 3,
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "collaboration",
-    "structuring"
+    "problem-solving",
+    "structuring",
+    "learning",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "desktop"
+  ],
+  "techTags": [
+    "java",
+    "awt",
+    "swing",
+    "mysql"
+  ],
   "related": [
     {
-      "number": "014",
-      "relation": "activity"
-    },
-    {
-      "number": "001",
-      "relation": "university"
+      "number": "002",
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/017/representative.jpg",
     "alt": {
-      "ko": "창업역량강화 비교과 특별장학 대표 이미지",
-      "en": "Representative image for the entrepreneurship competency extracurricular scholarship"
+      "ko": "EWS 프로젝트 대표 이미지",
+      "en": "Representative image for the EWS project"
     },
     "caption": {
-      "ko": "2017년 창업역량강화 비교과 특별장학",
-      "en": "2017 Entrepreneurship Competency Extracurricular Scholarship"
+      "ko": "영단어 학습 데스크톱 애플리케이션 EWS",
+      "en": "EWS English word study desktop application"
     }
   },
   "featured": false

@@ -6,44 +6,31 @@
       "end": "2019-08-30"
     }
   ],
-  "category": "project",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
-  "teamSize": 2,
   "experienceTags": [
-    "problem-solving",
     "learning",
-    "structuring"
+    "collaboration",
+    "problem-solving"
   ],
-  "projectDomains": [
-    "desktop",
-    "ai-ml"
-  ],
-  "techTags": [
-    "python",
-    "opencv",
-    "tkinter",
-    "pillow",
-    "numpy",
-    "keras",
-    "scikit-learn",
-    "ai-ml"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
-      "number": "028",
-      "relation": "parent-experience"
+      "number": "030",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/029/representative.jpg",
     "alt": {
-      "ko": "배경제거 편집기 프로젝트 대표 이미지",
-      "en": "Representative image for the background removal editor project"
+      "ko": "한국전자통신연구원 인턴 대표 이미지",
+      "en": "Representative image for the ETRI internship"
     },
     "caption": {
-      "ko": "수동/자동 배경제거 편집기",
-      "en": "Manual and automatic background removal editor"
+      "ko": "한국전자통신연구원(ETRI) 인턴",
+      "en": "ETRI Internship"
     }
   },
   "featured": false

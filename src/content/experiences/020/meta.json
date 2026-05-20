@@ -3,32 +3,35 @@
   "periods": [
     {
       "start": "2018-03-05",
-      "end": "2019-12-20"
+      "end": "2018-12-16"
     }
   ],
-  "category": "award-scholarship",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning"
+    "operation",
+    "coordination",
+    "structuring",
+    "documentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "001",
-      "relation": "university"
+      "number": "002",
+      "relation": "department"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/020/representative.jpg",
     "alt": {
-      "ko": "이공계 국가우수장학생 대표 이미지",
-      "en": "Representative image for the National Science and Engineering Scholarship"
+      "ko": "2018년 컴퓨터공학부 학술 운영 대표 이미지",
+      "en": "Representative image for 2018 Computer Engineering academic operations"
     },
     "caption": {
-      "ko": "이공계 국가우수장학생",
-      "en": "National Science and Engineering Scholarship"
+      "ko": "2018년 컴퓨터공학부 학술 운영",
+      "en": "2018 Computer Engineering Academic Operations"
     }
   },
   "featured": false

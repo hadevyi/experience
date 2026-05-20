@@ -2,44 +2,48 @@
   "number": "008",
   "periods": [
     {
-      "start": "2016-10-26",
-      "end": "2016-12-06"
+      "start": "2016-08-29",
+      "end": "2020-02-14"
     }
   ],
-  "category": "project",
-  "teamSize": 4,
+  "category": "affiliation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
-    "coordination",
-    "structuring",
+    "learning",
+    "community",
     "collaboration"
   ],
-  "projectDomains": [
-    "web"
-  ],
-  "techTags": [
-    "csharp",
-    "aspnet",
-    "sqlserver"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
       "number": "002",
-      "relation": "affiliation"
+      "relation": "department"
+    },
+    {
+      "number": "011",
+      "relation": "extended-activity"
+    },
+    {
+      "number": "025",
+      "relation": "lab-team"
+    },
+    {
+      "number": "032",
+      "relation": "lab-team"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/008/representative.jpg",
     "alt": {
-      "ko": "O to I 프로젝트 대표 이미지",
-      "en": "Representative image for the O to I project"
+      "ko": "Database LAB 대표 이미지",
+      "en": "Representative image for Database LAB"
     },
     "caption": {
-      "ko": "개인 체질 맞춤 건강관리 웹 사이트 O to I",
-      "en": "O to I personalized health management web service"
+      "ko": "Database LAB",
+      "en": "Database LAB"
     }
   },
-  "featured": true
+  "featured": false
 }

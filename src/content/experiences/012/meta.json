@@ -10,10 +10,10 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
     "coordination",
+    "operation",
     "documentation",
-    "collaboration"
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -21,17 +21,21 @@
     {
       "number": "002",
       "relation": "affiliation"
+    },
+    {
+      "number": "004",
+      "relation": "previous-role"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/012/representative.jpg",
     "alt": {
-      "ko": "제33대 UBUNTU 학과학생회 대표 이미지",
-      "en": "Representative image for the 33rd UBUNTU Department Student Council"
+      "ko": "2017년 2학년 대표 이미지",
+      "en": "Representative image for the 2017 second-year representative experience"
     },
     "caption": {
-      "ko": "2017년 UBUNTU 컴퓨터공학부 학과학생회",
-      "en": "2017 UBUNTU Department Student Council of the Department of Computer Engineering"
+      "ko": "2017년 2학년 대표",
+      "en": "2017 Second-Year Representative"
     }
   },
   "featured": false
