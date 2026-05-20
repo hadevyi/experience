@@ -2064,11 +2064,24 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .experience-card-visual {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
   aspect-ratio: 1.8 / 1;
   margin: 1rem 0 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.experience-card-visual-frame {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--experience-line-strong) 72%, transparent);
   border-radius: 1.2rem;
@@ -2078,7 +2091,11 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   padding: 0;
 }
 
-.experience-card-visual img {
+.experience-card-visual-badge {
+  display: none;
+}
+
+.experience-card-visual-frame img {
   display: block;
   width: 100%;
   height: 100%;
@@ -2244,17 +2261,50 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   grid-column: 1;
   grid-row: 1 / span 5;
   align-self: start;
-  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  place-items: initial;
+  gap: 0.52rem;
+  aspect-ratio: auto;
   margin: 0;
   min-height: 0;
   padding: 0;
+  background: transparent;
+}
+
+.experience-card-grid-list .experience-card[data-has-visual='true'] .experience-card-topline .experience-card-badge {
+  display: none;
+}
+
+.experience-card-grid-list .experience-card-visual-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  max-width: 100%;
+  border: 1px solid color-mix(in srgb, var(--experience-accent) 14%, transparent);
+  border-radius: 999px;
+  background: var(--experience-accent-soft);
+  padding: 0.3rem 0.52rem;
+  color: color-mix(in srgb, var(--experience-accent) 74%, var(--experience-ink));
+  font-size: calc(var(--type-caption-size) * 0.92);
+  font-weight: 740;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px rgba(49, 43, 72, 0.09);
+  backdrop-filter: blur(14px);
+}
+
+.experience-card-grid-list .experience-card-visual-frame {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 1rem;
   background: color-mix(in srgb, var(--experience-surface-strong) 92%, #ffffff);
 }
 
-.experience-card-grid-list .experience-card-visual img {
+.experience-card-grid-list .experience-card-visual-frame img {
   width: 100%;
-  height: 100%;
-  aspect-ratio: auto;
+  height: auto;
+  aspect-ratio: 16 / 9;
   object-fit: contain;
   object-position: center;
 }
@@ -2465,14 +2515,13 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 
   .experience-card-grid-list .experience-card-visual {
     align-self: start;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: auto;
     min-height: 0;
     padding: 0;
-    border-radius: 1rem;
   }
 
-  .experience-card-grid-list .experience-card-visual img {
-    border-radius: inherit;
+  .experience-card-grid-list .experience-card-visual-frame {
+    border-radius: 1rem;
   }
 
   .experience-card-grid-list .experience-card-topline {

@@ -654,10 +654,15 @@ const hasArchiveItems = archiveItems.length > 0;
                       {
                         representativeImage && (
                           <figure class="experience-card-visual">
-                            <img
-                              src={representativeImage.src}
-                              {...i18nAttr('alt', representativeImageAlt.ko, representativeImageAlt.en)}
-                            />
+                            <span class="experience-card-visual-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
+                              {categoryLabel.ko}
+                            </span>
+                            <span class="experience-card-visual-frame">
+                              <img
+                                src={representativeImage.src}
+                                {...i18nAttr('alt', representativeImageAlt.ko, representativeImageAlt.en)}
+                              />
+                            </span>
                           </figure>
                         )
                       }
