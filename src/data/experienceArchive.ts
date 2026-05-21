@@ -705,17 +705,25 @@ type WorkExperienceSectionKey = keyof typeof workExperienceSectionLabels;
 const workExperienceSectionKeys = Object.keys(workExperienceSectionLabels) as WorkExperienceSectionKey[];
 
 const learningGrowthSectionLabels = {
-  background: {
-    ko: '시작 배경',
-    en: 'Starting Point'
+  reason: {
+    ko: '학습이 필요했던 이유',
+    en: 'Why I Needed This Learning'
+  },
+  startingPoint: {
+    ko: '당시의 이해 수준',
+    en: 'Starting Level'
   },
   learning: {
     ko: '배운 내용',
     en: 'What I Learned'
   },
-  change: {
-    ko: '이후 변화',
-    en: 'What Changed'
+  challenge: {
+    ko: '어려웠던 점',
+    en: 'What Was Difficult'
+  },
+  connection: {
+    ko: '이후 연결',
+    en: 'How It Connected Later'
   }
 } as const;
 

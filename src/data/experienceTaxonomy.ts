@@ -199,6 +199,10 @@ export const projectDomainConfig = {
     ko: '웹',
     en: 'Web'
   },
+  'open-source': {
+    ko: '오픈소스',
+    en: 'Open Source'
+  },
   desktop: {
     ko: '데스크톱 앱',
     en: 'Desktop App'
@@ -271,9 +275,49 @@ export const techTagConfig = {
     ko: 'MySQL',
     en: 'MySQL'
   },
+  postgresql: {
+    ko: 'PostgreSQL',
+    en: 'PostgreSQL'
+  },
+  html: {
+    ko: 'HTML',
+    en: 'HTML'
+  },
+  css: {
+    ko: 'CSS',
+    en: 'CSS'
+  },
+  javascript: {
+    ko: 'JavaScript',
+    en: 'JavaScript'
+  },
+  ruby: {
+    ko: 'Ruby',
+    en: 'Ruby'
+  },
+  'google-analytics': {
+    ko: 'Google Analytics',
+    en: 'Google Analytics'
+  },
   python: {
     ko: 'Python',
     en: 'Python'
+  },
+  django: {
+    ko: 'Django',
+    en: 'Django'
+  },
+  'django-rest-framework': {
+    ko: 'Django REST Framework',
+    en: 'Django REST Framework'
+  },
+  kotlin: {
+    ko: 'Kotlin',
+    en: 'Kotlin'
+  },
+  sqlite: {
+    ko: 'SQLite',
+    en: 'SQLite'
   },
   keras: {
     ko: 'Keras',

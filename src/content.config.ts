@@ -83,9 +83,11 @@ const workExperienceSchema = z
 
 const learningGrowthSchema = z
   .object({
-    background: z.string().default(''),
+    reason: z.string().default(''),
+    startingPoint: z.string().default(''),
     learning: z.string().default(''),
-    change: z.string().default('')
+    challenge: z.string().default(''),
+    connection: z.string().default('')
   })
   .optional();
 
