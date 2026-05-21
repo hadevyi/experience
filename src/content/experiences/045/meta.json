@@ -1,0 +1,32 @@
+{
+  "number": "045",
+  "periods": [
+    {
+      "start": "2020-09-21",
+      "end": "2020-10-20"
+    }
+  ],
+  "category": "learning-growth",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [
+    "ai-ml"
+  ],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/045/representative.jpg",
+    "alt": {
+      "ko": "Google Study Jam AI&ML Course 대표 이미지",
+      "en": "Representative image for Google Study Jam AI&ML Course"
+    },
+    "caption": {
+      "ko": "Google Study Jam AI&ML Course",
+      "en": "Google Study Jam AI&ML Course"
+    }
+  },
+  "featured": false
+}

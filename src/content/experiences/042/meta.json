@@ -1,0 +1,40 @@
+{
+  "number": "042",
+  "periods": [
+    {
+      "start": "2020-07-13",
+      "current": true
+    }
+  ],
+  "category": "affiliation",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "community",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "043",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "044",
+      "relation": "project"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/042/representative.jpg",
+    "alt": {
+      "ko": "DND 대표 이미지",
+      "en": "Representative image for DND"
+    },
+    "caption": {
+      "ko": "DND",
+      "en": "DND"
+    }
+  },
+  "featured": false
+}

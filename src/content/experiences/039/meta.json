@@ -1,0 +1,32 @@
+{
+  "number": "039",
+  "periods": [
+    {
+      "start": "2020-04-15",
+      "end": "2020-10-25"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "teaching",
+    "operation",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/039/representative.jpg",
+    "alt": {
+      "ko": "원투원 프로그래밍 대표 이미지",
+      "en": "Representative image for One-to-One Online Programming Education Business"
+    },
+    "caption": {
+      "ko": "원투원 프로그래밍",
+      "en": "One-to-One Online Programming Education Business"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,42 @@
+{
+  "number": "041",
+  "periods": [
+    {
+      "start": "2020-07-01",
+      "end": "2021-07-08"
+    }
+  ],
+  "category": "project",
+  "teamSize": 1,
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "documentation",
+    "learning",
+    "structuring"
+  ],
+  "projectDomains": [
+    "open-source",
+    "web"
+  ],
+  "techTags": [
+    "html",
+    "css",
+    "google-analytics",
+    "javascript",
+    "ruby"
+  ],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/041/representative.png",
+    "alt": {
+      "ko": "Github Blog 대표 이미지",
+      "en": "Representative image for Github Blog"
+    },
+    "caption": {
+      "ko": "Github Blog",
+      "en": "Github Blog"
+    }
+  },
+  "featured": false
+}

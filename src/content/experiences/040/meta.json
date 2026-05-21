@@ -1,0 +1,32 @@
+{
+  "number": "040",
+  "periods": [
+    {
+      "start": "2020-06-16",
+      "end": "2020-07-01"
+    }
+  ],
+  "category": "learning-growth",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [
+    "ai-ml"
+  ],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/040/representative.jpg",
+    "alt": {
+      "ko": "BARO AI ACADEMY 머신러닝을 위한 수학과정 대표 이미지",
+      "en": "Representative image for BARO AI ACADEMY Mathematics for Machine Learning"
+    },
+    "caption": {
+      "ko": "BARO AI ACADEMY 머신러닝을 위한 수학과정",
+      "en": "BARO AI ACADEMY Mathematics for Machine Learning"
+    }
+  },
+  "featured": false
+}

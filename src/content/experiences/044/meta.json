@@ -1,0 +1,50 @@
+{
+  "number": "044",
+  "periods": [
+    {
+      "start": "2020-07-13",
+      "end": "2020-09-12"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "collaboration",
+    "structuring"
+  ],
+  "projectDomains": [
+    "mobile"
+  ],
+  "techTags": [
+    "python",
+    "django",
+    "django-rest-framework",
+    "kotlin",
+    "android",
+    "retrofit",
+    "sqlite"
+  ],
+  "related": [
+    {
+      "number": "042",
+      "relation": "affiliation"
+    },
+    {
+      "number": "043",
+      "relation": "parent-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/044/representative.jpg",
+    "alt": {
+      "ko": "키인닷 대표 이미지",
+      "en": "Representative image for KeyinDot"
+    },
+    "caption": {
+      "ko": "키인닷",
+      "en": "KeyinDot"
+    }
+  },
+  "featured": false
+}
