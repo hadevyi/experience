@@ -1,0 +1,46 @@
+{
+  "number": "054",
+  "periods": [
+    {
+      "start": "2021-08-23",
+      "end": "2021-10-08"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "collaboration",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [
+    "open-source",
+    "iot",
+    "ai-ml"
+  ],
+  "techTags": [
+    "nodejs",
+    "nodered",
+    "sensor",
+    "tensorflow"
+  ],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" },
+    { "number": "056", "relation": "award" },
+    { "number": "059", "relation": "activity" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/054/representative.jpg",
+    "alt": {
+      "ko": "Motion Pose 대표 이미지",
+      "en": "Representative image for Motion Pose"
+    },
+    "caption": {
+      "ko": "Motion Pose",
+      "en": "Motion Pose"
+    }
+  },
+  "featured": false
+}

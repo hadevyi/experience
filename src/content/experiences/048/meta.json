@@ -1,0 +1,34 @@
+{
+  "number": "048",
+  "periods": [
+    {
+      "start": "2021-01-11",
+      "end": "2021-05-28"
+    }
+  ],
+  "category": "learning-growth",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/048/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 5기 모각코 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort Mogakko"
+    },
+    "caption": {
+      "ko": "SSAFY 5기 모각코",
+      "en": "SSAFY 5th Cohort Mogakko"
+    }
+  },
+  "featured": false
+}

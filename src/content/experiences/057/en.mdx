@@ -1,0 +1,124 @@
+---
+title: Safers
+organization: SSAFY 5th Cohort
+summary: A SSAFY 5th autonomous project that turned endangered animals and environmental issues into a metaverse-based learning experience.
+oneLine: A metaverse project about endangered animals and environmental issues
+highlights:
+  - SSAFY 5th autonomous project
+  - Unity-based environmental metaverse service
+  - Backend, CI/CD, and ML mission validation contribution
+  - Connected to autonomous project awards
+project:
+  host: SSAFY 5th Autonomous Project
+  position: Team lead / Backend, CI/CD, Machine Learning, Presentation
+  teamComposition:
+    - role: Backend, Frontend, Infra, ML
+      count: 1
+      note: Dang Hyeona, team lead
+    - role: Frontend
+      count: 1
+      note: Web frontend
+    - role: Backend, Frontend, Infra, Unity
+      count: 1
+      note: Web, server, and Unity integration
+    - role: Backend, Infra, Unity
+      count: 1
+      note: Server and Unity
+    - role: Backend, Unity
+      count: 1
+      note: Server and Unity
+  techStack:
+    - category: language
+      name: Java
+      version: "8"
+      note: Based on OpenJDK Zulu 8.33.0.1
+    - category: backend
+      name: Spring Boot
+      version: "2.5.6"
+      note: API built with JPA, Spring Security, and Swagger
+    - category: frontend
+      name: Vue
+      version: "2.6.14"
+      note: Built with Vuex 3.6.2 and Vue Router 3.5.2
+    - category: frontend
+      name: HTML/CSS/JavaScript
+      version: "ES6"
+      note: UI built with Bootstrap 5.1.3
+    - category: database
+      name: MySQL
+      version: "8.0.22"
+      note: User, animal, mission, log, and survey data
+    - category: infra
+      name: AWS EC2 / AWS S3
+      version: ""
+      note: Service deployment and image storage
+    - category: infra
+      name: Jenkins / nginx
+      version: "Jenkins 2.303.2 / nginx 1.18.0"
+      note: CI/CD and web server on Ubuntu 20.04
+    - category: platform
+      name: Unity / Photon
+      version: "Unity 2019.4.32f1 / Photon 2.38"
+      note: WebGL 2.0 metaverse and real-time connection flow
+    - category: framework
+      name: TensorFlow
+      version: "3.11.0"
+      note: Image mission validation with Teachable Machine Image 0.8.5 and MobileNet 2.1.0
+  deployment: "Deployed with AWS EC2, Jenkins, and nginx"
+  overview: |
+    Safers was an environmental metaverse project where users could meet extinct or endangered animals and complete missions related to environmental issues. Users entered the virtual world with a character and experienced an animal encyclopedia, missions, community features, and an animal matching personality test.
+  background: |
+    It was developed over six weeks as a SSAFY 5th autonomous project. The team was formed by people who wanted to work on a socially meaningful topic, and we chose endangered animals and environmental issues as the subject we cared about most. As metaverse and remote content became more relevant after COVID-19, the team wanted to turn the issue into an experience that users could directly explore and remember instead of only receiving it as a heavy message. To avoid leaving it as a demo-only topic, we also reached out to and communicated with the National Institute of Ecology and IUCN to examine whether it could be operated as a real service.
+  scope: |
+    The service included Kakao login, user management, character setup, Unity-based shared and personal virtual worlds, board and comment/like features, an animal encyclopedia, mission logs, a non-member personality test, and image-based mission validation. The Unity WebGL build was connected to the web service and deployed through AWS EC2, Jenkins, and nginx.
+  contribution:
+    - Led schedule management, role allocation, documentation, and the final presentation.
+    - Reallocated essential work based on team members' situations and took over uncovered areas to reduce schedule risk.
+    - Designed and implemented backend entities and data structures for common codes, users, animals, maps, missions, logs, and surveys.
+    - Connected animal, map, and mission log data for use in the Unity metaverse.
+    - Built the CI/CD and deployment flow with AWS EC2, Jenkins, and nginx.
+    - Added a non-member personality test and animal matching flow so the service could be promoted before login.
+    - Reached out to the National Institute of Ecology and IUCN to examine topic credibility and operational feasibility.
+    - Learned and applied TensorFlow.js and Teachable Machine for image-based mission validation.
+    - Supported Photon setup and Unity asset design direction with the Unity developers.
+  roleDetails:
+    - Team coordination
+    - Backend entities, repositories, services, and controllers
+    - Common code, mission, animal, map, and log data structures
+    - Non-member personality test and result APIs
+    - Some board, my page, and user validation UI work
+    - Image mission validation with ML
+    - AWS EC2, Jenkins, and nginx deployment
+    - Photon setup and Unity asset design collaboration
+    - Project documentation and README/Wiki organization
+    - Final presentation
+  implementation:
+    - Built backend data flows for users, boards, common codes, animals, maps, missions, logs, and surveys with Spring Boot and JPA.
+    - Built board, my page, survey result, and Unity WebGL connection screens with Vue.
+    - Aligned Photon setup, web/server data integration, and Unity asset design direction with Unity teammates.
+    - Used TensorFlow.js, MobileNet, and Teachable Machine to validate whether uploaded images matched mission conditions.
+    - Built deployment and CI/CD flow with AWS EC2, Jenkins, and nginx.
+  challenges:
+    - The project had a wide boundary across web, backend, Unity, ML, and infrastructure.
+    - Since none of the team members had prior Unity experience, we had to learn how to connect metaverse state with server data together.
+    - Later in the project, differences in individual focus and schedules required us to adjust task allocation and communication.
+    - We had to fit image mission validation into the user flow while also maintaining deployment stability within a short timeline.
+    - We aligned the team by continuously documenting requirements, ERD, API docs, metadata, mission content, and bug reports.
+  outcome:
+    - Safers placed first within its SSAFY 5th class and was selected as one of the top eight projects nationwide.
+    - Although the team was new to Unity, we completed the project as a working metaverse service.
+    - We combined community, missions, animal encyclopedia, personality test, and image validation into one service flow.
+    - The non-member personality test and animal matching flow received a positive response after being added to reduce the login-only entry barrier.
+    - As team lead, I coordinated planning, development, deployment, and presentation, and connected metaverse and AI/ML into an actual service flow.
+sections: []
+links:
+  - type: repository
+    label: Metaverse-Safers GitHub
+    url: https://github.com/Metaverse-Safers
+  - type: repository
+    label: SAFERS Repository
+    url: https://github.com/Metaverse-Safers/SAFERS
+  - type: reference
+    label: SAFERS Wiki
+    url: https://github.com/Metaverse-Safers/SAFERS/wiki
+---

@@ -1,0 +1,49 @@
+{
+  "number": "050",
+  "periods": [
+    {
+      "start": "2021-05-18",
+      "end": "2021-05-27"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "teamSize": 2,
+  "experienceTags": [
+    "problem-solving",
+    "collaboration"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "java",
+    "vue",
+    "spring-boot",
+    "mybatis",
+    "html",
+    "css",
+    "javascript",
+    "mysql",
+    "bootstrap",
+    "chartjs",
+    "kakao-map-api"
+  ],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/050/representative.jpg",
+    "alt": {
+      "ko": "HOMEZ 대표 이미지",
+      "en": "Representative image for HOMEZ"
+    },
+    "caption": {
+      "ko": "HOMEZ",
+      "en": "HOMEZ"
+    }
+  },
+  "featured": false
+}

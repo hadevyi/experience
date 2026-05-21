@@ -1,0 +1,33 @@
+{
+  "number": "058",
+  "periods": [
+    {
+      "start": "2021-10-29"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "knowledge-sharing",
+    "reflection"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/058/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 7기 모집설명회 대표 이미지",
+      "en": "Representative image for SSAFY 7th recruitment session"
+    },
+    "caption": {
+      "ko": "SSAFY 7기 모집설명회",
+      "en": "SSAFY 7th Recruitment Session"
+    }
+  },
+  "featured": false
+}

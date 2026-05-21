@@ -1,0 +1,47 @@
+{
+  "number": "046",
+  "periods": [
+    {
+      "start": "2021-01-05",
+      "end": "2022-11-30"
+    }
+  ],
+  "category": "affiliation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "047", "relation": "detailed-experience" },
+    { "number": "048", "relation": "detailed-experience" },
+    { "number": "049", "relation": "detailed-experience" },
+    { "number": "050", "relation": "detailed-experience" },
+    { "number": "051", "relation": "detailed-experience" },
+    { "number": "052", "relation": "detailed-experience" },
+    { "number": "053", "relation": "detailed-experience" },
+    { "number": "054", "relation": "detailed-experience" },
+    { "number": "055", "relation": "detailed-experience" },
+    { "number": "056", "relation": "detailed-experience" },
+    { "number": "057", "relation": "detailed-experience" },
+    { "number": "058", "relation": "detailed-experience" },
+    { "number": "059", "relation": "detailed-experience" },
+    { "number": "060", "relation": "detailed-experience" },
+    { "number": "061", "relation": "detailed-experience" },
+    { "number": "062", "relation": "detailed-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/046/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 대표 이미지",
+      "en": "Representative image for SSAFY"
+    },
+    "caption": {
+      "ko": "SSAFY",
+      "en": "SSAFY"
+    }
+  },
+  "featured": false
+}

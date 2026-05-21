@@ -1,0 +1,34 @@
+{
+  "number": "053",
+  "periods": [
+    {
+      "start": "2021-08-20"
+    }
+  ],
+  "category": "award-scholarship",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "collaboration"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" },
+    { "number": "051", "relation": "source" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/053/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 5기 공통프로젝트 1위 대표 이미지",
+      "en": "Representative image for SSAFY 5th common project award"
+    },
+    "caption": {
+      "ko": "SSAFY 5기 공통프로젝트 1위",
+      "en": "SSAFY 5th Common Project 1st Place"
+    }
+  },
+  "featured": false
+}

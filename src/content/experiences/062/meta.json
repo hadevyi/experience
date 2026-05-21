@@ -1,0 +1,34 @@
+{
+  "number": "062",
+  "periods": [
+    {
+      "start": "2021-12-30",
+      "end": "2022-05-31"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "teaching",
+    "mentoring",
+    "operation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/062/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 6기 실습코치 대표 이미지",
+      "en": "Representative image for SSAFY 6th cohort practice coach"
+    },
+    "caption": {
+      "ko": "SSAFY 6기 실습코치",
+      "en": "SSAFY 6th Cohort Practice Coach"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,33 @@
+{
+  "number": "052",
+  "periods": [
+    {
+      "start": "2021-07-22"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "reflection",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/052/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 5기人사이트 인터뷰 대표 이미지",
+      "en": "Representative image for SSAFY 5th People interview"
+    },
+    "caption": {
+      "ko": "SSAFY 5기人사이트 인터뷰",
+      "en": "SSAFY 5th People Interview"
+    }
+  },
+  "featured": false
+}

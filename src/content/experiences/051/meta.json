@@ -1,0 +1,53 @@
+{
+  "number": "051",
+  "periods": [
+    {
+      "start": "2021-07-12",
+      "end": "2021-08-20"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "collaboration",
+    "structuring"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "java",
+    "vue",
+    "spring-boot",
+    "jpa",
+    "querydsl",
+    "html",
+    "css",
+    "javascript",
+    "mysql",
+    "kurento",
+    "aws-ec2",
+    "aws-s3",
+    "docker",
+    "figma"
+  ],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" },
+    { "number": "053", "relation": "award" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/051/representative.jpg",
+    "alt": {
+      "ko": "SOLVER 대표 이미지",
+      "en": "Representative image for SOLVER"
+    },
+    "caption": {
+      "ko": "SOLVER",
+      "en": "SOLVER"
+    }
+  },
+  "featured": false
+}

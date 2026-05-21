@@ -1,0 +1,36 @@
+{
+  "number": "049",
+  "periods": [
+    {
+      "start": "2021-02-10",
+      "end": "2021-12-31"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "learning",
+    "collaboration",
+    "problem-solving"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/049/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 5기 알린이 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort Alrini"
+    },
+    "caption": {
+      "ko": "SSAFY 5기 알린이",
+      "en": "SSAFY 5th Cohort Alrini"
+    }
+  },
+  "featured": false
+}

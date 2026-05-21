@@ -1,0 +1,52 @@
+{
+  "number": "057",
+  "periods": [
+    {
+      "start": "2021-10-11",
+      "end": "2021-11-19"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "collaboration",
+    "ownership"
+  ],
+  "projectDomains": [
+    "web",
+    "metaverse",
+    "ai-ml"
+  ],
+  "techTags": [
+    "java",
+    "html",
+    "css",
+    "javascript",
+    "mysql",
+    "nginx",
+    "jenkins",
+    "unity",
+    "kakaotalk-api",
+    "tensorflow",
+    "photon"
+  ],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" },
+    { "number": "060", "relation": "award" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/057/representative.jpg",
+    "alt": {
+      "ko": "Safers 세이퍼스 대표 이미지",
+      "en": "Representative image for Safers"
+    },
+    "caption": {
+      "ko": "Safers 세이퍼스",
+      "en": "Safers"
+    }
+  },
+  "featured": false
+}

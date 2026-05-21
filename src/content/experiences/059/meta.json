@@ -1,0 +1,35 @@
+{
+  "number": "059",
+  "periods": [
+    {
+      "start": "2021-11-18"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "knowledge-sharing",
+    "presentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "047", "relation": "affiliation" },
+    { "number": "054", "relation": "project" },
+    { "number": "056", "relation": "award" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/059/representative.jpg",
+    "alt": {
+      "ko": "SSDC 2021 대표 이미지",
+      "en": "Representative image for SSDC 2021"
+    },
+    "caption": {
+      "ko": "SSDC 2021",
+      "en": "SSDC 2021"
+    }
+  },
+  "featured": false
+}

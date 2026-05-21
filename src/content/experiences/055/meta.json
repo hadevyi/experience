@@ -1,0 +1,32 @@
+{
+  "number": "055",
+  "periods": [
+    {
+      "start": "2021-10-01"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "reflection",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "047", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/055/representative.jpg",
+    "alt": {
+      "ko": "고용노동부 잡지 인터뷰 대표 이미지",
+      "en": "Representative image for Ministry of Employment and Labor magazine interview"
+    },
+    "caption": {
+      "ko": "고용노동부 잡지 인터뷰",
+      "en": "Ministry of Employment and Labor Magazine Interview"
+    }
+  },
+  "featured": false
+}
