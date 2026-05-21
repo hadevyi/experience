@@ -790,13 +790,21 @@ const mediaInterviewSectionLabels = {
     ko: '소개된 배경',
     en: 'Background'
   },
+  context: {
+    ko: '당시 맥락',
+    en: 'Context at the Time'
+  },
   topics: {
     ko: '다룬 주제',
     en: 'Topics'
   },
-  message: {
-    ko: '전달하고 싶었던 메시지',
-    en: 'Message'
+  perspective: {
+    ko: '보여준 관점',
+    en: 'Perspective Shown'
+  },
+  impact: {
+    ko: '반응과 의미',
+    en: 'Response and Meaning'
   }
 } as const;
 

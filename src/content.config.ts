@@ -2,6 +2,8 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const structuredTextSchema = z.union([z.string(), z.array(z.string())]).default('');
+
 const affiliationSchema = z
   .object({
     overview: z.string().default(''),
@@ -53,11 +55,11 @@ const projectSchema = z
     overview: z.string().default(''),
     background: z.string().default(''),
     scope: z.string().default(''),
-    contribution: z.string().default(''),
+    contribution: structuredTextSchema,
     roleDetails: z.array(z.string()).default([]),
-    implementation: z.string().default(''),
-    challenges: z.string().default(''),
-    outcome: z.string().default('')
+    implementation: structuredTextSchema,
+    challenges: structuredTextSchema,
+    outcome: structuredTextSchema
   })
   .optional();
 
@@ -74,10 +76,10 @@ const communitySchema = z
 
 const workExperienceSchema = z
   .object({
-    context: z.string().default(''),
-    responsibilities: z.string().default(''),
-    collaboration: z.string().default(''),
-    outcome: z.string().default('')
+    context: structuredTextSchema,
+    responsibilities: structuredTextSchema,
+    collaboration: structuredTextSchema,
+    outcome: structuredTextSchema
   })
   .optional();
 
@@ -120,9 +122,11 @@ const awardScholarshipSchema = z
 
 const mediaInterviewSchema = z
   .object({
-    background: z.string().default(''),
-    topics: z.string().default(''),
-    message: z.string().default('')
+    background: structuredTextSchema,
+    context: structuredTextSchema,
+    topics: structuredTextSchema,
+    perspective: structuredTextSchema,
+    impact: structuredTextSchema
   })
   .optional();
 

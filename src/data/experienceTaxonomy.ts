@@ -182,6 +182,14 @@ export const experienceTagConfig = {
       ko: '시간, 기술, 지식, 경험을 직접 나눈 경험',
       en: 'Experiences where I volunteered time, skills, knowledge, or experience.'
     }
+  },
+  presentation: {
+    ko: '발표',
+    en: 'Presentation',
+    description: {
+      ko: '발표나 세션을 통해 내용을 전달한 경험',
+      en: 'Experiences where I delivered content through a presentation or session.'
+    }
   }
 } as const;
 
@@ -218,6 +226,10 @@ export const projectDomainConfig = {
   iot: {
     ko: 'IoT',
     en: 'IoT'
+  },
+  metaverse: {
+    ko: '메타버스',
+    en: 'Metaverse'
   }
 } as const;
 
@@ -284,6 +296,41 @@ export const techTagConfig = {
     en: 'Retrofit',
     group: 'framework'
   },
+  vue: {
+    ko: 'Vue',
+    en: 'Vue',
+    group: 'framework'
+  },
+  'spring-boot': {
+    ko: 'Spring Boot',
+    en: 'Spring Boot',
+    group: 'framework'
+  },
+  mybatis: {
+    ko: 'MyBatis',
+    en: 'MyBatis',
+    group: 'framework'
+  },
+  jpa: {
+    ko: 'JPA',
+    en: 'JPA',
+    group: 'framework'
+  },
+  querydsl: {
+    ko: 'QueryDSL',
+    en: 'QueryDSL',
+    group: 'framework'
+  },
+  bootstrap: {
+    ko: 'Bootstrap',
+    en: 'Bootstrap',
+    group: 'framework'
+  },
+  chartjs: {
+    ko: 'Chart.js',
+    en: 'Chart.js',
+    group: 'framework'
+  },
   zeplin: {
     ko: 'Zeplin',
     en: 'Zeplin',
@@ -339,6 +386,11 @@ export const techTagConfig = {
     en: 'JavaScript',
     group: 'language'
   },
+  nodejs: {
+    ko: 'Node.js',
+    en: 'Node.js',
+    group: 'language'
+  },
   ruby: {
     ko: 'Ruby',
     en: 'Ruby',
@@ -357,6 +409,16 @@ export const techTagConfig = {
   django: {
     ko: 'Django',
     en: 'Django',
+    group: 'framework'
+  },
+  nodered: {
+    ko: 'Node-RED',
+    en: 'Node-RED',
+    group: 'framework'
+  },
+  kurento: {
+    ko: 'Kurento',
+    en: 'Kurento',
     group: 'framework'
   },
   kotlin: {
@@ -409,9 +471,54 @@ export const techTagConfig = {
     en: 'AWS S3',
     group: 'cloudInfra'
   },
+  nginx: {
+    ko: 'Nginx',
+    en: 'Nginx',
+    group: 'cloudInfra'
+  },
+  jenkins: {
+    ko: 'Jenkins',
+    en: 'Jenkins',
+    group: 'cloudInfra'
+  },
+  docker: {
+    ko: 'Docker',
+    en: 'Docker',
+    group: 'cloudInfra'
+  },
+  figma: {
+    ko: 'Figma',
+    en: 'Figma',
+    group: 'toolPlatform'
+  },
   sensor: {
     ko: 'Sensor',
     en: 'Sensor',
+    group: 'toolPlatform'
+  },
+  tensorflow: {
+    ko: 'TensorFlow',
+    en: 'TensorFlow',
+    group: 'aiData'
+  },
+  unity: {
+    ko: 'Unity',
+    en: 'Unity',
+    group: 'toolPlatform'
+  },
+  photon: {
+    ko: 'Photon',
+    en: 'Photon',
+    group: 'toolPlatform'
+  },
+  'kakaotalk-api': {
+    ko: 'KakaoTalk API',
+    en: 'KakaoTalk API',
+    group: 'toolPlatform'
+  },
+  'kakao-map-api': {
+    ko: 'Kakao Map API',
+    en: 'Kakao Map API',
     group: 'toolPlatform'
   }
 } as const satisfies Record<string, { ko: string; en: string; group: TechTagGroupKey }>;
