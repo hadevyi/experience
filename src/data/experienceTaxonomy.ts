@@ -230,136 +230,191 @@ export const isProjectDomainKey = (value: string): value is ProjectDomainKey =>
 
 export const getProjectDomainLabel = (domain: ProjectDomainKey) => projectDomainConfig[domain];
 
+export const techTagGroupConfig = {
+  language: {
+    ko: '언어',
+    en: 'Languages'
+  },
+  framework: {
+    ko: '프레임워크/라이브러리',
+    en: 'Frameworks/Libraries'
+  },
+  database: {
+    ko: '데이터베이스',
+    en: 'Databases'
+  },
+  cloudInfra: {
+    ko: '클라우드/인프라',
+    en: 'Cloud/Infra'
+  },
+  aiData: {
+    ko: 'AI/ML·데이터',
+    en: 'AI/ML & Data'
+  },
+  toolPlatform: {
+    ko: '도구/플랫폼',
+    en: 'Tools/Platforms'
+  }
+} as const;
+
+export type TechTagGroupKey = keyof typeof techTagGroupConfig;
+
+export const techTagGroupKeys = Object.keys(techTagGroupConfig) as TechTagGroupKey[];
+
+export const getTechTagGroupLabel = (group: TechTagGroupKey) => techTagGroupConfig[group];
+
 export const techTagConfig = {
   java: {
     ko: 'Java',
-    en: 'Java'
+    en: 'Java',
+    group: 'language'
   },
   android: {
     ko: 'Android',
-    en: 'Android'
+    en: 'Android',
+    group: 'toolPlatform'
   },
   firebase: {
     ko: 'Firebase',
-    en: 'Firebase'
+    en: 'Firebase',
+    group: 'cloudInfra'
   },
   retrofit: {
     ko: 'Retrofit',
-    en: 'Retrofit'
+    en: 'Retrofit',
+    group: 'framework'
   },
   zeplin: {
     ko: 'Zeplin',
-    en: 'Zeplin'
+    en: 'Zeplin',
+    group: 'toolPlatform'
   },
   awt: {
     ko: 'AWT',
-    en: 'AWT'
+    en: 'AWT',
+    group: 'framework'
   },
   swing: {
     ko: 'Swing',
-    en: 'Swing'
+    en: 'Swing',
+    group: 'framework'
   },
   csharp: {
     ko: 'C#',
-    en: 'C#'
+    en: 'C#',
+    group: 'language'
   },
   aspnet: {
     ko: 'ASP.NET',
-    en: 'ASP.NET'
+    en: 'ASP.NET',
+    group: 'framework'
   },
   sqlserver: {
     ko: 'SQL Server',
-    en: 'SQL Server'
+    en: 'SQL Server',
+    group: 'database'
   },
   mysql: {
     ko: 'MySQL',
-    en: 'MySQL'
+    en: 'MySQL',
+    group: 'database'
   },
   postgresql: {
     ko: 'PostgreSQL',
-    en: 'PostgreSQL'
+    en: 'PostgreSQL',
+    group: 'database'
   },
   html: {
     ko: 'HTML',
-    en: 'HTML'
+    en: 'HTML',
+    group: 'language'
   },
   css: {
     ko: 'CSS',
-    en: 'CSS'
+    en: 'CSS',
+    group: 'language'
   },
   javascript: {
     ko: 'JavaScript',
-    en: 'JavaScript'
+    en: 'JavaScript',
+    group: 'language'
   },
   ruby: {
     ko: 'Ruby',
-    en: 'Ruby'
+    en: 'Ruby',
+    group: 'language'
   },
   'google-analytics': {
     ko: 'Google Analytics',
-    en: 'Google Analytics'
+    en: 'Google Analytics',
+    group: 'toolPlatform'
   },
   python: {
     ko: 'Python',
-    en: 'Python'
+    en: 'Python',
+    group: 'language'
   },
   django: {
     ko: 'Django',
-    en: 'Django'
-  },
-  'django-rest-framework': {
-    ko: 'Django REST Framework',
-    en: 'Django REST Framework'
+    en: 'Django',
+    group: 'framework'
   },
   kotlin: {
     ko: 'Kotlin',
-    en: 'Kotlin'
+    en: 'Kotlin',
+    group: 'language'
   },
   sqlite: {
     ko: 'SQLite',
-    en: 'SQLite'
+    en: 'SQLite',
+    group: 'database'
   },
   keras: {
     ko: 'Keras',
-    en: 'Keras'
+    en: 'Keras',
+    group: 'aiData'
   },
   opencv: {
     ko: 'OpenCV',
-    en: 'OpenCV'
+    en: 'OpenCV',
+    group: 'aiData'
   },
   tkinter: {
     ko: 'Tkinter',
-    en: 'Tkinter'
+    en: 'Tkinter',
+    group: 'framework'
   },
   pillow: {
     ko: 'Pillow',
-    en: 'Pillow'
+    en: 'Pillow',
+    group: 'aiData'
   },
   numpy: {
     ko: 'NumPy',
-    en: 'NumPy'
-  },
-  'scikit-learn': {
-    ko: 'scikit-learn',
-    en: 'scikit-learn'
+    en: 'NumPy',
+    group: 'aiData'
   },
   'ai-ml': {
     ko: 'AI/ML',
-    en: 'AI/ML'
+    en: 'AI/ML',
+    group: 'aiData'
   },
   'aws-ec2': {
     ko: 'AWS EC2',
-    en: 'AWS EC2'
+    en: 'AWS EC2',
+    group: 'cloudInfra'
   },
   'aws-s3': {
     ko: 'AWS S3',
-    en: 'AWS S3'
+    en: 'AWS S3',
+    group: 'cloudInfra'
   },
   sensor: {
     ko: 'Sensor',
-    en: 'Sensor'
+    en: 'Sensor',
+    group: 'toolPlatform'
   }
-} as const;
+} as const satisfies Record<string, { ko: string; en: string; group: TechTagGroupKey }>;
 
 export type TechTagKey = keyof typeof techTagConfig;
 
@@ -368,3 +423,20 @@ export const techTagKeys = Object.keys(techTagConfig) as TechTagKey[];
 export const isTechTagKey = (value: string): value is TechTagKey => value in techTagConfig;
 
 export const getTechTagLabel = (tag: TechTagKey) => techTagConfig[tag];
+
+export const getTechTagGroup = (tag: TechTagKey) => techTagConfig[tag].group;
+
+export const groupedTechTagKeys = techTagGroupKeys
+  .map((group) => ({
+    group,
+    label: getTechTagGroupLabel(group),
+    tags: techTagKeys
+      .filter((tag) => getTechTagGroup(tag) === group)
+      .sort((left, right) => {
+        if (left === 'ai-ml') return -1;
+        if (right === 'ai-ml') return 1;
+
+        return getTechTagLabel(left).en.localeCompare(getTechTagLabel(right).en, 'en');
+      })
+  }))
+  .filter(({ tags }) => tags.length > 0);

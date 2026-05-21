@@ -26,7 +26,6 @@
     "pillow",
     "numpy",
     "keras",
-    "scikit-learn",
     "ai-ml"
   ],
   "related": [

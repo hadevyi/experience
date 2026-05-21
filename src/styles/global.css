@@ -1058,6 +1058,7 @@ html[data-theme='dark'] .experience-archive-page {
   overflow-y: auto;
   overscroll-behavior: auto;
   padding: clamp(1.25rem, 2vw, 1.75rem);
+  padding-bottom: max(3rem, clamp(1.25rem, 2vw, 1.75rem));
   scrollbar-gutter: stable;
 }
 
@@ -1187,6 +1188,12 @@ html:lang(en) .experience-rail-intro h2 {
     visibility 160ms ease;
 }
 
+.experience-filter-panel::after {
+  display: block;
+  flex: 0 0 2rem;
+  content: '';
+}
+
 .experience-archive-page[data-sidebar-collapsed='true'] .experience-rail-inner {
   align-items: center;
   padding-inline: 0.75rem;
@@ -1254,6 +1261,7 @@ html:lang(en) .experience-rail-intro h2 {
 
 .experience-filter-card {
   overflow: visible;
+  margin-bottom: 2rem;
   padding: 0;
 }
 
@@ -1864,7 +1872,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-project-filter-panel {
   display: grid;
   gap: 0.9rem;
-  max-height: 22rem;
+  max-height: 72rem;
+  overflow: visible;
 }
 
 .experience-archive-page[data-category-collapsed='true'] .experience-category-list {
@@ -1884,6 +1893,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-archive-page[data-project-filter-collapsed='true'] .experience-project-filter-panel {
   max-height: 0;
   opacity: 0;
+  overflow: hidden;
   pointer-events: none;
   visibility: hidden;
 }
@@ -1901,6 +1911,39 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   line-height: var(--type-micro-leading);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.experience-tech-filter-groups {
+  display: grid;
+  gap: 0.72rem;
+  border-left: 1px solid color-mix(in srgb, var(--experience-line) 72%, transparent);
+  margin-left: 0.32rem;
+  padding-left: 0.78rem;
+}
+
+.experience-tech-filter-all {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.experience-tech-filter-group {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.experience-tech-filter-group-label {
+  margin: 0;
+  color: color-mix(in srgb, var(--experience-ink-faint) 82%, transparent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: var(--type-micro-leading);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.experience-tech-option-list {
+  gap: 0.42rem;
 }
 
 .experience-project-filter-empty {

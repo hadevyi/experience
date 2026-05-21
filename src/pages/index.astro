@@ -19,6 +19,7 @@ import {
   getExperienceCategoryLabel,
   getExperienceTagLabel,
   getTechTagLabel,
+  groupedTechTagKeys,
   projectDomainKeys,
   techTagKeys
 } from '../data/experienceTaxonomy';
@@ -365,12 +366,9 @@ const hasArchiveItems = archiveItems.length > 0;
                   <span
                     class="experience-tag-hint-body"
                     data-tag-hint-body
-                    {...i18nText(
-                      '태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.',
-                      'Hover or select a tag to see what it means.'
-                    )}
+                    {...i18nText('마우스를 올리면 의미가 보입니다.', 'Hover to see each meaning.')}
                   >
-                    태그에 마우스를 올리거나 선택하면 의미를 볼 수 있습니다.
+                    마우스를 올리면 의미가 보입니다.
                   </span>
                 </div>
                 <div class="experience-option-list" role="group" aria-label="경험태그 필터">
@@ -477,35 +475,58 @@ const hasArchiveItems = archiveItems.length > 0;
                 }
 
                 {
-                  techTagKeys.length > 0 ? (
+                  groupedTechTagKeys.length > 0 ? (
                     <div class="experience-project-filter-group">
                       <p class="experience-project-filter-label" {...i18nText('기술 태그', 'Tech Tags')}>
                         기술 태그
                       </p>
-                      <div class="experience-option-list" role="group" aria-label="기술 태그 필터">
-                        <button
-                          type="button"
-                          class="archive-option archive-option-active"
-                          data-filter-group="techTag"
-                          data-filter-value="all"
-                          {...i18nText('전체', 'All')}
-                        >
-                          전체
-                        </button>
+                      <div class="experience-tech-filter-groups">
+                        <div class="experience-tech-filter-all">
+                          <button
+                            type="button"
+                            class="archive-option archive-option-active"
+                            data-filter-group="techTag"
+                            data-filter-value="all"
+                            {...i18nText('전체', 'All')}
+                          >
+                            전체
+                          </button>
+                        </div>
                         {
-                          techTagKeys.map((tag) => {
-                            const label = getTechTagLabel(tag);
-
+                          groupedTechTagKeys.map(({ group, label: groupLabel, tags }) => {
                             return (
-                              <button
-                                type="button"
-                                class="archive-option"
-                                data-filter-group="techTag"
-                                data-filter-value={tag}
-                                {...i18nText(label.ko, label.en)}
-                              >
-                                {label.ko}
-                              </button>
+                              <section class="experience-tech-filter-group" aria-labelledby={`tech-filter-${group}`}>
+                                <p
+                                  id={`tech-filter-${group}`}
+                                  class="experience-tech-filter-group-label"
+                                  {...i18nText(groupLabel.ko, groupLabel.en)}
+                                >
+                                  {groupLabel.ko}
+                                </p>
+                                <div
+                                  class="experience-option-list experience-tech-option-list"
+                                  role="group"
+                                  aria-label={`${groupLabel.ko} 기술 태그 필터`}
+                                >
+                                  {
+                                    tags.map((tag) => {
+                                      const label = getTechTagLabel(tag);
+
+                                      return (
+                                        <button
+                                          type="button"
+                                          class="archive-option"
+                                          data-filter-group="techTag"
+                                          data-filter-value={tag}
+                                          {...i18nText(label.ko, label.en)}
+                                        >
+                                          {label.ko}
+                                        </button>
+                                      );
+                                    })
+                                  }
+                                </div>
+                              </section>
                             );
                           })
                         }
