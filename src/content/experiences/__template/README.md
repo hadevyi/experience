@@ -208,6 +208,7 @@ sections: []
 ## 업무경험 양식 작성
 
 `category`가 `work-experience`인 경험은 `workExperience` 객체를 사용합니다.
+채용/계약 형태는 본문이 아니라 `meta.json`의 `employmentType`으로 관리합니다.
 
 ```yaml
 workExperience:
@@ -221,6 +222,18 @@ workExperience:
     업무 결과, 팀이나 나에게 생긴 변화, 이후 연결된 일을 적습니다.
 sections: []
 ```
+
+`employmentType`은 아래 값 중 하나를 사용합니다.
+
+| 값 | 화면 표시 |
+| --- | --- |
+| `part-time` | 아르바이트 |
+| `freelance` | 프리랜서 |
+| `personal-business` | 개인사업 |
+| `contract` | 계약직 |
+| `full-time` | 정규직 |
+| `internship` | 인턴/연구연수생 |
+| `work-study` | 국가근로장학생 |
 
 ## 학습/성장 양식 작성
 

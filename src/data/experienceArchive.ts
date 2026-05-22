@@ -28,7 +28,52 @@ export const statusLabels = {
 
 export type ExperienceStatus = 'draft' | 'in-progress' | 'done';
 export type ExperienceVisibility = 'public' | 'private';
+export type ExperienceEmploymentType =
+  | 'part-time'
+  | 'freelance'
+  | 'personal-business'
+  | 'contract'
+  | 'full-time'
+  | 'internship'
+  | 'work-study';
 export type ExperiencePeriodPointPrecision = 'year' | 'month' | 'day' | 'minute';
+
+export const employmentTypeLabels = {
+  'part-time': {
+    ko: '아르바이트',
+    en: 'Part-time'
+  },
+  freelance: {
+    ko: '프리랜서',
+    en: 'Freelance'
+  },
+  'personal-business': {
+    ko: '개인사업',
+    en: 'Personal business'
+  },
+  contract: {
+    ko: '계약직',
+    en: 'Contract'
+  },
+  'full-time': {
+    ko: '정규직',
+    en: 'Full-time'
+  },
+  internship: {
+    ko: '인턴/연구연수생',
+    en: 'Internship / Research trainee'
+  },
+  'work-study': {
+    ko: '국가근로장학생',
+    en: 'National work-study'
+  }
+} as const satisfies Record<ExperienceEmploymentType, { ko: string; en: string }>;
+
+export const isExperienceEmploymentType = (value: string): value is ExperienceEmploymentType =>
+  value in employmentTypeLabels;
+
+export const getExperienceEmploymentTypeLabel = (type: ExperienceEmploymentType) =>
+  employmentTypeLabels[type];
 export type ExperienceRelation =
   | 'affiliation'
   | 'university'
@@ -173,6 +218,7 @@ export interface ExperienceMeta {
   category: ExperienceCategoryKey;
   visibility: ExperienceVisibility;
   status: ExperienceStatus;
+  employmentType?: ExperienceEmploymentType;
   teamSize?: number;
   experienceTags?: ExperienceTagKey[];
   projectDomains?: ProjectDomainKey[];
@@ -373,6 +419,14 @@ const metaByNumber = new Map(
       throw new Error(
         `Invalid category "${meta.category}" in experience ${number}. Use one of: ${Object.keys(
           experienceCategoryConfig
+        ).join(', ')}`
+      );
+    }
+
+    if (meta.employmentType && !isExperienceEmploymentType(meta.employmentType)) {
+      throw new Error(
+        `Invalid employmentType "${meta.employmentType}" in experience ${number}. Use one of: ${Object.keys(
+          employmentTypeLabels
         ).join(', ')}`
       );
     }
