@@ -7,6 +7,7 @@ import {
   getExperiencePairs,
   getExperiencePeriodDateRanges,
   getExperiencePeriodYears,
+  getExperienceEmploymentTypeLabel,
   getLocalizedText,
   readExperienceOrder,
   resolveExperienceStatus,
@@ -50,6 +51,10 @@ const experiences = getExperiencePairs(await getCollection('experiences')).sort(
 const archiveItems = experiences.map((entry) => {
   const category = entry.meta.category;
   const categoryLabel = getExperienceCategoryLabel(category);
+  const employmentTypeLabel =
+    category === 'work-experience' && entry.meta.employmentType
+      ? getExperienceEmploymentTypeLabel(entry.meta.employmentType)
+      : null;
   const experienceTags = entry.meta.experienceTags ?? [];
   const experienceTagLabels = experienceTags.map((tag) => getExperienceTagLabel(tag));
   const projectDomainLabels = (entry.meta.projectDomains ?? []).map((domain) => getProjectDomainLabel(domain));
@@ -96,6 +101,7 @@ const archiveItems = experiences.map((entry) => {
     entry,
     category,
     categoryLabel,
+    employmentTypeLabel,
     experienceTags,
     experienceTagLabels,
     projectDomainLabels,
@@ -637,6 +643,7 @@ const hasArchiveItems = archiveItems.length > 0;
                   entry,
                   category,
                   categoryLabel,
+                  employmentTypeLabel,
                   experienceTags,
                   cardVisibleTagLabels,
                   cardHiddenTagCount,
@@ -668,15 +675,39 @@ const hasArchiveItems = archiveItems.length > 0;
                         <span class="experience-card-number">
                           {entry.meta.number ?? String(index + 1).padStart(3, '0')}
                         </span>
-                        <span class="experience-card-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
-                          {categoryLabel.ko}
+                        <span class="experience-card-badge-group">
+                          <span class="experience-card-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
+                            {categoryLabel.ko}
+                          </span>
+                          {
+                            employmentTypeLabel && (
+                              <span
+                                class="experience-card-employment-badge"
+                                {...i18nText(employmentTypeLabel.ko, employmentTypeLabel.en)}
+                              >
+                                {employmentTypeLabel.ko}
+                              </span>
+                            )
+                          }
                         </span>
                       </div>
                       {
                         representativeImage && (
                           <figure class="experience-card-visual">
-                            <span class="experience-card-visual-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
-                              {categoryLabel.ko}
+                            <span class="experience-card-visual-badge-group">
+                              <span class="experience-card-visual-badge" {...i18nText(categoryLabel.ko, categoryLabel.en)}>
+                                {categoryLabel.ko}
+                              </span>
+                              {
+                                employmentTypeLabel && (
+                                  <span
+                                    class="experience-card-employment-badge experience-card-visual-employment-badge"
+                                    {...i18nText(employmentTypeLabel.ko, employmentTypeLabel.en)}
+                                  >
+                                    {employmentTypeLabel.ko}
+                                  </span>
+                                )
+                              }
                             </span>
                             <span class="experience-card-visual-frame">
                               <img

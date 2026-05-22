@@ -5,6 +5,7 @@ import { siteMeta } from '../data/site';
 import {
   experienceRelationLabels,
   formatExperiencePeriods,
+  getExperienceEmploymentTypeLabel,
   getExperienceDetailSections,
   getExperiencePairs,
   getLocalizedEntry,
@@ -67,6 +68,10 @@ const periodLabel = {
   en: formatExperiencePeriods(entry.meta, 'en')
 };
 const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
+const employmentTypeLabel =
+  entry.meta.category === 'work-experience' && entry.meta.employmentType
+    ? getExperienceEmploymentTypeLabel(entry.meta.employmentType)
+    : null;
 const koProject = entry.ko.data.project;
 const enProject = (entry.en ?? entry.ko).data.project ?? koProject;
 const projectTechCategoryLabels = {
@@ -360,6 +365,14 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
               <div>
                 <dt {...i18nText('기관', 'Organization')}>기관</dt>
                 <dd {...localized(organization)}>{organization.ko}</dd>
+              </div>
+            )
+          }
+          {
+            employmentTypeLabel && (
+              <div>
+                <dt {...i18nText('형태', 'Type')}>형태</dt>
+                <dd {...localized(employmentTypeLabel)}>{employmentTypeLabel.ko}</dd>
               </div>
             )
           }
