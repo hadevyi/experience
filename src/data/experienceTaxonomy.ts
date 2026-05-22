@@ -11,6 +11,10 @@ export const experienceCategoryConfig = {
     ko: '업무경험',
     en: 'Work'
   },
+  'event-operation': {
+    ko: '행사/운영',
+    en: 'Event'
+  },
   'learning-growth': {
     ko: '학습/성장',
     en: 'Learning'
@@ -42,6 +46,7 @@ export const experienceCategoryOrder = [
   'learning-growth',
   'teaching-mentoring',
   'community',
+  'event-operation',
   'award-scholarship',
   'media-interview'
 ] as const satisfies readonly ExperienceCategoryKey[];

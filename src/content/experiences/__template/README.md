@@ -52,9 +52,10 @@
 - `project`: 프로젝트 자체가 중심인 경험
 - `affiliation`: 학교, 회사, 교육기관, 커뮤니티처럼 소속 자체가 중요한 전환점인 경험
 - `work-experience`: 회사, 인턴, 프리랜서, 근로, 외주처럼 실제 업무 흐름 안에서 수행한 경험
+- `event-operation`: 직접 기획, 준비, 운영, 총괄한 행사나 프로그램 경험
 - `learning-growth`: 내가 배우고 성장한 과정이 중심인 경험
 - `teaching-mentoring`: 내가 강의하거나 멘토링한 경험
-- `community`: 활동, 운영, 커뮤니티 참여가 중심인 경험
+- `community`: 동아리, 학생회, 스터디, 커뮤니티처럼 소속과 참여가 중심인 경험
 - `award-scholarship`: 수상이나 장학처럼 인정받은 결과가 중심인 경험
 - `media-interview`: 외부 소개, 미디어, 인터뷰 경험
 
@@ -68,6 +69,7 @@
 - `affiliation`: `affiliation` 객체
 - `project`: `project` 객체
 - `work-experience`: `workExperience` 객체
+- `event-operation`: `eventOperation` 객체
 - `learning-growth`: `learningGrowth` 객체
 - `teaching-mentoring`: `teachingMentoring` 객체
 - `community`: `community` 객체
@@ -187,6 +189,7 @@ affiliation:
 
 `category`가 `community`인 경험은 공용 `sections` 대신 `community` 객체를 사용합니다.
 학생회, 동아리, 커뮤니티, 단체활동은 "어떤 공동체였는가", "내가 맡은 역할은 무엇인가", "사람들과 어떤 흐름을 만들었는가"가 중요하기 때문입니다.
+직접 주최하거나 운영한 개별 행사가 핵심이면 `event-operation`을 사용합니다.
 
 ```yaml
 community:
@@ -202,6 +205,33 @@ community:
     어려웠던 점, 조율이 필요했던 점, 반복적으로 신경 쓴 부분을 적습니다.
   impact: |
     기억에 남는 피드백, 결과, 이후 나에게 남은 태도나 기준을 적습니다.
+sections: []
+```
+
+## 행사/운영 양식 작성
+
+`category`가 `event-operation`인 경험은 `eventOperation` 객체를 사용합니다.
+행사/운영은 "내가 어떤 행사에 참여했는가"보다 "내가 어떤 목적의 행사를 어떻게 기획하고 운영했는가"가 중요합니다.
+단체 소속 자체는 `community`나 `affiliation`으로 두고, 주요 행사는 별도 `event-operation` 경험으로 분리합니다.
+
+```yaml
+eventOperation:
+  overview: |
+    어떤 행사였는지, 대상과 규모, 진행 방식, 주최 맥락을 적습니다.
+  background: |
+    왜 이 행사를 열었는지, 어떤 문제나 목적을 해결하려 했는지 적습니다.
+  role: |
+    맡은 역할과 책임 범위를 적습니다. 기획, 총괄, 홍보, 현장 운영, 발표, 사후 정리처럼 실제 권한과 책임을 구분합니다.
+  operation: |
+    모집, 홍보, 일정, 장소, 예산, 자료, 현장 동선, 커뮤니케이션, 사후 정리 등 실제 운영 흐름을 적습니다.
+  collaboration: |
+    운영진, 참가자, 외부 기관, 파트너와 어떻게 협업했는지 적습니다.
+  challenge: |
+    일정, 인원, 예산, 장소, 커뮤니케이션, 현장 변수 등 어려웠던 점을 적습니다.
+  result: |
+    참여자 수, 반응, 후속 효과, 개선된 운영 체계, 다음 행사로 이어진 변화 등을 적습니다.
+  learning: |
+    행사 운영을 통해 얻은 기준, 운영 감각, 커뮤니티 설계 관점을 적습니다.
 sections: []
 ```
 

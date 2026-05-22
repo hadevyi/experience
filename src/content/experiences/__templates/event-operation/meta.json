@@ -1,0 +1,18 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM-DD",
+      "end": "YYYY-MM-DD"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "draft",
+  "experienceTags": [],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": null,
+  "featured": false
+}

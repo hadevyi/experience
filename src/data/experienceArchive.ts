@@ -491,6 +491,7 @@ type ExperienceTemplateField =
   | 'project'
   | 'community'
   | 'workExperience'
+  | 'eventOperation'
   | 'learningGrowth'
   | 'teachingMentoring'
   | 'awardScholarship'
@@ -501,6 +502,7 @@ const experienceTemplateFieldByCategory = {
   project: 'project',
   community: 'community',
   'work-experience': 'workExperience',
+  'event-operation': 'eventOperation',
   'learning-growth': 'learningGrowth',
   'teaching-mentoring': 'teachingMentoring',
   'award-scholarship': 'awardScholarship',
@@ -758,6 +760,45 @@ type WorkExperienceSectionKey = keyof typeof workExperienceSectionLabels;
 
 const workExperienceSectionKeys = Object.keys(workExperienceSectionLabels) as WorkExperienceSectionKey[];
 
+const eventOperationSectionLabels = {
+  overview: {
+    ko: '행사 개요',
+    en: 'Event Overview'
+  },
+  background: {
+    ko: '운영 배경',
+    en: 'Background'
+  },
+  role: {
+    ko: '맡은 역할',
+    en: 'My Role'
+  },
+  operation: {
+    ko: '운영 방식',
+    en: 'Operation'
+  },
+  collaboration: {
+    ko: '협업 구조',
+    en: 'Collaboration'
+  },
+  challenge: {
+    ko: '어려웠던 점',
+    en: 'Challenges'
+  },
+  result: {
+    ko: '결과와 반응',
+    en: 'Result and Response'
+  },
+  learning: {
+    ko: '남은 배움',
+    en: 'Learning'
+  }
+} as const;
+
+type EventOperationSectionKey = keyof typeof eventOperationSectionLabels;
+
+const eventOperationSectionKeys = Object.keys(eventOperationSectionLabels) as EventOperationSectionKey[];
+
 const learningGrowthSectionLabels = {
   reason: {
     ko: '학습이 필요했던 이유',
@@ -965,6 +1006,18 @@ export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLoc
       workExperienceSectionKeys,
       koWorkExperience,
       enWorkExperience
+    );
+  }
+
+  if (pair.meta.category === 'event-operation' && pair.ko.data.eventOperation) {
+    const koEventOperation = pair.ko.data.eventOperation;
+    const enEventOperation = (pair.en ?? pair.ko).data.eventOperation ?? koEventOperation;
+
+    return buildStructuredSections(
+      eventOperationSectionLabels,
+      eventOperationSectionKeys,
+      koEventOperation,
+      enEventOperation
     );
   }
 

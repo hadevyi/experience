@@ -83,6 +83,19 @@ const workExperienceSchema = z
   })
   .optional();
 
+const eventOperationSchema = z
+  .object({
+    overview: structuredTextSchema,
+    background: structuredTextSchema,
+    role: structuredTextSchema,
+    operation: structuredTextSchema,
+    collaboration: structuredTextSchema,
+    challenge: structuredTextSchema,
+    result: structuredTextSchema,
+    learning: structuredTextSchema
+  })
+  .optional();
+
 const learningGrowthSchema = z
   .object({
     reason: z.string().default(''),
@@ -145,6 +158,7 @@ const experiences = defineCollection({
     project: projectSchema,
     community: communitySchema,
     workExperience: workExperienceSchema,
+    eventOperation: eventOperationSchema,
     learningGrowth: learningGrowthSchema,
     teachingMentoring: teachingMentoringSchema,
     awardScholarship: awardScholarshipSchema,
