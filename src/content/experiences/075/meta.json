@@ -1,0 +1,36 @@
+{
+  "number": "075",
+  "periods": [
+    {
+      "start": "2023-06-10",
+      "end": "2023-06-10"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "presentation",
+    "community",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "074", "relation": "parent-experience" },
+    { "number": "072", "relation": "parent-experience" },
+    { "number": "065", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/075/representative.jpg",
+    "alt": {
+      "ko": "2023 SSAFYnity SSAFYnale 기조연설 대표 이미지",
+      "en": "Representative image for the 2023 SSAFYnity SSAFYnale keynote"
+    },
+    "caption": {
+      "ko": "2023 SSAFYnity SSAFYnale 기조연설",
+      "en": "2023 SSAFYnity SSAFYnale Keynote"
+    }
+  },
+  "featured": false
+}

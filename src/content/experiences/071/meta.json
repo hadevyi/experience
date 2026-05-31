@@ -1,0 +1,35 @@
+{
+  "number": "071",
+  "periods": [
+    {
+      "start": "2022-12-21",
+      "current": true
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "community",
+    "operation",
+    "mentoring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "070", "relation": "parent-experience" },
+    { "number": "042", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/071/representative.jpg",
+    "alt": {
+      "ko": "DND 기수 운영 대표 이미지",
+      "en": "Representative image for DND cohort operations"
+    },
+    "caption": {
+      "ko": "DND 기수 운영",
+      "en": "DND Cohort Operations"
+    }
+  },
+  "featured": false
+}

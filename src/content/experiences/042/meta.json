@@ -23,6 +23,18 @@
     {
       "number": "044",
       "relation": "project"
+    },
+    {
+      "number": "063",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "064",
+      "relation": "project"
+    },
+    {
+      "number": "070",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {

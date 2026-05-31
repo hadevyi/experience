@@ -1,0 +1,32 @@
+{
+  "number": "077",
+  "periods": [
+    {
+      "start": "2023-09-08",
+      "end": "2023-09-08"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "mentoring",
+    "knowledge-sharing",
+    "presentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/077/representative.jpg",
+    "alt": {
+      "ko": "AI융합대 선배와의 만남 대표 이미지",
+      "en": "Representative image for AI Convergence College alumni mentoring session"
+    },
+    "caption": {
+      "ko": "AI융합대 선배와의 만남",
+      "en": "Meeting with an AI Convergence College alumna"
+    }
+  },
+  "featured": false
+}

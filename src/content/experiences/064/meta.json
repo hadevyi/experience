@@ -1,0 +1,46 @@
+{
+  "number": "064",
+  "periods": [
+    {
+      "start": "2022-01-02",
+      "end": "2022-03-04"
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "collaboration",
+    "problem-solving"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "java",
+    "spring-boot",
+    "jpa",
+    "mysql",
+    "nginx",
+    "jenkins",
+    "aws-ec2",
+    "aws-s3",
+    "figma"
+  ],
+  "related": [
+    { "number": "042", "relation": "affiliation" },
+    { "number": "063", "relation": "parent-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/064/representative.webp",
+    "alt": {
+      "ko": "Gratz 대표 이미지",
+      "en": "Representative image for Gratz"
+    },
+    "caption": {
+      "ko": "Gratz",
+      "en": "Gratz"
+    }
+  },
+  "featured": false
+}

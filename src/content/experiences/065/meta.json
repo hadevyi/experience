@@ -1,0 +1,34 @@
+{
+  "number": "065",
+  "periods": [
+    {
+      "start": "2022-03",
+      "current": true
+    }
+  ],
+  "category": "affiliation",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "community",
+    "operation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "066", "relation": "detailed-experience" },
+    { "number": "072", "relation": "detailed-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/065/representative-v2.jpg",
+    "alt": {
+      "ko": "SSAFYnity 대표 이미지",
+      "en": "Representative image for SSAFYnity"
+    },
+    "caption": {
+      "ko": "SSAFYnity",
+      "en": "SSAFYnity"
+    }
+  },
+  "featured": false
+}

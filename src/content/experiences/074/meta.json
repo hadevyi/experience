@@ -1,0 +1,36 @@
+{
+  "number": "074",
+  "periods": [
+    {
+      "start": "2023-06-10",
+      "end": "2023-06-10"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "072", "relation": "parent-experience" },
+    { "number": "065", "relation": "affiliation" },
+    { "number": "075", "relation": "detailed-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/074/representative.jpg",
+    "alt": {
+      "ko": "2023 SSAFYnity SSAFYnale 대표 이미지",
+      "en": "Representative image for 2023 SSAFYnale"
+    },
+    "caption": {
+      "ko": "2023 SSAFYnity SSAFYnale",
+      "en": "2023 SSAFYnity SSAFYnale"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,35 @@
+{
+  "number": "063",
+  "periods": [
+    {
+      "start": "2022-01-02",
+      "end": "2022-03-04"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "collaboration",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "042", "relation": "affiliation" },
+    { "number": "064", "relation": "project" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/063/representative.webp",
+    "alt": {
+      "ko": "DND 6기 대표 이미지",
+      "en": "Representative image for DND 6th cohort"
+    },
+    "caption": {
+      "ko": "DND 6기",
+      "en": "DND 6th Cohort"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,125 @@
+---
+title: Gratz
+organization: DND 6기
+summary: DND 6기에서 진행한 기념일 축하 메시지·선물 공유 웹 프로젝트입니다.
+oneLine: 소중한 날을 함께 기다리는 기념일 축하 서비스
+highlights:
+  - DND 6기 9조 프로젝트
+  - Backend / Server Developer 역할
+  - Message API, 공통코드/Metadata, JPA, AWS/Jenkins 배포 환경 담당
+project:
+  host: 개발자X디자이너 연합동아리 DND 6기 9조
+  position: 팀원 / Backend, Server Developer
+  teamComposition:
+    - role: Frontend Developer
+      count: 2
+      note: 웹 프론트엔드 개발
+    - role: Backend Developer
+      count: 2
+      note: Database 설계 및 API Docs 설계 공동 담당
+    - role: Designer
+      count: 2
+      note: 서비스 기획 및 디자인
+    - role: 전체 팀
+      count: 6
+      note: gratz6 도메인 기록 기준 프로젝트 참여 인원
+  techStack:
+    - category: backend
+      name: Java
+      version: "11"
+      note: 백엔드 개발
+    - category: backend
+      name: Spring Boot
+      version: ""
+      note: 서버 프레임워크
+    - category: backend
+      name: JPA
+      version: ""
+      note: 데이터베이스 매핑
+    - category: backend
+      name: Spring Security
+      version: ""
+      note: 소셜 로그인 및 인증 흐름
+    - category: database
+      name: MySQL
+      version: ""
+      note: 데이터베이스
+    - category: frontend
+      name: React / Recoil
+      version: "React 17"
+      note: 프론트엔드 구성
+    - category: design
+      name: Figma
+      version: ""
+      note: 서비스 디자인
+    - category: infra
+      name: Nginx
+      version: ""
+      note: 웹 서버 및 리버스 프록시
+    - category: infra
+      name: Jenkins
+      version: ""
+      note: 배포 자동화
+    - category: infra
+      name: AWS EC2
+      version: ""
+      note: 서버 인프라
+    - category: infra
+      name: AWS S3
+      version: ""
+      note: 이미지 저장소
+  deployment: AWS EC2, S3, Domain, Jenkins CI/CD 기반 배포 환경 구성 후 베타 테스트까지 진행
+  overview: |
+    Gratz는 개인의 다양한 기념일을 더 특별하게 축하할 수 있도록 만든 웹 서비스입니다.
+    사용자가 기념일 테마를 선택하고 링크를 공유하면, 친구들이 축하 메시지와 선물을 남길 수 있는 구조로 기획했습니다.
+
+    기념일까지 남은 기간 동안 매일 메시지를 확인하고, 축하받은 기념일을 스크랩해 추억으로 보관할 수 있도록 구성했습니다.
+  background: |
+    DND 6기에서 빠른 구현과 실제 서비스 유치를 목표로 진행한 프로젝트입니다.
+    기념일을 직접 만나서 축하하기 어려운 상황에서도, 주변 사람들의 응원과 축하를 받을 수 있는 특별한 경험을 만들고자 했습니다.
+
+    초기 아이디어는 비교적 빠르게 정했지만, 당시 이슈가 된 유사 서비스와의 카피캣 논란을 피하기 위해 기획과 설계를 여러 차례 조정했습니다.
+  scope: |
+    웹 서비스 형태로 진행했으며, 백엔드 API, 데이터베이스 설계, 공통코드와 Metadata, 메시지 도메인, 이미지 저장소, 배포 환경 구성이 포함되었습니다.
+  contribution: |
+    Backend / Server Developer로 참여했습니다.
+    백엔드 팀 공통으로 Database 설계와 API Docs 설계를 진행했고, 프론트엔드 개발자와 API 담당 범위와 요청/응답 구조를 맞췄습니다.
+
+    개인 담당 범위로는 AWS EC2 인스턴스, S3, Domain 구축, Backend/Frontend Jenkins CI/CD 구축, 공통코드와 Metadata 설계·구현, JPA 기반 Database 구현, Message API CRUD 구현을 맡았습니다.
+  roleDetails:
+    - Backend / Server Developer 역할 참여
+    - Database 설계 및 API Docs 설계 공동 담당
+    - AWS EC2, S3, Domain 구축
+    - Backend/Frontend Jenkins CI/CD 구축
+    - 공통코드와 Metadata 설계 및 구현
+    - JPA 기반 Database 구현
+    - Message API CRUD 구현
+  implementation: |
+    백엔드는 Java 11, Spring Boot, MySQL, JPA, Spring Security 기반으로 구성했습니다.
+    카카오 소셜 로그인 흐름이 포함되어 있었고, 메시지·이벤트·사용자·스크랩·공통코드·선물 테마 등의 도메인을 다루는 구조였습니다.
+
+    인프라는 AWS EC2와 S3를 기반으로 구성했고, Nginx와 Jenkins를 활용해 프론트엔드와 백엔드 빌드/배포 흐름을 만들었습니다.
+    Jenkins CI/CD 과정에서 EC2 인스턴스 성능 이슈가 있어 인스턴스 타입을 조정한 기록도 남아 있습니다.
+  challenges: |
+    가장 큰 아쉬움은 기획과 설계를 반복 수정하면서 실제 개발 시간이 짧아졌다는 점입니다.
+    유사 서비스와의 차별점을 만들기 위해 사용자 흐름과 기능 우선순위를 조정했고, 빠르게 구현할 수 있는 범위를 다시 잡아야 했습니다.
+
+    기술적으로는 AWS, 도메인, Jenkins CI/CD, 프론트엔드와 백엔드 배포 흐름을 함께 구성해야 했기 때문에 단순 API 개발보다 서버 운영 관점의 고민이 많았습니다.
+  outcome: |
+    DND 6기 9조 프로젝트로 완주했고, 실제 운영까지는 이어지지 못했지만 베타 테스트까지 진행했습니다.
+    테스트 과정에서는 가볍고 재미있어 보인다는 반응과 함께 실제로 사용해본 피드백을 받을 수 있었습니다.
+
+    이 경험을 통해 서비스를 공개하는 일에는 단순한 홍보나 사용성뿐 아니라, 유사 서비스와의 차별화와 카피캣 이슈 같은 외부 맥락까지 함께 고려해야 한다는 점을 배웠습니다.
+    또한 API 문서화, 배포 자동화, 프론트엔드와의 협업 흐름을 프로젝트 단위로 경험했습니다.
+sections: []
+links:
+  - type: official
+    label: DND 프로젝트 소개
+    url: https://dnd.ac/projects/5
+  - type: repository
+    label: GitHub 저장소
+    url: https://github.com/dnd-side-project/dnd-6th-9-backend
+  - type: reference
+    label: GitHub Wiki
+    url: https://github.com/dnd-side-project/dnd-6th-9-backend/wiki
+---

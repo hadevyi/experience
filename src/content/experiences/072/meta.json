@@ -1,0 +1,40 @@
+{
+  "number": "072",
+  "periods": [
+    {
+      "start": "2023-01-01",
+      "end": "2023-12-31"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "065", "relation": "parent-experience" },
+    { "number": "066", "relation": "previous" },
+    { "number": "073", "relation": "detailed-experience" },
+    { "number": "074", "relation": "detailed-experience" },
+    { "number": "075", "relation": "detailed-experience" },
+    { "number": "078", "relation": "detailed-experience" },
+    { "number": "079", "relation": "detailed-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/072/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 2대 임원진 대표 이미지",
+      "en": "Representative image for SSAFYnity 2nd executive team"
+    },
+    "caption": {
+      "ko": "SSAFYnity 2대 임원진",
+      "en": "SSAFYnity 2nd Executive Team"
+    }
+  },
+  "featured": false
+}

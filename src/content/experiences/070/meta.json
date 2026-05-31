@@ -1,0 +1,34 @@
+{
+  "number": "070",
+  "periods": [
+    {
+      "start": "2022-12-01",
+      "current": true
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "community",
+    "operation",
+    "mentoring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "042", "relation": "parent-experience" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/070/representative.webp",
+    "alt": {
+      "ko": "DND 개발 운영진 대표 이미지",
+      "en": "Representative image for DND development operator"
+    },
+    "caption": {
+      "ko": "DND 개발 운영진",
+      "en": "DND Development Operator"
+    }
+  },
+  "featured": false
+}

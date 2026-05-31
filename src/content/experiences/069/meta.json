@@ -1,0 +1,35 @@
+{
+  "number": "069",
+  "periods": [
+    {
+      "start": "2022-10-22",
+      "end": "2022-10-22"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "066", "relation": "parent-experience" },
+    { "number": "065", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/069/representative-v2.jpg",
+    "alt": {
+      "ko": "2022 SSAFYnity 가을체육대회 대표 이미지",
+      "en": "Representative image for 2022 SSAFYnity autumn sports day"
+    },
+    "caption": {
+      "ko": "2022 SSAFYnity 가을체육대회",
+      "en": "2022 SSAFYnity Autumn Sports Day"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,30 @@
+{
+  "number": "076",
+  "periods": [
+    {
+      "start": "2023-09-01",
+      "end": "2023-09-01"
+    }
+  ],
+  "category": "certification",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "learning"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/076/representative.jpg",
+    "alt": {
+      "ko": "정보처리기사 대표 이미지",
+      "en": "Representative image for Engineer Information Processing certification"
+    },
+    "caption": {
+      "ko": "정보처리기사",
+      "en": "Engineer Information Processing"
+    }
+  },
+  "featured": false
+}

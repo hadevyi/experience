@@ -1,0 +1,36 @@
+{
+  "number": "068",
+  "periods": [
+    {
+      "start": "2022-06-13",
+      "end": "2022-11-30"
+    }
+  ],
+  "category": "work-experience",
+  "visibility": "public",
+  "status": "done",
+  "employmentType": "freelance",
+  "experienceTags": [
+    "teaching",
+    "mentoring",
+    "operation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "046", "relation": "parent-experience" },
+    { "number": "062", "relation": "previous" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/068/representative.webp",
+    "alt": {
+      "ko": "SSAFY 7기 실습코치 대표 이미지",
+      "en": "Representative image for SSAFY 7th cohort practice coach"
+    },
+    "caption": {
+      "ko": "SSAFY 7기 실습코치",
+      "en": "SSAFY 7th Cohort Practice Coach"
+    }
+  },
+  "featured": false
+}

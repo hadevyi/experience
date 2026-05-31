@@ -30,10 +30,11 @@
     { "number": "059", "relation": "detailed-experience" },
     { "number": "060", "relation": "detailed-experience" },
     { "number": "061", "relation": "detailed-experience" },
-    { "number": "062", "relation": "detailed-experience" }
+    { "number": "062", "relation": "detailed-experience" },
+    { "number": "068", "relation": "detailed-experience" }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/046/representative.jpg",
+    "src": "/experience/images/experiences/046/representative-v2.jpg",
     "alt": {
       "ko": "SSAFY 대표 이미지",
       "en": "Representative image for SSAFY"

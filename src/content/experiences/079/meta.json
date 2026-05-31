@@ -1,0 +1,35 @@
+{
+  "number": "079",
+  "periods": [
+    {
+      "start": "2023-11-25",
+      "end": "2023-11-25"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "community",
+    "operation",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    { "number": "072", "relation": "parent-experience" },
+    { "number": "065", "relation": "affiliation" }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/079/representative.jpg",
+    "alt": {
+      "ko": "2023 SSAFYnity 세미나 대표 이미지",
+      "en": "Representative image for 2023 SSAFYnity seminar"
+    },
+    "caption": {
+      "ko": "2023 SSAFYnity 세미나",
+      "en": "2023 SSAFYnity Seminar"
+    }
+  },
+  "featured": false
+}
