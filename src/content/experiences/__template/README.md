@@ -54,10 +54,11 @@
 - `work-experience`: 회사, 인턴, 프리랜서, 근로, 외주처럼 실제 업무 흐름 안에서 수행한 경험
 - `event-operation`: 직접 기획, 준비, 운영, 총괄한 행사나 프로그램 경험
 - `learning-growth`: 내가 배우고 성장한 과정이 중심인 경험
+- `certification`: 자격증, 인증서, 어학 성적처럼 공식적으로 검증받은 결과가 중심인 경험
 - `teaching-mentoring`: 내가 강의하거나 멘토링한 경험
 - `community`: 동아리, 학생회, 스터디, 커뮤니티처럼 소속과 참여가 중심인 경험
 - `award-scholarship`: 수상이나 장학처럼 인정받은 결과가 중심인 경험
-- `media-interview`: 외부 소개, 미디어, 인터뷰 경험
+- `media-interview`: 외부 소개, 미디어, 인터뷰, 발표 경험
 
 `organization`은 "어디에서 발생했는가"를 나타내는 값이고, `category: "affiliation"`은 "소속 자체가 기록의 주제인가"를 나타내는 값입니다.
 
@@ -71,6 +72,7 @@
 - `work-experience`: `workExperience` 객체
 - `event-operation`: `eventOperation` 객체
 - `learning-growth`: `learningGrowth` 객체
+- `certification`: `certification` 객체
 - `teaching-mentoring`: `teachingMentoring` 객체
 - `community`: `community` 객체
 - `award-scholarship`: `awardScholarship` 객체
@@ -316,22 +318,43 @@ awardScholarship:
 sections: []
 ```
 
-## 미디어/인터뷰 양식 작성
+## 자격/인증 양식 작성
+
+`category`가 `certification`인 경험은 `certification` 객체를 사용합니다.
+
+```yaml
+certification:
+  overview: |
+    이 자격/인증이 어떤 성격인지 적습니다.
+  issuer: |
+    발급 기관, 주관 기관, 시험/인증 운영 기관을 적습니다.
+  acquisition: |
+    취득일, 유효기간, 점수/등급 등 공개 가능한 취득 정보를 적습니다.
+  scope: |
+    이 자격/인증이 검증하는 지식, 기술, 역량 범위를 적습니다.
+  preparation: |
+    준비 기간, 학습 방식, 어려웠던 점을 적습니다.
+  meaning: |
+    이후 업무, 프로젝트, 학습, 커리어 선택에 어떻게 활용되었는지 적습니다.
+sections: []
+```
+
+## 미디어/발표 양식 작성
 
 `category`가 `media-interview`인 경험은 `mediaInterview` 객체를 사용합니다.
 
 ```yaml
 mediaInterview:
   background: |
-    어떤 계기로 외부에 소개되었는지 적습니다.
+    어떤 계기로 외부에 소개되거나 발표하게 되었는지 적습니다.
   context: |
-    소개 당시 내가 어떤 역할, 상태, 활동 흐름에 있었는지 적습니다.
+    소개나 발표 당시 내가 어떤 역할, 상태, 활동 흐름에 있었는지 적습니다.
   topics: |
-    인터뷰나 기사에서 다룬 핵심 주제를 적습니다.
+    인터뷰, 기사, 발표에서 다룬 핵심 주제를 적습니다.
   perspective: |
     내가 어떤 관점이나 가치관을 보여주고 싶었는지 적습니다.
   impact: |
-    외부 소개 이후의 반응, 의미, 신뢰, 다음 경험과의 연결을 적습니다.
+    외부 공개 이후의 반응, 의미, 신뢰, 다음 경험과의 연결을 적습니다.
 sections: []
 ```
 

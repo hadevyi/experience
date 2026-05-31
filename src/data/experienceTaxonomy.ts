@@ -19,6 +19,10 @@ export const experienceCategoryConfig = {
     ko: '학습/성장',
     en: 'Learning'
   },
+  certification: {
+    ko: '자격/인증',
+    en: 'Certification'
+  },
   'teaching-mentoring': {
     ko: '강의/멘토링',
     en: 'Teaching'
@@ -32,8 +36,8 @@ export const experienceCategoryConfig = {
     en: 'Awards'
   },
   'media-interview': {
-    ko: '미디어/인터뷰',
-    en: 'Media'
+    ko: '미디어/발표',
+    en: 'Media/Talk'
   }
 } as const;
 
@@ -44,6 +48,7 @@ export const experienceCategoryOrder = [
   'work-experience',
   'project',
   'learning-growth',
+  'certification',
   'teaching-mentoring',
   'community',
   'event-operation',

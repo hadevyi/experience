@@ -363,6 +363,8 @@ export const formatExperiencePeriod = (period: ExperiencePeriod, language: Exper
 
   const end = parseExperiencePeriodPoint(period.end);
 
+  if (periodPointSortValue(start) === periodPointSortValue(end)) return startText;
+
   if (start.precision === 'minute' && end.precision === 'minute' && isSameDate(start, end)) {
     return `${startText} - ${end.hour}:${end.minute}`;
   }
@@ -493,6 +495,7 @@ type ExperienceTemplateField =
   | 'workExperience'
   | 'eventOperation'
   | 'learningGrowth'
+  | 'certification'
   | 'teachingMentoring'
   | 'awardScholarship'
   | 'mediaInterview';
@@ -504,6 +507,7 @@ const experienceTemplateFieldByCategory = {
   'work-experience': 'workExperience',
   'event-operation': 'eventOperation',
   'learning-growth': 'learningGrowth',
+  certification: 'certification',
   'teaching-mentoring': 'teachingMentoring',
   'award-scholarship': 'awardScholarship',
   'media-interview': 'mediaInterview'
@@ -826,6 +830,37 @@ type LearningGrowthSectionKey = keyof typeof learningGrowthSectionLabels;
 
 const learningGrowthSectionKeys = Object.keys(learningGrowthSectionLabels) as LearningGrowthSectionKey[];
 
+const certificationSectionLabels = {
+  overview: {
+    ko: '자격/인증 개요',
+    en: 'Certification Overview'
+  },
+  issuer: {
+    ko: '발급 기관',
+    en: 'Issuer'
+  },
+  acquisition: {
+    ko: '취득 정보',
+    en: 'Acquisition'
+  },
+  scope: {
+    ko: '인증 범위',
+    en: 'Certification Scope'
+  },
+  preparation: {
+    ko: '취득 이유',
+    en: 'Reason for Acquisition'
+  },
+  meaning: {
+    ko: '활용과 의미',
+    en: 'Use and Meaning'
+  }
+} as const;
+
+type CertificationSectionKey = keyof typeof certificationSectionLabels;
+
+const certificationSectionKeys = Object.keys(certificationSectionLabels) as CertificationSectionKey[];
+
 const teachingMentoringSectionLabels = {
   audience: {
     ko: '대상',
@@ -1030,6 +1065,18 @@ export const getExperienceDetailSections = (pair: ExperiencePair): ExperienceLoc
       learningGrowthSectionKeys,
       koLearningGrowth,
       enLearningGrowth
+    );
+  }
+
+  if (pair.meta.category === 'certification' && pair.ko.data.certification) {
+    const koCertification = pair.ko.data.certification;
+    const enCertification = (pair.en ?? pair.ko).data.certification ?? koCertification;
+
+    return buildStructuredSections(
+      certificationSectionLabels,
+      certificationSectionKeys,
+      koCertification,
+      enCertification
     );
   }
 

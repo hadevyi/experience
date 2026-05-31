@@ -1,0 +1,17 @@
+{
+  "number": "000",
+  "periods": [
+    {
+      "start": "YYYY-MM"
+    }
+  ],
+  "category": "certification",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": null,
+  "featured": false
+}

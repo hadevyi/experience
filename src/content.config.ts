@@ -106,6 +106,19 @@ const learningGrowthSchema = z
   })
   .optional();
 
+const certificationSchema = z
+  .object({
+    overview: z.string().default(''),
+    responsibleAgency: z.string().default(''),
+    administeringOrganization: z.string().default(''),
+    issuer: z.string().default(''),
+    acquisition: z.string().default(''),
+    scope: z.string().default(''),
+    preparation: z.string().default(''),
+    meaning: z.string().default('')
+  })
+  .optional();
+
 const teachingMentoringSchema = z
   .object({
     audience: z.string().default(''),
@@ -160,6 +173,7 @@ const experiences = defineCollection({
     workExperience: workExperienceSchema,
     eventOperation: eventOperationSchema,
     learningGrowth: learningGrowthSchema,
+    certification: certificationSchema,
     teachingMentoring: teachingMentoringSchema,
     awardScholarship: awardScholarshipSchema,
     mediaInterview: mediaInterviewSchema,
