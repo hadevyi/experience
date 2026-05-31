@@ -654,7 +654,7 @@ html[data-theme='dark'] {
 
   .experience-detail-image-card {
     @apply m-0 overflow-hidden rounded-[1.1rem] border p-0;
-    aspect-ratio: 1.8 / 1;
+    aspect-ratio: 16 / 9;
     border-color: var(--theme-border);
     background-color: #ffffff;
   }
@@ -731,7 +731,7 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-info div {
-    @apply grid grid-cols-[4rem_minmax(0,1fr)] gap-3 border-t py-3;
+    @apply grid grid-cols-[5.25rem_minmax(0,1fr)] gap-3 border-t py-3;
     border-color: var(--theme-border);
   }
 
@@ -741,6 +741,7 @@ html[data-theme='dark'] {
     line-height: var(--type-micro-leading);
     letter-spacing: var(--type-label-tracking);
     color: var(--theme-ink-faint);
+    white-space: nowrap;
   }
 
   .experience-detail-info dd {
@@ -813,6 +814,65 @@ html[data-theme='dark'] {
     color: var(--theme-ink-soft);
     text-wrap: pretty;
     word-break: keep-all;
+  }
+
+  .experience-detail-paragraph-list {
+    @apply mt-4 grid gap-3;
+  }
+
+  .experience-detail-paragraph-list .experience-detail-section-body {
+    @apply mt-0;
+  }
+
+  .experience-detail-bullet-list {
+    @apply m-0 grid gap-2 pl-5;
+    color: var(--theme-ink-soft);
+    font-size: var(--type-body-size);
+    line-height: 1.72;
+    list-style: disc;
+    word-break: keep-all;
+  }
+
+  .experience-detail-bullet-list li {
+    @apply pl-1;
+    text-wrap: pretty;
+  }
+
+  .experience-work-card-list {
+    @apply mt-5 grid gap-3;
+  }
+
+  .experience-work-card {
+    @apply rounded-[1.25rem] border p-4 sm:p-5;
+    border-color: color-mix(in srgb, var(--theme-border) 82%, transparent);
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--theme-accent) 7%, transparent),
+        transparent 58%
+      ),
+      color-mix(in srgb, var(--theme-surface-strong) 76%, transparent);
+  }
+
+  .experience-work-card-label {
+    @apply m-0 inline-flex items-center rounded-full px-3 py-1 font-semibold;
+    font-size: var(--type-caption-size);
+    line-height: var(--type-caption-leading);
+    background-color: var(--theme-chip-bg);
+    color: color-mix(in srgb, var(--theme-accent) 78%, var(--theme-ink));
+  }
+
+  .experience-work-card-body {
+    @apply mb-0 mt-3;
+    font-size: var(--type-small-size);
+    line-height: 1.72;
+    color: var(--theme-ink-soft);
+    text-wrap: pretty;
+    word-break: keep-all;
+  }
+
+  .experience-work-card-label + .experience-work-card-body {
+    @apply mt-3;
   }
 
   .experience-detail-tech-content {
@@ -962,7 +1022,7 @@ html[data-theme='dark'] {
     }
 
     .experience-detail-info div {
-      @apply grid-cols-[3.5rem_minmax(0,1fr)] gap-2;
+      @apply grid-cols-[4.75rem_minmax(0,1fr)] gap-2;
     }
 
     .experience-detail-section {

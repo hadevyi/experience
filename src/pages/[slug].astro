@@ -67,6 +67,25 @@ const periodLabel = {
   ko: formatExperiencePeriods(entry.meta, 'ko'),
   en: formatExperiencePeriods(entry.meta, 'en')
 };
+const isCertification = entry.meta.category === 'certification';
+const detailPeriodLabel = isCertification
+  ? {
+      ko: '취득일',
+      en: 'Acquired'
+    }
+  : {
+      ko: '기간',
+      en: 'Period'
+    };
+const detailOrganizationLabel = isCertification
+  ? {
+      ko: '발급기관',
+      en: 'Issuer'
+    }
+  : {
+      ko: '기관',
+      en: 'Organization'
+    };
 const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
 const employmentTypeLabel =
   entry.meta.category === 'work-experience' && entry.meta.employmentType
@@ -74,6 +93,8 @@ const employmentTypeLabel =
     : null;
 const koProject = entry.ko.data.project;
 const enProject = (entry.en ?? entry.ko).data.project ?? koProject;
+const koCertification = entry.ko.data.certification;
+const enCertification = (entry.en ?? entry.ko).data.certification ?? koCertification;
 const projectTechCategoryLabels = {
   frontend: {
     ko: '프론트엔드',
@@ -202,6 +223,26 @@ const projectInfoRows =
         }
       ].filter((item) => item.value.ko.trim().length > 0 || item.value.en.trim().length > 0)
     : [];
+const certificationInfoRows =
+  entry.meta.category === 'certification' && koCertification
+    ? [
+        {
+          label: { ko: '주관기관', en: 'Responsible Agency' },
+          value: {
+            ko: koCertification.responsibleAgency ?? '',
+            en: enCertification?.responsibleAgency || koCertification.responsibleAgency || ''
+          }
+        },
+        {
+          label: { ko: '시행기관', en: 'Administering Organization' },
+          value: {
+            ko: koCertification.administeringOrganization ?? '',
+            en: enCertification?.administeringOrganization || koCertification.administeringOrganization || ''
+          }
+        }
+      ].filter((item) => item.value.ko.trim().length > 0 || item.value.en.trim().length > 0)
+    : [];
+const detailInfoRows = projectInfoRows.length > 0 ? projectInfoRows : certificationInfoRows;
 const representativeImage = entry.meta.representativeImage;
 const representativeImageAlt = {
   ko: representativeImage?.alt?.ko ?? title.ko,
@@ -229,6 +270,105 @@ const structuredDetailBlocks = structuredSections.flatMap((section, index) => {
 
   return blocks;
 });
+const isWorkExperience = entry.meta.category === 'work-experience';
+const workResponsibilityLabels = new Set(['맡은 일', 'Responsibilities']);
+const stripListMarker = (line: string) => line.replace(/^[•-]\s*/, '').trim();
+const splitDetailLines = (body: string) =>
+  body
+    .split('\n')
+    .map((line) => stripListMarker(line))
+    .filter((line) => line.length > 0);
+const splitDetailParagraphs = (body: string) =>
+  body
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph.length > 0);
+const isBulletParagraph = (paragraph: string) => {
+  const lines = paragraph.split('\n').map((line) => line.trim()).filter(Boolean);
+
+  return lines.length > 0 && lines.every((line) => line.startsWith('- ') || line.startsWith('• '));
+};
+const splitBulletItems = (paragraph: string) =>
+  paragraph
+    .split('\n')
+    .map((line) => stripListMarker(line))
+    .filter((line) => line.length > 0);
+const getSectionContentBlocks = (section: (typeof structuredSections)[number]) => {
+  const koParagraphs = splitDetailParagraphs(section.ko.body);
+  const enParagraphs = splitDetailParagraphs(section.en.body);
+
+  return koParagraphs.map((ko, index) => {
+    const en = enParagraphs[index] ?? ko;
+
+    if (isBulletParagraph(ko)) {
+      const koItems = splitBulletItems(ko);
+      const enItems = isBulletParagraph(en) ? splitBulletItems(en) : koItems;
+
+      return {
+        type: 'list' as const,
+        items: koItems.map((koItem, itemIndex) => ({
+          ko: koItem,
+          en: enItems[itemIndex] ?? koItem
+        }))
+      };
+    }
+
+    return {
+      type: 'paragraph' as const,
+      ko,
+      en
+    };
+  });
+};
+const getSectionTextItems = (section: (typeof structuredSections)[number]) => {
+  const koLines = splitDetailLines(section.ko.body);
+  const enLines = splitDetailLines(section.en.body);
+  const isKoList = section.ko.body
+    .split('\n')
+    .some((line) => line.trim().startsWith('•') || line.trim().startsWith('-'));
+
+  if (!isKoList || koLines.length < 2) {
+    return [];
+  }
+
+  return koLines.map((ko, index) => ({
+    ko,
+    en: enLines[index] ?? ko
+  }));
+};
+const isWorkResponsibilitySection = (section: (typeof structuredSections)[number]) =>
+  workResponsibilityLabels.has(section.ko.label) || workResponsibilityLabels.has(section.en.label);
+const parseLabeledWorkItem = (value: string) => {
+  const separatorIndex = value.search(/[:：]/);
+
+  if (separatorIndex <= 0 || separatorIndex > 28) {
+    return {
+      label: '',
+      body: value
+    };
+  }
+
+  return {
+    label: value.slice(0, separatorIndex).trim(),
+    body: value.slice(separatorIndex + 1).trim()
+  };
+};
+const getWorkResponsibilityCards = (section: (typeof structuredSections)[number]) =>
+  getSectionTextItems(section).map((item) => {
+    const ko = parseLabeledWorkItem(item.ko);
+    const en = parseLabeledWorkItem(item.en);
+
+    return {
+      ko: {
+        label: ko.label,
+        body: ko.body
+      },
+      en: {
+        label: en.label || ko.label,
+        body: en.body || ko.body
+      }
+    };
+  });
 const highlights = entry.ko.data.highlights.map((_, index) =>
   getLocalizedListItem(entry, 'highlights', index)
 ).filter(
@@ -350,12 +490,12 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
 
         <dl class="experience-detail-info">
           <div>
-            <dt {...i18nText('기간', 'Period')}>기간</dt>
+            <dt {...localized(detailPeriodLabel)}>{detailPeriodLabel.ko}</dt>
             <dd {...localized(periodLabel)}>{periodLabel.ko}</dd>
           </div>
           {
-            projectInfoRows.length > 0 ? (
-              projectInfoRows.map((item) => (
+            detailInfoRows.length > 0 ? (
+              detailInfoRows.map((item) => (
                 <div>
                   <dt {...localized(item.label)}>{item.label.ko}</dt>
                   <dd {...localized(item.value)}>{item.value.ko}</dd>
@@ -363,7 +503,7 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
               ))
             ) : (
               <div>
-                <dt {...i18nText('기관', 'Organization')}>기관</dt>
+                <dt {...localized(detailOrganizationLabel)}>{detailOrganizationLabel.ko}</dt>
                 <dd {...localized(organization)}>{organization.ko}</dd>
               </div>
             )
@@ -459,11 +599,44 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                   </div>
                 </section>
               ) : (
-                <section class="experience-detail-section">
+                <section class:list={['experience-detail-section', isWorkExperience && 'experience-detail-work-section']}>
                   <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
                   <div class="experience-detail-section-content">
                     <h2 class="experience-detail-section-label" {...i18nText(block.section.ko.label, block.section.en.label)}>{block.section.ko.label}</h2>
-                    <p class="experience-detail-section-body" {...i18nText(block.section.ko.body, block.section.en.body)}>{block.section.ko.body}</p>
+                    {
+                      isWorkExperience && isWorkResponsibilitySection(block.section) && getWorkResponsibilityCards(block.section).length > 0 ? (
+                        <div class="experience-work-card-list">
+                          {getWorkResponsibilityCards(block.section).map((item) => (
+                            <article class="experience-work-card">
+                              {(item.ko.label || item.en.label) && (
+                                <p class="experience-work-card-label" {...i18nText(item.ko.label, item.en.label)}>
+                                  {item.ko.label}
+                                </p>
+                              )}
+                              <p class="experience-work-card-body" {...i18nText(item.ko.body, item.en.body)}>
+                                {item.ko.body}
+                              </p>
+                            </article>
+                          ))}
+                        </div>
+                      ) : getSectionContentBlocks(block.section).length > 0 ? (
+                        <div class="experience-detail-paragraph-list">
+                          {getSectionContentBlocks(block.section).map((contentBlock) => (
+                            contentBlock.type === 'list' ? (
+                              <ul class="experience-detail-bullet-list">
+                                {contentBlock.items.map((item) => (
+                                  <li {...i18nText(item.ko, item.en)}>{item.ko}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p class="experience-detail-section-body" {...i18nText(contentBlock.ko, contentBlock.en)}>
+                                {contentBlock.ko}
+                              </p>
+                            )
+                          ))}
+                        </div>
+                      ) : null
+                    }
                   </div>
                 </section>
               )
