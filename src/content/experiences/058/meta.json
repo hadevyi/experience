@@ -2,37 +2,59 @@
   "number": "058",
   "periods": [
     {
-      "start": "2021-10-29"
+      "start": "2021-10-11",
+      "end": "2021-11-19"
     }
   ],
-  "category": "media-interview",
+  "category": "project",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "presentation",
-    "reflection"
+    "problem-solving",
+    "ownership",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "web",
+    "metaverse",
+    "ai-ml"
+  ],
+  "techTags": [
+    "java",
+    "html",
+    "css",
+    "javascript",
+    "mysql",
+    "nginx",
+    "jenkins",
+    "unity",
+    "kakaotalk-api",
+    "tensorflow",
+    "photon"
+  ],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
+    },
+    {
+      "number": "061",
+      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/058/representative.jpg",
     "alt": {
-      "ko": "SSAFY 7기 모집설명회 대표 이미지",
-      "en": "Representative image for SSAFY 7th recruitment session"
+      "ko": "Safers 세이퍼스 대표 이미지",
+      "en": "Representative image for Safers"
     },
     "caption": {
-      "ko": "SSAFY 7기 모집설명회",
-      "en": "SSAFY 7th Recruitment Session"
+      "ko": "Safers 세이퍼스",
+      "en": "Safers"
     }
   },
   "featured": false

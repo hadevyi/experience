@@ -6,47 +6,34 @@
       "end": "2022-03-04"
     }
   ],
-  "category": "project",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
-    "structuring",
-    "collaboration"
+    "collaboration",
+    "coordination"
   ],
-  "projectDomains": [
-    "web"
-  ],
-  "techTags": [
-    "java",
-    "spring-boot",
-    "jpa",
-    "mysql",
-    "nginx",
-    "jenkins",
-    "aws-ec2",
-    "aws-s3",
-    "figma"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
-      "number": "042",
+      "number": "043",
       "relation": "affiliation"
     },
     {
-      "number": "063",
-      "relation": "parent-experience"
+      "number": "065",
+      "relation": "project"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/064/representative.webp",
     "alt": {
-      "ko": "Gratz 대표 이미지",
-      "en": "Representative image for Gratz"
+      "ko": "DND 6기 대표 이미지",
+      "en": "Representative image for DND 6th cohort"
     },
     "caption": {
-      "ko": "Gratz",
-      "en": "Gratz"
+      "ko": "DND 6기",
+      "en": "DND 6th Cohort"
     }
   },
   "featured": false

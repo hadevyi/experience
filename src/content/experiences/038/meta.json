@@ -2,36 +2,30 @@
   "number": "038",
   "periods": [
     {
-      "start": "2020-02-14"
+      "start": "2020-02-01",
+      "end": "2020-07-31"
     }
   ],
-  "category": "award-scholarship",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
+  "employmentType": "freelance",
   "experienceTags": [
-    "academic-achievement"
+    "operation",
+    "documentation"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [
-    {
-      "number": "001",
-      "relation": "university"
-    },
-    {
-      "number": "002",
-      "relation": "department"
-    }
-  ],
+  "related": [],
   "representativeImage": {
     "src": "/experience/images/experiences/038/representative.jpg",
     "alt": {
-      "ko": "학부 차석 졸업 소프트웨어대 학장상 대표 이미지",
-      "en": "Representative image for the College of Software Dean's Award for graduating second in the department"
+      "ko": "렉스코드 다국어 편집 디자인 프리랜서 대표 이미지",
+      "en": "Representative image for Rexcode multilingual design editing freelance work"
     },
     "caption": {
-      "ko": "학부 차석 졸업 소프트웨어대 학장상",
-      "en": "College of Software Dean's Award"
+      "ko": "렉스코드 다국어 편집 디자인 프리랜서",
+      "en": "Rexcode Multilingual Design Editing Freelance Work"
     }
   },
   "featured": false

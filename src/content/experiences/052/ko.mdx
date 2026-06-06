@@ -1,26 +1,100 @@
 ---
-title: SSAFY 5기人사이트 인터뷰
-organization: 삼성청년SW·AI아카데미
-summary: SSAFY 5기 교육생으로서 학습 과정과 활동 경험을 공식 인스타그램 인터뷰로 소개한 기록입니다.
-oneLine: SSAFY 안에서의 학습과 정보 공유 활동이 공식 채널에 소개된 인터뷰
+title: SOLVER
+organization: SSAFY 5기
+summary: 질문과 답변, 화상 상담, 포인트 기반 홍보 흐름을 다룬 SSAFY 공통 프로젝트입니다.
+oneLine: 질문과 답변, 화상 상담을 연결한 지식 교류 웹 프로젝트
 highlights:
-  - "SSAFY 교육생 경험을 공식 채널 인터뷰로 공유"
-  - "지원 동기와 교육 과정의 변화를 외부에 전달"
-  - "커뮤니티 안에서 정보 공유와 소통 경험 확장"
-mediaInterview:
+  - "공통프로젝트에서 팀 결과물을 발표와 시연으로 완성"
+  - "문제 정의부터 구현 결과까지 팀의 흐름을 정리"
+  - "협업 결과가 좋은 평가로 이어진 경험"
+project:
+  host: SSAFY 5기 공통프로젝트
+  position: 팀장 / Back-end, Front-end, AWS EC2, Design
+  teamComposition:
+    - role: 개발·디자인
+      count: 4
+      note: Back-end, Front-end, AWS EC2, Design을 역할별로 나누어 진행
+  techStack:
+    - category: language
+      name: Java
+      version: "8"
+      note: "OpenJDK Zulu 8.33.0.1 기준"
+    - category: frontend
+      name: Vue
+      version: "2.6.11"
+      note: "Vuex 3.4.0, Vue Router 기반 화면 구성"
+    - category: frontend
+      name: JavaScript
+      version: "ES6"
+      note: "HTML5, CSS3와 함께 프론트엔드 구현"
+    - category: backend
+      name: Spring Boot
+      version: "2.4.5"
+      note: "Spring Security, Spring Data JPA 기반 API"
+    - category: backend
+      name: QueryDSL
+      version: ""
+      note: "검색과 조회 조건 처리"
+    - category: framework
+      name: Kurento/WebRTC
+      version: "6.16.0"
+      note: "화상 상담 흐름 구현"
+    - category: database
+      name: MySQL
+      version: "8.0.22"
+      note: "사용자, 질문·답변, 모임, 화상회의, 포인트 데이터 관리"
+    - category: platform
+      name: AWS EC2
+      version: ""
+      note: "Ubuntu 20.04.2 LTS, Docker 기반 배포 환경"
+    - category: platform
+      name: AWS S3
+      version: "1.12.39"
+      note: "파일·영상 저장 연동"
+    - category: design
+      name: Figma / Adobe Photoshop
+      version: ""
+      note: "스토리보드와 UI/UX 설계"
+  deployment: ""
+  overview: |
+    SOLVER는 사소하지만 혼자 해결하기 어려운 질문을 올리고, 다른 사용자가 텍스트 답변이나 화상 상담으로 해결을 돕는 지식 교류 웹 서비스입니다. 질문자는 해결사를 찾고, 답변자는 자신의 지식과 경험을 바탕으로 경력을 쌓을 수 있다는 흐름을 중심으로 설계했습니다.
   background: |
-    SSAFY 내부 기자단인 SSAFYcial의 제안으로, 공식 인스타그램 콘텐츠 5기人사이트 인터뷰에 소개되었습니다. SSAFY 5기 안에서 학습과 소통을 활발히 이어가던 교육생으로 다뤄졌습니다.
-  context: |
-    온라인 중심 교육이었고, 약 750명의 교육생이 함께하다 보니 같은 정보를 놓치지 않는 흐름이 중요했습니다. 반장, 스터디, 프로젝트 활동을 병행하며 라이브 강의 내용을 요약해 5기 전체에 거의 매일 공유했습니다.
-  topics: |
-    인터뷰에서는 SSAFY 학습 경험, 교육생 활동, 동기들과의 정보 공유 과정을 다뤘습니다. SSAFY EDU, Mattermost, 유튜브 라이브 댓글 등 여러 채널에서 필요한 정보를 정리하고 전달하던 흐름이 주요 맥락이었습니다.
-  perspective: |
-    개인 학습뿐 아니라 함께 배우는 환경을 만드는 태도도 중요하다는 관점을 보여준 인터뷰였습니다. 내가 정리한 정보가 다른 교육생들에게도 도움이 될 수 있다는 점을 확인했습니다.
-  impact: |
-    의도치 않게 받은 관심이라 민망하기도 했지만, 동기들과 기자단이 좋게 봐준 덕분에 뿌듯함도 컸습니다. SSAFY를 단순히 이수한 기록이 아니라, 교육생 커뮤니티 안에서 어떻게 참여했는지를 보여주는 자료가 되었습니다.
+    SSAFY 5기 공통 프로젝트로 6주 동안 진행했습니다. Sub1, Sub2, Sub3 단계로 요구사항과 설계, 구현을 확장했고, 팀장으로 참여해 백엔드와 프론트엔드, AWS EC2, 디자인까지 맡았습니다.
+  scope: |
+    카카오 로그인과 회원가입, 관심 분야와 가능 시간 설정, 질문·답변·댓글·추천·북마크·채택, 모임 생성과 가입 승인, 화상 상담 요청과 수락·거절, 알림과 메시지, 포인트와 프로필 통계 흐름을 다뤘습니다.
+  contribution:
+    - 팀장으로서 Back-end, Front-end, AWS EC2, Design 역할을 함께 맡았습니다.
+    - 질문·답변, 해결사 목록, 포인트, 알림·메시지, 화상 요청 흐름 구현에 주로 기여했습니다.
+    - 팀장회의에 참여하고 팀원들의 업무 배분과 진행 흐름을 조율했습니다.
+    - 1 Page 기획서, 요구사항 명세, ERD, 시퀀스 다이어그램, 공통 코드, 카테고리와 포인트 정책 등 설계 산출물을 기반으로 구현을 진행했습니다.
+  roleDetails:
+    - "팀 리딩: 팀장회의 참여, 업무 배분, Jira 기반 진행 조율"
+    - "질문·답변: 질문 작성·목록·상세, 답변·댓글·삭제 모달, 추천 질문 조회 흐름 구현"
+    - "사용자 흐름: 해결사 목록, 포인트 지급·내역·홍보, 알림과 메시지 응답 흐름 구현"
+    - "화상 상담: 화상 요청 모달과 화상 관련 메시지 처리 구현"
+    - "배포·문서화: AWS EC2 배포 환경 구성, 최종 배포 빌드, 요구사항 명세·ERD·시퀀스 다이어그램·공통 코드 문서화"
+    - "디자인·발표: Figma와 Photoshop 기반 디자인 참여, 최종 발표 및 시연 대응"
+  implementation:
+    - 백엔드는 Spring Boot, Spring Security, JPA, QueryDSL 기반으로 API와 데이터 조회 흐름을 구성했습니다.
+    - 프론트엔드는 Vue 2와 Vuex로 화면과 상태를 관리했습니다.
+    - 화상 상담은 Kurento와 WebRTC 흐름을 분리해 구현했습니다.
+    - AWS EC2, Docker, S3를 고려해 배포와 파일 저장 흐름을 구성했습니다.
+  challenges:
+    - 질문·답변, 모임, 화상 상담, 포인트, 알림까지 기능 범위가 넓어 기능 간 관계를 먼저 정리해야 했습니다.
+    - AWS를 처음 활용하면서 배포 개념을 이해하는 데 시간이 필요했습니다.
+    - Gradle 기반 서버와 Maven 기반 서버를 함께 배포해야 해서 서버 아키텍처를 따로 공부했습니다.
+    - WebRTC 개념이 낯설어 화상 상담 흐름을 이해하고 구현하는 과정이 가장 어려웠습니다.
+  outcome:
+    - SSAFY 5기 공통프로젝트에서 반 1위를 수상했습니다.
+    - AWS 배포와 WebRTC를 직접 공부하며 서비스 배포와 실시간 화상 흐름에 대한 이해를 넓혔습니다.
+    - 이후 후배들에게 우수 프로젝트로 소개된 경험으로도 남았습니다.
+    - README, Wiki, 요구사항 명세, ERD, 시퀀스 다이어그램, 포팅 매뉴얼, 시연 시나리오, 발표 자료를 산출물로 남겼습니다.
 sections: []
 links:
-  - type: article
-    label: SSAFY 5기人사이트 인스타그램 인터뷰
-    url: https://www.instagram.com/p/CRn_AngDCoo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+  - type: repository
+    label: BerrySolver/SOLVER
+    url: https://github.com/BerrySolver/SOLVER
+  - type: repository
+    label: BerrySolver Organization
+    url: https://github.com/BerrySolver
 ---

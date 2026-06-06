@@ -2,33 +2,25 @@
   "number": "095",
   "periods": [
     {
-      "start": "2025-06-06"
+      "start": "2025-05-09",
+      "end": "2025-05-28"
     }
   ],
-  "category": "event-operation",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "ownership"
+    "mentoring",
+    "structuring",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [
-    {
-      "number": "090",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
-    }
-  ],
   "representativeImage": {
     "src": "/experience/images/experiences/095/representative.jpg",
     "alt": {
-      "ko": "2025 SSAFYnity SSAFYnale 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity SSAFYnale"
+      "ko": "산학연 미니프로젝트 대표 이미지",
+      "en": "Representative image for industry-academic mini project"
     }
   },
   "featured": false

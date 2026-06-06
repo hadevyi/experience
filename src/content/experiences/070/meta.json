@@ -2,35 +2,38 @@
   "number": "070",
   "periods": [
     {
-      "start": "2022-12-01",
-      "current": true
+      "start": "2022-10-22",
+      "end": "2022-10-22"
     }
   ],
-  "category": "community",
+  "category": "event-operation",
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "community",
-    "operation",
-    "mentoring"
+    "coordination",
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "042",
+      "number": "067",
       "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/070/representative.webp",
+    "src": "/experience/images/experiences/070/representative-v2.jpg",
     "alt": {
-      "ko": "DND 개발 운영진 대표 이미지",
-      "en": "Representative image for DND development operator"
+      "ko": "2022 SSAFYnity 가을체육대회 대표 이미지",
+      "en": "Representative image for 2022 SSAFYnity autumn sports day"
     },
     "caption": {
-      "ko": "DND 개발 운영진",
-      "en": "DND Development Operator"
+      "ko": "2022 SSAFYnity 가을체육대회",
+      "en": "2022 SSAFYnity Autumn Sports Day"
     }
   },
   "featured": false

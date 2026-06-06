@@ -2,38 +2,38 @@
   "number": "048",
   "periods": [
     {
-      "start": "2021-01-11",
-      "end": "2021-05-28"
+      "start": "2021-01-05",
+      "end": "2021-12-31"
     }
   ],
   "category": "learning-growth",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
-    "knowledge-sharing"
+    "growth-foundation",
+    "problem-solving"
   ],
   "projectDomains": [],
-  "techTags": [],
+  "techTags": [
+    "java",
+    "javascript",
+    "mysql"
+  ],
   "related": [
     {
-      "number": "046",
-      "relation": "parent-experience"
-    },
-    {
       "number": "047",
-      "relation": "affiliation"
+      "relation": "parent-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/048/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기 모각코 대표 이미지",
-      "en": "Representative image for SSAFY 5th cohort Mogakko"
+      "ko": "SSAFY 5기 교육생 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort trainee"
     },
     "caption": {
-      "ko": "SSAFY 5기 모각코",
-      "en": "SSAFY 5th Cohort Mogakko"
+      "ko": "SSAFY 5기 교육생",
+      "en": "SSAFY 5th Cohort Trainee"
     }
   },
   "featured": false

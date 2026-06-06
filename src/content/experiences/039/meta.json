@@ -2,31 +2,36 @@
   "number": "039",
   "periods": [
     {
-      "start": "2020-04-15",
-      "end": "2020-10-25"
+      "start": "2020-02-14"
     }
   ],
-  "category": "work-experience",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
-  "employmentType": "personal-business",
   "experienceTags": [
-    "teaching",
-    "operation",
-    "knowledge-sharing"
+    "academic-achievement"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [],
+  "related": [
+    {
+      "number": "001",
+      "relation": "university"
+    },
+    {
+      "number": "002",
+      "relation": "department"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/039/representative.jpg",
     "alt": {
-      "ko": "원투원 프로그래밍 대표 이미지",
-      "en": "Representative image for One-to-One Online Programming Education Business"
+      "ko": "학부 차석 졸업 소프트웨어대 학장상 대표 이미지",
+      "en": "Representative image for the College of Software Dean's Award for graduating second in the department"
     },
     "caption": {
-      "ko": "원투원 프로그래밍",
-      "en": "One-to-One Online Programming Education Business"
+      "ko": "학부 차석 졸업 소프트웨어대 학장상",
+      "en": "College of Software Dean's Award"
     }
   },
   "featured": false

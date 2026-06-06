@@ -2,42 +2,30 @@
   "number": "078",
   "periods": [
     {
-      "start": "2023-09-23",
-      "end": "2023-09-23"
+      "start": "2023-09-08",
+      "end": "2023-09-08"
     }
   ],
-  "category": "event-operation",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "presentation"
+    "mentoring",
+    "presentation",
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [
-    {
-      "number": "072",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
-    },
-    {
-      "number": "069",
-      "relation": "previous"
-    }
-  ],
+  "related": [],
   "representativeImage": {
     "src": "/experience/images/experiences/078/representative.jpg",
     "alt": {
-      "ko": "2023 SSAFYnity 가을체육대회 대표 이미지",
-      "en": "Representative image for 2023 SSAFYnity autumn sports day"
+      "ko": "AI융합대 선배와의 만남 대표 이미지",
+      "en": "Representative image for AI Convergence College alumni mentoring session"
     },
     "caption": {
-      "ko": "2023 SSAFYnity 가을체육대회",
-      "en": "2023 SSAFYnity Autumn Sports Day"
+      "ko": "AI융합대 선배와의 만남",
+      "en": "Meeting with an AI Convergence College alumna"
     }
   },
   "featured": false

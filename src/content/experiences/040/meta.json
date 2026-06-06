@@ -2,30 +2,31 @@
   "number": "040",
   "periods": [
     {
-      "start": "2020-06-16",
-      "end": "2020-07-01"
+      "start": "2020-04-15",
+      "end": "2020-10-25"
     }
   ],
-  "category": "learning-growth",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
+  "employmentType": "personal-business",
   "experienceTags": [
-    "technical-learning"
+    "teaching",
+    "operation",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
-  "techTags": [
-    "ai-ml"
-  ],
+  "techTags": [],
   "related": [],
   "representativeImage": {
     "src": "/experience/images/experiences/040/representative.jpg",
     "alt": {
-      "ko": "BARO AI ACADEMY 머신러닝을 위한 수학과정 대표 이미지",
-      "en": "Representative image for BARO AI ACADEMY Mathematics for Machine Learning"
+      "ko": "원투원 프로그래밍 대표 이미지",
+      "en": "Representative image for One-to-One Online Programming Education Business"
     },
     "caption": {
-      "ko": "BARO AI ACADEMY 머신러닝을 위한 수학과정",
-      "en": "BARO AI ACADEMY Mathematics for Machine Learning"
+      "ko": "원투원 프로그래밍",
+      "en": "One-to-One Online Programming Education Business"
     }
   },
   "featured": false

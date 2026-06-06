@@ -2,24 +2,25 @@
   "number": "092",
   "periods": [
     {
-      "start": "2025-01-17",
-      "end": "2025-02-10"
+      "start": "2025-01-02",
+      "end": "2028-02-28"
     }
   ],
   "category": "teaching-mentoring",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "mentoring",
-    "knowledge-sharing"
+    "teaching",
+    "knowledge-sharing",
+    "structuring"
   ],
   "projectDomains": [],
   "techTags": [],
   "representativeImage": {
     "src": "/experience/images/experiences/092/representative.jpg",
     "alt": {
-      "ko": "Git 사용방법을 활용한 토이프로젝트 만들기 대표 이미지",
-      "en": "Representative image for Git-based toy project mentoring"
+      "ko": "제로베이스 백엔드 강사 대표 이미지",
+      "en": "Representative image for Zero Base backend instructor"
     }
   },
   "featured": false

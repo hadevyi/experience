@@ -2,38 +2,40 @@
   "number": "084",
   "periods": [
     {
-      "start": "2024-05-17",
-      "end": "2024-05-18"
+      "start": "2024-02-17"
     }
   ],
   "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "mentoring"
+    "coordination"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "070",
+      "number": "081",
       "relation": "parent-experience"
     },
     {
-      "number": "042",
+      "number": "066",
       "relation": "affiliation"
+    },
+    {
+      "number": "074",
+      "relation": "previous"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/084/representative.jpg",
     "alt": {
-      "ko": "2024 DND 해커톤 운영 대표 이미지",
-      "en": "Representative image for 2024 DND hackathon operation"
+      "ko": "제2회 싸피인의 밤 대표 이미지",
+      "en": "Representative image for the 2nd Night of SSAFYnity"
     },
     "caption": {
-      "ko": "2024 DND 해커톤 운영",
-      "en": "2024 DND hackathon operation"
+      "ko": "제2회 싸피인의 밤",
+      "en": "The 2nd Night of SSAFYnity"
     }
   },
   "featured": false

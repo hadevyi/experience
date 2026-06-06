@@ -3,12 +3,12 @@
   "periods": [
     {
       "start": "2020-07-13",
-      "end": "2020-09-12"
+      "current": true
     }
   ],
-  "category": "community",
+  "category": "affiliation",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
     "community",
     "collaboration"
@@ -17,23 +17,35 @@
   "techTags": [],
   "related": [
     {
-      "number": "042",
-      "relation": "affiliation"
+      "number": "044",
+      "relation": "detailed-experience"
     },
     {
-      "number": "044",
+      "number": "045",
       "relation": "project"
+    },
+    {
+      "number": "064",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "065",
+      "relation": "project"
+    },
+    {
+      "number": "071",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/043/representative.jpg",
     "alt": {
-      "ko": "DND 3기 대표 이미지",
-      "en": "Representative image for DND 3rd"
+      "ko": "DND 대표 이미지",
+      "en": "Representative image for DND"
     },
     "caption": {
-      "ko": "DND 3기",
-      "en": "DND 3rd"
+      "ko": "DND",
+      "en": "DND"
     }
   },
   "featured": false

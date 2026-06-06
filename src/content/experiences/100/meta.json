@@ -2,33 +2,41 @@
   "number": "100",
   "periods": [
     {
-      "start": "2025-09-27"
+      "start": "2025-09-01",
+      "current": true
     }
   ],
-  "category": "event-operation",
+  "category": "community",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "coordination"
+    "operation",
+    "community"
   ],
-  "projectDomains": [],
+  "projectDomains": [
+    "open-source"
+  ],
   "techTags": [],
-  "representativeImage": {
-    "src": "/experience/images/experiences/100/representative.jpg",
-    "alt": {
-      "ko": "2025 SSAFYnity 포트락 파티 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity Potluck Party"
-    }
-  },
   "related": [
     {
-      "number": "090",
+      "number": "098",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "099",
+      "relation": "previous"
     }
   ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/100/representative.jpg",
+    "alt": {
+      "ko": "오픈소스 기여모임 운영진 대표 이미지",
+      "en": "Representative image for Open Source Contributors organizer"
+    },
+    "caption": {
+      "ko": "오픈소스 기여모임 운영진",
+      "en": "Open Source Contributors Organizer"
+    }
+  },
   "featured": false
 }

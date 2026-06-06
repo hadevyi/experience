@@ -2,36 +2,60 @@
   "number": "052",
   "periods": [
     {
-      "start": "2021-07-22"
+      "start": "2021-07-12",
+      "end": "2021-08-20"
     }
   ],
-  "category": "media-interview",
+  "category": "project",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "reflection"
+    "problem-solving",
+    "structuring",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "java",
+    "vue",
+    "spring-boot",
+    "jpa",
+    "querydsl",
+    "html",
+    "css",
+    "javascript",
+    "mysql",
+    "kurento",
+    "aws-ec2",
+    "aws-s3",
+    "docker",
+    "figma"
+  ],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
+    },
+    {
+      "number": "054",
+      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/052/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기人사이트 인터뷰 대표 이미지",
-      "en": "Representative image for SSAFY 5th People interview"
+      "ko": "SOLVER 대표 이미지",
+      "en": "Representative image for SOLVER"
     },
     "caption": {
-      "ko": "SSAFY 5기人사이트 인터뷰",
-      "en": "SSAFY 5th People Interview"
+      "ko": "SOLVER",
+      "en": "SOLVER"
     }
   },
   "featured": false

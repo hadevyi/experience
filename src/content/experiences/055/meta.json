@@ -2,32 +2,56 @@
   "number": "055",
   "periods": [
     {
-      "start": "2021-10-01"
+      "start": "2021-08-23",
+      "end": "2021-10-08"
     }
   ],
-  "category": "media-interview",
+  "category": "project",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "reflection"
+    "problem-solving",
+    "knowledge-sharing",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "open-source",
+    "iot",
+    "ai-ml"
+  ],
+  "techTags": [
+    "nodejs",
+    "nodered",
+    "sensor",
+    "tensorflow"
+  ],
   "related": [
     {
       "number": "047",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "048",
       "relation": "affiliation"
+    },
+    {
+      "number": "057",
+      "relation": "award"
+    },
+    {
+      "number": "060",
+      "relation": "activity"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/055/representative.jpg",
     "alt": {
-      "ko": "고용노동부 잡지 인터뷰 대표 이미지",
-      "en": "Representative image for Ministry of Employment and Labor magazine interview"
+      "ko": "Motion Pose 대표 이미지",
+      "en": "Representative image for Motion Pose"
     },
     "caption": {
-      "ko": "고용노동부 잡지 인터뷰",
-      "en": "Ministry of Employment and Labor Magazine Interview"
+      "ko": "Motion Pose",
+      "en": "Motion Pose"
     }
   },
   "featured": false

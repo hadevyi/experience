@@ -2,36 +2,37 @@
   "number": "062",
   "periods": [
     {
-      "start": "2021-12-30",
-      "end": "2022-05-31"
+      "start": "2021-12-21"
     }
   ],
-  "category": "work-experience",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
-  "employmentType": "freelance",
   "experienceTags": [
-    "mentoring",
-    "teaching",
-    "operation"
+    "academic-achievement",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
+    },
+    {
+      "number": "048",
+      "relation": "source"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/062/representative.jpg",
     "alt": {
-      "ko": "SSAFY 6기 실습코치 대표 이미지",
-      "en": "Representative image for SSAFY 6th cohort practice coach"
+      "ko": "SSAFY 5기 우수 수료 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort excellent completion"
     },
     "caption": {
-      "ko": "SSAFY 6기 실습코치",
-      "en": "SSAFY 6th Cohort Practice Coach"
+      "ko": "SSAFY 5기 우수 수료",
+      "en": "SSAFY 5th Cohort Excellent Completion"
     }
   },
   "featured": false

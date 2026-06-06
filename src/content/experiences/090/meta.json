@@ -2,32 +2,42 @@
   "number": "090",
   "periods": [
     {
-      "start": "2025-01-01",
-      "end": "2025-12-31"
+      "start": "2024-11-30"
     }
   ],
-  "category": "community",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "ownership",
     "coordination",
-    "operation"
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
+  "related": [
+    {
+      "number": "081",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
+    },
+    {
+      "number": "080",
+      "relation": "previous"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/090/representative.jpg",
     "alt": {
-      "ko": "2025 SSAFYnity 4대 회장 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity 4th president"
+      "ko": "SSAFYnity 세미나 대표 이미지",
+      "en": "Representative image for SSAFYnity seminar"
+    },
+    "caption": {
+      "ko": "SSAFYnity 세미나",
+      "en": "SSAFYnity Seminar"
     }
   },
-  "related": [
-    {
-      "number": "065",
-      "relation": "affiliation"
-    }
-  ],
   "featured": false
 }

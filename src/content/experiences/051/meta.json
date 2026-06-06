@@ -2,17 +2,16 @@
   "number": "051",
   "periods": [
     {
-      "start": "2021-07-12",
-      "end": "2021-08-20"
+      "start": "2021-05-18",
+      "end": "2021-05-27"
     }
   ],
   "category": "project",
   "visibility": "public",
   "status": "done",
+  "teamSize": 2,
   "experienceTags": [
-    "problem-solving",
-    "structuring",
-    "collaboration"
+    "problem-solving"
   ],
   "projectDomains": [
     "web"
@@ -21,41 +20,34 @@
     "java",
     "vue",
     "spring-boot",
-    "jpa",
-    "querydsl",
+    "mybatis",
     "html",
     "css",
     "javascript",
     "mysql",
-    "kurento",
-    "aws-ec2",
-    "aws-s3",
-    "docker",
-    "figma"
+    "bootstrap",
+    "chartjs",
+    "kakao-map-api"
   ],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
-    },
-    {
-      "number": "053",
-      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/051/representative.jpg",
     "alt": {
-      "ko": "SOLVER 대표 이미지",
-      "en": "Representative image for SOLVER"
+      "ko": "HOMEZ 대표 이미지",
+      "en": "Representative image for HOMEZ"
     },
     "caption": {
-      "ko": "SOLVER",
-      "en": "SOLVER"
+      "ko": "HOMEZ",
+      "en": "HOMEZ"
     }
   },
   "featured": false

@@ -2,41 +2,39 @@
   "number": "088",
   "periods": [
     {
-      "start": "2024-09-28"
+      "start": "2024-07-15",
+      "end": "2025-06-20"
     }
   ],
   "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "presentation"
+    "operation",
+    "improvement",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "080",
+      "number": "081",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "091",
+      "relation": "parent-experience"
     },
     {
-      "number": "078",
-      "relation": "previous"
+      "number": "066",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/088/representative.jpg",
     "alt": {
-      "ko": "SSAFYnity 가을 체육대회 대표 이미지",
-      "en": "Representative image for SSAFYnity fall sports day"
-    },
-    "caption": {
-      "ko": "SSAFYnity 가을 체육대회",
-      "en": "SSAFYnity Fall Sports Day"
+      "ko": "SSAFYnity 취준챌린지 대표 이미지",
+      "en": "Representative image for SSAFYnity job challenge"
     }
   },
   "featured": false

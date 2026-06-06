@@ -2,41 +2,45 @@
   "number": "060",
   "periods": [
     {
-      "start": "2021-11-30"
+      "start": "2021-11-18"
     }
   ],
-  "category": "award-scholarship",
+  "category": "media-interview",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
-    "ownership"
+    "presentation",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
     },
     {
+      "number": "055",
+      "relation": "project"
+    },
+    {
       "number": "057",
-      "relation": "source"
+      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/060/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기 자율프로젝트 수상 대표 이미지",
-      "en": "Representative image for SSAFY 5th autonomous project awards"
+      "ko": "SSDC 2021 대표 이미지",
+      "en": "Representative image for SSDC 2021"
     },
     "caption": {
-      "ko": "SSAFY 5기 자율프로젝트 수상",
-      "en": "SSAFY 5th Autonomous Project Awards"
+      "ko": "SSDC 2021",
+      "en": "SSDC 2021"
     }
   },
   "featured": false

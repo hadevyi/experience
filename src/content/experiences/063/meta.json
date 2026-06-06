@@ -2,38 +2,36 @@
   "number": "063",
   "periods": [
     {
-      "start": "2022-01-02",
-      "end": "2022-03-04"
+      "start": "2021-12-30",
+      "end": "2022-05-31"
     }
   ],
-  "category": "community",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
+  "employmentType": "freelance",
   "experienceTags": [
-    "collaboration",
-    "coordination"
+    "mentoring",
+    "teaching",
+    "operation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "042",
-      "relation": "affiliation"
-    },
-    {
-      "number": "064",
-      "relation": "project"
+      "number": "047",
+      "relation": "parent-experience"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/063/representative.webp",
+    "src": "/experience/images/experiences/063/representative.jpg",
     "alt": {
-      "ko": "DND 6기 대표 이미지",
-      "en": "Representative image for DND 6th cohort"
+      "ko": "SSAFY 6기 실습코치 대표 이미지",
+      "en": "Representative image for SSAFY 6th cohort practice coach"
     },
     "caption": {
-      "ko": "DND 6기",
-      "en": "DND 6th Cohort"
+      "ko": "SSAFY 6기 실습코치",
+      "en": "SSAFY 6th Cohort Practice Coach"
     }
   },
   "featured": false

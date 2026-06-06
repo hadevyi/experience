@@ -2,24 +2,33 @@
   "number": "097",
   "periods": [
     {
-      "start": "2025-09-01",
-      "end": "2027-08-31"
+      "start": "2025-06-06"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "media-interview",
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "mentoring",
-    "knowledge-sharing"
+    "presentation",
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
+  "related": [
+    {
+      "number": "096",
+      "relation": "related",
+      "note": {
+        "ko": "발표 세션이 포함된 행사",
+        "en": "Event that included the talk session"
+      }
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/097/representative.jpg",
     "alt": {
-      "ko": "ICT CoC 현직자 멘토 대표 이미지",
-      "en": "Representative image for ICT CoC expert mentor"
+      "ko": "2025 SSAFYnity 내 성장에 의구심이 들 때 발표 세션 대표 이미지",
+      "en": "Representative image for the 2025 SSAFYnity talk on continuing activities outside work"
     }
   },
   "featured": false

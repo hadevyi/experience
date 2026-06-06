@@ -2,8 +2,8 @@
   "number": "074",
   "periods": [
     {
-      "start": "2023-06-10",
-      "end": "2023-06-10"
+      "start": "2023-01-14",
+      "end": "2023-01-14"
     }
   ],
   "category": "event-operation",
@@ -11,33 +11,30 @@
   "status": "done",
   "experienceTags": [
     "coordination",
-    "structuring"
+    "presentation",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "072",
+      "number": "073",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
+      "number": "066",
       "relation": "affiliation"
-    },
-    {
-      "number": "075",
-      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/074/representative.jpg",
     "alt": {
-      "ko": "2023 SSAFYnity SSAFYnale 대표 이미지",
-      "en": "Representative image for 2023 SSAFYnale"
+      "ko": "2023 SSAFYnity 싸피인의 밤 대표 이미지",
+      "en": "Representative image for 2023 SSAFYnity Night"
     },
     "caption": {
-      "ko": "2023 SSAFYnity SSAFYnale",
-      "en": "2023 SSAFYnity SSAFYnale"
+      "ko": "2023 SSAFYnity 싸피인의 밤",
+      "en": "2023 SSAFYnity Night"
     }
   },
   "featured": false

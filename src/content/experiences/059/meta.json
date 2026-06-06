@@ -2,7 +2,7 @@
   "number": "059",
   "periods": [
     {
-      "start": "2021-11-18"
+      "start": "2021-10-29"
     }
   ],
   "category": "media-interview",
@@ -10,37 +10,29 @@
   "status": "done",
   "experienceTags": [
     "presentation",
-    "knowledge-sharing"
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
-    },
-    {
-      "number": "054",
-      "relation": "project"
-    },
-    {
-      "number": "056",
-      "relation": "award"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/059/representative.jpg",
     "alt": {
-      "ko": "SSDC 2021 대표 이미지",
-      "en": "Representative image for SSDC 2021"
+      "ko": "SSAFY 7기 모집설명회 대표 이미지",
+      "en": "Representative image for SSAFY 7th recruitment session"
     },
     "caption": {
-      "ko": "SSDC 2021",
-      "en": "SSDC 2021"
+      "ko": "SSAFY 7기 모집설명회",
+      "en": "SSAFY 7th Recruitment Session"
     }
   },
   "featured": false

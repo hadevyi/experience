@@ -2,30 +2,47 @@
   "number": "045",
   "periods": [
     {
-      "start": "2020-09-21",
-      "end": "2020-10-20"
+      "start": "2020-07-13",
+      "end": "2020-09-12"
     }
   ],
-  "category": "learning-growth",
+  "category": "project",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "technical-learning"
+    "collaboration",
+    "structuring"
   ],
-  "projectDomains": [],
+  "projectDomains": [
+    "mobile"
+  ],
   "techTags": [
-    "ai-ml"
+    "python",
+    "django",
+    "kotlin",
+    "android",
+    "retrofit",
+    "sqlite"
   ],
-  "related": [],
+  "related": [
+    {
+      "number": "043",
+      "relation": "affiliation"
+    },
+    {
+      "number": "044",
+      "relation": "parent-experience"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/045/representative.jpg",
     "alt": {
-      "ko": "Google Study Jam AI&ML Course 대표 이미지",
-      "en": "Representative image for Google Study Jam AI&ML Course"
+      "ko": "키인닷 대표 이미지",
+      "en": "Representative image for KeyinDot"
     },
     "caption": {
-      "ko": "Google Study Jam AI&ML Course",
-      "en": "Google Study Jam AI&ML Course"
+      "ko": "키인닷",
+      "en": "KeyinDot"
     }
   },
   "featured": false

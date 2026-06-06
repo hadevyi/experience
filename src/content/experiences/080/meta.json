@@ -2,63 +2,38 @@
   "number": "080",
   "periods": [
     {
-      "start": "2024-01-01",
-      "end": "2024-12-31"
+      "start": "2023-11-25",
+      "end": "2023-11-25"
     }
   ],
-  "category": "community",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
     "coordination",
-    "ownership"
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "065",
+      "number": "073",
       "relation": "parent-experience"
     },
     {
-      "number": "072",
-      "relation": "previous"
-    },
-    {
-      "number": "083",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "085",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "086",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "087",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "088",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "089",
-      "relation": "detailed-experience"
+      "number": "066",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/080/representative.jpg",
     "alt": {
-      "ko": "SSAFYnity 3대 임원진 대표 이미지",
-      "en": "Representative image for SSAFYnity 3rd executive team"
+      "ko": "2023 SSAFYnity 세미나 대표 이미지",
+      "en": "Representative image for 2023 SSAFYnity seminar"
     },
     "caption": {
-      "ko": "SSAFYnity 3대 임원진",
-      "en": "SSAFYnity 3rd Executive Team"
+      "ko": "2023 SSAFYnity 세미나",
+      "en": "2023 SSAFYnity Seminar"
     }
   },
   "featured": false

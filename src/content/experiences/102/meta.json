@@ -2,14 +2,16 @@
   "number": "102",
   "periods": [
     {
-      "start": "2025-12-06"
+      "start": "2025-09-08",
+      "end": "2025-10-01"
     }
   ],
-  "category": "event-operation",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
+    "mentoring",
+    "documentation",
     "structuring"
   ],
   "projectDomains": [],
@@ -17,19 +19,9 @@
   "representativeImage": {
     "src": "/experience/images/experiences/102/representative.jpg",
     "alt": {
-      "ko": "2025 SSAFYnity 커리어 파티 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity Career Party"
+      "ko": "산학연프로젝트 4학년 대상 취업준비 서류정리 대표 이미지",
+      "en": "Representative image for career document mentoring for senior students in the industry-academic project"
     }
   },
-  "related": [
-    {
-      "number": "090",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
-    }
-  ],
   "featured": false
 }

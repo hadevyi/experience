@@ -2,39 +2,59 @@
   "number": "073",
   "periods": [
     {
-      "start": "2023-01-14",
-      "end": "2023-01-14"
+      "start": "2023-01-01",
+      "end": "2023-12-31"
     }
   ],
-  "category": "event-operation",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
+    "operation",
     "coordination",
-    "presentation",
     "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "072",
+      "number": "066",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "067",
+      "relation": "previous"
+    },
+    {
+      "number": "074",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "075",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "076",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "079",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "080",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/073/representative.jpg",
     "alt": {
-      "ko": "2023 SSAFYnity 싸피인의 밤 대표 이미지",
-      "en": "Representative image for 2023 SSAFYnity Night"
+      "ko": "SSAFYnity 2대 임원진 대표 이미지",
+      "en": "Representative image for SSAFYnity 2nd executive team"
     },
     "caption": {
-      "ko": "2023 SSAFYnity 싸피인의 밤",
-      "en": "2023 SSAFYnity Night"
+      "ko": "SSAFYnity 2대 임원진",
+      "en": "SSAFYnity 2nd Executive Team"
     }
   },
   "featured": false

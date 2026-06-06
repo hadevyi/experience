@@ -2,17 +2,15 @@
   "number": "077",
   "periods": [
     {
-      "start": "2023-09-08",
-      "end": "2023-09-08"
+      "start": "2023-09-01",
+      "end": "2023-09-01"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "certification",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "mentoring",
-    "presentation",
-    "reflection"
+    "technical-learning"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -20,12 +18,12 @@
   "representativeImage": {
     "src": "/experience/images/experiences/077/representative.jpg",
     "alt": {
-      "ko": "AI융합대 선배와의 만남 대표 이미지",
-      "en": "Representative image for AI Convergence College alumni mentoring session"
+      "ko": "정보처리기사 대표 이미지",
+      "en": "Representative image for Engineer Information Processing certification"
     },
     "caption": {
-      "ko": "AI융합대 선배와의 만남",
-      "en": "Meeting with an AI Convergence College alumna"
+      "ko": "정보처리기사",
+      "en": "Engineer Information Processing"
     }
   },
   "featured": false

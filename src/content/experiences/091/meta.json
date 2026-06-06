@@ -2,26 +2,32 @@
   "number": "091",
   "periods": [
     {
-      "start": "2025-01-02",
-      "end": "2028-02-28"
+      "start": "2025-01-01",
+      "end": "2025-12-31"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "community",
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "teaching",
-    "knowledge-sharing",
-    "structuring"
+    "ownership",
+    "coordination",
+    "operation"
   ],
   "projectDomains": [],
   "techTags": [],
   "representativeImage": {
     "src": "/experience/images/experiences/091/representative.jpg",
     "alt": {
-      "ko": "제로베이스 백엔드 강사 대표 이미지",
-      "en": "Representative image for Zero Base backend instructor"
+      "ko": "2025 SSAFYnity 4대 회장 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity 4th president"
     }
   },
+  "related": [
+    {
+      "number": "066",
+      "relation": "affiliation"
+    }
+  ],
   "featured": false
 }

@@ -1,108 +1,26 @@
 ---
-title: Motion Pose
-organization: SSAFY 5th SSDC
-summary: A SSDC project that built Node-RED motion recognition nodes, distributed them through npm and the Node-RED Library, and contributed them to Samsung Automation Studio.
-oneLine: An open-source project that extended motion-based control into Node-RED nodes
+title: SSAFY 5th Common Project 1st Place
+organization: SSAFY 5th Cohort
+summary: A project award where SOLVER won first place in the SSAFY 5th common project.
+oneLine: First place as Seoul Class 5 Team 7 in the SSAFY common project with SOLVER
 highlights:
-  - SSAFY SSDC open-source project
-  - Distributed through npm and the Node-RED Library
-  - Merged into Samsung Automation Studio
-project:
-  host: Samsung Electronics Wireless Business Division Mentoring / SSAFY 5th SSDC
-  position: Team lead / Frontend, Backend, Presentation
-  teamComposition:
-    - role: Body Node
-      count: 3
-      note: Body motion recognition node development
-    - role: Hands Node
-      count: 2
-      note: Hand motion recognition node development, including Dang Hyeona as team lead
-  techStack:
-    - category: language
-      name: Node.js
-      version: "14.17.3"
-      note: Development environment for Node-RED custom nodes
-    - category: platform
-      name: Node-RED
-      version: "2.0.6"
-      note: Node-based visual programming platform
-    - category: framework
-      name: MediaPipe BlazePose / Hands
-      version: ""
-      note: Body and hand motion recognition models
-    - category: backend
-      name: Socket.IO
-      version: "^4.2.0"
-      note: Real-time communication between the recognition view and nodes
-    - category: backend
-      name: Express
-      version: "^4.17.1"
-      note: Supporting server for monitoring and node execution
-    - category: platform
-      name: SmartThings IoT Cam
-      version: ""
-      note: External camera device integration
-  deployment: "npm package v1.1.3, Node-RED Library, and merged Samsung Automation Studio PRs #46/#47"
+  - "Handled the final presentation, demo, and Q&A for the common project"
+  - "Structured the team’s problem-solving process and results into a presentation flow"
+  - "Experienced collaboration that led to first place in the class"
+awardScholarship:
   overview: |
-    Motion Pose is an open-source Node-RED project that recognizes body and hand motions and connects the recognition results to other service flows. It used webcam and SmartThings IoT Cam inputs, and tracked motion through MediaPipe BlazePose and Hands.
-  background: |
-    I was selected as an outstanding SSAFY 5th trainee for SSDC, a program where trainees could work with Samsung Electronics mentors. Among the available tracks, I chose the Wireless Business Division assignment and proposed motion recognition as an additional control method for situations where touch or voice control is limited.
-  scope: |
-    The team developed nine Node-RED nodes, including monitor, body/hand detect, body/hand register, and body/hand find nodes. We also presented hands/body IoT control flows and a home training flow, distributed the package through npm and the Node-RED Library, and contributed Motion Pose to the SamsungAutomationStudio repository.
-  contribution:
-    - Led project direction, mentor Q&A, and presentation flow as the team lead.
-    - Implemented the Hands Pose Node part, including hand motion detection, registration, and search flows.
-    - Prepared questions and progress updates as presentation material to use the limited mentoring time effectively.
-    - Represented the team in the npm, Node-RED Library, and SamsungAutomationStudio PR contribution flow.
-    - Handled the final presentation and demo.
-  roleDetails:
-    - Team coordination
-    - Hands Pose Node development
-    - npm and Node-RED distribution flow
-    - SamsungAutomationStudio PR contribution
-    - Final presentation
-  implementation:
-    - Built Node-RED node structures that recognized hand/body motions from webcam and IoT Cam inputs.
-    - Visualized recognition results and passed them into Node-RED flow data using 20 hand landmarks and 33 body landmarks.
-    - Included register/find flows that compare saved motions and incoming keypoints through vector normalization, Cosine Distance, and Weighted Distance.
-    - Added timer, result image, and keypoint table flows so users could check the registration state of captured motions.
-    - Packaged the nodes so developers could build scenarios such as Bixby home training and SmartThings IoT control inside Node-RED flows.
-  challenges:
-    - Most of the stack, including Node-RED, MediaPipe, SmartThings IoT Cam, and npm distribution, was new to me.
-    - IoT services and physical device integration were unfamiliar, so understanding the overall flow took time.
-    - Needed to translate motion recognition model outputs into Node-RED flow data.
-    - Had to align node structure, documentation, licensing, and release quality for contribution to Samsung's open-source repository.
-  outcome:
-    - Distributed `node-red-contrib-motion-pose` through npm and the Node-RED Library.
-    - Published Hands IoT Control, Body IoT Control, and Body Home Training as Node-RED example flows.
-    - Motion Pose add/update PRs were merged into SamsungAutomationStudio.
-    - Received positive feedback from a Samsung mentor for preparing questions and progress updates before mentoring sessions.
-    - Learned the importance of open-source distribution and license organization for the first time.
-    - This led to the SSAFY 5th SSDC project award and the SSDC 2021 presentation.
+    SOLVER won first place as Seoul Class 5 Team 7 in the SSAFY 5th common project. After the 6-week project, I shared the result through the final presentation and demo, and also handled the Q&A.
+  criteria:
+    - label: Evaluation scope
+      detail: SSAFY 5th Seoul Class 5 Team 7 common project
+    - label: Evaluation method
+      detail: The detailed criteria were not publicly disclosed. The project showed both technical outcomes, such as the final presentation, demo, and implementation quality, and team operations, such as communication and Jira-based collaboration.
+    - label: Participation unit
+      detail: Team project
+  application: |
+    As team lead, I coordinated project progress and task distribution, and handled the final presentation, demo, and Q&A. It was also my first experience deploying with AWS, and I contributed heavily to core features including WebRTC and real-time video consultation flows.
+  resultBenefit: |
+    The result was announced as first place with Seoul Class 5 Team 7 and became my first major project outcome in SSAFY. Because I had contributed heavily to both deployment and implementation, the result felt especially meaningful as the team lead.
 sections: []
-links:
-  - type: repository
-    label: 5FNSaaS TEAM Intro Repo
-    url: https://github.com/5FNSaaS
-  - type: repository
-    label: node-red-contrib-motion-pose
-    url: https://github.com/5FNSaaS/node-red-contrib-motion-pose
-  - type: repository
-    label: "SamsungAutomationStudio PR #46"
-    url: https://github.com/Samsung/SamsungAutomationStudio/pull/46
-  - type: repository
-    label: "SamsungAutomationStudio PR #47"
-    url: https://github.com/Samsung/SamsungAutomationStudio/pull/47
-  - type: reference
-    label: npm package
-    url: https://www.npmjs.com/package/node-red-contrib-motion-pose
-  - type: reference
-    label: Node-RED Library
-    url: https://flows.nodered.org/search?term=node-red-contrib-motion-pose
-  - type: reference
-    label: Motion Pose Wiki
-    url: https://github.com/5FNSaaS/node-red-contrib-motion-pose/wiki
-  - type: reference
-    label: Motion Pose Flow Collection
-    url: https://flows.nodered.org/collection/MDvLUXQBFHGG
+links: []
 ---

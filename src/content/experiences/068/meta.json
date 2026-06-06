@@ -2,40 +2,39 @@
   "number": "068",
   "periods": [
     {
-      "start": "2022-06-13",
-      "end": "2022-11-30"
+      "start": "2022-06-09",
+      "end": "2022-06-09"
     }
   ],
-  "category": "work-experience",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
-  "employmentType": "freelance",
   "experienceTags": [
-    "mentoring",
-    "operation",
-    "teaching"
+    "coordination",
+    "ownership",
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "067",
       "relation": "parent-experience"
     },
     {
-      "number": "062",
-      "relation": "previous"
+      "number": "066",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/068/representative.webp",
+    "src": "/experience/images/experiences/068/representative-v2.jpg",
     "alt": {
-      "ko": "SSAFY 7기 실습코치 대표 이미지",
-      "en": "Representative image for SSAFY 7th cohort practice coach"
+      "ko": "2022 SSAFYnity 동문회 발대식 대표 이미지",
+      "en": "Representative image for 2022 SSAFYnity founding ceremony"
     },
     "caption": {
-      "ko": "SSAFY 7기 실습코치",
-      "en": "SSAFY 7th Cohort Practice Coach"
+      "ko": "2022 SSAFYnity 동문회 발대식",
+      "en": "2022 SSAFYnity Founding Ceremony"
     }
   },
   "featured": false

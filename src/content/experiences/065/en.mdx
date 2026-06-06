@@ -1,35 +1,125 @@
 ---
-title: SSAFYnity
-organization: SSAFYnity
-summary: An alumni community experience that kept SSAFY graduates connected after the program.
-oneLine: A developer network continued through an independent alumni community created by SSAFY graduates
+title: Gratz
+organization: DND 6th Cohort
+summary: A DND 6th cohort web project for sharing anniversary messages and gifts.
+oneLine: An anniversary celebration service for waiting together for meaningful days
 highlights:
-  - "Continued long-term involvement in the SSAFY alumni community"
-  - "Participated in a base for sustained developer networking and exchange"
-  - "Expanded my perspective on community operation through an independent alumni group"
-affiliation:
+  - DND 6th cohort Team 9 project
+  - Backend / Server Developer role
+  - Worked on Message APIs, common code and metadata, JPA, AWS, and Jenkins deployment
+project:
+  host: DND 6th Cohort Team 9
+  position: Team Member / Backend, Server Developer
+  teamComposition:
+    - role: Frontend Developer
+      count: 2
+      note: Web frontend development
+    - role: Backend Developer
+      count: 2
+      note: Shared responsibility for database design and API docs
+    - role: Designer
+      count: 2
+      note: Service planning and design
+    - role: Full Team
+      count: 6
+      note: Based on the gratz6 domain record
+  techStack:
+    - category: backend
+      name: Java
+      version: "11"
+      note: Backend development
+    - category: backend
+      name: Spring Boot
+      version: ""
+      note: Server framework
+    - category: backend
+      name: JPA
+      version: ""
+      note: Database mapping
+    - category: backend
+      name: Spring Security
+      version: ""
+      note: Authentication flow
+    - category: database
+      name: MySQL
+      version: ""
+      note: Database
+    - category: frontend
+      name: React / Recoil
+      version: "React 17"
+      note: Frontend stack
+    - category: design
+      name: Figma
+      version: ""
+      note: Service design
+    - category: infra
+      name: Nginx
+      version: ""
+      note: Web server and reverse proxy
+    - category: infra
+      name: Jenkins
+      version: ""
+      note: Deployment automation
+    - category: infra
+      name: AWS EC2
+      version: ""
+      note: Server infrastructure
+    - category: infra
+      name: AWS S3
+      version: ""
+      note: Image storage
+  deployment: Built deployment flow with AWS EC2, S3, domain setup, and Jenkins CI/CD, then proceeded to beta testing
   overview: |
-    SSAFYnity is an alumni community created by SSAFY graduates to stay connected after completing the program.
-    It cooperates with SSAFY, but it is operated independently by graduates.
+    Gratz was a web service designed to make personal anniversaries feel more special.
+    Users could choose an anniversary theme, share a link, and receive celebration messages and gifts from friends.
 
-    SSAFY had produced many graduates, and the idea behind SSAFYnity was that it would be a shame for those connections to simply disappear after graduation.
-  reason: |
-    I wanted to keep the meaningful relationships I formed through SSAFY.
-    I felt that networking among many developers was important, and I wanted to contribute to sustaining those connections.
-  startingContext: |
-    I started participating in SSAFYnity in March 2022.
-    The initial members were recommended with help from the SSAFY office, and I was recommended because I had been active during SSAFY.
+    The service was structured so users could check messages while waiting for the date and later save the anniversary as a memory.
+  background: |
+    The project was built during DND 6th cohort with a goal of fast implementation and real service adoption.
+    It aimed to deliver a special experience for receiving support and celebration even when people could not celebrate in person.
 
-    The office helped gather people, but the alumni association itself was planned and operated by the executive members.
+    The initial idea was decided quickly, but the planning and design had to be revised multiple times to avoid concerns around copying a similar service that was an issue at the time.
+  scope: |
+    The project included a web service, backend APIs, database design, common code and metadata, the message domain, image storage, and deployment infrastructure.
+  contribution: |
+    I participated as a Backend / Server Developer.
+    The backend team jointly designed the database and API documentation, aligning request and response structures with frontend developers.
+
+    My individual responsibilities included AWS EC2 instance setup, S3, domain setup, Backend/Frontend Jenkins CI/CD, common code and metadata design and implementation, JPA-based database implementation, and Message API CRUD.
+  roleDetails:
+    - Participated as Backend / Server Developer
+    - Shared database design and API docs design
+    - Built AWS EC2, S3, and domain setup
+    - Built Backend/Frontend Jenkins CI/CD
+    - Designed and implemented common code and metadata
+    - Implemented the database layer with JPA
+    - Implemented Message API CRUD
+  implementation: |
+    The backend used Java 11, Spring Boot, MySQL, JPA, and Spring Security.
+    It included Kakao social login and handled domains such as messages, events, users, scraps, common codes, and gift themes.
+
+    The infrastructure was built on AWS EC2 and S3, with Nginx and Jenkins used for frontend and backend build/deployment flows.
+    The project record also shows that the EC2 instance type was adjusted after Jenkins CI/CD caused CPU overload.
   challenges: |
-    Because the community connected graduates from different cohorts and regions, building sustainable operations and participation flow was important.
-    Beyond simple socializing, it needed to become a network where alumni could continue meeting and helping one another.
-  gains: |
-    This marked the start of my experience operating a developer alumni community after SSAFY.
-    It later became the foundation for multiple executive roles and presidency, giving me long-term experience in connecting people through community operation.
+    The biggest regret was that repeated planning and design changes shortened the actual development time.
+    To differentiate the service from similar products, we had to revise user flows, feature priorities, and implementation scope.
+
+    Technically, the work went beyond API development because AWS, domain setup, Jenkins CI/CD, and frontend/backend deployment flows had to be handled together.
+  outcome: |
+    The project was completed as DND 6th cohort Team 9. It did not continue into full operation, but we proceeded to beta testing.
+    During testing, we received feedback that the service felt light and fun, and beta testers actually used the service flow.
+
+    Through this experience, I learned that opening a service requires more than promotion and usability. It also requires considering external contexts such as differentiation from similar services and copycat concerns.
+    I also experienced API documentation, deployment automation, and frontend-backend collaboration in one project cycle.
 sections: []
 links:
   - type: official
-    label: SSAFYnity Official Website
-    url: https://ssafynity.github.io/
+    label: DND Project Page
+    url: https://dnd.ac/projects/5
+  - type: repository
+    label: GitHub Repository
+    url: https://github.com/dnd-side-project/dnd-6th-9-backend
+  - type: reference
+    label: GitHub Wiki
+    url: https://github.com/dnd-side-project/dnd-6th-9-backend/wiki
 ---

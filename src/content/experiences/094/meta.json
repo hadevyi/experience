@@ -2,26 +2,35 @@
   "number": "094",
   "periods": [
     {
-      "start": "2025-05-09",
-      "end": "2025-05-28"
+      "start": "2025-03-08"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "mentoring",
-    "structuring",
-    "knowledge-sharing"
+    "coordination",
+    "ownership",
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "representativeImage": {
     "src": "/experience/images/experiences/094/representative.jpg",
     "alt": {
-      "ko": "산학연 미니프로젝트 대표 이미지",
-      "en": "Representative image for industry-academic mini project"
+      "ko": "2025 SSAFYnity 제3회 싸피인의 밤 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity Night"
     }
   },
+  "related": [
+    {
+      "number": "091",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
+    }
+  ],
   "featured": false
 }

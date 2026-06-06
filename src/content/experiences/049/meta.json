@@ -2,38 +2,38 @@
   "number": "049",
   "periods": [
     {
-      "start": "2021-02-10",
-      "end": "2021-12-31"
+      "start": "2021-01-11",
+      "end": "2021-05-28"
     }
   ],
-  "category": "community",
+  "category": "learning-growth",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "knowledge-sharing",
-    "technical-learning"
+    "community",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/049/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기 알린이 대표 이미지",
-      "en": "Representative image for SSAFY 5th cohort Alrini"
+      "ko": "SSAFY 5기 모각코 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort Mogakko"
     },
     "caption": {
-      "ko": "SSAFY 5기 알린이",
-      "en": "SSAFY 5th Cohort Alrini"
+      "ko": "SSAFY 5기 모각코",
+      "en": "SSAFY 5th Cohort Mogakko"
     }
   },
   "featured": false

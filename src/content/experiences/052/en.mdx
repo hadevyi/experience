@@ -1,26 +1,100 @@
 ---
-title: SSAFY 5th People Interview
-organization: Samsung SW·AI Academy For Youth
-summary: A record of being featured on SSAFY's official Instagram as a 5th cohort trainee, sharing my learning journey and activities.
-oneLine: An official interview featuring my learning and knowledge-sharing activities in SSAFY
+title: SOLVER
+organization: SSAFY 5th Cohort
+summary: A SSAFY common project covering Q&A, video consultation, and point-based promotion flows.
+oneLine: A knowledge exchange web project connecting questions, answers, and video consultations
 highlights:
-  - "Shared SSAFY trainee experience through an official channel interview"
-  - "Communicated motivation and learning changes externally"
-  - "Expanded experience in information sharing and communication within the community"
-mediaInterview:
+  - "Completed the common project outcome through presentation and demo"
+  - "Organized the team’s flow from problem definition to implementation result"
+  - "Experienced collaboration leading to strong evaluation"
+project:
+  host: SSAFY 5th Common Project
+  position: Team lead / Back-end, Front-end, AWS EC2, Design
+  teamComposition:
+    - role: Development and design
+      count: 4
+      note: Split responsibilities across backend, frontend, AWS EC2, and design
+  techStack:
+    - category: language
+      name: Java
+      version: "8"
+      note: "OpenJDK Zulu 8.33.0.1"
+    - category: frontend
+      name: Vue
+      version: "2.6.11"
+      note: "Vuex 3.4.0 and Vue Router based frontend"
+    - category: frontend
+      name: JavaScript
+      version: "ES6"
+      note: "Frontend implementation with HTML5 and CSS3"
+    - category: backend
+      name: Spring Boot
+      version: "2.4.5"
+      note: "API layer with Spring Security and Spring Data JPA"
+    - category: backend
+      name: QueryDSL
+      version: ""
+      note: "Search and conditional query handling"
+    - category: framework
+      name: Kurento/WebRTC
+      version: "6.16.0"
+      note: "Video consultation flow"
+    - category: database
+      name: MySQL
+      version: "8.0.22"
+      note: "User, Q&A, group, video consultation, and point data"
+    - category: platform
+      name: AWS EC2
+      version: ""
+      note: "Ubuntu 20.04.2 LTS and Docker based deployment environment"
+    - category: platform
+      name: AWS S3
+      version: "1.12.39"
+      note: "File and video storage integration"
+    - category: design
+      name: Figma / Adobe Photoshop
+      version: ""
+      note: "Storyboard and UI/UX design"
+  deployment: ""
+  overview: |
+    SOLVER was a knowledge exchange web service where users could post questions they could not easily solve alone, and other users could help through text answers or video consultations. The service was designed around the idea that questioners could find solvers, while solvers could build a track record through their knowledge and experience.
   background: |
-    I was featured in SSAFY's official Instagram interview series after SSAFYcial, SSAFY's internal reporter group, directly proposed the interview. The post presented me as a trainee who was actively learning and communicating within the 5th cohort.
-  context: |
-    Since the cohort was conducted mainly online with around 750 trainees, keeping shared information visible was important. While participating as a class representative, study member, and project participant, I almost daily summarized live lecture content and shared it with the whole cohort.
-  topics: |
-    The interview covered my SSAFY learning experience, trainee activities, and information-sharing process with peers. The main context was organizing and passing along useful information through channels such as SSAFY EDU, Mattermost, and YouTube live comments.
-  perspective: |
-    It showed that growing as a developer was not only about individual learning, but also about helping create an environment where people could learn together. It helped me realize that information I organized for myself could also be useful to others.
-  impact: |
-    The attention was unexpected and a little embarrassing, but I felt proud that fellow trainees and the reporter group saw the activity positively. It became material that showed not only that I completed SSAFY, but also how I participated in the trainee community.
+    This was a 6-week SSAFY 5th common project. The project expanded through Sub1, Sub2, and Sub3 phases, and I participated as team lead across backend, frontend, AWS EC2, and design.
+  scope: |
+    The project covered Kakao login, signup, interest fields, available time settings, questions, answers, comments, likes, bookmarks, answer selection, group creation and approval, video consultation requests and responses, notifications, messages, points, and profile statistics.
+  contribution:
+    - As team lead, I worked across backend, frontend, AWS EC2, and design.
+    - I mainly contributed to Q&A, solver lists, points, notifications, messages, and video request flows.
+    - I joined team lead meetings and coordinated task distribution and project flow.
+    - I implemented the service based on planning outputs such as a one-page service brief, requirements specification, ERD, sequence diagrams, common codes, category rules, and point policies.
+  roleDetails:
+    - "Team leading: joined team lead meetings, distributed tasks, and coordinated progress through Jira"
+    - "Q&A flow: implemented question creation, list, detail, answer, comment, delete modal, and recommended question flows"
+    - "User flow: implemented solver lists, point rewards, point history, point-based promotion, notifications, and message responses"
+    - "Video consultation: implemented video request modals and video-related message handling"
+    - "Deployment and documentation: worked on AWS EC2 deployment setup, final deployment builds, requirements, ERD, sequence diagrams, and common code documentation"
+    - "Design and presentation: participated in Figma and Photoshop based design, final presentation, and demo responses"
+  implementation:
+    - The backend used Spring Boot, Spring Security, JPA, and QueryDSL for APIs and data query flows.
+    - The frontend used Vue 2 and Vuex for screens and state management.
+    - Video consultation was implemented through a separated Kurento and WebRTC flow.
+    - Deployment and file storage flows considered AWS EC2, Docker, and S3.
+  challenges:
+    - The feature scope was broad across Q&A, groups, video consultation, points, and notifications, so relationships between features had to be clarified first.
+    - Since this was my first time using AWS, understanding deployment concepts took time.
+    - Deploying both Gradle-based and Maven-based servers required additional study of server architecture.
+    - WebRTC was unfamiliar, so understanding and implementing the video consultation flow was one of the hardest parts.
+  outcome:
+    - The project won first place within the class in the SSAFY 5th common project.
+    - I learned AWS deployment and WebRTC concepts in practice.
+    - The project was later introduced to junior cohorts as an excellent project.
+    - The team left README, Wiki documentation, requirements, ERD, sequence diagrams, a porting manual, a demo scenario, and presentation materials.
 sections: []
 links:
-  - type: article
-    label: SSAFY 5th People Instagram Interview
-    url: https://www.instagram.com/p/CRn_AngDCoo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+  - type: repository
+    label: BerrySolver/SOLVER
+    url: https://github.com/BerrySolver/SOLVER
+  - type: repository
+    label: BerrySolver Organization
+    url: https://github.com/BerrySolver
 ---

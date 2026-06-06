@@ -2,38 +2,40 @@
   "number": "069",
   "periods": [
     {
-      "start": "2022-10-22",
-      "end": "2022-10-22"
+      "start": "2022-06-13",
+      "end": "2022-11-30"
     }
   ],
-  "category": "event-operation",
+  "category": "work-experience",
   "visibility": "public",
   "status": "done",
+  "employmentType": "freelance",
   "experienceTags": [
-    "coordination",
-    "presentation"
+    "mentoring",
+    "operation",
+    "teaching"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "066",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "063",
+      "relation": "previous"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/069/representative-v2.jpg",
+    "src": "/experience/images/experiences/069/representative.webp",
     "alt": {
-      "ko": "2022 SSAFYnity 가을체육대회 대표 이미지",
-      "en": "Representative image for 2022 SSAFYnity autumn sports day"
+      "ko": "SSAFY 7기 실습코치 대표 이미지",
+      "en": "Representative image for SSAFY 7th cohort practice coach"
     },
     "caption": {
-      "ko": "2022 SSAFYnity 가을체육대회",
-      "en": "2022 SSAFYnity Autumn Sports Day"
+      "ko": "SSAFY 7기 실습코치",
+      "en": "SSAFY 7th Cohort Practice Coach"
     }
   },
   "featured": false

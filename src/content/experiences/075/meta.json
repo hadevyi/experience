@@ -6,34 +6,38 @@
       "end": "2023-06-10"
     }
   ],
-  "category": "media-interview",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "presentation",
-    "reflection"
+    "coordination",
+    "structuring"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "074",
-      "relation": "related",
-      "note": {
-        "ko": "기조연설이 포함된 행사",
-        "en": "Event that included the keynote"
-      }
+      "number": "073",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
+    },
+    {
+      "number": "076",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/075/representative.jpg",
     "alt": {
-      "ko": "2023 SSAFYnity SSAFYnale 기조연설 대표 이미지",
-      "en": "Representative image for the 2023 SSAFYnity SSAFYnale keynote"
+      "ko": "2023 SSAFYnity SSAFYnale 대표 이미지",
+      "en": "Representative image for 2023 SSAFYnale"
     },
     "caption": {
-      "ko": "2023 SSAFYnity SSAFYnale 기조연설",
-      "en": "2023 SSAFYnity SSAFYnale Keynote"
+      "ko": "2023 SSAFYnity SSAFYnale",
+      "en": "2023 SSAFYnity SSAFYnale"
     }
   },
   "featured": false

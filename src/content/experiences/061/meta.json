@@ -2,37 +2,41 @@
   "number": "061",
   "periods": [
     {
-      "start": "2021-12-21"
+      "start": "2021-11-30"
     }
   ],
   "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "academic-achievement",
+    "problem-solving",
     "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
+      "relation": "affiliation"
+    },
+    {
+      "number": "058",
       "relation": "source"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/061/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기 우수 수료 대표 이미지",
-      "en": "Representative image for SSAFY 5th cohort excellent completion"
+      "ko": "SSAFY 5기 자율프로젝트 수상 대표 이미지",
+      "en": "Representative image for SSAFY 5th autonomous project awards"
     },
     "caption": {
-      "ko": "SSAFY 5기 우수 수료",
-      "en": "SSAFY 5th Cohort Excellent Completion"
+      "ko": "SSAFY 5기 자율프로젝트 수상",
+      "en": "SSAFY 5th Autonomous Project Awards"
     }
   },
   "featured": false

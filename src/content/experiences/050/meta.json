@@ -2,52 +2,38 @@
   "number": "050",
   "periods": [
     {
-      "start": "2021-05-18",
-      "end": "2021-05-27"
+      "start": "2021-02-10",
+      "end": "2021-12-31"
     }
   ],
-  "category": "project",
+  "category": "community",
   "visibility": "public",
   "status": "done",
-  "teamSize": 2,
   "experienceTags": [
-    "problem-solving"
+    "knowledge-sharing",
+    "technical-learning"
   ],
-  "projectDomains": [
-    "web"
-  ],
-  "techTags": [
-    "java",
-    "vue",
-    "spring-boot",
-    "mybatis",
-    "html",
-    "css",
-    "javascript",
-    "mysql",
-    "bootstrap",
-    "chartjs",
-    "kakao-map-api"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
-      "number": "046",
+      "number": "047",
       "relation": "parent-experience"
     },
     {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/050/representative.jpg",
     "alt": {
-      "ko": "HOMEZ 대표 이미지",
-      "en": "Representative image for HOMEZ"
+      "ko": "SSAFY 5기 알린이 대표 이미지",
+      "en": "Representative image for SSAFY 5th cohort Alrini"
     },
     "caption": {
-      "ko": "HOMEZ",
-      "en": "HOMEZ"
+      "ko": "SSAFY 5기 알린이",
+      "en": "SSAFY 5th Cohort Alrini"
     }
   },
   "featured": false

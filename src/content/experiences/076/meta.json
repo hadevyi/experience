@@ -2,28 +2,38 @@
   "number": "076",
   "periods": [
     {
-      "start": "2023-09-01",
-      "end": "2023-09-01"
+      "start": "2023-06-10",
+      "end": "2023-06-10"
     }
   ],
-  "category": "certification",
+  "category": "media-interview",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "technical-learning"
+    "presentation",
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [],
+  "related": [
+    {
+      "number": "075",
+      "relation": "related",
+      "note": {
+        "ko": "기조연설이 포함된 행사",
+        "en": "Event that included the keynote"
+      }
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/076/representative.jpg",
     "alt": {
-      "ko": "정보처리기사 대표 이미지",
-      "en": "Representative image for Engineer Information Processing certification"
+      "ko": "2023 SSAFYnity SSAFYnale 기조연설 대표 이미지",
+      "en": "Representative image for the 2023 SSAFYnity SSAFYnale keynote"
     },
     "caption": {
-      "ko": "정보처리기사",
-      "en": "Engineer Information Processing"
+      "ko": "2023 SSAFYnity SSAFYnale 기조연설",
+      "en": "2023 SSAFYnity SSAFYnale Keynote"
     }
   },
   "featured": false

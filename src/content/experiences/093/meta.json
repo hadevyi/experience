@@ -2,35 +2,25 @@
   "number": "093",
   "periods": [
     {
-      "start": "2025-03-08"
+      "start": "2025-01-17",
+      "end": "2025-02-10"
     }
   ],
-  "category": "event-operation",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
-    "ownership",
-    "presentation"
+    "mentoring",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "representativeImage": {
     "src": "/experience/images/experiences/093/representative.jpg",
     "alt": {
-      "ko": "2025 SSAFYnity 제3회 싸피인의 밤 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity Night"
+      "ko": "Git 사용방법을 활용한 토이프로젝트 만들기 대표 이미지",
+      "en": "Representative image for Git-based toy project mentoring"
     }
   },
-  "related": [
-    {
-      "number": "090",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
-    }
-  ],
   "featured": false
 }

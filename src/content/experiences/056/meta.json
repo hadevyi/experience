@@ -2,45 +2,32 @@
   "number": "056",
   "periods": [
     {
-      "start": "2021-10-08"
+      "start": "2021-10-01"
     }
   ],
-  "category": "award-scholarship",
+  "category": "media-interview",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "problem-solving",
-    "knowledge-sharing"
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "046",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "047",
+      "number": "048",
       "relation": "affiliation"
-    },
-    {
-      "number": "054",
-      "relation": "source"
-    },
-    {
-      "number": "059",
-      "relation": "activity"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/056/representative.jpg",
     "alt": {
-      "ko": "SSAFY 5기 SSDC 프로젝트 1위 대표 이미지",
-      "en": "Representative image for SSAFY 5th SSDC project award"
+      "ko": "고용노동부 잡지 인터뷰 대표 이미지",
+      "en": "Representative image for Ministry of Employment and Labor magazine interview"
     },
     "caption": {
-      "ko": "SSAFY 5기 SSDC 프로젝트 1위",
-      "en": "SSAFY 5th SSDC Project 1st Place"
+      "ko": "고용노동부 잡지 인터뷰",
+      "en": "Ministry of Employment and Labor Magazine Interview"
     }
   },
   "featured": false

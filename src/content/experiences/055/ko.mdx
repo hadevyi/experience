@@ -1,26 +1,108 @@
 ---
-title: 고용노동부 잡지 인터뷰
-organization: 고용노동부
-summary: 월간내일 2021년 10월호에 SSAFY 전공자 교육생으로 참여한 인터뷰입니다.
-oneLine: SSAFY에 지원한 마음과 교육 경험을 담은 월간내일 인터뷰
+title: Motion Pose
+organization: SSAFY 5기 SSDC
+summary: Node-RED용 동작 인식 노드를 개발해 npm과 Node-RED Library에 배포하고 Samsung Automation Studio에 기여한 SSDC 프로젝트입니다.
+oneLine: 동작 인식 제어를 Node-RED 노드로 확장한 오픈소스 프로젝트
 highlights:
-  - "SSAFY 전공자 교육생 경험을 매체 인터뷰로 공유"
-  - "지원 동기와 교육 과정에서의 변화를 정리"
-  - "후배 지원자에게 참고가 될 수 있는 경험 전달"
-mediaInterview:
+  - SSAFY SSDC 오픈소스 프로젝트
+  - npm, Node-RED Library 배포
+  - Samsung Automation Studio PR 병합
+project:
+  host: 삼성전자 무선사업부 멘토링 / SSAFY 5기 SSDC
+  position: 팀장 / Frontend, Backend, Presentation
+  teamComposition:
+    - role: Body Node
+      count: 3
+      note: 몸 동작 인식 노드 개발
+    - role: Hands Node
+      count: 2
+      note: 손 동작 인식 노드 개발, 당현아 팀장 포함
+  techStack:
+    - category: language
+      name: Node.js
+      version: "14.17.3"
+      note: Node-RED 커스텀 노드 개발 환경
+    - category: platform
+      name: Node-RED
+      version: "2.0.6"
+      note: 노드 기반 비주얼 프로그래밍 플랫폼
+    - category: framework
+      name: MediaPipe BlazePose / Hands
+      version: ""
+      note: 몸/손 동작 인식 모델
+    - category: backend
+      name: Socket.IO
+      version: "^4.2.0"
+      note: 인식 화면과 노드 간 실시간 통신
+    - category: backend
+      name: Express
+      version: "^4.17.1"
+      note: 모니터링 및 노드 실행 보조 서버
+    - category: platform
+      name: SmartThings IoT Cam
+      version: ""
+      note: 외부 카메라 장치 연동
+  deployment: "npm package v1.1.3, Node-RED Library, Samsung Automation Studio PR #46/#47 병합"
+  overview: |
+    Motion Pose는 Node-RED에서 몸과 손의 동작을 인식하고, 인식 결과를 다른 서비스 Flow와 연결할 수 있도록 만든 오픈소스 노드 프로젝트입니다. 웹캠과 SmartThings IoT Cam을 입력 장치로 활용하고, MediaPipe의 BlazePose와 Hands 모델을 기반으로 동작을 추적했습니다.
   background: |
-    SSAFY 사무국의 제안으로 고용노동부 월간내일 인터뷰에 참여했습니다. 비전공자 교육생과 전공자 교육생을 함께 소개하는 구성에서, 저는 전공자 교육생 사례로 인터뷰에 참여했습니다.
-  context: |
-    SSAFY 5기 교육생으로 활동하며 학습과 프로젝트에 적극적으로 참여하던 시기였습니다. 반장, 스터디, 프로젝트, 정보 공유 활동을 이어가며 교육 과정 안에서 눈에 띄는 활동을 만들고 있었습니다.
-  topics: |
-    인터뷰에서는 SSAFY에 지원한 이유, 교육 과정에서 하고 있던 활동, 교육을 통해 좋았던 점을 중심으로 이야기했습니다. 특히 어떤 마음으로 SSAFY에 지원했고, 개발자로 성장하기 위해 어떤 태도로 교육에 임했는지를 전달했습니다.
-  perspective: |
-    단순히 교육을 수강했다는 기록보다, 진로를 다시 세우고 개발자로 성장하기 위해 SSAFY를 선택한 이유를 보여준 인터뷰였습니다. 전공자였지만 다시 기본기와 프로젝트 경험을 쌓고 싶었던 당시의 마음을 정리할 수 있었습니다.
-  impact: |
-    공개 이후 SSAFY 관계자와 동기들에게 많은 연락을 받았습니다. 정부 부처 발행 매체에 SSAFY 교육 경험이 소개되면서, SSAFY 5기 교육생으로서의 활동을 외부에 남긴 기록이 되었습니다.
+    SSAFY 5기 우수 교육생으로 선발되어 삼성전자 현직자와 직접 멘토링하는 SSDC 프로그램에 참여했습니다. 그중 무선사업부 과제를 선택했고, 터치와 음성 중심의 기기 제어가 어려운 상황에서도 사용할 수 있는 새로운 제어 방식으로 동작 인식을 제안했습니다.
+  scope: |
+    monitor, body/hand detect, body/hand register, body/hand find 등 총 9개의 Node-RED 노드를 개발했습니다. 손/몸 동작 기반 IoT 제어 Flow와 홈 트레이닝 Flow를 함께 제시했고, npm 패키지와 Node-RED Library로 배포했습니다. SamsungAutomationStudio 저장소에는 Motion Pose 노드를 추가하고 업데이트하는 PR을 기여했습니다.
+  contribution:
+    - 팀장으로 프로젝트 방향, 멘토링 질의응답, 발표 흐름을 조율했습니다.
+    - Hands Pose Node 파트를 맡아 손동작 인식, 등록, 탐색 흐름을 구현했습니다.
+    - 제한된 멘토링 시간을 효율적으로 쓰기 위해 질문과 진행 상황을 PT로 미리 정리했습니다.
+    - npm, Node-RED Library, SamsungAutomationStudio PR 기여 흐름을 대표로 진행하며 배포 완성도를 높였습니다.
+    - 최종 발표와 시연 대응을 담당했습니다.
+  roleDetails:
+    - 팀 총괄
+    - Hands Pose Node 파트 개발
+    - npm 및 Node-RED 배포 흐름 정리
+    - SamsungAutomationStudio PR 기여
+    - 최종 발표
+  implementation:
+    - 웹캠과 IoT Cam 입력을 기준으로 손/몸 동작을 인식하는 Node-RED 노드 구조를 구성했습니다.
+    - 손 동작은 20개 landmark, 몸 동작은 33개 landmark 좌표를 기반으로 인식 결과를 시각화하고 Flow 데이터로 전달했습니다.
+    - 등록된 동작과 입력된 keypoint를 벡터 정규화, Cosine Distance, Weighted Distance 기준으로 비교해 가장 가까운 동작을 찾는 register/find 흐름을 포함했습니다.
+    - 동작 등록 과정에서 타이머, 결과 이미지, keypoint Table을 제공해 사용자가 등록 상태를 확인할 수 있도록 구성했습니다.
+    - 개발자가 Node-RED Flow 안에서 Bixby 홈트레이닝, SmartThings IoT 제어 같은 시나리오를 구성할 수 있도록 패키지화했습니다.
+  challenges:
+    - Node-RED, MediaPipe, SmartThings IoT Cam, npm 배포 등 대부분의 기술 스택이 생소했습니다.
+    - IoT 서비스와 실제 물리 기기를 연결하는 흐름이 낯설어 동작 구조를 이해하는 데 시간이 필요했습니다.
+    - 동작 인식 모델 결과를 Node-RED의 Flow 데이터로 연결하는 구조 설계가 필요했습니다.
+    - 삼성 오픈소스 저장소에 기여하기 위해 노드 구조, 문서, 라이선스, 배포 품질을 맞춰야 했습니다.
+  outcome:
+    - npm과 Node-RED Library에 `node-red-contrib-motion-pose` 패키지를 배포했습니다.
+    - Hands IoT Control, Body IoT Control, Body Home Training Flow를 Node-RED Flow 예시로 공개했습니다.
+    - SamsungAutomationStudio에 Motion Pose 노드 추가 및 업데이트 PR이 병합되었습니다.
+    - 멘토링 전 질문과 진행 상황을 정리해간 방식에 대해 현직자 멘토님에게 좋은 피드백을 받았습니다.
+    - 오픈소스 배포와 라이선스 정리의 중요성을 처음으로 체감했습니다.
+    - SSAFY 5기 SSDC 프로젝트 1위 수상과 SSDC 2021 발표로 이어졌습니다.
 sections: []
 links:
-  - type: article
-    label: 월간내일 2021년 10월호
-    url: http://www.labor21.kr/webzine/ebook/202110/#page=29
+  - type: repository
+    label: 5FNSaaS TEAM Intro Repo
+    url: https://github.com/5FNSaaS
+  - type: repository
+    label: node-red-contrib-motion-pose
+    url: https://github.com/5FNSaaS/node-red-contrib-motion-pose
+  - type: repository
+    label: "SamsungAutomationStudio PR #46"
+    url: https://github.com/Samsung/SamsungAutomationStudio/pull/46
+  - type: repository
+    label: "SamsungAutomationStudio PR #47"
+    url: https://github.com/Samsung/SamsungAutomationStudio/pull/47
+  - type: reference
+    label: npm package
+    url: https://www.npmjs.com/package/node-red-contrib-motion-pose
+  - type: reference
+    label: Node-RED Library
+    url: https://flows.nodered.org/search?term=node-red-contrib-motion-pose
+  - type: reference
+    label: Motion Pose Wiki
+    url: https://github.com/5FNSaaS/node-red-contrib-motion-pose/wiki
+  - type: reference
+    label: Motion Pose Flow Collection
+    url: https://flows.nodered.org/collection/MDvLUXQBFHGG
 ---

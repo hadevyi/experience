@@ -2,25 +2,37 @@
   "number": "099",
   "periods": [
     {
-      "start": "2025-09-23"
+      "start": "2025-08-01",
+      "end": "2025-08-31"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "learning-growth",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "teaching",
-    "presentation",
-    "reflection"
+    "technical-learning",
+    "ai-utilization"
+  ],
+  "projectDomains": [
+    "open-source"
+  ],
+  "techTags": [],
+  "related": [
+    {
+      "number": "098",
+      "relation": "parent-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/099/representative.jpg",
     "alt": {
-      "ko": "동양미래대 다솜 동아리 현직자 초빙 강의 대표 이미지",
-      "en": "Representative image for Dasom invited professional lecture"
+      "ko": "오픈소스 기여모임 9기 참가자 대표 이미지",
+      "en": "Representative image for Open Source Contributors 9th cohort participant"
+    },
+    "caption": {
+      "ko": "오픈소스 기여모임 9기 참가자",
+      "en": "Open Source Contributors 9th Cohort Participant"
     }
   },
-  "projectDomains": [],
-  "techTags": [],
   "featured": false
 }

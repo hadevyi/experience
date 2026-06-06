@@ -2,29 +2,63 @@
   "number": "081",
   "periods": [
     {
-      "start": "2024-01-18",
-      "end": "2024-03-04"
+      "start": "2024-01-01",
+      "end": "2024-12-31"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "mentoring",
-    "structuring"
+    "operation",
+    "coordination",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [],
+  "related": [
+    {
+      "number": "066",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "073",
+      "relation": "previous"
+    },
+    {
+      "number": "084",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "086",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "087",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "088",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "089",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "090",
+      "relation": "detailed-experience"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/081/representative.jpg",
     "alt": {
-      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링 대표 이미지",
-      "en": "Representative image for Inje University SW-Centered University winter Vacation project mentoring"
+      "ko": "SSAFYnity 3대 임원진 대표 이미지",
+      "en": "Representative image for SSAFYnity 3rd executive team"
     },
     "caption": {
-      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링",
-      "en": "Inje University SW-Centered University winter Vacation project mentoring"
+      "ko": "SSAFYnity 3대 임원진",
+      "en": "SSAFYnity 3rd Executive Team"
     }
   },
   "featured": false

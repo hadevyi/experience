@@ -2,7 +2,7 @@
   "number": "089",
   "periods": [
     {
-      "start": "2024-11-30"
+      "start": "2024-09-28"
     }
   ],
   "category": "event-operation",
@@ -16,11 +16,11 @@
   "techTags": [],
   "related": [
     {
-      "number": "080",
+      "number": "081",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
+      "number": "066",
       "relation": "affiliation"
     },
     {
@@ -31,12 +31,12 @@
   "representativeImage": {
     "src": "/experience/images/experiences/089/representative.jpg",
     "alt": {
-      "ko": "SSAFYnity 세미나 대표 이미지",
-      "en": "Representative image for SSAFYnity seminar"
+      "ko": "SSAFYnity 가을 체육대회 대표 이미지",
+      "en": "Representative image for SSAFYnity fall sports day"
     },
     "caption": {
-      "ko": "SSAFYnity 세미나",
-      "en": "SSAFYnity Seminar"
+      "ko": "SSAFYnity 가을 체육대회",
+      "en": "SSAFYnity Fall Sports Day"
     }
   },
   "featured": false

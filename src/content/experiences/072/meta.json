@@ -2,59 +2,39 @@
   "number": "072",
   "periods": [
     {
-      "start": "2023-01-01",
-      "end": "2023-12-31"
+      "start": "2022-12-21",
+      "current": true
     }
   ],
   "category": "community",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
+    "mentoring",
     "operation",
-    "coordination",
-    "ownership"
+    "coordination"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "065",
+      "number": "071",
       "relation": "parent-experience"
     },
     {
-      "number": "066",
-      "relation": "previous"
-    },
-    {
-      "number": "073",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "074",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "075",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "078",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "079",
-      "relation": "detailed-experience"
+      "number": "043",
+      "relation": "affiliation"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/072/representative.jpg",
     "alt": {
-      "ko": "SSAFYnity 2대 임원진 대표 이미지",
-      "en": "Representative image for SSAFYnity 2nd executive team"
+      "ko": "DND 기수 운영 대표 이미지",
+      "en": "Representative image for DND cohort operations"
     },
     "caption": {
-      "ko": "SSAFYnity 2대 임원진",
-      "en": "SSAFYnity 2nd Executive Team"
+      "ko": "DND 기수 운영",
+      "en": "DND Cohort Operations"
     }
   },
   "featured": false

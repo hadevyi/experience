@@ -2,40 +2,31 @@
   "number": "083",
   "periods": [
     {
-      "start": "2024-02-17"
+      "start": "2024-01-29",
+      "current": true
     }
   ],
-  "category": "event-operation",
+  "category": "work-experience",
+  "employmentType": "full-time",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "coordination"
+    "improvement",
+    "problem-solving",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
-  "related": [
-    {
-      "number": "080",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
-    },
-    {
-      "number": "073",
-      "relation": "previous"
-    }
-  ],
+  "related": [],
   "representativeImage": {
     "src": "/experience/images/experiences/083/representative.jpg",
     "alt": {
-      "ko": "제2회 싸피인의 밤 대표 이미지",
-      "en": "Representative image for the 2nd Night of SSAFYnity"
+      "ko": "Bigxdata Server Developer 대표 이미지",
+      "en": "Representative image for Bigxdata Server Developer"
     },
     "caption": {
-      "ko": "제2회 싸피인의 밤",
-      "en": "The 2nd Night of SSAFYnity"
+      "ko": "Bigxdata Server Developer",
+      "en": "Bigxdata Server Developer"
     }
   },
   "featured": false

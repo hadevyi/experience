@@ -1,33 +1,88 @@
 ---
-title: DND
-organization: DND
-summary: 개발자와 디자이너가 함께 서비스를 만드는 IT 비영리단체 DND에 참여한 소속 경험입니다.
-oneLine: 개발자와 디자이너가 함께 서비스를 만드는 IT 비영리단체
+title: GitHub Pages 기술 블로그
+organization: 개인 프로젝트
+summary: GitHub Pages와 Jekyll minimal-mistakes 기반으로 기술 기록을 위한 첫 개인 블로그를 구축하고 운영한 프로젝트입니다.
+oneLine: 기술 기록을 시작하기 위해 만든 첫 개인 블로그
 highlights:
-  - "참여자에서 운영진으로 이어진 커뮤니티 활동"
-  - "8주 사이드 프로젝트와 지식 나눔 세미나를 함께 경험"
-  - "개발자·디자이너 협업 환경에서 네트워크 확장"
-affiliation:
+  - GitHub Pages 기반 블로그 구축
+  - minimal-mistakes 테마 커스터마이징
+  - 댓글, 검색 노출, 방문 분석 설정 경험
+project:
+  host: 개인 프로젝트
+  position: 기획 / 구축 / 운영
+  teamComposition:
+    - role: 개인 프로젝트
+      count: 1
+      note: 블로그 구축과 초기 운영을 직접 진행
+  techStack:
+    - category: platform
+      name: GitHub Pages
+      version: ""
+      note: 블로그 호스팅
+    - category: framework
+      name: Jekyll
+      version: ""
+      note: 정적 블로그 구성
+    - category: framework
+      name: minimal-mistakes
+      version: "4.20.2"
+      note: 블로그 테마
+    - category: tool
+      name: Google Analytics
+      version: ""
+      note: 방문 분석
+    - category: tool
+      name: Disqus
+      version: ""
+      note: 댓글 기능
+    - category: tool
+      name: Google Search Console / Naver Webmaster Tools
+      version: ""
+      note: 검색 노출 등록
+  deployment: GitHub Pages 기반 운영
   overview: |
-    DND는 개발자와 디자이너를 위한 IT 비영리단체입니다.
-    팀빌딩 시스템, 프로젝트 제작 가이드라인, 교육 제공을 통해 참가자가 함께 서비스를 만들어갈 수 있도록 운영됩니다.
+    GitHub Pages 기술 블로그는 기술 기록을 남기기 위해 만든 첫 개인 블로그 구축 프로젝트입니다.
+    GitHub Pages, Jekyll, minimal-mistakes 기반으로 정적 블로그를 구성했습니다.
 
-    서울에 편중된 기술 공유와 세미나 기회를 지방에서도 나누고자 시작되었고, "프로젝트에 즐거움을, 모두에게 기회를"이라는 슬로건 아래 개발자와 디자이너가 8주간 함께 사이드 프로젝트를 진행하는 문화를 만들어가고 있습니다.
-  reason: |
-    개발자와 디자이너가 함께 배우고 서비스를 만들어가는 DND의 취지에 공감했습니다.
-    단순히 한 번의 프로젝트를 경험하는 것을 넘어, 교육 기회와 기술 공유의 폭을 넓히는 커뮤니티에 함께하고 싶었습니다.
-  startingContext: |
-    2020년 DND 3기로 처음 합류했고, 이후 DND 6기 참여와 개발 운영진 활동으로 이어졌습니다.
-    참여자에서 운영진으로 역할이 확장되며, DND는 단기 프로젝트 경험을 넘어 지속적으로 연결된 커뮤니티가 되었습니다.
+    블로그 이름은 "정리가 재밌는 개발자 Blog"였고, 2020년 7월 1일부터 2021년 7월 8일까지 1.0 버전으로 운영했습니다.
+  background: |
+    애착을 갖고 직접 관리할 수 있는 블로그가 필요했습니다.
+    당시 많이 쓰이던 블로그 서비스들은 광고가 많거나 본문이 가려지는 경험이 있어, 직접 구성한 공간에서 글을 쓰고 싶었습니다.
+
+    학습한 내용을 정리하고, 기술 기록을 쌓아둘 개인 공간을 마련하려는 목적도 있었습니다.
+  scope: |
+    minimal-mistakes 테마를 기반으로 블로그 구조를 구성하고, 한국어 사이트 설정, 작성자 프로필, 카테고리/태그/연도 아카이브, 댓글, 방문 분석, 검색 노출 설정을 적용했습니다.
+    Disqus 댓글 기능을 붙이고, Google Analytics를 통해 방문 통계를 확인할 수 있도록 구성했습니다.
+
+    Google과 Naver 검색 노출을 위한 인증 파일과 sitemap/feed 설정도 함께 관리했습니다.
+  contribution: |
+    개인 프로젝트로 블로그 구축과 초기 설정을 직접 진행했습니다.
+  roleDetails:
+    - GitHub Pages 기반 블로그 구축
+    - minimal-mistakes 테마 커스터마이징
+    - Disqus 댓글 기능 추가
+    - Google Analytics 방문 분석 설정
+    - Google/Naver 검색 노출 등록
+    - 카테고리, 태그, 연도별 아카이브 기반 탐색 구조 설정
+  implementation: |
+    `_config.yml`을 중심으로 사이트 언어, 제목, 작성자 프로필, 소셜 링크, 댓글, 분석 도구, 플러그인, 기본 레이아웃을 설정했습니다.
+    `_data/navigation.yml`에서는 Category, Tags, Year 중심의 탐색 구조를 구성했습니다.
+
+    `jekyll-paginate`, `jekyll-sitemap`, `jekyll-feed`, `jekyll-include-cache` 플러그인을 사용했고, 정적 블로그로 GitHub Pages에 배포했습니다.
   challenges: |
-    전국 각지의 사람들이 함께하는 커뮤니티였기 때문에, DND는 처음부터 온라인 협업과 비동기 소통이 중요한 구조였습니다.
-    여러 기수와 역할을 거치며 이 커뮤니티가 어떻게 유지되고 확장되는지 이해하게 되었습니다.
-  gains: |
-    DND는 개발자와 디자이너가 함께 성장할 수 있는 외부 커뮤니티의 기준점이 되었습니다.
-    여전히 DND의 취지에 공감하고 있기 때문에, 이후에도 이 커뮤니티에 기여하고 싶다는 마음이 남아 있습니다.
+    Ruby, Bundler, GitHub.io, Jekyll 기반 블로그 운영을 모두 처음 사용했습니다.
+    minimal-mistakes 공식 문서가 잘 정리되어 있었지만 영어 문서를 따라가며 테마를 이해하고 커스터마이징하는 과정이 낯설었습니다.
+
+    직접 만들고 설계하는 재미는 있었지만, 설정과 운영에 신경 쓸 부분이 많아 글을 자주 쓰기에는 부담이 있었습니다.
+  outcome: |
+    개인 기술 기록을 시작하는 공간을 만들었고, 블로그 방문 통계를 확인하며 기록이 외부에 닿는 경험도 했습니다.
+    특히 회고록들이 생각보다 꾸준히 높은 방문 통계를 보여준 점이 인상적이었습니다.
+
+    다만 글을 쓰는 것보다 블로그 자체를 관리하는 비용이 커졌고, 이후에는 글 작성에 더 집중하고 싶어 2021년 7월 8일 Velog로 이관하기로 결정했습니다.
+
+    이 경험은 이후 블로그와 기록 도구를 고를 때, 직접 구축하는 재미와 지속 가능한 작성 흐름을 분리해서 보게 만든 기준이 되었습니다.
 sections: []
 links:
-  - type: official
-    label: DND 공식 홈페이지
-    url: https://dnd.ac/
+  - label: GitHub
+    url: https://github.com/hadevyi/hadevyi.github.io/tree/1.0/minimal-mistakes
 ---

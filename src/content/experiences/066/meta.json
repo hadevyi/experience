@@ -3,42 +3,36 @@
   "periods": [
     {
       "start": "2022-03",
-      "end": "2022-12-31"
+      "current": true
     }
   ],
-  "category": "community",
+  "category": "affiliation",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "operation",
-    "coordination",
-    "ownership"
+    "community"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "065",
-      "relation": "parent-experience"
-    },
-    {
       "number": "067",
       "relation": "detailed-experience"
     },
     {
-      "number": "069",
+      "number": "073",
       "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/066/representative-v2.jpg",
     "alt": {
-      "ko": "2022 SSAFYnity 1대 임원진 대표 이미지",
-      "en": "Representative image for 2022 SSAFYnity 1st executive team"
+      "ko": "SSAFYnity 대표 이미지",
+      "en": "Representative image for SSAFYnity"
     },
     "caption": {
-      "ko": "2022 SSAFYnity 1대 임원진",
-      "en": "2022 SSAFYnity 1st Executive Team"
+      "ko": "SSAFYnity",
+      "en": "SSAFYnity"
     }
   },
   "featured": false

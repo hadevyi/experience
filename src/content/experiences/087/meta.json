@@ -2,39 +2,33 @@
   "number": "087",
   "periods": [
     {
-      "start": "2024-07-15",
-      "end": "2025-06-20"
+      "start": "2024-06-22"
     }
   ],
-  "category": "event-operation",
+  "category": "media-interview",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
-    "improvement",
-    "ownership"
+    "presentation",
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "080",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "090",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "086",
+      "relation": "related",
+      "note": {
+        "ko": "발표 세션이 포함된 행사",
+        "en": "Event that included the talk session"
+      }
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/087/representative.jpg",
     "alt": {
-      "ko": "SSAFYnity 취준챌린지 대표 이미지",
-      "en": "Representative image for SSAFYnity job challenge"
+      "ko": "2024 SSAFYnale 발표 세션 대표 이미지",
+      "en": "Representative image for the 2024 SSAFYnale presentation session"
     }
   },
   "featured": false

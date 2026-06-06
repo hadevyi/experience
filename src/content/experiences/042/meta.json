@@ -2,50 +2,40 @@
   "number": "042",
   "periods": [
     {
-      "start": "2020-07-13",
-      "current": true
+      "start": "2020-07-01",
+      "end": "2021-07-08"
     }
   ],
-  "category": "affiliation",
+  "category": "project",
+  "teamSize": 1,
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "community",
-    "collaboration"
+    "documentation",
+    "structuring",
+    "technical-learning"
   ],
-  "projectDomains": [],
-  "techTags": [],
-  "related": [
-    {
-      "number": "043",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "044",
-      "relation": "project"
-    },
-    {
-      "number": "063",
-      "relation": "detailed-experience"
-    },
-    {
-      "number": "064",
-      "relation": "project"
-    },
-    {
-      "number": "070",
-      "relation": "detailed-experience"
-    }
+  "projectDomains": [
+    "open-source",
+    "web"
   ],
+  "techTags": [
+    "html",
+    "css",
+    "google-analytics",
+    "javascript",
+    "ruby"
+  ],
+  "related": [],
   "representativeImage": {
-    "src": "/experience/images/experiences/042/representative.jpg",
+    "src": "/experience/images/experiences/042/representative.png",
     "alt": {
-      "ko": "DND 대표 이미지",
-      "en": "Representative image for DND"
+      "ko": "Github Blog 대표 이미지",
+      "en": "Representative image for Github Blog"
     },
     "caption": {
-      "ko": "DND",
-      "en": "DND"
+      "ko": "Github Blog",
+      "en": "Github Blog"
     }
   },
   "featured": false

@@ -6,43 +6,34 @@
       "end": "2020-09-12"
     }
   ],
-  "category": "project",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "collaboration",
-    "structuring"
+    "community",
+    "collaboration"
   ],
-  "projectDomains": [
-    "mobile"
-  ],
-  "techTags": [
-    "python",
-    "django",
-    "kotlin",
-    "android",
-    "retrofit",
-    "sqlite"
-  ],
+  "projectDomains": [],
+  "techTags": [],
   "related": [
     {
-      "number": "042",
+      "number": "043",
       "relation": "affiliation"
     },
     {
-      "number": "043",
-      "relation": "parent-experience"
+      "number": "045",
+      "relation": "project"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/044/representative.jpg",
     "alt": {
-      "ko": "키인닷 대표 이미지",
-      "en": "Representative image for KeyinDot"
+      "ko": "DND 3기 대표 이미지",
+      "en": "Representative image for DND 3rd"
     },
     "caption": {
-      "ko": "키인닷",
-      "en": "KeyinDot"
+      "ko": "DND 3기",
+      "en": "DND 3rd"
     }
   },
   "featured": false

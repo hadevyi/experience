@@ -2,7 +2,8 @@
   "number": "085",
   "periods": [
     {
-      "start": "2024-06-22"
+      "start": "2024-05-17",
+      "end": "2024-05-18"
     }
   ],
   "category": "event-operation",
@@ -10,33 +11,29 @@
   "status": "done",
   "experienceTags": [
     "coordination",
-    "documentation"
+    "mentoring"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "080",
+      "number": "071",
       "relation": "parent-experience"
     },
     {
-      "number": "065",
+      "number": "043",
       "relation": "affiliation"
-    },
-    {
-      "number": "074",
-      "relation": "previous"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/085/representative.jpg",
     "alt": {
-      "ko": "2024 SSAFYnity SSAFYnale 대표 이미지",
-      "en": "Representative image for 2024 SSAFYnity SSAFYnale"
+      "ko": "2024 DND 해커톤 운영 대표 이미지",
+      "en": "Representative image for 2024 DND hackathon operation"
     },
     "caption": {
-      "ko": "2024 SSAFYnity SSAFYnale",
-      "en": "2024 SSAFYnity SSAFYnale"
+      "ko": "2024 DND 해커톤 운영",
+      "en": "2024 DND hackathon operation"
     }
   },
   "featured": false

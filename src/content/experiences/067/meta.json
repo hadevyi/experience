@@ -2,17 +2,17 @@
   "number": "067",
   "periods": [
     {
-      "start": "2022-06-09",
-      "end": "2022-06-09"
+      "start": "2022-03",
+      "end": "2022-12-31"
     }
   ],
-  "category": "event-operation",
+  "category": "community",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
+    "operation",
     "coordination",
-    "ownership",
-    "presentation"
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -22,19 +22,23 @@
       "relation": "parent-experience"
     },
     {
-      "number": "065",
-      "relation": "affiliation"
+      "number": "068",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "070",
+      "relation": "detailed-experience"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/067/representative-v2.jpg",
     "alt": {
-      "ko": "2022 SSAFYnity 동문회 발대식 대표 이미지",
-      "en": "Representative image for 2022 SSAFYnity founding ceremony"
+      "ko": "2022 SSAFYnity 1대 임원진 대표 이미지",
+      "en": "Representative image for 2022 SSAFYnity 1st executive team"
     },
     "caption": {
-      "ko": "2022 SSAFYnity 동문회 발대식",
-      "en": "2022 SSAFYnity Founding Ceremony"
+      "ko": "2022 SSAFYnity 1대 임원진",
+      "en": "2022 SSAFYnity 1st Executive Team"
     }
   },
   "featured": false

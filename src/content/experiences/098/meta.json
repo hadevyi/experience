@@ -2,25 +2,47 @@
   "number": "098",
   "periods": [
     {
-      "start": "2025-09-08",
-      "end": "2025-10-01"
+      "start": "2025-08-01",
+      "current": true
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "affiliation",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "mentoring",
-    "documentation",
-    "structuring"
+    "community"
   ],
-  "projectDomains": [],
+  "projectDomains": [
+    "open-source"
+  ],
   "techTags": [],
+  "related": [
+    {
+      "number": "099",
+      "relation": "detailed-experience",
+      "note": {
+        "ko": "9기 참여 경험",
+        "en": "9th cohort participation"
+      }
+    },
+    {
+      "number": "100",
+      "relation": "detailed-experience",
+      "note": {
+        "ko": "운영진 활동",
+        "en": "Organizer role"
+      }
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/098/representative.jpg",
     "alt": {
-      "ko": "산학연프로젝트 4학년 대상 취업준비 서류정리 대표 이미지",
-      "en": "Representative image for career document mentoring for senior students in the industry-academic project"
+      "ko": "오픈소스 기여모임 대표 이미지",
+      "en": "Representative image for Open Source Contributors community"
+    },
+    "caption": {
+      "ko": "오픈소스 기여모임",
+      "en": "Open Source Contributors"
     }
   },
   "featured": false

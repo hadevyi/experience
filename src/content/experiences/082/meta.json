@@ -2,18 +2,16 @@
   "number": "082",
   "periods": [
     {
-      "start": "2024-01-29",
-      "current": true
+      "start": "2024-01-18",
+      "end": "2024-03-04"
     }
   ],
-  "category": "work-experience",
-  "employmentType": "full-time",
+  "category": "teaching-mentoring",
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "improvement",
-    "problem-solving",
-    "ownership"
+    "mentoring",
+    "structuring"
   ],
   "projectDomains": [],
   "techTags": [],
@@ -21,12 +19,12 @@
   "representativeImage": {
     "src": "/experience/images/experiences/082/representative.jpg",
     "alt": {
-      "ko": "Bigxdata Server Developer 대표 이미지",
-      "en": "Representative image for Bigxdata Server Developer"
+      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링 대표 이미지",
+      "en": "Representative image for Inje University SW-Centered University winter Vacation project mentoring"
     },
     "caption": {
-      "ko": "Bigxdata Server Developer",
-      "en": "Bigxdata Server Developer"
+      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링",
+      "en": "Inje University SW-Centered University winter Vacation project mentoring"
     }
   },
   "featured": false

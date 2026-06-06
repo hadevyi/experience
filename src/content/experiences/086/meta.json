@@ -5,30 +5,38 @@
       "start": "2024-06-22"
     }
   ],
-  "category": "media-interview",
+  "category": "event-operation",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "presentation",
-    "reflection"
+    "coordination",
+    "documentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
     {
-      "number": "085",
-      "relation": "related",
-      "note": {
-        "ko": "발표 세션이 포함된 행사",
-        "en": "Event that included the talk session"
-      }
+      "number": "081",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
+    },
+    {
+      "number": "075",
+      "relation": "previous"
     }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/086/representative.jpg",
     "alt": {
-      "ko": "2024 SSAFYnale 발표 세션 대표 이미지",
-      "en": "Representative image for the 2024 SSAFYnale presentation session"
+      "ko": "2024 SSAFYnity SSAFYnale 대표 이미지",
+      "en": "Representative image for 2024 SSAFYnity SSAFYnale"
+    },
+    "caption": {
+      "ko": "2024 SSAFYnity SSAFYnale",
+      "en": "2024 SSAFYnity SSAFYnale"
     }
   },
   "featured": false

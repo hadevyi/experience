@@ -2,24 +2,24 @@
   "number": "101",
   "periods": [
     {
-      "start": "2025-11-01"
+      "start": "2025-09-01",
+      "end": "2027-08-31"
     }
   ],
   "category": "teaching-mentoring",
   "visibility": "public",
-  "status": "done",
+  "status": "in-progress",
   "experienceTags": [
-    "teaching",
-    "reflection",
-    "structuring"
+    "mentoring",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "representativeImage": {
     "src": "/experience/images/experiences/101/representative.jpg",
     "alt": {
-      "ko": "SW개발자를 꿈꾸는 후배들에게 대표 이미지",
-      "en": "Representative image for the SW developer lecture series"
+      "ko": "ICT CoC 현직자 멘토 대표 이미지",
+      "en": "Representative image for ICT CoC expert mentor"
     }
   },
   "featured": false

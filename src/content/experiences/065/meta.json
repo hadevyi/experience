@@ -2,37 +2,51 @@
   "number": "065",
   "periods": [
     {
-      "start": "2022-03",
-      "current": true
+      "start": "2022-01-02",
+      "end": "2022-03-04"
     }
   ],
-  "category": "affiliation",
+  "category": "project",
   "visibility": "public",
-  "status": "in-progress",
+  "status": "done",
   "experienceTags": [
-    "community"
+    "problem-solving",
+    "structuring",
+    "collaboration"
   ],
-  "projectDomains": [],
-  "techTags": [],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "java",
+    "spring-boot",
+    "jpa",
+    "mysql",
+    "nginx",
+    "jenkins",
+    "aws-ec2",
+    "aws-s3",
+    "figma"
+  ],
   "related": [
     {
-      "number": "066",
-      "relation": "detailed-experience"
+      "number": "043",
+      "relation": "affiliation"
     },
     {
-      "number": "072",
-      "relation": "detailed-experience"
+      "number": "064",
+      "relation": "parent-experience"
     }
   ],
   "representativeImage": {
-    "src": "/experience/images/experiences/065/representative-v2.jpg",
+    "src": "/experience/images/experiences/065/representative.webp",
     "alt": {
-      "ko": "SSAFYnity 대표 이미지",
-      "en": "Representative image for SSAFYnity"
+      "ko": "Gratz 대표 이미지",
+      "en": "Representative image for Gratz"
     },
     "caption": {
-      "ko": "SSAFYnity",
-      "en": "SSAFYnity"
+      "ko": "Gratz",
+      "en": "Gratz"
     }
   },
   "featured": false
