@@ -570,66 +570,77 @@ const hasArchiveItems = archiveItems.length > 0;
         >
           {
             hasArchiveItems && (
-              <div class="experience-toolbar-card experience-toolbar-card-main" aria-label="목록 설정">
-                <div class="experience-toolbar-row">
-                  <span class="experience-toolbar-label" {...i18nText('정렬', 'Sort')}>정렬</span>
-                  <div class="experience-icon-toggle" role="group" aria-label="정렬">
-                    <button
-                      type="button"
-                      class="archive-icon-option archive-sort-option"
-                      data-filter-group="sort"
-                      data-filter-value="asc"
-                      aria-label="오래된순"
-                      {...i18nAttr('aria-label', '오래된순', 'Oldest first')}
-                    >
-                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5v14m0-14 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                      <span class="archive-option-text" {...i18nText('오래된', 'Oldest')}>오래된</span>
-                    </button>
-                    <button
-                      type="button"
-                      class="archive-icon-option archive-sort-option archive-option-active"
-                      data-filter-group="sort"
-                      data-filter-value="desc"
-                      aria-label="최신순"
-                      {...i18nAttr('aria-label', '최신순', 'Newest first')}
-                    >
-                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 19V5m0 14 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                      <span class="archive-option-text" {...i18nText('최신', 'Newest')}>최신</span>
-                    </button>
-                  </div>
-                </div>
+              <div class="experience-list-header">
+                <p
+                  class="experience-result-count"
+                  data-archive-count
+                  aria-label="0개 중 0개 표시"
+                  {...i18nAttr('aria-label', '0개 중 0개 표시', 'Showing 0 of 0 experiences')}
+                >
+                  0 / 0
+                </p>
 
-                <div class="experience-toolbar-row">
-                  <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
-                  <div class="experience-icon-toggle" role="group" aria-label="보기">
-                    <button
-                      type="button"
-                      class="archive-icon-option archive-option-active"
-                      data-filter-group="view"
-                      data-filter-value="card"
-                      aria-label="카드형"
-                      {...i18nAttr('aria-label', '카드형', 'Card view')}
-                    >
-                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
-                      </svg>
-                    </button>
-                    <button
-                      type="button"
-                      class="archive-icon-option"
-                      data-filter-group="view"
-                      data-filter-value="list"
-                      aria-label="리스트형"
-                      {...i18nAttr('aria-label', '리스트형', 'List view')}
-                    >
-                      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                      </svg>
-                    </button>
+                <div class="experience-toolbar-card experience-toolbar-card-main" aria-label="목록 설정">
+                  <div class="experience-toolbar-row">
+                    <span class="experience-toolbar-label" {...i18nText('정렬', 'Sort')}>정렬</span>
+                    <div class="experience-icon-toggle" role="group" aria-label="정렬">
+                      <button
+                        type="button"
+                        class="archive-icon-option archive-sort-option"
+                        data-filter-group="sort"
+                        data-filter-value="asc"
+                        aria-label="오래된순"
+                        {...i18nAttr('aria-label', '오래된순', 'Oldest first')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 5v14m0-14 4 4m-4-4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="archive-option-text" {...i18nText('오래된', 'Oldest')}>오래된</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="archive-icon-option archive-sort-option archive-option-active"
+                        data-filter-group="sort"
+                        data-filter-value="desc"
+                        aria-label="최신순"
+                        {...i18nAttr('aria-label', '최신순', 'Newest first')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 19V5m0 14 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="archive-option-text" {...i18nText('최신', 'Newest')}>최신</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="experience-toolbar-row">
+                    <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
+                    <div class="experience-icon-toggle" role="group" aria-label="보기">
+                      <button
+                        type="button"
+                        class="archive-icon-option archive-option-active"
+                        data-filter-group="view"
+                        data-filter-value="card"
+                        aria-label="카드형"
+                        {...i18nAttr('aria-label', '카드형', 'Card view')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        class="archive-icon-option"
+                        data-filter-group="view"
+                        data-filter-value="list"
+                        aria-label="리스트형"
+                        {...i18nAttr('aria-label', '리스트형', 'List view')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -775,9 +786,6 @@ const hasArchiveItems = archiveItems.length > 0;
                 >
                   더보기
                 </button>
-                <p class="experience-load-more-count" data-archive-count>
-                  0개 중 0개를 보고 있어요
-                </p>
               </div>
             )
           }
@@ -1203,8 +1211,14 @@ const hasArchiveItems = archiveItems.length > 0;
 
         if (paginationCount instanceof HTMLElement) {
           paginationCount.textContent = isEnglish()
-            ? `Showing ${shownCount} of ${matchedCount} experiences`
-            : `${matchedCount}개 중 ${shownCount}개를 보고 있어요`;
+            ? `${shownCount} / ${matchedCount}`
+            : `${shownCount} / ${matchedCount}`;
+          paginationCount.setAttribute(
+            'aria-label',
+            isEnglish()
+              ? `Showing ${shownCount} of ${matchedCount} experiences`
+              : `${matchedCount}개 중 ${shownCount}개 표시`
+          );
         }
 
         if (loadMoreButton instanceof HTMLButtonElement) {

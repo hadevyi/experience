@@ -839,7 +839,7 @@ html[data-theme='dark'] {
   }
 
   .experience-work-card-list {
-    @apply mt-5 grid gap-3;
+    @apply mt-5 grid gap-3 sm:grid-cols-2;
   }
 
   .experience-work-card {
@@ -2097,6 +2097,24 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   padding-top: 0;
 }
 
+.experience-list-header {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.experience-result-count {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--experience-ink-muted);
+  font-size: var(--type-body-small-size);
+  font-weight: 720;
+  line-height: var(--type-body-small-leading);
+  white-space: nowrap;
+}
+
 .experience-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2484,16 +2502,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.62rem;
   margin-top: 1.35rem;
-}
-
-.experience-load-more-count {
-  margin: 0;
-  color: var(--experience-ink-muted);
-  font-size: var(--type-caption-size);
-  font-weight: 650;
-  line-height: var(--type-caption-leading);
 }
 
 .experience-load-more-button {
@@ -2643,6 +2652,15 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 
   .experience-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-list-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .experience-result-count {
+    padding-inline: 0.1rem;
   }
 
   .experience-toolbar-card-main {
