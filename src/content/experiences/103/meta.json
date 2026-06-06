@@ -1,0 +1,26 @@
+{
+  "number": "103",
+  "periods": [
+    {
+      "start": "2025-09-23"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "teaching",
+    "presentation",
+    "reflection"
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/103/representative.jpg",
+    "alt": {
+      "ko": "동양미래대 다솜 동아리 현직자 초빙 강의 대표 이미지",
+      "en": "Representative image for Dasom invited professional lecture"
+    }
+  },
+  "projectDomains": [],
+  "techTags": [],
+  "featured": false
+}

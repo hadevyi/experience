@@ -1,0 +1,26 @@
+{
+  "number": "105",
+  "periods": [
+    {
+      "start": "2025-11-01"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "teaching",
+    "reflection",
+    "structuring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/105/representative.jpg",
+    "alt": {
+      "ko": "SW개발자를 꿈꾸는 후배들에게 대표 이미지",
+      "en": "Representative image for the SW developer lecture series"
+    }
+  },
+  "featured": false
+}
