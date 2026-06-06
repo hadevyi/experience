@@ -82,19 +82,19 @@ export const experienceTagConfig = {
     }
   },
   structuring: {
-    ko: '구조화',
-    en: 'Structuring',
+    ko: '체계화',
+    en: 'Systematization',
     description: {
-      ko: '복잡한 내용, 정보, 시스템을 정리한 경험',
-      en: 'Experiences where I organized complex information, systems, or context.'
+      ko: '복잡한 정보, 흐름, 기준을 체계로 정리한 경험',
+      en: 'Experiences where I organized complex information, flows, or standards into a system.'
     }
   },
   collaboration: {
     ko: '협업',
     en: 'Collaboration',
     description: {
-      ko: '팀이나 타인과 함께 만든 경험',
-      en: 'Experiences created with a team or other people.'
+      ko: '서로 다른 역할이나 관점을 맞춰 함께 결과를 만든 경험',
+      en: 'Experiences where I worked across different roles or perspectives to create an outcome.'
     }
   },
   coordination: {
@@ -106,35 +106,51 @@ export const experienceTagConfig = {
     }
   },
   ownership: {
-    ko: '오너십',
-    en: 'Ownership',
+    ko: '주도성',
+    en: 'Initiative',
     description: {
-      ko: '맡은 일을 주도적으로 끝까지 끌고 간 경험',
-      en: 'Experiences where I took ownership and carried work through.'
+      ko: '먼저 판단하고 맡은 일을 끝까지 밀고 간 경험',
+      en: 'Experiences where I made decisions proactively and carried work through.'
     }
   },
   operation: {
     ko: '운영',
     en: 'Operation',
     description: {
-      ko: '지속적으로 관리하고 유지한 경험',
-      en: 'Experiences where I maintained or operated something over time.'
+      ko: '반복되는 업무, 조직, 프로그램을 안정적으로 굴린 경험',
+      en: 'Experiences where I reliably operated recurring work, organizations, or programs.'
     }
   },
-  learning: {
-    ko: '학습',
-    en: 'Learning',
+  'growth-foundation': {
+    ko: '성장기반',
+    en: 'Growth Foundation',
     description: {
-      ko: '새롭게 배우고 익힌 경험',
-      en: 'Experiences where I learned and practiced something new.'
+      ko: '진로와 개발자로서의 기반을 만든 경험',
+      en: 'Experiences that formed the foundation for my direction and growth as a developer.'
+    }
+  },
+  'academic-achievement': {
+    ko: '학업성취',
+    en: 'Academic Achievement',
+    description: {
+      ko: '학업 성과나 교육 과정의 성취를 공식적으로 인정받은 경험',
+      en: 'Experiences where academic or educational achievement was formally recognized.'
+    }
+  },
+  'technical-learning': {
+    ko: '기술학습',
+    en: 'Technical Learning',
+    description: {
+      ko: '새 기술이나 개발 지식을 익히고 실제로 적용한 경험',
+      en: 'Experiences where I learned new technical knowledge and applied it in practice.'
     }
   },
   reflection: {
-    ko: '회고',
-    en: 'Reflection',
+    ko: '경험공유',
+    en: 'Experience Sharing',
     description: {
-      ko: '경험을 돌아보고 다음 행동으로 연결한 경험',
-      en: 'Experiences where I reflected and connected the lesson to the next action.'
+      ko: '내가 겪은 과정, 시행착오, 관점을 다른 사람에게 공유한 경험',
+      en: 'Experiences where I shared my process, trials, and perspective with others.'
     }
   },
   documentation: {
@@ -149,8 +165,8 @@ export const experienceTagConfig = {
     ko: '지식공유',
     en: 'Knowledge Sharing',
     description: {
-      ko: '배운 것을 다른 사람에게 전달한 경험',
-      en: 'Experiences where I shared what I learned with others.'
+      ko: '기술, 개념, 방법, 실습 흐름을 다른 사람에게 전달한 경험',
+      en: 'Experiences where I shared technical knowledge, concepts, methods, or practice flows.'
     }
   },
   teaching: {
@@ -170,27 +186,27 @@ export const experienceTagConfig = {
     }
   },
   community: {
-    ko: '커뮤니티',
-    en: 'Community',
+    ko: '네트워크',
+    en: 'Network',
     description: {
-      ko: '사람들과 연결되고 활동한 경험',
-      en: 'Experiences where I connected and participated with a community.'
-    }
-  },
-  contribution: {
-    ko: '기여',
-    en: 'Contribution',
-    description: {
-      ko: '금전 기부, 후원, 참여처럼 넓은 의미로 보탠 경험',
-      en: 'Experiences where I contributed through donation, support, or participation.'
+      ko: '사람들과 연결되고 지속적인 관계 기반을 만든 경험',
+      en: 'Experiences where I built connections and a sustained relationship base.'
     }
   },
   volunteering: {
     ko: '재능기부',
-    en: 'Volunteering',
+    en: 'Skill Volunteering',
     description: {
-      ko: '시간, 기술, 지식, 경험을 직접 나눈 경험',
-      en: 'Experiences where I volunteered time, skills, knowledge, or experience.'
+      ko: '보상보다 나눔을 목적으로 시간, 기술, 지식, 경험을 직접 제공한 경험',
+      en: 'Experiences where I directly offered time, skills, knowledge, or experience for contribution rather than compensation.'
+    }
+  },
+  sponsorship: {
+    ko: '후원',
+    en: 'Sponsorship',
+    description: {
+      ko: '금전, 물품, 자원 지원으로 사람이나 공동체를 도운 경험',
+      en: 'Experiences where I supported people or communities through money, goods, or other resources.'
     }
   },
   presentation: {
