@@ -1,0 +1,33 @@
+{
+  "number": "082",
+  "periods": [
+    {
+      "start": "2024-01-29",
+      "current": true
+    }
+  ],
+  "category": "work-experience",
+  "employmentType": "full-time",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "improvement",
+    "problem-solving",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/082/representative.jpg",
+    "alt": {
+      "ko": "Bigxdata Server Developer 대표 이미지",
+      "en": "Representative image for Bigxdata Server Developer"
+    },
+    "caption": {
+      "ko": "Bigxdata Server Developer",
+      "en": "Bigxdata Server Developer"
+    }
+  },
+  "featured": false
+}

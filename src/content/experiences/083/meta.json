@@ -1,0 +1,42 @@
+{
+  "number": "083",
+  "periods": [
+    {
+      "start": "2024-02-17"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "080",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    },
+    {
+      "number": "073",
+      "relation": "previous"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/083/representative.jpg",
+    "alt": {
+      "ko": "제2회 싸피인의 밤 대표 이미지",
+      "en": "Representative image for the 2nd Night of SSAFYnity"
+    },
+    "caption": {
+      "ko": "제2회 싸피인의 밤",
+      "en": "The 2nd Night of SSAFYnity"
+    }
+  },
+  "featured": false
+}

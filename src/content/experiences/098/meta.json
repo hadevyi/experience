@@ -1,0 +1,27 @@
+{
+  "number": "098",
+  "periods": [
+    {
+      "start": "2025-09-08",
+      "end": "2025-10-01"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "mentoring",
+    "documentation",
+    "structuring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/098/representative.jpg",
+    "alt": {
+      "ko": "산학연프로젝트 4학년 대상 취업준비 서류정리 대표 이미지",
+      "en": "Representative image for career document mentoring for senior students in the industry-academic project"
+    }
+  },
+  "featured": false
+}

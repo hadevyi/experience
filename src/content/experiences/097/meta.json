@@ -1,0 +1,26 @@
+{
+  "number": "097",
+  "periods": [
+    {
+      "start": "2025-09-01",
+      "end": "2027-08-31"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "in-progress",
+  "experienceTags": [
+    "mentoring",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/097/representative.jpg",
+    "alt": {
+      "ko": "ICT CoC 현직자 멘토 대표 이미지",
+      "en": "Representative image for ICT CoC expert mentor"
+    }
+  },
+  "featured": false
+}

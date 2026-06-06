@@ -1,0 +1,41 @@
+{
+  "number": "087",
+  "periods": [
+    {
+      "start": "2024-07-15",
+      "end": "2025-06-20"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "improvement",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "080",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "090",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/087/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 취준챌린지 대표 이미지",
+      "en": "Representative image for SSAFYnity job challenge"
+    }
+  },
+  "featured": false
+}

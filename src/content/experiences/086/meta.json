@@ -1,0 +1,35 @@
+{
+  "number": "086",
+  "periods": [
+    {
+      "start": "2024-06-22"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "presentation",
+    "reflection"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "085",
+      "relation": "related",
+      "note": {
+        "ko": "발표 세션이 포함된 행사",
+        "en": "Event that included the talk session"
+      }
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/086/representative.jpg",
+    "alt": {
+      "ko": "2024 SSAFYnale 발표 세션 대표 이미지",
+      "en": "Representative image for the 2024 SSAFYnale presentation session"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,35 @@
+{
+  "number": "096",
+  "periods": [
+    {
+      "start": "2025-06-06"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "presentation",
+    "reflection"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "095",
+      "relation": "related",
+      "note": {
+        "ko": "발표 세션이 포함된 행사",
+        "en": "Event that included the talk session"
+      }
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/096/representative.jpg",
+    "alt": {
+      "ko": "2025 SSAFYnity 내 성장에 의구심이 들 때 발표 세션 대표 이미지",
+      "en": "Representative image for the 2025 SSAFYnity talk on continuing activities outside work"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,40 @@
+{
+  "number": "084",
+  "periods": [
+    {
+      "start": "2024-05-17",
+      "end": "2024-05-18"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "mentoring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "070",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "042",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/084/representative.jpg",
+    "alt": {
+      "ko": "2024 DND 해커톤 운영 대표 이미지",
+      "en": "Representative image for 2024 DND hackathon operation"
+    },
+    "caption": {
+      "ko": "2024 DND 해커톤 운영",
+      "en": "2024 DND hackathon operation"
+    }
+  },
+  "featured": false
+}

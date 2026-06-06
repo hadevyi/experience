@@ -1,0 +1,31 @@
+{
+  "number": "081",
+  "periods": [
+    {
+      "start": "2024-01-18",
+      "end": "2024-03-04"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "mentoring",
+    "structuring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/081/representative.jpg",
+    "alt": {
+      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링 대표 이미지",
+      "en": "Representative image for Inje University SW-Centered University winter Vacation project mentoring"
+    },
+    "caption": {
+      "ko": "인제대 SW중점대 동계 Vacation 프로젝트 멘토링",
+      "en": "Inje University SW-Centered University winter Vacation project mentoring"
+    }
+  },
+  "featured": false
+}

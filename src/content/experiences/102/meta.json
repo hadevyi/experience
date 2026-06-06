@@ -1,0 +1,35 @@
+{
+  "number": "102",
+  "periods": [
+    {
+      "start": "2025-12-06"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "structuring"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/102/representative.jpg",
+    "alt": {
+      "ko": "2025 SSAFYnity 커리어 파티 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity Career Party"
+    }
+  },
+  "related": [
+    {
+      "number": "090",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
+  ],
+  "featured": false
+}

@@ -1,0 +1,35 @@
+{
+  "number": "095",
+  "periods": [
+    {
+      "start": "2025-06-06"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "090",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/095/representative.jpg",
+    "alt": {
+      "ko": "2025 SSAFYnity SSAFYnale 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity SSAFYnale"
+    }
+  },
+  "featured": false
+}

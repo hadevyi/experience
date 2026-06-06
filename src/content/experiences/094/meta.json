@@ -1,0 +1,27 @@
+{
+  "number": "094",
+  "periods": [
+    {
+      "start": "2025-05-09",
+      "end": "2025-05-28"
+    }
+  ],
+  "category": "teaching-mentoring",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "mentoring",
+    "structuring",
+    "knowledge-sharing"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/094/representative.jpg",
+    "alt": {
+      "ko": "산학연 미니프로젝트 대표 이미지",
+      "en": "Representative image for industry-academic mini project"
+    }
+  },
+  "featured": false
+}

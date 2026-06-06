@@ -1,0 +1,36 @@
+{
+  "number": "093",
+  "periods": [
+    {
+      "start": "2025-03-08"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "ownership",
+    "presentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/093/representative.jpg",
+    "alt": {
+      "ko": "2025 SSAFYnity 제3회 싸피인의 밤 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity Night"
+    }
+  },
+  "related": [
+    {
+      "number": "090",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
+  ],
+  "featured": false
+}

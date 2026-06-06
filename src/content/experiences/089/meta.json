@@ -1,0 +1,43 @@
+{
+  "number": "089",
+  "periods": [
+    {
+      "start": "2024-11-30"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "presentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "080",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    },
+    {
+      "number": "079",
+      "relation": "previous"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/089/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 세미나 대표 이미지",
+      "en": "Representative image for SSAFYnity seminar"
+    },
+    "caption": {
+      "ko": "SSAFYnity 세미나",
+      "en": "SSAFYnity Seminar"
+    }
+  },
+  "featured": false
+}

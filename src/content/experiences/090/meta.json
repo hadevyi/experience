@@ -1,0 +1,33 @@
+{
+  "number": "090",
+  "periods": [
+    {
+      "start": "2025-01-01",
+      "end": "2025-12-31"
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "ownership",
+    "coordination",
+    "operation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/090/representative.jpg",
+    "alt": {
+      "ko": "2025 SSAFYnity 4대 회장 대표 이미지",
+      "en": "Representative image for 2025 SSAFYnity 4th president"
+    }
+  },
+  "related": [
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
+  ],
+  "featured": false
+}

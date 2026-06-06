@@ -1,0 +1,43 @@
+{
+  "number": "088",
+  "periods": [
+    {
+      "start": "2024-09-28"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "coordination",
+    "presentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "080",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    },
+    {
+      "number": "078",
+      "relation": "previous"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/088/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 가을 체육대회 대표 이미지",
+      "en": "Representative image for SSAFYnity fall sports day"
+    },
+    "caption": {
+      "ko": "SSAFYnity 가을 체육대회",
+      "en": "SSAFYnity Fall Sports Day"
+    }
+  },
+  "featured": false
+}
