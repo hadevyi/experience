@@ -145,6 +145,14 @@ export const experienceTagConfig = {
       en: 'Experiences where I learned new technical knowledge and applied it in practice.'
     }
   },
+  'ai-utilization': {
+    ko: 'AI 활용',
+    en: 'AI Utilization',
+    description: {
+      ko: 'AI를 도구로 활용해 분석, 학습, 문제 해결, 작업 흐름을 개선한 경험',
+      en: 'Experiences where I used AI as a tool for analysis, learning, problem solving, or workflow improvement.'
+    }
+  },
   reflection: {
     ko: '경험공유',
     en: 'Experience Sharing',
