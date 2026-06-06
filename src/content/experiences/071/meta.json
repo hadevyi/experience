@@ -10,15 +10,21 @@
   "visibility": "public",
   "status": "in-progress",
   "experienceTags": [
-    "community",
+    "mentoring",
     "operation",
-    "mentoring"
+    "coordination"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "070", "relation": "parent-experience" },
-    { "number": "042", "relation": "affiliation" }
+    {
+      "number": "070",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "042",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/071/representative.jpg",

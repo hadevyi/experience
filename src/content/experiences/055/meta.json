@@ -9,13 +9,15 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "reflection",
-    "knowledge-sharing"
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "047", "relation": "affiliation" }
+    {
+      "number": "047",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/055/representative.jpg",

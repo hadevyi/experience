@@ -11,15 +11,19 @@
   "status": "done",
   "experienceTags": [
     "presentation",
-    "community",
-    "knowledge-sharing"
+    "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "074", "relation": "parent-experience" },
-    { "number": "072", "relation": "parent-experience" },
-    { "number": "065", "relation": "affiliation" }
+    {
+      "number": "074",
+      "relation": "related",
+      "note": {
+        "ko": "기조연설이 포함된 행사",
+        "en": "Event that included the keynote"
+      }
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/075/representative.jpg",

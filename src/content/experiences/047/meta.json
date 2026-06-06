@@ -10,7 +10,7 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning",
+    "growth-foundation",
     "problem-solving"
   ],
   "projectDomains": [],
@@ -20,7 +20,10 @@
     "mysql"
   ],
   "related": [
-    { "number": "046", "relation": "parent-experience" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/047/representative.jpg",

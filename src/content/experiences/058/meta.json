@@ -9,14 +9,20 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "knowledge-sharing",
+    "presentation",
     "reflection"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/058/representative.jpg",

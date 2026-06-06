@@ -11,8 +11,7 @@
   "status": "done",
   "teamSize": 2,
   "experienceTags": [
-    "problem-solving",
-    "collaboration"
+    "problem-solving"
   ],
   "projectDomains": [
     "web"
@@ -31,8 +30,14 @@
     "kakao-map-api"
   ],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/050/representative.jpg",

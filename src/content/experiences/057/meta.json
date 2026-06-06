@@ -11,8 +11,8 @@
   "status": "done",
   "experienceTags": [
     "problem-solving",
-    "collaboration",
-    "ownership"
+    "ownership",
+    "collaboration"
   ],
   "projectDomains": [
     "web",
@@ -33,9 +33,18 @@
     "photon"
   ],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "060", "relation": "award" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "060",
+      "relation": "award"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/057/representative.jpg",

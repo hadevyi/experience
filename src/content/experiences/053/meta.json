@@ -10,14 +10,23 @@
   "status": "done",
   "experienceTags": [
     "problem-solving",
-    "collaboration"
+    "presentation"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "051", "relation": "source" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "051",
+      "relation": "source"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/053/representative.jpg",

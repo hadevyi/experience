@@ -11,15 +11,21 @@
   "status": "done",
   "employmentType": "freelance",
   "experienceTags": [
-    "teaching",
     "mentoring",
-    "operation"
+    "operation",
+    "teaching"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "062", "relation": "previous" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "062",
+      "relation": "previous"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/068/representative.webp",

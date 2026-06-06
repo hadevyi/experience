@@ -10,8 +10,9 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "collaboration",
-    "problem-solving"
+    "problem-solving",
+    "structuring",
+    "collaboration"
   ],
   "projectDomains": [
     "web"
@@ -28,8 +29,14 @@
     "figma"
   ],
   "related": [
-    { "number": "042", "relation": "affiliation" },
-    { "number": "063", "relation": "parent-experience" }
+    {
+      "number": "042",
+      "relation": "affiliation"
+    },
+    {
+      "number": "063",
+      "relation": "parent-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/064/representative.webp",

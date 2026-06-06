@@ -10,16 +10,25 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
     "operation",
-    "coordination"
+    "coordination",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "065", "relation": "parent-experience" },
-    { "number": "067", "relation": "detailed-experience" },
-    { "number": "069", "relation": "detailed-experience" }
+    {
+      "number": "065",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "067",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "069",
+      "relation": "detailed-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/066/representative-v2.jpg",

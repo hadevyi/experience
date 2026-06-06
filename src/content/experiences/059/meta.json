@@ -9,16 +9,28 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "knowledge-sharing",
-    "presentation"
+    "presentation",
+    "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "054", "relation": "project" },
-    { "number": "056", "relation": "award" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "054",
+      "relation": "project"
+    },
+    {
+      "number": "056",
+      "relation": "award"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/059/representative.jpg",

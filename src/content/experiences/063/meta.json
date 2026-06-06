@@ -10,15 +10,20 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
     "collaboration",
     "coordination"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "042", "relation": "affiliation" },
-    { "number": "064", "relation": "project" }
+    {
+      "number": "042",
+      "relation": "affiliation"
+    },
+    {
+      "number": "064",
+      "relation": "project"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/063/representative.webp",

@@ -11,8 +11,8 @@
   "status": "done",
   "experienceTags": [
     "problem-solving",
-    "collaboration",
-    "knowledge-sharing"
+    "knowledge-sharing",
+    "collaboration"
   ],
   "projectDomains": [
     "open-source",
@@ -26,10 +26,22 @@
     "tensorflow"
   ],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "056", "relation": "award" },
-    { "number": "059", "relation": "activity" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "056",
+      "relation": "award"
+    },
+    {
+      "number": "059",
+      "relation": "activity"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/054/representative.jpg",

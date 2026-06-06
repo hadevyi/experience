@@ -10,16 +10,27 @@
   "status": "done",
   "experienceTags": [
     "problem-solving",
-    "collaboration",
     "knowledge-sharing"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "054", "relation": "source" },
-    { "number": "059", "relation": "activity" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "054",
+      "relation": "source"
+    },
+    {
+      "number": "059",
+      "relation": "activity"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/056/representative.jpg",

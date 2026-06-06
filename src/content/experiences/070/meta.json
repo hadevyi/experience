@@ -17,7 +17,10 @@
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "042", "relation": "parent-experience" }
+    {
+      "number": "042",
+      "relation": "parent-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/070/representative.webp",

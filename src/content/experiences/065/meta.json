@@ -10,14 +10,19 @@
   "visibility": "public",
   "status": "in-progress",
   "experienceTags": [
-    "community",
-    "operation"
+    "community"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "066", "relation": "detailed-experience" },
-    { "number": "072", "relation": "detailed-experience" }
+    {
+      "number": "066",
+      "relation": "detailed-experience"
+    },
+    {
+      "number": "072",
+      "relation": "detailed-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/065/representative-v2.jpg",

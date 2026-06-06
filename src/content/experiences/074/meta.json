@@ -10,16 +10,24 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
-    "operation",
-    "coordination"
+    "coordination",
+    "structuring"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "072", "relation": "parent-experience" },
-    { "number": "065", "relation": "affiliation" },
-    { "number": "075", "relation": "detailed-experience" }
+    {
+      "number": "072",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    },
+    {
+      "number": "075",
+      "relation": "detailed-experience"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/074/representative.jpg",

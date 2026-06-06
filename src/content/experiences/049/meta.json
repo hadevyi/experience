@@ -10,16 +10,20 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
-    "learning",
-    "collaboration",
-    "problem-solving"
+    "knowledge-sharing",
+    "technical-learning"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/049/representative.jpg",

@@ -11,8 +11,8 @@
   "status": "done",
   "experienceTags": [
     "problem-solving",
-    "collaboration",
-    "structuring"
+    "structuring",
+    "collaboration"
   ],
   "projectDomains": [
     "web"
@@ -34,9 +34,18 @@
     "figma"
   ],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "affiliation" },
-    { "number": "053", "relation": "award" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "affiliation"
+    },
+    {
+      "number": "053",
+      "relation": "award"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/051/representative.jpg",

@@ -9,15 +9,20 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "learning",
-    "problem-solving",
+    "academic-achievement",
     "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "046", "relation": "parent-experience" },
-    { "number": "047", "relation": "source" }
+    {
+      "number": "046",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "047",
+      "relation": "source"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/061/representative.jpg",

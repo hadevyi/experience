@@ -10,15 +10,21 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "community",
-    "operation",
-    "coordination"
+    "coordination",
+    "presentation",
+    "ownership"
   ],
   "projectDomains": [],
   "techTags": [],
   "related": [
-    { "number": "072", "relation": "parent-experience" },
-    { "number": "065", "relation": "affiliation" }
+    {
+      "number": "072",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "065",
+      "relation": "affiliation"
+    }
   ],
   "representativeImage": {
     "src": "/experience/images/experiences/073/representative.jpg",

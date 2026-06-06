@@ -10,10 +10,8 @@
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "operation",
     "coordination",
-    "documentation",
-    "collaboration"
+    "documentation"
   ],
   "projectDomains": [],
   "techTags": [],
