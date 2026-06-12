@@ -98,10 +98,10 @@ export const experienceTagConfig = {
     }
   },
   coordination: {
-    ko: '조율',
+    ko: '진행 조율',
     en: 'Coordination',
     description: {
-      ko: '의견, 역할, 일정, 흐름을 맞춘 경험',
+      ko: '의견, 역할, 일정, 진행 흐름을 맞춘 경험',
       en: 'Experiences where I aligned opinions, roles, schedules, or workflow.'
     }
   },
