@@ -2,14 +2,15 @@
   "number": "106",
   "periods": [
     {
-      "start": "2025-12-06"
+      "start": "2025-11-01"
     }
   ],
-  "category": "event-operation",
+  "category": "teaching-mentoring",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "coordination",
+    "teaching",
+    "reflection",
     "structuring"
   ],
   "projectDomains": [],
@@ -17,19 +18,9 @@
   "representativeImage": {
     "src": "/experience/images/experiences/106/representative.jpg",
     "alt": {
-      "ko": "2025 SSAFYnity 커리어 파티 대표 이미지",
-      "en": "Representative image for 2025 SSAFYnity Career Party"
+      "ko": "SW개발자를 꿈꾸는 후배들에게 대표 이미지",
+      "en": "Representative image for the SW developer lecture series"
     }
   },
-  "related": [
-    {
-      "number": "091",
-      "relation": "parent-experience"
-    },
-    {
-      "number": "066",
-      "relation": "affiliation"
-    }
-  ],
   "featured": false
 }

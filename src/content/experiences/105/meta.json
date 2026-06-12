@@ -2,24 +2,33 @@
   "number": "105",
   "periods": [
     {
-      "start": "2025-11-01"
+      "start": "2025-10"
     }
   ],
-  "category": "teaching-mentoring",
+  "category": "award-scholarship",
   "visibility": "public",
   "status": "done",
   "experienceTags": [
-    "teaching",
     "reflection",
-    "structuring"
+    "documentation"
   ],
   "projectDomains": [],
   "techTags": [],
+  "related": [
+    {
+      "number": "115",
+      "relation": "result"
+    }
+  ],
   "representativeImage": {
     "src": "/experience/images/experiences/105/representative.jpg",
     "alt": {
-      "ko": "SW개발자를 꿈꾸는 후배들에게 대표 이미지",
-      "en": "Representative image for the SW developer lecture series"
+      "ko": "SSAFY 수기 공모전 우수상 대표 이미지",
+      "en": "Representative image for SSAFY Essay Contest Excellence Award"
+    },
+    "caption": {
+      "ko": "SSAFY 수기 공모전 우수상",
+      "en": "SSAFY Essay Contest Excellence Award"
     }
   },
   "featured": false
