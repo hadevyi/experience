@@ -1,0 +1,31 @@
+{
+  "number": "109",
+  "periods": [
+    {
+      "start": "2026-01-22",
+      "current": true
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "in-progress",
+  "inProgressDetailVisibility": "full",
+  "experienceTags": [
+    "sponsorship"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/109/representative.jpg",
+    "alt": {
+      "ko": "BTF 푸른나무재단 정기후원 대표 이미지",
+      "en": "Representative image for regular sponsorship of BTF Foundation for Youth Violence Prevention"
+    },
+    "caption": {
+      "ko": "BTF 푸른나무재단 정기후원",
+      "en": "Regular Sponsorship for BTF Foundation for Youth Violence Prevention"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,42 @@
+{
+  "number": "112",
+  "periods": [
+    {
+      "start": "2026-02-26",
+      "current": true
+    }
+  ],
+  "category": "project",
+  "teamSize": 1,
+  "visibility": "public",
+  "status": "in-progress",
+  "inProgressDetailVisibility": "full",
+  "experienceTags": [
+    "problem-solving",
+    "structuring",
+    "documentation",
+    "ai-utilization"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "html",
+    "css",
+    "javascript",
+    "google-analytics"
+  ],
+  "related": [],
+  "representativeImage": {
+    "src": "/experience/images/experiences/112/representative.jpg",
+    "alt": {
+      "ko": "1인개발 개인브랜딩 사이트 개발 대표 이미지",
+      "en": "Representative image for solo personal branding site development"
+    },
+    "caption": {
+      "ko": "1인개발 개인브랜딩 사이트 개발",
+      "en": "Solo Personal Branding Site Development"
+    }
+  },
+  "featured": false
+}

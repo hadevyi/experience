@@ -1,0 +1,40 @@
+{
+  "number": "114",
+  "periods": [
+    {
+      "start": "2026-03-02",
+      "current": true
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "operation",
+    "documentation",
+    "ai-utilization"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [],
+  "related": [
+    {
+      "number": "066",
+      "relation": "affiliation"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/114/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 공식 홈페이지 및 블로그 개인개발 대표 이미지",
+      "en": "Representative image for SSAFYnity official homepage and blog development"
+    },
+    "caption": {
+      "ko": "SSAFYnity 공식 홈페이지 및 블로그 개인개발",
+      "en": "SSAFYnity Official Homepage and Blog Development"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,63 @@
+---
+title: DoRunDoDun 팀 소개 페이지
+organization: DoRunDoDun
+summary: DoRunDoDun의 정체성과 활동 흐름을 외부에 보여주기 위해, 팀 소개 페이지를 기획부터 배포까지 완성했습니다.
+oneLine: 프로젝트 팀을 소개하는 공식 페이지 1인 개발
+highlights:
+  - 기획, 디자인, 프론트엔드 개발, 배포 전 과정 담당
+  - Claude Sonnet 4.6으로 초기 구조와 구현 방향 정리
+  - 팀원별 소개 콘텐츠를 관리할 수 있는 데이터 구조 구성
+  - React, Vite, GitHub Pages 기반 정적 페이지 제작
+project:
+  host: DoRunDoDun
+  position: 기획·디자인·프론트엔드 개발·배포
+  teamComposition:
+    - role: 기획·디자인·개발·배포
+      count: 1
+      note: 전체 제작 담당
+    - role: 팀원 소개 콘텐츠 작성
+      count: 3
+      note: 각 팀원이 본인 소개를 직접 추가
+  techStack:
+    - category: framework
+      name: React
+      version: 18.3.1
+      note: 화면 구성
+    - category: tool
+      name: Vite
+      version: 6.0.5
+      note: 개발 환경과 정적 빌드
+    - category: language
+      name: JavaScript
+      note: 컴포넌트 구현
+    - category: language
+      name: CSS
+      note: 전역 스타일과 반응형 스타일
+    - category: platform
+      name: GitHub Pages
+      note: 정적 배포
+  deployment: GitHub Pages 정적 배포
+  overview: |
+    DoRunDoDun 팀을 외부에 소개하기 위한 정적 웹 페이지를 만들었습니다. 팀의 슬로건, 히스토리, 팀원 소개, 프로젝트 현황, 연락 수단을 한 페이지에서 확인할 수 있도록 구성했습니다.
+  background: |
+    팀을 만들고 첫 프로젝트를 시작하면서, 팀이 어떤 방향으로 움직이는지 외부에 설명할 수 있는 공식 소개 페이지가 필요했습니다. 동시에 AI를 가볍게 활용해 화면 구성과 구현 흐름을 빠르게 잡아보는 것도 이 프로젝트의 목표였습니다.
+  scope: |
+    Hero, History, Members, Projects, Contact 섹션을 구성했습니다. 팀 이름과 슬로건, 팀 결성 및 첫 프로젝트 착수 히스토리, 팀원별 역할과 소개, 진행 중인 프로젝트 카드, GitHub와 이메일 연락 동선을 포함했습니다.
+  contribution: |
+    전체 기획, 디자인, 프론트엔드 개발, 배포를 담당했습니다. 팀원들은 각자 본인의 소개 콘텐츠를 직접 추가했고, 페이지는 `siteData.js`를 중심으로 콘텐츠를 관리할 수 있도록 구성했습니다.
+  roleDetails: []
+  implementation: |
+    React 컴포넌트로 Hero, History, Members, Projects, Contact 섹션을 분리하고, 팀 정보와 멤버 데이터는 `siteData.js`에서 관리하도록 구성했습니다. Vite로 정적 빌드를 만들고, GitHub Pages에서 배포되도록 설정했습니다.
+  challenges: |
+    짧은 기간 안에 팀 정체성, 소개 구조, 반응형 화면, 배포 흐름까지 정리해야 했습니다. Claude Sonnet 4.6을 초기 구조 설계와 구현 방향 정리에 활용해, 무겁게 설계하기보다 빠르게 만들고 다듬는 방식으로 진행했습니다.
+  outcome: |
+    공식 소개 채널을 확보하고, 팀 정체성과 프로젝트를 연결해 보여줄 수 있는 기본 허브를 마련했습니다.
+sections: []
+links:
+  - type: demo
+    label: DoRunDoDun 팀 소개 페이지
+    url: https://dorundodun.github.io/
+  - type: repository
+    label: DoRunDoDun/DoRunDoDun.github.io
+    url: https://github.com/DoRunDoDun/DoRunDoDun.github.io
+---

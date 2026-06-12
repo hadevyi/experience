@@ -1,0 +1,96 @@
+---
+title: SSAFYnity Official Channel Development
+organization: SSAFYnity
+summary: I organized scattered alumni association information into an official website and blog, then designed and implemented the structure needed for public operation.
+oneLine: Solo development of SSAFYnity's official website and blog
+highlights:
+  - "Separated the sites by purpose: external introduction and operational archive"
+  - Structured operator, event, club, and member statistics data
+  - Built static Astro sites and GitHub Pages deployment
+  - Used Codex to organize implementation direction and content structure
+project:
+  host: SSAFYnity
+  position: Planning, design, development, and deployment
+  teamComposition:
+    - role: Planning, design, development, and deployment
+      count: 1
+      note: Solo development of the official website and blog
+  techStack:
+    - category: framework
+      name: Astro
+      version: 5.6.1
+      note: Static site foundation for the official website and blog
+    - category: framework
+      name: Tailwind CSS
+      version: 3.4.19
+      note: Styling foundation for the official website
+    - category: language
+      name: TypeScript
+      version: 5.9.3
+      note: Operational data and type management
+    - category: tool
+      name: GitHub Actions
+      note: Automated build and deployment after merging to main
+    - category: platform
+      name: GitHub Pages
+      note: Static deployment for the official website and blog
+    - category: tool
+      name: Google Analytics / Search Console
+      note: Traffic analysis and search visibility for the public site
+    - category: tool
+      name: Codex
+      note: Used for organizing implementation direction and content structure
+  deployment: Static deployment with GitHub Pages
+  overview: |
+    I developed SSAFYnity's official website and blog. The website handles introduction, membership, and inquiry flows, while the blog keeps notices and operational records.
+  background: |
+    As the 5th president, I needed to organize information that had been scattered across KakaoTalk, SNS channels, and event announcements. Records such as events and dues also needed a searchable blog.
+
+    I separated the two sites because their metrics and Google Analytics / Search Console criteria could differ by purpose.
+  scope: |
+    - Official website: alumni association introduction, values, partners, operators, events, clubs, SNS, FAQ, membership, and inquiries
+    - Blog: Markdown content archive for notices, journals, clubs, series, and dues records
+    - Operational data: member statistics by cohort and campus, event data, operator data, club data, and SNS links
+    - Analytics and search: separated Google Analytics and Google Search Console criteria by site purpose
+    - Deployment: static build and GitHub Pages deployment through GitHub Actions
+  contribution: |
+    I handled planning, information architecture, screen structure, development, and deployment. The website is backed by operational data, and the blog manages posts as category-based Markdown content.
+  roleDetails:
+    - Designed the information architecture for the official website and blog
+    - Implemented static sites with Astro
+    - Collected and organized previously scattered SSAFYnity information
+    - Structured operational data for operators, events, clubs, and member statistics
+    - Defined blog categories and the posting flow
+    - Configured GitHub Actions and GitHub Pages deployment
+    - Prepared SEO metadata, sitemaps, Google Analytics, and Search Console integration
+    - Used Codex to compare implementation direction and content structure
+  implementation: |
+    The official website uses Astro file-based routing. Each route generates static HTML, and operational data is separated into TypeScript files.
+
+    The blog stores category-based Markdown posts under `src/content/posts`. After changes are merged into the main branch, GitHub Actions deploys the site automatically.
+  challenges: |
+    Because this site would continue to be used in operation, collecting existing information and considering future updates were important.
+
+    - Separated external-facing information from operational records
+    - Collected scattered operational information and event records
+    - Structured recurring data such as events, operators, clubs, and member statistics
+    - Separated Google Analytics and Search Console criteria for the website and blog
+    - Preserved directly accessible static routes in the GitHub Pages environment
+    - Considered a content workflow that future operators can continue to maintain
+  outcome: |
+    I publicly deployed the official website and blog, creating a basic channel for introducing SSAFYnity and archiving operational records. Since launch, I have continued updating content and operational data.
+sections: []
+links:
+  - type: demo
+    label: Site - SSAFYnity Official Website
+    url: https://ssafynity.github.io/
+  - type: demo
+    label: Site - SSAFYnity Blog
+    url: https://ssafynity.github.io/blog/
+  - type: repository
+    label: GitHub - SSAFYnity/ssafynity.github.io
+    url: https://github.com/SSAFYnity/ssafynity.github.io
+  - type: repository
+    label: GitHub - SSAFYnity/blog
+    url: https://github.com/SSAFYnity/blog
+---

@@ -1,0 +1,41 @@
+{
+  "number": "110",
+  "periods": [
+    {
+      "start": "2026-02-19",
+      "current": true
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "in-progress",
+  "inProgressDetailVisibility": "partial",
+  "experienceTags": [
+    "collaboration",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "111",
+      "relation": "project"
+    },
+    {
+      "number": "113",
+      "relation": "project"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/110/representative.jpg",
+    "alt": {
+      "ko": "DoRunDoDun 사이드 프로젝트 팀 대표 이미지",
+      "en": "Representative image for DoRunDoDun side project team"
+    },
+    "caption": {
+      "ko": "DoRunDoDun 사이드 프로젝트 팀",
+      "en": "DoRunDoDun Side Project Team"
+    }
+  },
+  "featured": false
+}

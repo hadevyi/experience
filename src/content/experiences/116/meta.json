@@ -1,0 +1,44 @@
+{
+  "number": "116",
+  "periods": [
+    {
+      "start": "2026-05-31"
+    }
+  ],
+  "category": "event-operation",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "operation",
+    "ownership",
+    "coordination"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "108",
+      "relation": "parent-experience"
+    },
+    {
+      "number": "066",
+      "relation": "affiliation"
+    },
+    {
+      "number": "114",
+      "relation": "related"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/116/representative.jpg",
+    "alt": {
+      "ko": "SSAFYnity 온라인 테트리스 대회 대표 이미지",
+      "en": "Representative image for SSAFYnity Online Tetris Tournament"
+    },
+    "caption": {
+      "ko": "SSAFYnity 온라인 테트리스 대회",
+      "en": "SSAFYnity Online Tetris Tournament"
+    }
+  },
+  "featured": false
+}

@@ -1,0 +1,39 @@
+{
+  "number": "113",
+  "periods": [
+    {
+      "start": "2026-03-02",
+      "current": true
+    }
+  ],
+  "category": "project",
+  "visibility": "public",
+  "status": "in-progress",
+  "inProgressDetailVisibility": "private",
+  "experienceTags": [
+    "problem-solving",
+    "collaboration"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [],
+  "related": [
+    {
+      "number": "110",
+      "relation": "parent-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/113/representative.jpg",
+    "alt": {
+      "ko": "DoRunDoDun 첫 번째 프로젝트 대표 이미지",
+      "en": "Representative image for DoRunDoDun first project"
+    },
+    "caption": {
+      "ko": "DoRunDoDun 첫 번째 프로젝트",
+      "en": "DoRunDoDun First Project"
+    }
+  },
+  "featured": false
+}

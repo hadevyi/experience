@@ -1,0 +1,113 @@
+---
+title: 개인 브랜딩 페이지 개발
+organization: 개인 프로젝트
+summary: 나 자신을 더 정확하게 브랜딩하고 실제로 운영할 수 있도록, 목적별로 분리된 개인 사이트 체계를 설계하고 개발하고 있습니다.
+oneLine: 개인 브랜딩을 위한 5개 정적 사이트 1인 개발
+highlights:
+  - 목적, 공개 범위, 업데이트 주기에 따라 5개 사이트로 분리
+  - 기획, 정보 구조, 디자인, 개발, 콘텐츠 작성, 배포를 1인 담당
+  - Astro 기반 정적 사이트와 GitHub Pages 배포 구조로 운영성 확보
+  - AI를 활용해 구현 방향과 콘텐츠 톤을 비교·정돈
+project:
+  host: 개인 프로젝트
+  position: 기획·디자인·개발·콘텐츠 작성·배포·운영
+  teamComposition:
+    - role: 기획·디자인·개발·콘텐츠 작성·배포·운영
+      count: 1
+      note: 전체 사이트 1인 개발
+  techStack:
+    - category: framework
+      name: Astro
+      version: 6.3.6
+      note: 5개 정적 사이트 공통 기반
+    - category: framework
+      name: Tailwind CSS
+      version: 4.2.4
+      note: 공통 스타일링 기반
+    - category: language
+      name: TypeScript
+      version: 5.9.3
+      note: 데이터와 타입 관리
+    - category: language
+      name: MDX
+      version: 5.0.3
+      note: 블로그, 포트폴리오, 경험 콘텐츠 작성
+    - category: platform
+      name: GitHub Pages
+      note: 정적 배포
+    - category: tool
+      name: GitHub Actions
+      note: 빌드와 배포 자동화
+    - category: tool
+      name: Google Analytics / Search Console
+      note: 공개 배포와 유입 분석을 고려한 연동 준비
+  deployment: GitHub Pages 정적 배포
+  overview: |
+    개인 브랜딩을 위해 메인 허브, 블로그, 포트폴리오, 이력서, 경험 정리 사이트를 나누어 개발하고 있습니다. 메인 허브는 전체 진입점으로 두고, 나머지 사이트는 각각의 목적에 맞게 독립 레포지토리로 운영합니다.
+  background: |
+    단순히 포트폴리오 하나를 만드는 것보다, 나의 경험과 작업물을 목적에 따라 분리해 보여줄 수 있는 구조가 필요했습니다.
+
+    - 각 사이트마다 공개 범위가 다름
+    - GA/Search Console 오픈 여부가 다름
+    - 목적에 따라 필요한 UI/UX 구성이 다름
+    - 업데이트 주기와 관리 방식이 다름
+    - 하나로 합치면 구조가 무거워지고 목적이 흐려질 수 있음
+  scope: |
+    - 메인 허브: 이력서와 작업 기록을 연결하는 진입점
+    - 블로그: 긴 설명이 필요한 설계와 기술 메모를 남기는 기록 공간
+    - 포트폴리오: 프로젝트 배경과 결과를 정리하는 케이스 스터디 공간
+    - 이력서: 빠르게 읽히는 경력 요약
+    - 경험 정리: 이력서 뒤의 맥락과 배운 점을 시간 흐름에 따라 정리하는 공간
+
+    공개 운영을 고려해 Google Analytics와 Google Search Console 연동을 준비하고 있습니다.
+  contribution: |
+    모든 사이트의 기획, 정보 구조 설계, 디자인, 개발, 콘텐츠 작성, 배포를 직접 담당했습니다. 사이트별 역할은 분리하되, 개인 브랜딩의 톤과 구조가 이어지도록 정리하고 있습니다.
+  roleDetails:
+    - 5개 레포지토리 기반의 개인 브랜딩 사이트 구조 설계
+    - 사이트별 목적에 맞춘 정보 구조와 콘텐츠 작성
+    - Astro 기반 정적 사이트 개발과 GitHub Pages 배포
+    - GA/Search Console 연동을 고려한 공개 운영 구조 준비
+    - AI를 활용한 브랜딩 문구, 페이지 구조, 콘텐츠 방향 비교
+  implementation: |
+    5개 사이트 모두 Astro, Tailwind CSS, MDX 기반으로 구성했습니다. 각 레포지토리에는 GitHub Pages 배포 워크플로우를 두고, 메인 허브를 중심으로 각 독립 사이트가 연결되도록 설계하고 있습니다.
+  challenges: |
+    한 번 만들고 끝나는 페이지가 아니라 꾸준히 업데이트해야 하는 구조이기 때문에, 사이트를 어떻게 나누고 어떤 기준으로 연결할지 정하는 것이 중요했습니다.
+
+    - 사이트별 목표와 갱신 주기를 기준으로 분리
+    - 공개 여부와 분석 도구 연동 범위를 사이트별로 판단
+    - AI를 활용해 전체 구현 방향과 콘텐츠의 상세 톤을 비교·정돈
+  outcome: |
+    아직 수정 중인 프로젝트이지만, 개인 브랜딩을 위한 기본 구조와 공개 배포 기반을 마련했습니다. 앞으로 경험, 글, 프로젝트, 이력 정보를 각 사이트의 목적에 맞게 업데이트할 예정입니다.
+sections: []
+links:
+  - type: demo
+    label: Site - Hadevyi 메인 허브
+    url: https://hadevyi.github.io/
+  - type: demo
+    label: Site - Hadevyi 블로그
+    url: https://hadevyi.github.io/blog/
+  - type: demo
+    label: Site - Hadevyi 포트폴리오
+    url: https://hadevyi.github.io/portfolio/
+  - type: demo
+    label: Site - Hadevyi 이력서
+    url: https://hadevyi.github.io/resume/
+  - type: demo
+    label: Site - Hadevyi 경험 정리
+    url: https://hadevyi.github.io/experience/
+  - type: repository
+    label: GitHub - hadevyi/hadevyi.github.io
+    url: https://github.com/hadevyi/hadevyi.github.io
+  - type: repository
+    label: GitHub - hadevyi/blog
+    url: https://github.com/hadevyi/blog
+  - type: repository
+    label: GitHub - hadevyi/portfolio
+    url: https://github.com/hadevyi/portfolio
+  - type: repository
+    label: GitHub - hadevyi/resume
+    url: https://github.com/hadevyi/resume
+  - type: repository
+    label: GitHub - hadevyi/experience
+    url: https://github.com/hadevyi/experience
+---

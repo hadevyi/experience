@@ -1,0 +1,96 @@
+---
+title: SSAFYnity 공식 채널 개발
+organization: SSAFYnity
+summary: 흩어진 동문회 정보를 공식 홈페이지와 블로그로 정리하고, 공개 운영에 필요한 구조를 설계·구현했습니다.
+oneLine: SSAFYnity 공식 홈페이지·블로그 1인 개발
+highlights:
+  - 외부 소개와 운영 기록의 목적에 맞춰 사이트 분리
+  - 운영진, 행사, 동아리, 회원 통계 데이터를 구조화
+  - Astro 정적 사이트와 GitHub Pages 배포 구조 구성
+  - Codex를 활용해 구현 방향과 콘텐츠 구조 정리
+project:
+  host: SSAFYnity
+  position: 기획·디자인·개발·배포
+  teamComposition:
+    - role: 기획·디자인·개발·배포
+      count: 1
+      note: 공식 홈페이지와 블로그 1인 개발
+  techStack:
+    - category: framework
+      name: Astro
+      version: 5.6.1
+      note: 공식 홈페이지와 블로그의 정적 사이트 기반
+    - category: framework
+      name: Tailwind CSS
+      version: 3.4.19
+      note: 공식 홈페이지 스타일링 기반
+    - category: language
+      name: TypeScript
+      version: 5.9.3
+      note: 운영 데이터와 타입 관리
+    - category: tool
+      name: GitHub Actions
+      note: main 브랜치 머지 후 빌드·배포 자동화
+    - category: platform
+      name: GitHub Pages
+      note: 공식 홈페이지와 블로그 정적 배포
+    - category: tool
+      name: Google Analytics / Search Console
+      note: 공개 사이트 유입 분석과 검색 노출 대응
+    - category: tool
+      name: Codex
+      note: 구현 방향 정리와 콘텐츠 구조화에 활용
+  deployment: GitHub Pages 정적 배포
+  overview: |
+    SSAFYnity의 공식 홈페이지와 블로그를 개발했습니다. 홈페이지는 동문회 소개와 가입·문의 동선을 맡고, 블로그는 공지와 운영 기록을 남기는 공간으로 분리했습니다.
+  background: |
+    5대 회장을 맡으며 카카오톡, SNS, 행사 안내에 흩어져 있던 정보를 공식 채널로 정리할 필요가 있었습니다. 행사와 회비처럼 시간이 지나도 남아야 하는 기록은 검색 가능한 블로그로 관리하는 편이 적합했습니다.
+
+    두 사이트는 추적할 지표와 Google Analytics, Google Search Console 적용 기준도 달라질 수 있어 분리했습니다.
+  scope: |
+    - 공식 홈페이지: 동문회 소개, 가치관, 후원·협력사, 운영진, 행사, 동아리, SNS, FAQ, 가입·문의 페이지
+    - 블로그: 공지, 일지, 동아리, 연재, 회비 기록 중심의 Markdown 콘텐츠 아카이브
+    - 운영 데이터: 기수·캠퍼스별 회원 통계, 행사 데이터, 운영진 데이터, 동아리 데이터, SNS 링크 관리
+    - 분석/검색 연동: 사이트 목적에 따라 Google Analytics와 Google Search Console 적용 기준 분리
+    - 배포 구조: GitHub Actions로 빌드 후 GitHub Pages에 정적 배포
+  contribution: |
+    기획, 정보 구조, 화면 구성, 개발, 배포를 담당했습니다. 홈페이지는 운영 데이터 기반 정적 페이지로 만들고, 블로그는 카테고리별 Markdown 콘텐츠로 관리할 수 있게 구성했습니다.
+  roleDetails:
+    - 공식 홈페이지와 블로그의 정보 구조 설계
+    - Astro 기반 정적 사이트 구현
+    - 기존에 흩어져 있던 SSAFYnity 정보 수집과 정리
+    - 운영진, 행사, 동아리, 회원 통계 등 운영 데이터 구조화
+    - 블로그 카테고리와 게시글 작성 흐름 구성
+    - GitHub Actions와 GitHub Pages 기반 배포 설정
+    - SEO 메타, 사이트맵, GA/Search Console 연동 준비
+    - Codex를 활용한 구현 방향과 콘텐츠 구조 비교
+  implementation: |
+    공식 홈페이지는 Astro 파일 라우팅으로 구성했습니다. 각 경로가 실제 정적 HTML로 생성되도록 했고, 운영 데이터는 TypeScript 파일로 분리했습니다.
+
+    블로그는 `src/content/posts` 아래에 카테고리별 Markdown 게시글을 두는 구조입니다. main 브랜치에 머지되면 GitHub Actions를 통해 자동으로 배포됩니다.
+  challenges: |
+    실제 운영에 계속 쓰일 사이트였기 때문에, 기존 정보를 모으고 이후의 갱신 흐름을 고려하는 일이 중요했습니다.
+
+    - 외부 소개용 정보와 운영 기록용 정보를 분리
+    - 기존에 흩어져 있던 운영 정보와 행사 기록 수집
+    - 행사, 운영진, 동아리, 회원 통계처럼 반복 갱신되는 데이터를 구조화
+    - 홈페이지와 블로그의 GA/Search Console 적용 기준 구분
+    - GitHub Pages 환경에서 직접 접근 가능한 정적 경로 유지
+    - 운영진이 이어서 관리할 수 있는 콘텐츠 작성 흐름 고려
+  outcome: |
+    공식 홈페이지와 블로그를 공개 배포해 SSAFYnity를 소개하고 운영 기록을 남길 수 있는 기본 채널을 마련했습니다. 이후 콘텐츠와 운영 데이터는 계속 갱신하고 있습니다.
+sections: []
+links:
+  - type: demo
+    label: Site - SSAFYnity 공식 홈페이지
+    url: https://ssafynity.github.io/
+  - type: demo
+    label: Site - SSAFYnity 블로그
+    url: https://ssafynity.github.io/blog/
+  - type: repository
+    label: GitHub - SSAFYnity/ssafynity.github.io
+    url: https://github.com/SSAFYnity/ssafynity.github.io
+  - type: repository
+    label: GitHub - SSAFYnity/blog
+    url: https://github.com/SSAFYnity/blog
+---

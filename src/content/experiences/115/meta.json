@@ -1,0 +1,35 @@
+{
+  "number": "115",
+  "periods": [
+    {
+      "start": "2026-03-16"
+    }
+  ],
+  "category": "media-interview",
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "reflection",
+    "documentation"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "105",
+      "relation": "related"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/115/representative.jpg",
+    "alt": {
+      "ko": "SSAFY 수기 공모집 출간 대표 이미지",
+      "en": "Representative image for SSAFY Essay Collection Publication"
+    },
+    "caption": {
+      "ko": "SSAFY 수기 공모집 출간",
+      "en": "SSAFY Essay Collection Publication"
+    }
+  },
+  "featured": false
+}

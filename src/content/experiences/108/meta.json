@@ -1,0 +1,42 @@
+{
+  "number": "108",
+  "periods": [
+    {
+      "start": "2026-01-01",
+      "current": true
+    }
+  ],
+  "category": "community",
+  "visibility": "public",
+  "status": "in-progress",
+  "inProgressDetailVisibility": "partial",
+  "experienceTags": [
+    "operation",
+    "coordination",
+    "ownership"
+  ],
+  "projectDomains": [],
+  "techTags": [],
+  "related": [
+    {
+      "number": "066",
+      "relation": "affiliation"
+    },
+    {
+      "number": "114",
+      "relation": "project"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/108/representative.jpg",
+    "alt": {
+      "ko": "2026 SSAFYnity 5대 회장 대표 이미지",
+      "en": "Representative image for 2026 SSAFYnity 5th President"
+    },
+    "caption": {
+      "ko": "2026 SSAFYnity 5대 회장",
+      "en": "2026 SSAFYnity 5th President"
+    }
+  },
+  "featured": false
+}

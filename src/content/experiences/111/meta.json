@@ -1,0 +1,44 @@
+{
+  "number": "111",
+  "periods": [
+    {
+      "start": "2026-02-24",
+      "end": "2026-02-26"
+    }
+  ],
+  "category": "project",
+  "teamSize": 3,
+  "visibility": "public",
+  "status": "done",
+  "experienceTags": [
+    "problem-solving",
+    "documentation",
+    "ai-utilization"
+  ],
+  "projectDomains": [
+    "web"
+  ],
+  "techTags": [
+    "html",
+    "css",
+    "javascript"
+  ],
+  "related": [
+    {
+      "number": "110",
+      "relation": "parent-experience"
+    }
+  ],
+  "representativeImage": {
+    "src": "/experience/images/experiences/111/representative.jpg",
+    "alt": {
+      "ko": "DoRunDoDun 팀 소개 페이지 대표 이미지",
+      "en": "Representative image for DoRunDoDun team introduction page"
+    },
+    "caption": {
+      "ko": "DoRunDoDun 팀 소개 페이지",
+      "en": "DoRunDoDun Team Introduction Page"
+    }
+  },
+  "featured": false
+}
