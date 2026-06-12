@@ -777,6 +777,95 @@ html[data-theme='dark'] {
     @apply px-0 py-0;
   }
 
+  .experience-detail-body-in-progress {
+    @apply relative;
+  }
+
+  .experience-in-progress-placeholder {
+    @apply relative overflow-hidden rounded-[1.5rem] border;
+    min-height: 18rem;
+    border-color: var(--theme-border);
+    background-color: color-mix(in srgb, var(--theme-surface-strong) 78%, transparent);
+  }
+
+  .experience-in-progress-placeholder-section {
+    filter: blur(8px);
+    opacity: 0.34;
+    pointer-events: none;
+    user-select: none;
+    transform: scale(1.01);
+  }
+
+  .experience-in-progress-placeholder-section {
+    border-color: color-mix(in srgb, var(--theme-border) 78%, transparent);
+  }
+
+  .experience-in-progress-placeholder-title,
+  .experience-in-progress-placeholder-line {
+    @apply block rounded-full;
+    background:
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--theme-ink-muted) 18%, transparent),
+        color-mix(in srgb, var(--theme-accent) 16%, transparent),
+        color-mix(in srgb, var(--theme-ink-muted) 14%, transparent)
+      );
+  }
+
+  .experience-in-progress-placeholder-title {
+    width: min(15rem, 56%);
+    height: 1.35rem;
+  }
+
+  .experience-in-progress-placeholder-line {
+    @apply mt-4;
+    width: min(36rem, 92%);
+    height: 0.72rem;
+  }
+
+  .experience-in-progress-placeholder-line-long {
+    width: min(40rem, 100%);
+  }
+
+  .experience-in-progress-placeholder-line-short {
+    width: min(24rem, 64%);
+  }
+
+  .experience-in-progress-placeholder::after {
+    @apply pointer-events-none absolute inset-0;
+    content: '';
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--theme-bg) 68%, transparent),
+        color-mix(in srgb, var(--theme-surface-strong) 86%, transparent)
+      );
+  }
+
+  .experience-in-progress-notice {
+    @apply absolute left-1/2 top-1/2 z-10 grid -translate-x-1/2 -translate-y-1/2 gap-2 rounded-[1.25rem] border px-5 py-5 text-center sm:px-7 sm:py-6;
+    width: min(calc(100% - 2rem), 28rem);
+    border-color: color-mix(in srgb, var(--theme-accent) 24%, var(--theme-border));
+    background-color: color-mix(in srgb, var(--theme-surface-strong) 92%, transparent);
+    box-shadow: 0 18px 50px rgba(49, 43, 72, 0.1);
+  }
+
+  .experience-in-progress-title {
+    @apply m-0 font-semibold;
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+    color: var(--theme-ink);
+    word-break: keep-all;
+  }
+
+  .experience-in-progress-description {
+    @apply m-0;
+    font-size: var(--type-small-size);
+    line-height: var(--type-small-leading);
+    color: var(--theme-ink-muted);
+    word-break: keep-all;
+  }
+
   .experience-detail-section-list {
     @apply grid;
   }

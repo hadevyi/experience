@@ -87,6 +87,10 @@ const detailOrganizationLabel = isCertification
       en: 'Organization'
     };
 const statusLabel = statusLabels[resolveExperienceStatus(entry.meta.status)];
+const isInProgress = entry.meta.status === 'in-progress';
+const inProgressDetailVisibility = entry.meta.inProgressDetailVisibility ?? 'private';
+const shouldHideAllInProgressSections = isInProgress && inProgressDetailVisibility === 'private';
+const shouldLimitInProgressSections = isInProgress && inProgressDetailVisibility !== 'full';
 const employmentTypeLabel =
   entry.meta.category === 'work-experience' && entry.meta.employmentType
     ? getExperienceEmploymentTypeLabel(entry.meta.employmentType)
@@ -338,6 +342,59 @@ const getSectionTextItems = (section: (typeof structuredSections)[number]) => {
 };
 const isWorkResponsibilitySection = (section: (typeof structuredSections)[number]) =>
   workResponsibilityLabels.has(section.ko.label) || workResponsibilityLabels.has(section.en.label);
+const inProgressVisibleSectionLabels: Record<string, Set<string>> = {
+  affiliation: new Set(['소속/기관 소개', '속하게 된 이유', '합류 당시']),
+  project: new Set(['프로젝트 개요', '팀 구성', '기술 스택']),
+  community: new Set(['활동/커뮤니티 소개', '참여한 이유', '맡은 역할']),
+  'work-experience': new Set(['조직과 책임']),
+  'event-operation': new Set(['행사 개요', '운영 배경', '맡은 역할']),
+  'learning-growth': new Set(['학습이 필요했던 이유', '당시의 이해 수준', '배운 내용']),
+  certification: new Set(['자격/인증 개요', '발급 기관', '인증 범위']),
+  'teaching-mentoring': new Set(['대상', '참여하게 된 이유', '전달한 내용']),
+  'award-scholarship': new Set(['수상/장학 개요', '선정 기준']),
+  'media-interview': new Set(['소개된 배경', '당시 맥락', '다룬 주제'])
+};
+const inProgressPrivatePlaceholderBlockCount: Record<string, number> = {
+  affiliation: 5,
+  project: 7,
+  community: 6,
+  'work-experience': 4,
+  'event-operation': 8,
+  'learning-growth': 5,
+  certification: 6,
+  'teaching-mentoring': 6,
+  'award-scholarship': 4,
+  'media-interview': 5
+};
+const isInProgressVisibleBlock = (block: (typeof structuredDetailBlocks)[number]) => {
+  if (shouldHideAllInProgressSections) {
+    return false;
+  }
+
+  if (!shouldLimitInProgressSections) {
+    return true;
+  }
+
+  if (block.type === 'techStack') {
+    return inProgressVisibleSectionLabels.project.has('기술 스택');
+  }
+
+  if (block.type === 'awardCriteria') {
+    return inProgressVisibleSectionLabels['award-scholarship'].has('선정 기준');
+  }
+
+  return inProgressVisibleSectionLabels[entry.meta.category]?.has(block.section.ko.label) ?? false;
+};
+const visibleStructuredDetailBlocks = structuredDetailBlocks.filter(isInProgressVisibleBlock);
+const hiddenStructuredDetailBlockCount = shouldLimitInProgressSections
+  ? shouldHideAllInProgressSections
+    ? Math.max(
+        structuredDetailBlocks.length,
+        inProgressPrivatePlaceholderBlockCount[entry.meta.category] ?? 3
+      )
+    : structuredDetailBlocks.length - visibleStructuredDetailBlocks.length
+  : 0;
+const hasStructuredDetailBody = structuredSections.length > 0 || hiddenStructuredDetailBlockCount > 0;
 const parseLabeledWorkItem = (value: string) => {
   const separatorIndex = value.search(/[:：]/);
 
@@ -537,11 +594,11 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
       </aside>
     </section>
 
-    <section class="experience-detail-body">
+    <section class:list={['experience-detail-body', isInProgress && 'experience-detail-body-in-progress']}>
       {
-        structuredSections.length > 0 ? (
+        hasStructuredDetailBody ? (
           <div class="experience-detail-section-list">
-            {structuredDetailBlocks.map((block, index) =>
+            {(isInProgress ? visibleStructuredDetailBlocks : structuredDetailBlocks).map((block, index) =>
               block.type === 'techStack' ? (
                 <section class="experience-detail-section experience-detail-tech-section">
                   <span class="experience-detail-section-number">{String(index + 1).padStart(2, '0')}</span>
@@ -641,6 +698,39 @@ const relatedItems = (entry.meta.related ?? []).map((item) => {
                 </section>
               )
             )}
+            {
+              hiddenStructuredDetailBlockCount > 0 && (
+                <div class="experience-in-progress-placeholder">
+                  <div class="experience-in-progress-notice" role="status">
+                    <p
+                      class="experience-in-progress-title"
+                      {...i18nText('아직 진행 중인 경험입니다.', 'This experience is still in progress.')}
+                    >
+                      아직 진행 중인 경험입니다.
+                    </p>
+                    <p
+                      class="experience-in-progress-description"
+                      {...i18nText('종료 후 회고를 바탕으로 정리할 예정입니다.', 'I will organize it after it ends, based on a retrospective.')}
+                    >
+                      종료 후 회고를 바탕으로 정리할 예정입니다.
+                    </p>
+                  </div>
+                  {Array.from({ length: Math.min(hiddenStructuredDetailBlockCount, 3) }).map((_, hiddenIndex) => (
+                    <section class="experience-detail-section experience-in-progress-placeholder-section" aria-hidden="true">
+                      <span class="experience-detail-section-number">
+                        {String(visibleStructuredDetailBlocks.length + hiddenIndex + 1).padStart(2, '0')}
+                      </span>
+                      <div class="experience-detail-section-content">
+                        <span class="experience-in-progress-placeholder-title" />
+                        <span class="experience-in-progress-placeholder-line experience-in-progress-placeholder-line-long" />
+                        <span class="experience-in-progress-placeholder-line" />
+                        <span class="experience-in-progress-placeholder-line experience-in-progress-placeholder-line-short" />
+                      </div>
+                    </section>
+                  ))}
+                </div>
+              )
+            }
           </div>
         ) : (
           <div class="rich-text mx-auto max-w-3xl">

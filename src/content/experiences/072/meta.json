@@ -9,6 +9,7 @@
   "category": "community",
   "visibility": "public",
   "status": "in-progress",
+  "inProgressDetailVisibility": "partial",
   "experienceTags": [
     "mentoring",
     "operation",

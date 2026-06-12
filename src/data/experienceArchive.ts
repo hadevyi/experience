@@ -218,6 +218,7 @@ export interface ExperienceMeta {
   category: ExperienceCategoryKey;
   visibility: ExperienceVisibility;
   status: ExperienceStatus;
+  inProgressDetailVisibility?: 'partial' | 'full' | 'private';
   employmentType?: ExperienceEmploymentType;
   teamSize?: number;
   experienceTags?: ExperienceTagKey[];

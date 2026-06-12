@@ -9,6 +9,7 @@
   "category": "teaching-mentoring",
   "visibility": "public",
   "status": "in-progress",
+  "inProgressDetailVisibility": "partial",
   "experienceTags": [
     "teaching",
     "knowledge-sharing",

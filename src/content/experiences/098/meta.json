@@ -9,6 +9,7 @@
   "category": "affiliation",
   "visibility": "public",
   "status": "in-progress",
+  "inProgressDetailVisibility": "full",
   "experienceTags": [
     "community"
   ],

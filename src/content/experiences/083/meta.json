@@ -10,6 +10,7 @@
   "employmentType": "full-time",
   "visibility": "public",
   "status": "in-progress",
+  "inProgressDetailVisibility": "partial",
   "experienceTags": [
     "improvement",
     "problem-solving",
