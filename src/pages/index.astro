@@ -579,10 +579,18 @@ const hasArchiveItems = archiveItems.length > 0;
                   <p
                     class="experience-result-count"
                     data-archive-count
-                    aria-label="0개 중 0개 표시"
-                    {...i18nAttr('aria-label', '0개 중 0개 표시', 'Showing 0 of 0 experiences')}
+                    aria-label="필터 결과 0개, 경험 총개수 0개"
+                    {...i18nAttr('aria-label', '필터 결과 0개, 경험 총개수 0개', '0 filter results, 0 total experiences')}
                   >
-                    0 / 0
+                    <span class="experience-result-count-unit">
+                      <span {...i18nText('결과', 'Results')}>결과</span>
+                      <span data-archive-result-count>0</span>
+                    </span>
+                    <span class="experience-result-count-separator" aria-hidden="true">/</span>
+                    <span class="experience-result-count-unit">
+                      <span {...i18nText('전체', 'Total')}>전체</span>
+                      <span data-archive-total-count>0</span>
+                    </span>
                   </p>
 
                   <div class="experience-toolbar-card experience-toolbar-card-main" aria-label="목록 설정">
@@ -847,6 +855,14 @@ const hasArchiveItems = archiveItems.length > 0;
                 >
                   더보기
                 </button>
+                <button
+                  type="button"
+                  class="experience-load-more-button experience-load-more-button-secondary"
+                  data-archive-show-all
+                  {...i18nText('전체보기', 'Show all')}
+                >
+                  전체보기
+                </button>
               </div>
             )
           }
@@ -901,7 +917,10 @@ const hasArchiveItems = archiveItems.length > 0;
       const empty = root.querySelector('[data-archive-empty]');
       const pagination = root.querySelector('[data-archive-pagination]');
       const paginationCount = root.querySelector('[data-archive-count]');
+      const resultCount = root.querySelector('[data-archive-result-count]');
+      const totalCount = root.querySelector('[data-archive-total-count]');
       const loadMoreButton = root.querySelector('[data-archive-load-more]');
+      const showAllButton = root.querySelector('[data-archive-show-all]');
       const sortByTrigger = root.querySelector('[data-archive-sort-by-trigger]');
       const sortByLabel = root.querySelector('[data-archive-sort-by-label]');
       const sortByMenu = root.querySelector('[data-archive-sort-by-menu]');
@@ -1349,23 +1368,32 @@ const hasArchiveItems = archiveItems.length > 0;
 
       const updatePagination = (matchedCount, shownCount) => {
         if (pagination instanceof HTMLElement) {
-          pagination.hidden = matchedCount === 0;
+          pagination.hidden = matchedCount === 0 || matchedCount <= shownCount;
         }
 
         if (paginationCount instanceof HTMLElement) {
-          paginationCount.textContent = isEnglish()
-            ? `${shownCount} / ${matchedCount}`
-            : `${shownCount} / ${matchedCount}`;
           paginationCount.setAttribute(
             'aria-label',
             isEnglish()
-              ? `Showing ${shownCount} of ${matchedCount} experiences`
-              : `${matchedCount}개 중 ${shownCount}개 표시`
+              ? `${matchedCount} filter results, ${items.length} total experiences`
+              : `필터 결과 ${matchedCount}개, 경험 총개수 ${items.length}개`
           );
+        }
+
+        if (resultCount instanceof HTMLElement) {
+          resultCount.textContent = String(matchedCount);
+        }
+
+        if (totalCount instanceof HTMLElement) {
+          totalCount.textContent = String(items.length);
         }
 
         if (loadMoreButton instanceof HTMLButtonElement) {
           loadMoreButton.hidden = matchedCount <= shownCount;
+        }
+
+        if (showAllButton instanceof HTMLButtonElement) {
+          showAllButton.hidden = matchedCount <= shownCount;
         }
       };
 
@@ -1597,6 +1625,13 @@ const hasArchiveItems = archiveItems.length > 0;
       if (loadMoreButton instanceof HTMLButtonElement) {
         loadMoreButton.addEventListener('click', () => {
           state.visibleLimit += visiblePageSize;
+          apply();
+        });
+      }
+
+      if (showAllButton instanceof HTMLButtonElement) {
+        showAllButton.addEventListener('click', () => {
+          state.visibleLimit = items.length;
           apply();
         });
       }

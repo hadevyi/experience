@@ -2304,12 +2304,37 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-result-count {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
   margin: 0;
   color: var(--experience-ink-muted);
   font-size: var(--type-body-small-size);
   font-weight: 720;
   line-height: var(--type-body-small-leading);
   white-space: nowrap;
+}
+
+.experience-result-count-unit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.experience-result-count-unit span:first-child {
+  color: var(--experience-ink-faint);
+  font-size: var(--type-micro-size);
+  font-weight: 760;
+  line-height: var(--type-micro-leading);
+}
+
+.experience-result-count-unit span:last-child {
+  color: var(--experience-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.experience-result-count-separator {
+  color: var(--experience-ink-faint);
 }
 
 .experience-card-grid {
@@ -2696,9 +2721,10 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 
 .experience-load-more {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 0.55rem;
   margin-top: 1.35rem;
 }
 
@@ -2712,6 +2738,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   font-weight: 760;
   line-height: var(--type-body-small-leading);
   box-shadow: 0 14px 30px rgba(49, 43, 72, 0.075);
+  cursor: pointer;
   transition:
     transform 160ms ease,
     border-color 160ms ease,
@@ -2719,11 +2746,25 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
     box-shadow 160ms ease;
 }
 
+.experience-load-more-button-secondary {
+  border-color: color-mix(in srgb, var(--experience-line) 88%, transparent);
+  background: transparent;
+  color: var(--experience-ink-muted);
+  box-shadow: none;
+}
+
 .experience-load-more-button:hover {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--experience-accent) 44%, var(--experience-line));
   background: color-mix(in srgb, var(--experience-accent-soft) 62%, var(--experience-surface-strong));
   box-shadow: 0 18px 36px rgba(49, 43, 72, 0.11);
+}
+
+.experience-load-more-button-secondary:hover {
+  border-color: color-mix(in srgb, var(--experience-accent) 28%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-surface-strong) 86%, transparent);
+  color: var(--experience-ink);
+  box-shadow: 0 12px 26px rgba(49, 43, 72, 0.07);
 }
 
 .experience-empty {
