@@ -20,6 +20,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.8",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^7.3.5"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1",
+    "volar-service-yaml": "^0.0.71",
+    "yaml-language-server": "^1.23.0",
+    "yaml": "^2.9.0"
   }
 }
