@@ -139,6 +139,15 @@ const hasArchiveItems = archiveItems.length > 0;
     data-tag-collapsed="false"
     data-project-filter-collapsed="true"
   >
+    <button
+      type="button"
+      class="experience-mobile-filter-backdrop"
+      aria-label="필터 닫기"
+      {...i18nAttr('aria-label', '필터 닫기', 'Close filters')}
+      data-mobile-filter-backdrop
+      hidden
+    ></button>
+
     <aside class="experience-archive-rail" aria-label="경험정리 필터">
       <div class="experience-rail-inner">
         <div class="experience-rail-header">
@@ -186,6 +195,19 @@ const hasArchiveItems = archiveItems.length > 0;
         </div>
 
         <div id="experience-filter-panel" class="experience-filter-panel">
+          <div class="experience-mobile-filter-drawer-header">
+            <span {...i18nText('필터', 'Filters')}>필터</span>
+            <button
+              type="button"
+              class="experience-mobile-filter-close"
+              aria-label="필터 닫기"
+              {...i18nAttr('aria-label', '필터 닫기', 'Close filters')}
+              data-mobile-filter-close
+            >
+              <span {...i18nText('닫기', 'Close')}>닫기</span>
+            </button>
+          </div>
+
           <div class="experience-filter-card">
             <label class="experience-filter-row experience-filter-search">
               <span class="experience-control-title" {...i18nText('검색', 'Search')}>검색</span>
@@ -566,6 +588,28 @@ const hasArchiveItems = archiveItems.length > 0;
 
     <div class="experience-archive-content">
       <div class="experience-content-shell">
+        <div class="experience-mobile-filter-bar" aria-label="모바일 검색과 필터">
+          <label class="experience-mobile-search">
+            <span class="sr-only" {...i18nText('검색', 'Search')}>검색</span>
+            <input
+              type="search"
+              class="experience-search-input"
+              placeholder="제목, 조직, 키워드 검색"
+              {...i18nAttr('placeholder', '제목, 조직, 키워드 검색', 'Search title, organization, or keywords')}
+              data-mobile-archive-search
+            />
+          </label>
+          <button
+            type="button"
+            class="experience-mobile-filter-button"
+            aria-expanded="false"
+            aria-controls="experience-filter-panel"
+            data-mobile-filter-open-button
+          >
+            <span {...i18nText('필터', 'Filters')}>필터</span>
+          </button>
+        </div>
+
         <section
           class="experience-result-section"
           {...i18nAttr('aria-label', '경험 목록', 'Experience list')}
@@ -677,6 +721,38 @@ const hasArchiveItems = archiveItems.length > 0;
                     </div>
 
                     <div class="experience-toolbar-row">
+                      <span class="experience-toolbar-label" {...i18nText('묶음', 'Group')}>묶음</span>
+                      <div class="experience-icon-toggle experience-grouping-toggle" role="group" aria-label="묶음 방식">
+                      <button
+                        type="button"
+                        class="archive-icon-option archive-grouping-option archive-option-active"
+                        data-filter-group="grouping"
+                        data-filter-value="none"
+                        aria-label="개별 보기"
+                        {...i18nAttr('aria-label', '개별 보기', 'Ungrouped')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M6 6h12v12H6V6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                        </svg>
+                        <span class="archive-option-text" {...i18nText('개별', 'Each')}>개별</span>
+                      </button>
+                      <button
+                        type="button"
+                        class="archive-icon-option archive-grouping-option"
+                        data-filter-group="grouping"
+                        data-filter-value="category"
+                        aria-label="분류별 그룹"
+                        {...i18nAttr('aria-label', '분류별 그룹', 'Grouped by category')}
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 5.5h6.2l1.2 1.6H19v3.4H5v-5Zm0 7h6.2l1.2 1.6H19v4.4H5v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                        </svg>
+                        <span class="archive-option-text" {...i18nText('그룹', 'Group')}>그룹</span>
+                      </button>
+                      </div>
+                    </div>
+
+                    <div class="experience-toolbar-row">
                       <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
                       <div class="experience-icon-toggle" role="group" aria-label="보기">
                       <button
@@ -740,6 +816,8 @@ const hasArchiveItems = archiveItems.length > 0;
                     data-search={searchSource.toLowerCase()}
                     data-category={category}
                     data-category-order={categoryOrder}
+                    data-category-label-ko={categoryLabel.ko}
+                    data-category-label-en={categoryLabel.en}
                     data-organization={organization.ko.toLowerCase()}
                     data-number={Number(entry.meta.number ?? index + 1)}
                     data-status={status}
@@ -749,6 +827,9 @@ const hasArchiveItems = archiveItems.length > 0;
                     data-project-domains={(entry.meta.projectDomains ?? []).join(' ')}
                     data-tech-tags={(entry.meta.techTags ?? []).join(' ')}
                     data-order={readExperienceOrder(entry)}
+                    data-image-src={representativeImage?.src ?? ''}
+                    data-image-alt-ko={representativeImageAlt.ko}
+                    data-image-alt-en={representativeImageAlt.en}
                   >
                     <a href={`${siteMeta.rootPath}${entry.number}/`} class="experience-card-link">
                       <div class="experience-card-topline">
@@ -908,6 +989,7 @@ const hasArchiveItems = archiveItems.length > 0;
       if (!root) return;
 
       const search = root.querySelector('[data-archive-search]');
+      const mobileSearch = root.querySelector('[data-mobile-archive-search]');
       const list = root.querySelector('[data-archive-list]');
       const items = Array.from(root.querySelectorAll('.archive-experience-item'));
       const buttons = Array.from(root.querySelectorAll('[data-filter-group]'));
@@ -943,6 +1025,10 @@ const hasArchiveItems = archiveItems.length > 0;
       const tagHintTitle = root.querySelector('[data-tag-hint-title]');
       const tagHintBody = root.querySelector('[data-tag-hint-body]');
       const tagButtons = Array.from(root.querySelectorAll('[data-filter-group="tag"]'));
+      const mobileFilterOpenButton = root.querySelector('[data-mobile-filter-open-button]');
+      const mobileFilterCloseButton = root.querySelector('[data-mobile-filter-close]');
+      const mobileFilterBackdrop = root.querySelector('[data-mobile-filter-backdrop]');
+      const mobileFilterMedia = window.matchMedia('(max-width: 720px)');
 
       const state = {
         periodStart: '',
@@ -955,6 +1041,7 @@ const hasArchiveItems = archiveItems.length > 0;
         sortBy: 'number',
         sortDirection: 'desc',
         view: 'card',
+        grouping: 'none',
         visibleLimit: 9
       };
       const visiblePageSize = 9;
@@ -962,6 +1049,60 @@ const hasArchiveItems = archiveItems.length > 0;
         number: { ko: '번호', en: 'Number' },
         organization: { ko: '기관', en: 'Organization' },
         category: { ko: '분류', en: 'Category' }
+      };
+      const categoryDescriptions = {
+        project: {
+          ko: '직접 만든 서비스, 웹사이트, 개발 산출물',
+          en: 'Services, websites, and development deliverables I built.'
+        },
+        affiliation: {
+          ko: '학교, 회사, 커뮤니티처럼 오래 머문 기반',
+          en: 'Long-running foundations such as schools, companies, and communities.'
+        },
+        'work-experience': {
+          ko: '회사 안에서 맡았던 실무와 책임 범위',
+          en: 'Practical work and responsibilities carried at work.'
+        },
+        'event-operation': {
+          ko: '행사, 프로그램, 모임을 준비하고 굴린 일',
+          en: 'Events, programs, and gatherings I prepared and ran.'
+        },
+        'learning-growth': {
+          ko: '공부하며 기준을 세우고 시야를 넓힌 흐름',
+          en: 'Learning paths that shaped standards and perspective.'
+        },
+        certification: {
+          ko: '시험, 자격, 인증으로 확인한 역량',
+          en: 'Capability validated through tests, credentials, and certifications.'
+        },
+        'teaching-mentoring': {
+          ko: '알고 있는 것과 시행착오를 나눈 자리',
+          en: 'Moments where I shared knowledge and lessons learned.'
+        },
+        community: {
+          ko: '사람들과 함께 만든 참여, 운영, 연결',
+          en: 'Participation, operation, and connection built with others.'
+        },
+        'award-scholarship': {
+          ko: '성과, 태도, 가능성을 인정받은 결과',
+          en: 'Recognition of outcomes, attitude, or potential.'
+        },
+        'media-interview': {
+          ko: '글, 인터뷰, 발표로 밖에 꺼낸 이야기',
+          en: 'Stories shared outward through writing, interviews, and talks.'
+        }
+      };
+      const categoryImages = {
+        project: '/experience/images/groups/project.jpg',
+        affiliation: '/experience/images/groups/affiliation.jpg',
+        'work-experience': '/experience/images/groups/work-experience.jpg',
+        'event-operation': '/experience/images/groups/event-operation.jpg',
+        'learning-growth': '/experience/images/groups/learning-growth.jpg',
+        certification: '/experience/images/groups/certification.jpg',
+        'teaching-mentoring': '/experience/images/groups/teaching-mentoring.jpg',
+        community: '/experience/images/groups/community.jpg',
+        'award-scholarship': '/experience/images/groups/award-scholarship.jpg',
+        'media-interview': '/experience/images/groups/media-interview.jpg'
       };
 
       const updateListHeaderState = () => {
@@ -1023,6 +1164,22 @@ const hasArchiveItems = archiveItems.length > 0;
       };
 
       const isEnglish = () => document.documentElement.lang === 'en';
+      const setMobileFilterOpen = (isOpen) => {
+        root.setAttribute('data-mobile-filter-open', String(isOpen));
+        document.documentElement.classList.toggle('experience-mobile-filter-lock', isOpen);
+
+        if (mobileFilterOpenButton instanceof HTMLButtonElement) {
+          mobileFilterOpenButton.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        if (mobileFilterBackdrop instanceof HTMLButtonElement) {
+          mobileFilterBackdrop.hidden = !isOpen;
+        }
+      };
+      const syncSearchInputs = (value, source) => {
+        if (search instanceof HTMLInputElement && source !== search) search.value = value;
+        if (mobileSearch instanceof HTMLInputElement && source !== mobileSearch) mobileSearch.value = value;
+      };
       const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       const toMonthValue = (date) =>
         `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
@@ -1355,11 +1512,136 @@ const hasArchiveItems = archiveItems.length > 0;
           return state.sortDirection === 'asc' ? primary : primary * -1;
         });
 
-        if (list instanceof HTMLElement) {
-          sorted.forEach((item) => list.append(item));
+        return sorted;
+      };
+
+      const getGroupLabel = (item) => ({
+        ko: item.getAttribute('data-category-label-ko') || item.getAttribute('data-category') || '',
+        en: item.getAttribute('data-category-label-en') || item.getAttribute('data-category') || ''
+      });
+
+      const createGroupSummaryCard = (groupKey, label, itemsInGroup) => {
+        const card = document.createElement('article');
+        card.className = 'experience-group-summary-card';
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'experience-group-summary-button';
+        button.setAttribute(
+          'aria-label',
+          isEnglish()
+            ? `Filter by ${label.en || groupKey}`
+            : `${label.ko || groupKey} 분류로 보기`
+        );
+
+        const visual = document.createElement('span');
+        visual.className = 'experience-group-summary-visual';
+
+        const imageItem = itemsInGroup.find((item) => item.getAttribute('data-image-src'));
+        const imageSrc = categoryImages[groupKey] || imageItem?.getAttribute('data-image-src');
+        const imageAlt = isEnglish()
+          ? `${label.en || groupKey} group representative image`
+          : `${label.ko || groupKey} 그룹 대표 이미지`;
+
+        if (imageSrc) {
+          const image = document.createElement('img');
+          image.src = imageSrc;
+          image.alt = imageAlt;
+          visual.append(image);
+        } else {
+          const fallback = document.createElement('span');
+          fallback.className = 'experience-group-summary-fallback';
+          fallback.textContent = (isEnglish() ? label.en : label.ko).slice(0, 2);
+          visual.append(fallback);
         }
 
-        return sorted;
+        const content = document.createElement('span');
+        content.className = 'experience-group-summary-content';
+
+        const titleRow = document.createElement('span');
+        titleRow.className = 'experience-group-summary-title-row';
+
+        const title = document.createElement('span');
+        title.className = 'experience-group-summary-title';
+        title.textContent = isEnglish() ? label.en : label.ko;
+
+        const count = document.createElement('span');
+        count.className = 'experience-group-summary-count';
+        count.textContent = isEnglish() ? `${itemsInGroup.length} items` : `${itemsInGroup.length}개`;
+
+        const description = document.createElement('span');
+        description.className = 'experience-group-summary-description';
+        const descriptionPair = categoryDescriptions[groupKey] || {
+          ko: '이 분류에 해당하는 경험을 모아 봅니다.',
+          en: 'View experiences in this category.'
+        };
+        description.textContent = isEnglish() ? descriptionPair.en : descriptionPair.ko;
+
+        const latest = itemsInGroup[0];
+        const latestTitle = latest?.querySelector('h3')?.textContent?.trim();
+        const latestText = document.createElement('span');
+        latestText.className = 'experience-group-summary-latest';
+        latestText.textContent = latestTitle
+          ? isEnglish()
+            ? `Latest: ${latestTitle}`
+            : `최근: ${latestTitle}`
+          : '';
+
+        titleRow.append(title, count);
+        content.append(titleRow, description);
+        if (latestText.textContent) content.append(latestText);
+        button.append(visual, content);
+        card.append(button);
+
+        button.addEventListener('click', () => {
+          state.category = [groupKey];
+          state.grouping = 'none';
+          state.view = 'card';
+          resetVisibleLimit();
+          setActive('category');
+          setActive('grouping');
+          setActive('view');
+          apply();
+        });
+
+        return card;
+      };
+
+      const renderItems = (sortedItems) => {
+        if (!(list instanceof HTMLElement)) return;
+
+        list.replaceChildren();
+        list.classList.toggle('experience-card-grid-list', state.grouping === 'none' && state.view === 'list');
+        list.classList.toggle('experience-card-grid-group', state.grouping === 'category');
+        list.classList.toggle('experience-card-grid-group-summary', state.grouping === 'category');
+        list.classList.toggle('experience-card-grid-group-summary-list', state.grouping === 'category' && state.view === 'list');
+
+        if (state.grouping !== 'category') {
+          sortedItems.forEach((item) => list.append(item));
+          return;
+        }
+
+        const groups = new Map();
+        sortedItems
+          .filter((item) => !item.hidden)
+          .forEach((item) => {
+            const groupKey = item.getAttribute('data-category') || 'uncategorized';
+            const existing = groups.get(groupKey);
+
+            if (existing) {
+              existing.items.push(item);
+              return;
+            }
+
+            groups.set(groupKey, {
+              label: getGroupLabel(item),
+              items: [item]
+            });
+          });
+
+        groups.forEach((group, groupKey) => {
+          list.append(createGroupSummaryCard(groupKey, group.label, group.items));
+        });
       };
 
       const resetVisibleLimit = () => {
@@ -1407,7 +1689,9 @@ const hasArchiveItems = archiveItems.length > 0;
         let matchedCount = 0;
         let shownCount = 0;
 
-        getSortedItems().forEach((item) => {
+        const sortedItems = getSortedItems();
+
+        sortedItems.forEach((item) => {
           const searchValue = item.getAttribute('data-search') || '';
           const category = item.getAttribute('data-category') || '';
           const status = item.getAttribute('data-status') || '';
@@ -1450,7 +1734,9 @@ const hasArchiveItems = archiveItems.length > 0;
 
           if (isVisible) {
             matchedCount += 1;
-            shouldShow = matchedCount <= state.visibleLimit;
+            shouldShow = state.grouping === 'category'
+              ? true
+              : matchedCount <= state.visibleLimit;
             if (shouldShow) shownCount += 1;
           }
 
@@ -1461,9 +1747,7 @@ const hasArchiveItems = archiveItems.length > 0;
           empty.hidden = matchedCount !== 0;
         }
 
-        if (list instanceof HTMLElement) {
-          list.classList.toggle('experience-card-grid-list', state.view === 'list');
-        }
+        renderItems(sortedItems);
 
         updatePagination(matchedCount, shownCount);
       };
@@ -1486,7 +1770,7 @@ const hasArchiveItems = archiveItems.length > 0;
             state[group] = value;
           }
 
-          if (!['sortBy', 'sortDirection', 'view'].includes(group)) {
+          if (!['sortBy', 'sortDirection', 'view', 'grouping'].includes(group)) {
             resetVisibleLimit();
           }
 
@@ -1612,11 +1896,22 @@ const hasArchiveItems = archiveItems.length > 0;
       });
 
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') closeCalendars();
+        if (event.key !== 'Escape') return;
+        closeCalendars();
+        setMobileFilterOpen(false);
       });
 
       if (search instanceof HTMLInputElement) {
         search.addEventListener('input', () => {
+          syncSearchInputs(search.value, search);
+          resetVisibleLimit();
+          apply();
+        });
+      }
+
+      if (mobileSearch instanceof HTMLInputElement) {
+        mobileSearch.addEventListener('input', () => {
+          syncSearchInputs(mobileSearch.value, mobileSearch);
           resetVisibleLimit();
           apply();
         });
@@ -1664,6 +1959,22 @@ const hasArchiveItems = archiveItems.length > 0;
         });
       }
 
+      if (mobileFilterOpenButton instanceof HTMLButtonElement) {
+        mobileFilterOpenButton.addEventListener('click', () => setMobileFilterOpen(true));
+      }
+
+      if (mobileFilterCloseButton instanceof HTMLButtonElement) {
+        mobileFilterCloseButton.addEventListener('click', () => setMobileFilterOpen(false));
+      }
+
+      if (mobileFilterBackdrop instanceof HTMLButtonElement) {
+        mobileFilterBackdrop.addEventListener('click', () => setMobileFilterOpen(false));
+      }
+
+      mobileFilterMedia.addEventListener('change', (event) => {
+        if (!event.matches) setMobileFilterOpen(false);
+      });
+
       const languageObserver = new MutationObserver(() => {
         updateDateDisplays();
         updateSortByControl();
@@ -1684,11 +1995,12 @@ const hasArchiveItems = archiveItems.length > 0;
       updateDateDisplays();
       updateSortByControl();
       resetTagHint();
-      ['status', 'category', 'tag', 'projectDomain', 'techTag', 'sortBy', 'sortDirection', 'view'].forEach((group) => setActive(group));
+      ['status', 'category', 'tag', 'projectDomain', 'techTag', 'sortBy', 'sortDirection', 'grouping', 'view'].forEach((group) => setActive(group));
       setSidebarCollapsed(false);
       setCategoryCollapsed(false);
       setTagCollapsed(false);
       setProjectFilterCollapsed(true);
+      setMobileFilterOpen(false);
       archiveContent?.addEventListener('scroll', updateListHeaderState, { passive: true });
       window.addEventListener('scroll', updateListHeaderState, { passive: true });
       observeListHeaderState();

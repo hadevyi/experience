@@ -1177,6 +1177,10 @@ html[data-theme='dark'] {
   transition: grid-template-columns 220ms ease;
 }
 
+html.experience-mobile-filter-lock {
+  overflow: hidden;
+}
+
 .experience-archive-page[data-sidebar-collapsed='true'] {
   grid-template-columns: 4.75rem minmax(0, 1fr);
 }
@@ -1337,6 +1341,12 @@ html:lang(en) .experience-rail-intro h2 {
     visibility 160ms ease;
 }
 
+.experience-mobile-filter-bar,
+.experience-mobile-filter-drawer-header,
+.experience-mobile-filter-backdrop {
+  display: none;
+}
+
 .experience-filter-panel::after {
   display: block;
   flex: 0 0 2rem;
@@ -1409,7 +1419,7 @@ html:lang(en) .experience-rail-intro h2 {
 }
 
 .experience-filter-card {
-  overflow: visible;
+  overflow: hidden;
   margin-bottom: 2rem;
   padding: 0;
 }
@@ -1890,6 +1900,21 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   height: 0.82rem;
 }
 
+.experience-toolbar-card-main .archive-grouping-option {
+  width: auto;
+  min-width: 4.6rem;
+  gap: 0.34rem;
+  padding-inline: 0.58rem 0.7rem;
+  font-size: var(--type-micro-size);
+  font-weight: 720;
+  letter-spacing: -0.01em;
+}
+
+.experience-toolbar-card-main .archive-grouping-option svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
 .archive-option-text {
   white-space: nowrap;
 }
@@ -1916,6 +1941,11 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   border-radius: 999px;
   background: var(--experience-surface-strong);
   padding: 0.25rem;
+}
+
+.experience-grouping-toggle {
+  gap: 0.28rem;
+  padding: 0.28rem;
 }
 
 .archive-icon-option {
@@ -2103,8 +2133,24 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-project-filter-panel {
   display: grid;
   gap: 0.9rem;
-  max-height: 72rem;
-  overflow: visible;
+  max-height: min(30rem, 54svh);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+  scrollbar-gutter: stable;
+}
+
+.experience-project-filter-panel::-webkit-scrollbar {
+  width: 0.38rem;
+}
+
+.experience-project-filter-panel::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--experience-accent) 24%, transparent);
+}
+
+.experience-project-filter-panel::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .experience-archive-page[data-category-collapsed='true'] .experience-category-list {
@@ -2719,6 +2765,206 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   grid-column: 2;
 }
 
+.experience-card-grid.experience-card-grid-group {
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+}
+
+.experience-card-grid.experience-card-grid-group-summary {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-card-group {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 78%, transparent);
+  border-radius: 1.5rem;
+  background: color-mix(in srgb, var(--experience-surface-strong) 54%, transparent);
+  padding: clamp(0.85rem, 1.5vw, 1.1rem);
+}
+
+.experience-card-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.15rem 0.15rem 0.85rem;
+}
+
+.experience-card-group-title {
+  margin: 0;
+  color: var(--experience-ink);
+  font-family: var(--font-display);
+  font-size: var(--type-body-size);
+  font-weight: 760;
+  line-height: var(--type-body-leading);
+  word-break: keep-all;
+}
+
+.experience-card-group-count {
+  display: inline-flex;
+  min-width: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--experience-accent) 18%, transparent);
+  border-radius: 999px;
+  background: var(--experience-accent-soft);
+  padding: 0.3rem 0.58rem;
+  color: color-mix(in srgb, var(--experience-accent) 74%, var(--experience-ink));
+  font-size: var(--type-caption-size);
+  font-weight: 760;
+  line-height: var(--type-caption-leading);
+  font-variant-numeric: tabular-nums;
+}
+
+.experience-card-group-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.05rem;
+}
+
+.experience-card-grid-group .experience-card-link {
+  box-shadow: none;
+}
+
+.experience-group-summary-card {
+  min-width: 0;
+}
+
+.experience-group-summary-button {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  cursor: pointer;
+  flex-direction: column;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
+    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 13rem);
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  text-align: left;
+  box-shadow: 0 14px 36px rgba(49, 43, 72, 0.055);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.experience-group-summary-button:hover {
+  border-color: color-mix(in srgb, var(--experience-accent) 34%, var(--experience-line));
+  box-shadow:
+    var(--experience-shadow),
+    0 0 0 1px color-mix(in srgb, var(--experience-accent) 10%, transparent);
+  transform: translateY(-2px);
+}
+
+.experience-card-grid.experience-card-grid-group-summary-list {
+  grid-template-columns: 1fr;
+}
+
+.experience-card-grid-group-summary-list .experience-group-summary-button {
+  display: grid;
+  grid-template-columns: minmax(8.75rem, 11rem) minmax(0, 1fr);
+  align-items: start;
+  column-gap: 1.25rem;
+}
+
+.experience-card-grid-group-summary-list .experience-group-summary-visual {
+  aspect-ratio: 16 / 9;
+}
+
+.experience-card-grid-group-summary-list .experience-group-summary-content {
+  margin-top: 0;
+}
+
+.experience-group-summary-visual {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1.8 / 1;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--experience-line-strong) 72%, transparent);
+  border-radius: 1.2rem;
+  background:
+    radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--experience-accent-soft) 72%, transparent), transparent 48%),
+    linear-gradient(145deg, color-mix(in srgb, var(--experience-surface-strong) 86%, #ffffff), color-mix(in srgb, var(--experience-surface) 88%, #ffffff));
+}
+
+.experience-group-summary-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.experience-group-summary-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.2rem;
+  background: var(--experience-accent-soft);
+  color: color-mix(in srgb, var(--experience-accent) 76%, var(--experience-ink));
+  font-family: var(--font-display);
+  font-size: var(--type-body-size);
+  font-weight: 800;
+}
+
+.experience-group-summary-content {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.experience-group-summary-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.experience-group-summary-title {
+  min-width: 0;
+  color: var(--experience-ink);
+  font-family: var(--font-display);
+  font-size: var(--type-card-title-size);
+  font-weight: 760;
+  line-height: 1.28;
+  word-break: keep-all;
+}
+
+.experience-group-summary-count {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--experience-accent) 18%, transparent);
+  border-radius: 999px;
+  background: var(--experience-accent-soft);
+  padding: 0.34rem 0.58rem;
+  color: color-mix(in srgb, var(--experience-accent) 74%, var(--experience-ink));
+  font-size: var(--type-caption-size);
+  font-weight: 760;
+  line-height: var(--type-caption-leading);
+  white-space: nowrap;
+}
+
+.experience-group-summary-description,
+.experience-group-summary-latest {
+  color: var(--experience-ink-muted);
+  font-size: var(--type-small-size);
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.experience-group-summary-latest {
+  color: var(--experience-ink-faint);
+  font-size: var(--type-caption-size);
+  font-weight: 650;
+  line-height: var(--type-caption-leading);
+}
+
 .experience-load-more {
   display: flex;
   flex-wrap: wrap;
@@ -2875,21 +3121,239 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   .experience-card-grid:not(.experience-card-grid-list) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .experience-card-grid.experience-card-grid-group {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card-grid.experience-card-grid-group-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .experience-card-grid.experience-card-grid-group-summary-list {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card-group-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
   .experience-archive-page[data-sidebar-collapsed='true'] .experience-card-grid:not(.experience-card-grid-list) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .experience-archive-page[data-sidebar-collapsed='true'] .experience-card-grid.experience-card-grid-group {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-archive-page[data-sidebar-collapsed='true'] .experience-card-grid.experience-card-grid-group-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .experience-archive-page[data-sidebar-collapsed='true'] .experience-card-grid.experience-card-grid-group-summary-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
+  .experience-archive-page {
+    position: relative;
+  }
+
   .experience-content-shell {
     padding-inline: 1rem;
   }
 
+  .experience-mobile-filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 38;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem;
+    margin-inline: -1rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--experience-line) 80%, transparent);
+    background:
+      linear-gradient(180deg, var(--experience-surface-strong), color-mix(in srgb, var(--experience-paper) 90%, transparent));
+    backdrop-filter: blur(18px);
+  }
+
+  .experience-mobile-search {
+    display: block;
+    min-width: 0;
+  }
+
+  .experience-mobile-filter-button,
+  .experience-mobile-filter-close {
+    display: inline-flex;
+    min-height: 2.35rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--experience-line);
+    border-radius: 999px;
+    background: var(--experience-surface-strong);
+    color: var(--experience-ink-muted);
+    font: inherit;
+    font-size: var(--type-small-size);
+    font-weight: 800;
+    line-height: 1.2;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .experience-mobile-filter-button {
+    padding: 0.45rem 0.9rem;
+  }
+
+  .experience-mobile-filter-close {
+    min-height: 2.1rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .experience-mobile-filter-button:hover,
+  .experience-mobile-filter-close:hover {
+    border-color: var(--experience-line-strong);
+    color: var(--experience-ink);
+  }
+
+  .experience-mobile-filter-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 58;
+    display: block;
+    cursor: pointer;
+    border: 0;
+    background: rgba(16, 14, 23, 0.52);
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .experience-mobile-filter-backdrop[hidden] {
+    display: none;
+  }
+
+  .experience-archive-page[data-mobile-filter-open='true'] .experience-mobile-filter-backdrop {
+    opacity: 1;
+  }
+
+  .experience-archive-rail {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    height: auto;
+    min-height: 0;
+    align-items: end;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .experience-archive-page[data-mobile-filter-open='true'] .experience-archive-rail {
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .experience-rail-inner {
+    width: 100%;
+    max-height: min(86svh, 44rem);
+    min-height: 0;
+    gap: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--experience-line);
+    border-bottom: 0;
+    border-radius: 1.35rem 1.35rem 0 0;
+    background:
+      linear-gradient(180deg, var(--experience-surface-strong), var(--experience-surface)),
+      radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 16rem);
+    padding: 0;
+    box-shadow: 0 -18px 48px rgba(16, 14, 23, 0.22);
+    transform: translateY(100%);
+    transition: transform 220ms ease;
+    scrollbar-gutter: stable;
+  }
+
+  .experience-archive-page[data-mobile-filter-open='true'] .experience-rail-inner {
+    transform: translateY(0);
+  }
+
+  .experience-rail-header,
+  .experience-rail-intro {
+    display: none;
+  }
+
+  .experience-filter-panel {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .experience-filter-panel::after {
+    display: none;
+  }
+
+  .experience-mobile-filter-drawer-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--experience-line) 82%, transparent);
+    background: color-mix(in srgb, var(--experience-surface-strong) 92%, transparent);
+    padding: 0.9rem 1rem;
+    backdrop-filter: blur(16px);
+  }
+
+  .experience-mobile-filter-drawer-header > span {
+    color: var(--experience-ink);
+    font-size: var(--type-body-size);
+    font-weight: 850;
+    line-height: var(--type-body-leading);
+  }
+
+  .experience-filter-card {
+    margin-bottom: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .experience-filter-card .experience-filter-search {
+    display: none;
+  }
+
   .experience-card-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-card-group-list {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card-grid.experience-card-grid-group-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card-grid-group-summary-list .experience-group-summary-button {
+    grid-template-columns: 6.75rem minmax(0, 1fr);
+    column-gap: 0.95rem;
+  }
+
+  .experience-card-group {
+    border-radius: 1.25rem;
+    padding: 0.75rem;
   }
 
   .experience-list-header {
