@@ -648,7 +648,19 @@ const hasArchiveItems = archiveItems.length > 0;
                           aria-haspopup="menu"
                           data-archive-sort-by-trigger
                         >
-                          <span data-archive-sort-by-label {...i18nText('번호', 'Number')}>번호</span>
+                          <span class="experience-toolbar-select-value">
+                            <svg
+                              aria-hidden="true"
+                              class="experience-toolbar-select-value-icon"
+                              data-archive-sort-by-icon
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              <path d="M4 7h.01M4 12h.01M4 17h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+                            </svg>
+                            <span data-archive-sort-by-label {...i18nText('번호', 'Number')}>번호</span>
+                          </span>
                         </button>
                         <svg aria-hidden="true" class="experience-toolbar-select-icon" viewBox="0 0 20 20" fill="none">
                           <path d="m5.5 7.5 4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
@@ -660,9 +672,12 @@ const hasArchiveItems = archiveItems.length > 0;
                             class="experience-toolbar-select-option experience-toolbar-select-option-active"
                             aria-checked="true"
                             data-archive-sort-by-option="number"
-                            {...i18nText('번호', 'Number')}
                           >
-                            번호
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M7 7h10M7 12h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                              <path d="M4 7h.01M4 12h.01M4 17h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+                            </svg>
+                            <span {...i18nText('번호', 'Number')}>번호</span>
                           </button>
                           <button
                             type="button"
@@ -670,9 +685,11 @@ const hasArchiveItems = archiveItems.length > 0;
                             class="experience-toolbar-select-option"
                             aria-checked="false"
                             data-archive-sort-by-option="organization"
-                            {...i18nText('기관', 'Organization')}
                           >
-                            기관
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M4.5 19.5h15M6 10.5h12M7.5 10.5v7.5M12 10.5v7.5M16.5 10.5v7.5M5 8.5 12 4l7 4.5H5Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span {...i18nText('기관', 'Organization')}>기관</span>
                           </button>
                           <button
                             type="button"
@@ -680,9 +697,11 @@ const hasArchiveItems = archiveItems.length > 0;
                             class="experience-toolbar-select-option"
                             aria-checked="false"
                             data-archive-sort-by-option="category"
-                            {...i18nText('분류', 'Category')}
                           >
-                            분류
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 5.5h6.2l1.2 1.6H19v3.4H5v-5Zm0 7h6.2l1.2 1.6H19v4.4H5v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                            </svg>
+                            <span {...i18nText('분류', 'Category')}>분류</span>
                           </button>
                         </div>
                       </div>
@@ -754,31 +773,68 @@ const hasArchiveItems = archiveItems.length > 0;
 
                     <div class="experience-toolbar-row">
                       <span class="experience-toolbar-label" {...i18nText('보기', 'View')}>보기</span>
-                      <div class="experience-icon-toggle" role="group" aria-label="보기">
-                      <button
-                        type="button"
-                        class="archive-icon-option archive-option-active"
-                        data-filter-group="view"
-                        data-filter-value="card"
-                        aria-label="카드형"
-                        {...i18nAttr('aria-label', '카드형', 'Card view')}
-                      >
-                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                          <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                      <div class="experience-toolbar-select-wrap experience-toolbar-view-select-wrap">
+                        <button
+                          type="button"
+                          class="experience-toolbar-select"
+                          aria-expanded="false"
+                          aria-haspopup="menu"
+                          data-archive-view-trigger
+                        >
+                          <span class="experience-toolbar-select-value">
+                            <svg
+                              aria-hidden="true"
+                              class="experience-toolbar-select-value-icon"
+                              data-archive-view-icon
+                              viewBox="0 0 24 24"
+                              fill="none"
+                            >
+                              <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                            </svg>
+                            <span data-archive-view-label {...i18nText('카드', 'Card')}>카드</span>
+                          </span>
+                        </button>
+                        <svg aria-hidden="true" class="experience-toolbar-select-icon" viewBox="0 0 20 20" fill="none">
+                          <path d="m5.5 7.5 4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                      </button>
-                      <button
-                        type="button"
-                        class="archive-icon-option"
-                        data-filter-group="view"
-                        data-filter-value="list"
-                        aria-label="리스트형"
-                        {...i18nAttr('aria-label', '리스트형', 'List view')}
-                      >
-                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-                          <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-                        </svg>
-                      </button>
+                        <div class="experience-toolbar-select-menu" role="menu" data-archive-view-menu hidden>
+                          <button
+                            type="button"
+                            role="menuitemradio"
+                            class="experience-toolbar-select-option experience-toolbar-select-option-active"
+                            aria-checked="true"
+                            data-archive-view-option="card"
+                          >
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                            </svg>
+                            <span {...i18nText('카드', 'Card')}>카드</span>
+                          </button>
+                          <button
+                            type="button"
+                            role="menuitemradio"
+                            class="experience-toolbar-select-option"
+                            aria-checked="false"
+                            data-archive-view-option="list"
+                          >
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            </svg>
+                            <span {...i18nText('리스트', 'List')}>리스트</span>
+                          </button>
+                          <button
+                            type="button"
+                            role="menuitemradio"
+                            class="experience-toolbar-select-option"
+                            aria-checked="false"
+                            data-archive-view-option="compact"
+                          >
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            </svg>
+                            <span {...i18nText('컴팩트', 'Compact')}>컴팩트</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1005,8 +1061,14 @@ const hasArchiveItems = archiveItems.length > 0;
       const showAllButton = root.querySelector('[data-archive-show-all]');
       const sortByTrigger = root.querySelector('[data-archive-sort-by-trigger]');
       const sortByLabel = root.querySelector('[data-archive-sort-by-label]');
+      const sortByIcon = root.querySelector('[data-archive-sort-by-icon]');
       const sortByMenu = root.querySelector('[data-archive-sort-by-menu]');
       const sortByOptions = Array.from(root.querySelectorAll('[data-archive-sort-by-option]'));
+      const viewTrigger = root.querySelector('[data-archive-view-trigger]');
+      const viewLabel = root.querySelector('[data-archive-view-label]');
+      const viewIcon = root.querySelector('[data-archive-view-icon]');
+      const viewMenu = root.querySelector('[data-archive-view-menu]');
+      const viewOptions = Array.from(root.querySelectorAll('[data-archive-view-option]'));
       const archiveContent = root.querySelector('.experience-archive-content');
       const listHeader = root.querySelector('.experience-list-header');
       const listHeaderSentinel = root.querySelector('[data-list-header-sentinel]');
@@ -1044,11 +1106,41 @@ const hasArchiveItems = archiveItems.length > 0;
         grouping: 'none',
         visibleLimit: 9
       };
-      const visiblePageSize = 9;
+      const defaultVisiblePageSize = 9;
+      const compactVisiblePageSize = 15;
+      const getVisiblePageSize = () => (state.grouping === 'none' && state.view === 'compact'
+        ? compactVisiblePageSize
+        : defaultVisiblePageSize);
       const sortByLabels = {
         number: { ko: '번호', en: 'Number' },
         organization: { ko: '기관', en: 'Organization' },
         category: { ko: '분류', en: 'Category' }
+      };
+      const viewLabels = {
+        card: { ko: '카드', en: 'Card' },
+        list: { ko: '리스트', en: 'List' },
+        compact: { ko: '컴팩트', en: 'Compact' }
+      };
+      const selectIconPaths = {
+        number: [
+          'M7 7h10M7 12h10M7 17h10',
+          'M4 7h.01M4 12h.01M4 17h.01'
+        ],
+        organization: [
+          'M4.5 19.5h15M6 10.5h12M7.5 10.5v7.5M12 10.5v7.5M16.5 10.5v7.5M5 8.5 12 4l7 4.5H5Z'
+        ],
+        category: [
+          'M5 5.5h6.2l1.2 1.6H19v3.4H5v-5Zm0 7h6.2l1.2 1.6H19v4.4H5v-6Z'
+        ],
+        card: [
+          'M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z'
+        ],
+        list: [
+          'M7 7h12M7 12h12M7 17h12M4.5 7h.01M4.5 12h.01M4.5 17h.01'
+        ],
+        compact: [
+          'M5 7h14M5 12h14M5 17h14'
+        ]
       };
       const categoryDescriptions = {
         project: {
@@ -1142,15 +1234,54 @@ const hasArchiveItems = archiveItems.length > 0;
         sortByTrigger.setAttribute('aria-expanded', String(isOpen));
       };
 
+      const setViewMenuOpen = (isOpen) => {
+        if (!(viewMenu instanceof HTMLElement) || !(viewTrigger instanceof HTMLButtonElement)) return;
+        viewMenu.hidden = !isOpen;
+        viewTrigger.setAttribute('aria-expanded', String(isOpen));
+      };
+
+      const setSelectIcon = (icon, key) => {
+        if (!(icon instanceof SVGElement)) return;
+        const paths = selectIconPaths[key];
+        if (!paths) return;
+
+        icon.replaceChildren();
+        paths.forEach((pathData) => {
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', pathData);
+          path.setAttribute('stroke', 'currentColor');
+          path.setAttribute('stroke-width', key === 'number' && pathData.startsWith('M4') ? '2.4' : '1.7');
+          path.setAttribute('stroke-linecap', 'round');
+          path.setAttribute('stroke-linejoin', 'round');
+          icon.append(path);
+        });
+      };
+
       const updateSortByControl = () => {
         const label = sortByLabels[state.sortBy] ?? sortByLabels.number;
         if (sortByLabel instanceof HTMLElement) {
           sortByLabel.textContent = isEnglish() ? label.en : label.ko;
         }
+        setSelectIcon(sortByIcon, state.sortBy);
 
         sortByOptions.forEach((option) => {
           const value = option.getAttribute('data-archive-sort-by-option');
           const isActive = value === state.sortBy;
+          option.classList.toggle('experience-toolbar-select-option-active', isActive);
+          option.setAttribute('aria-checked', String(isActive));
+        });
+      };
+
+      const updateViewControl = () => {
+        const label = viewLabels[state.view] ?? viewLabels.card;
+        if (viewLabel instanceof HTMLElement) {
+          viewLabel.textContent = isEnglish() ? label.en : label.ko;
+        }
+        setSelectIcon(viewIcon, state.view);
+
+        viewOptions.forEach((option) => {
+          const value = option.getAttribute('data-archive-view-option');
+          const isActive = value === state.view;
           option.classList.toggle('experience-toolbar-select-option-active', isActive);
           option.setAttribute('aria-checked', String(isActive));
         });
@@ -1515,10 +1646,62 @@ const hasArchiveItems = archiveItems.length > 0;
         return sorted;
       };
 
+      const getItemOrder = (item) => Number(item.getAttribute('data-order') || 0);
+      const getItemCategoryOrder = (item) => Number(item.getAttribute('data-category-order') || 0);
+
       const getGroupLabel = (item) => ({
         ko: item.getAttribute('data-category-label-ko') || item.getAttribute('data-category') || '',
         en: item.getAttribute('data-category-label-en') || item.getAttribute('data-category') || ''
       });
+
+      const compareCategoryGroups = ([, firstGroup], [, secondGroup]) => {
+        let primary = 0;
+
+        if (state.sortBy === 'number') {
+          const firstOrders = firstGroup.items.map(getItemOrder);
+          const secondOrders = secondGroup.items.map(getItemOrder);
+          const firstValue = state.sortDirection === 'asc' ? Math.min(...firstOrders) : Math.max(...firstOrders);
+          const secondValue = state.sortDirection === 'asc' ? Math.min(...secondOrders) : Math.max(...secondOrders);
+          primary = firstValue - secondValue;
+        } else if (state.sortBy === 'organization') {
+          const firstLabel = isEnglish() ? firstGroup.label.en : firstGroup.label.ko;
+          const secondLabel = isEnglish() ? secondGroup.label.en : secondGroup.label.ko;
+          primary = firstLabel.localeCompare(secondLabel, isEnglish() ? 'en' : 'ko');
+        } else {
+          primary = firstGroup.order - secondGroup.order;
+        }
+
+        if (primary === 0) {
+          primary = firstGroup.order - secondGroup.order;
+        }
+
+        return state.sortDirection === 'asc' ? primary : primary * -1;
+      };
+
+      const getCategoryGroups = (sourceItems) => {
+        const groups = new Map();
+
+        sourceItems
+          .filter((item) => !item.hidden)
+          .forEach((item) => {
+            const groupKey = item.getAttribute('data-category') || 'uncategorized';
+            const existing = groups.get(groupKey);
+
+            if (existing) {
+              existing.items.push(item);
+              existing.order = Math.min(existing.order, getItemCategoryOrder(item));
+              return;
+            }
+
+            groups.set(groupKey, {
+              label: getGroupLabel(item),
+              order: getItemCategoryOrder(item),
+              items: [item]
+            });
+          });
+
+        return [...groups.entries()].sort(compareCategoryGroups);
+      };
 
       const createGroupSummaryCard = (groupKey, label, itemsInGroup) => {
         const card = document.createElement('article');
@@ -1577,7 +1760,7 @@ const hasArchiveItems = archiveItems.length > 0;
         };
         description.textContent = isEnglish() ? descriptionPair.en : descriptionPair.ko;
 
-        const latest = itemsInGroup[0];
+        const latest = [...itemsInGroup].sort((a, b) => getItemOrder(b) - getItemOrder(a))[0];
         const latestTitle = latest?.querySelector('h3')?.textContent?.trim();
         const latestText = document.createElement('span');
         latestText.className = 'experience-group-summary-latest';
@@ -1601,6 +1784,7 @@ const hasArchiveItems = archiveItems.length > 0;
           setActive('category');
           setActive('grouping');
           setActive('view');
+          updateViewControl();
           apply();
         });
 
@@ -1612,40 +1796,24 @@ const hasArchiveItems = archiveItems.length > 0;
 
         list.replaceChildren();
         list.classList.toggle('experience-card-grid-list', state.grouping === 'none' && state.view === 'list');
+        list.classList.toggle('experience-card-grid-compact', state.grouping === 'none' && state.view === 'compact');
         list.classList.toggle('experience-card-grid-group', state.grouping === 'category');
         list.classList.toggle('experience-card-grid-group-summary', state.grouping === 'category');
         list.classList.toggle('experience-card-grid-group-summary-list', state.grouping === 'category' && state.view === 'list');
+        list.classList.toggle('experience-card-grid-group-summary-compact', state.grouping === 'category' && state.view === 'compact');
 
         if (state.grouping !== 'category') {
           sortedItems.forEach((item) => list.append(item));
           return;
         }
 
-        const groups = new Map();
-        sortedItems
-          .filter((item) => !item.hidden)
-          .forEach((item) => {
-            const groupKey = item.getAttribute('data-category') || 'uncategorized';
-            const existing = groups.get(groupKey);
-
-            if (existing) {
-              existing.items.push(item);
-              return;
-            }
-
-            groups.set(groupKey, {
-              label: getGroupLabel(item),
-              items: [item]
-            });
-          });
-
-        groups.forEach((group, groupKey) => {
+        getCategoryGroups(sortedItems).forEach(([groupKey, group]) => {
           list.append(createGroupSummaryCard(groupKey, group.label, group.items));
         });
       };
 
       const resetVisibleLimit = () => {
-        state.visibleLimit = visiblePageSize;
+        state.visibleLimit = getVisiblePageSize();
       };
 
       const updatePagination = (matchedCount, shownCount) => {
@@ -1810,6 +1978,30 @@ const hasArchiveItems = archiveItems.length > 0;
         });
       });
 
+      if (viewTrigger instanceof HTMLButtonElement) {
+        viewTrigger.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const isOpen = viewTrigger.getAttribute('aria-expanded') === 'true';
+          setViewMenuOpen(!isOpen);
+        });
+      }
+
+      viewOptions.forEach((option) => {
+        if (!(option instanceof HTMLButtonElement)) return;
+
+        option.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const value = option.getAttribute('data-archive-view-option');
+          if (!value || !(value in viewLabels)) return;
+
+          state.view = value;
+          resetVisibleLimit();
+          updateViewControl();
+          setViewMenuOpen(false);
+          apply();
+        });
+      });
+
       document.addEventListener('click', (event) => {
         if (
           event.target instanceof Node &&
@@ -1819,6 +2011,17 @@ const hasArchiveItems = archiveItems.length > 0;
         }
 
         setSortByMenuOpen(false);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (
+          event.target instanceof Node &&
+          (viewTrigger?.contains(event.target) || viewMenu?.contains(event.target))
+        ) {
+          return;
+        }
+
+        setViewMenuOpen(false);
       });
 
       tagButtons.forEach((button) => {
@@ -1919,7 +2122,7 @@ const hasArchiveItems = archiveItems.length > 0;
 
       if (loadMoreButton instanceof HTMLButtonElement) {
         loadMoreButton.addEventListener('click', () => {
-          state.visibleLimit += visiblePageSize;
+          state.visibleLimit += getVisiblePageSize();
           apply();
         });
       }
@@ -1978,6 +2181,7 @@ const hasArchiveItems = archiveItems.length > 0;
       const languageObserver = new MutationObserver(() => {
         updateDateDisplays();
         updateSortByControl();
+        updateViewControl();
         resetTagHint();
         if (activeCalendar) renderCalendar(activeCalendar);
         setSidebarCollapsed(root.getAttribute('data-sidebar-collapsed') === 'true');
@@ -1994,6 +2198,7 @@ const hasArchiveItems = archiveItems.length > 0;
 
       updateDateDisplays();
       updateSortByControl();
+      updateViewControl();
       resetTagHint();
       ['status', 'category', 'tag', 'projectDomain', 'techTag', 'sortBy', 'sortDirection', 'grouping', 'view'].forEach((group) => setActive(group));
       setSidebarCollapsed(false);
