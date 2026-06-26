@@ -134,7 +134,7 @@ const hasArchiveItems = archiveItems.length > 0;
   <section
     class="experience-archive-page"
     data-experience-archive
-    data-sidebar-collapsed="false"
+    data-sidebar-collapsed="true"
     data-category-collapsed="false"
     data-tag-collapsed="false"
     data-project-filter-collapsed="true"
@@ -221,7 +221,17 @@ const hasArchiveItems = archiveItems.length > 0;
             </label>
 
             <div class="experience-filter-row experience-filter-row-stacked experience-filter-date-row">
-              <p class="experience-control-title" {...i18nText('기간', 'Period')}>기간</p>
+              <div class="experience-control-header">
+                <span {...i18nText('기간', 'Period')}>기간</span>
+                <button
+                  type="button"
+                  class="experience-filter-reset-button"
+                  data-date-reset
+                  {...i18nText('초기화', 'Reset')}
+                >
+                  초기화
+                </button>
+              </div>
               <div class="experience-date-range" aria-label="기간 범위 필터">
                 <label class="experience-date-field">
                   <span {...i18nText('시작', 'Start')}>시작</span>
@@ -789,9 +799,9 @@ const hasArchiveItems = archiveItems.length > 0;
                               viewBox="0 0 24 24"
                               fill="none"
                             >
-                              <path d="M5 5h6v6H5V5Zm8 0h6v6h-6V5ZM5 13h6v6H5v-6Zm8 0h6v6h-6v-6Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round" />
+                              <path d="M5 19V5M5 19h14M9 16v-5M13 16V8M17 16v-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span data-archive-view-label {...i18nText('카드', 'Card')}>카드</span>
+                            <span data-archive-view-label {...i18nText('차트', 'Chart')}>차트</span>
                           </span>
                         </button>
                         <svg aria-hidden="true" class="experience-toolbar-select-icon" viewBox="0 0 20 20" fill="none">
@@ -803,6 +813,18 @@ const hasArchiveItems = archiveItems.length > 0;
                             role="menuitemradio"
                             class="experience-toolbar-select-option experience-toolbar-select-option-active"
                             aria-checked="true"
+                            data-archive-view-option="chart"
+                          >
+                            <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
+                              <path d="M5 19V5M5 19h14M9 16v-5M13 16V8M17 16v-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span {...i18nText('차트', 'Chart')}>차트</span>
+                          </button>
+                          <button
+                            type="button"
+                            role="menuitemradio"
+                            class="experience-toolbar-select-option"
+                            aria-checked="false"
                             data-archive-view-option="card"
                           >
                             <svg aria-hidden="true" class="experience-toolbar-select-option-icon" viewBox="0 0 24 24" fill="none">
@@ -843,7 +865,37 @@ const hasArchiveItems = archiveItems.length > 0;
             )
           }
 
-          <div class="experience-card-grid" data-archive-list>
+          <section class="experience-chart-panel" data-archive-chart>
+            <div class="experience-chart-summary" data-chart-summary></div>
+
+            <div class="experience-chart-grid">
+              <article class="experience-chart-card">
+                <div class="experience-chart-card-head">
+                  <p class="experience-chart-kicker" {...i18nText('Category', 'Category')}>Category</p>
+                  <h2 {...i18nText('분류별 경험 분포', 'Experience by Category')}>분류별 경험 분포</h2>
+                </div>
+                <div class="experience-chart-bars" data-chart-category></div>
+              </article>
+
+              <article class="experience-chart-card">
+                <div class="experience-chart-card-head">
+                  <p class="experience-chart-kicker" {...i18nText('Timeline', 'Timeline')}>Timeline</p>
+                  <h2 {...i18nText('연도별 활동 밀도', 'Activity by Year')}>연도별 활동 밀도</h2>
+                </div>
+                <div class="experience-chart-year-grid" data-chart-year></div>
+              </article>
+
+              <article class="experience-chart-card experience-chart-card-wide">
+                <div class="experience-chart-card-head">
+                  <p class="experience-chart-kicker" {...i18nText('Pattern', 'Pattern')}>Pattern</p>
+                  <h2 {...i18nText('반복 경험태그 Top 10', 'Top 10 Experience Tags')}>반복 경험태그 Top 10</h2>
+                </div>
+                <div class="experience-chart-bars experience-chart-bars-compact" data-chart-tags></div>
+              </article>
+            </div>
+          </section>
+
+          <div class="experience-card-grid" data-archive-list hidden>
             {
               archiveItems.map(
                 ({
@@ -1051,9 +1103,15 @@ const hasArchiveItems = archiveItems.length > 0;
       const buttons = Array.from(root.querySelectorAll('[data-filter-group]'));
       const dateTriggers = Array.from(root.querySelectorAll('[data-date-trigger]'));
       const dateDisplays = Array.from(root.querySelectorAll('[data-date-display]'));
+      const dateResetButton = root.querySelector('[data-date-reset]');
       const calendarPopovers = Array.from(root.querySelectorAll('[data-calendar-popover]'));
       const empty = root.querySelector('[data-archive-empty]');
       const pagination = root.querySelector('[data-archive-pagination]');
+      const chartPanel = root.querySelector('[data-archive-chart]');
+      const chartSummary = root.querySelector('[data-chart-summary]');
+      const chartCategory = root.querySelector('[data-chart-category]');
+      const chartYear = root.querySelector('[data-chart-year]');
+      const chartTags = root.querySelector('[data-chart-tags]');
       const paginationCount = root.querySelector('[data-archive-count]');
       const resultCount = root.querySelector('[data-archive-result-count]');
       const totalCount = root.querySelector('[data-archive-total-count]');
@@ -1102,7 +1160,7 @@ const hasArchiveItems = archiveItems.length > 0;
         techTag: [],
         sortBy: 'number',
         sortDirection: 'desc',
-        view: 'card',
+        view: 'chart',
         grouping: 'none',
         visibleLimit: 9
       };
@@ -1124,7 +1182,8 @@ const hasArchiveItems = archiveItems.length > 0;
       const viewLabels = {
         card: { ko: '카드', en: 'Card' },
         list: { ko: '리스트', en: 'List' },
-        compact: { ko: '컴팩트', en: 'Compact' }
+        compact: { ko: '컴팩트', en: 'Compact' },
+        chart: { ko: '차트', en: 'Chart' }
       };
       const selectIconPaths = {
         number: [
@@ -1145,6 +1204,9 @@ const hasArchiveItems = archiveItems.length > 0;
         ],
         compact: [
           'M5 7h14M5 12h14M5 17h14'
+        ],
+        chart: [
+          'M5 19V5M5 19h14M9 16v-5M13 16V8M17 16v-8'
         ]
       };
       const categoryDescriptions = {
@@ -1351,6 +1413,12 @@ const hasArchiveItems = archiveItems.length > 0;
           display.textContent = formatDisplayDate(value);
           display.classList.toggle('experience-date-placeholder', !value);
         });
+
+        if (dateResetButton instanceof HTMLButtonElement) {
+          const hasDateFilter = Boolean(state.periodStart || state.periodEnd);
+          dateResetButton.disabled = !hasDateFilter;
+          dateResetButton.setAttribute('aria-disabled', String(!hasDateFilter));
+        }
       };
 
       const setCalendarOpen = (field, isOpen) => {
@@ -1424,6 +1492,18 @@ const hasArchiveItems = archiveItems.length > 0;
         state[field] = value;
         resetVisibleLimit();
         updateDateDisplays();
+        apply();
+      };
+
+      const resetDateRange = () => {
+        if (!state.periodStart && !state.periodEnd) return;
+
+        state.periodStart = '';
+        state.periodEnd = '';
+        resetVisibleLimit();
+        updateDateDisplays();
+        closeCalendars();
+        trackEvent('experience_date_reset');
         apply();
       };
 
@@ -1800,10 +1880,223 @@ const hasArchiveItems = archiveItems.length > 0;
         return card;
       };
 
+      const getTagLabel = (tagKey) => {
+        const button = tagButtons.find(
+          (tagButton) =>
+            tagButton instanceof HTMLElement &&
+            tagButton.getAttribute('data-filter-value') === tagKey
+        );
+
+        if (!(button instanceof HTMLElement)) return tagKey;
+
+        return isEnglish()
+          ? button.dataset.tagLabelEn || tagKey
+          : button.dataset.tagLabelKo || tagKey;
+      };
+
+      const countBy = (sourceItems, getKeys) => {
+        const counts = new Map();
+
+        sourceItems.forEach((item) => {
+          getKeys(item)
+            .filter(Boolean)
+            .forEach((key) => counts.set(key, (counts.get(key) || 0) + 1));
+        });
+
+        return counts;
+      };
+
+      const moveToCardView = () => {
+        state.grouping = 'none';
+        state.view = 'card';
+        resetVisibleLimit();
+        setActive('grouping');
+        setActive('view');
+        updateViewControl();
+      };
+
+      const applyChartFilter = (type, value) => {
+        if (!value) return;
+
+        if (type === 'category') {
+          state.category = [value];
+        } else if (type === 'tag') {
+          state.tag = [value];
+          resetTagHint();
+        } else if (type === 'year') {
+          state.periodStart = `${value}-01`;
+          state.periodEnd = `${value}-12`;
+          updateDateDisplays();
+        }
+
+        moveToCardView();
+        setActive(type === 'year' ? 'view' : type);
+        trackEvent('experience_chart_filter_click', {
+          chart_filter_type: type,
+          chart_filter_value: value
+        });
+        apply();
+      };
+
+      const renderBarChart = (container, rows, options = {}) => {
+        if (!(container instanceof HTMLElement)) return;
+
+        container.replaceChildren();
+
+        const max = Math.max(...rows.map((row) => row.count), 1);
+        rows.forEach((row) => {
+          const item = document.createElement(row.key ? 'button' : 'div');
+          item.className = 'experience-chart-bar-row';
+          if (item instanceof HTMLButtonElement) {
+            item.type = 'button';
+            item.setAttribute(
+              'aria-label',
+              isEnglish()
+                ? `Filter by ${row.label}`
+                : `${row.label} 필터 적용`
+            );
+            item.addEventListener('click', () => {
+              applyChartFilter(options.filterType, row.key);
+            });
+          }
+
+          const label = document.createElement('span');
+          label.className = 'experience-chart-bar-label';
+          label.textContent = row.label;
+
+          const track = document.createElement('span');
+          track.className = 'experience-chart-bar-track';
+
+          const fill = document.createElement('span');
+          fill.className = 'experience-chart-bar-fill';
+          fill.style.setProperty('--chart-value', `${Math.max(6, (row.count / max) * 100)}%`);
+          track.append(fill);
+
+          const count = document.createElement('span');
+          count.className = 'experience-chart-bar-count';
+          count.textContent = options.unit
+            ? isEnglish()
+              ? `${row.count} ${options.unit.en}`
+              : `${row.count}${options.unit.ko}`
+            : String(row.count);
+
+          item.append(label, track, count);
+          container.append(item);
+        });
+      };
+
+      const renderChartPanel = (matchedItems) => {
+        if (!(chartPanel instanceof HTMLElement)) return;
+
+        const categoryCounts = countBy(matchedItems, (item) => [item.getAttribute('data-category') || '']);
+        const categoryRows = [...categoryCounts.entries()]
+          .map(([key, count]) => {
+            const sample = matchedItems.find((item) => item.getAttribute('data-category') === key);
+            const label = sample
+              ? isEnglish()
+                ? sample.getAttribute('data-category-label-en') || key
+                : sample.getAttribute('data-category-label-ko') || key
+              : key;
+            const order = sample ? getItemCategoryOrder(sample) : 999;
+            return { key, label, count, order };
+          })
+          .sort((a, b) => b.count - a.count || a.order - b.order);
+
+        const yearCounts = countBy(matchedItems, (item) => (item.getAttribute('data-period-years') || '').split(' '));
+        const yearRows = [...yearCounts.entries()]
+          .map(([year, count]) => ({ year, count }))
+          .filter((row) => /^\d{4}$/.test(row.year))
+          .sort((a, b) => Number(a.year) - Number(b.year));
+        const maxYearCount = Math.max(...yearRows.map((row) => row.count), 1);
+
+        const tagCounts = countBy(matchedItems, (item) => (item.getAttribute('data-tags') || '').split(' '));
+        const tagRows = [...tagCounts.entries()]
+          .filter(([key]) => key && key !== 'all')
+          .map(([key, count]) => ({ key, label: getTagLabel(key), count }))
+          .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, isEnglish() ? 'en' : 'ko'))
+          .slice(0, 10);
+
+        if (chartSummary instanceof HTMLElement) {
+          chartSummary.replaceChildren();
+          [
+            {
+              label: isEnglish() ? 'Filtered' : '필터 결과',
+              value: matchedItems.length
+            },
+            {
+              label: isEnglish() ? 'Categories' : '분류',
+              value: categoryRows.length
+            },
+            {
+              label: isEnglish() ? 'Years' : '연도',
+              value: yearRows.length
+            },
+            {
+              label: isEnglish() ? 'Tags' : '태그',
+              value: tagRows.length
+            }
+          ].forEach((summary) => {
+            const item = document.createElement('div');
+            item.className = 'experience-chart-summary-item';
+            const value = document.createElement('strong');
+            value.textContent = String(summary.value);
+            const label = document.createElement('span');
+            label.textContent = summary.label;
+            item.append(value, label);
+            chartSummary.append(item);
+          });
+        }
+
+        renderBarChart(chartCategory, categoryRows, {
+          unit: { ko: '개', en: 'items' },
+          filterType: 'category'
+        });
+
+        if (chartYear instanceof HTMLElement) {
+          chartYear.replaceChildren();
+          yearRows.forEach((row) => {
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'experience-chart-year-item';
+            item.style.setProperty('--chart-alpha', String(0.18 + (row.count / maxYearCount) * 0.82));
+            item.setAttribute(
+              'aria-label',
+              isEnglish()
+                ? `Filter by ${row.year}, ${row.count} items`
+                : `${row.year}년 ${row.count}개 경험 필터 적용`
+            );
+            item.addEventListener('click', () => {
+              applyChartFilter('year', row.year);
+            });
+
+            const year = document.createElement('span');
+            year.textContent = row.year;
+            const count = document.createElement('strong');
+            count.textContent = String(row.count);
+            item.append(year, count);
+            chartYear.append(item);
+          });
+        }
+
+        renderBarChart(chartTags, tagRows, {
+          unit: { ko: '회', en: 'times' },
+          filterType: 'tag'
+        });
+      };
+
       const renderItems = (sortedItems) => {
         if (!(list instanceof HTMLElement)) return;
 
         list.replaceChildren();
+        list.hidden = state.view === 'chart';
+        if (chartPanel instanceof HTMLElement) {
+          chartPanel.hidden = state.view !== 'chart';
+        }
+
+        if (state.view === 'chart') {
+          return;
+        }
+
         list.classList.toggle('experience-card-grid-list', state.grouping === 'none' && state.view === 'list');
         list.classList.toggle('experience-card-grid-compact', state.grouping === 'none' && state.view === 'compact');
         list.classList.toggle('experience-card-grid-group', state.grouping === 'category');
@@ -1827,7 +2120,7 @@ const hasArchiveItems = archiveItems.length > 0;
 
       const updatePagination = (matchedCount, shownCount) => {
         if (pagination instanceof HTMLElement) {
-          pagination.hidden = matchedCount === 0 || matchedCount <= shownCount;
+          pagination.hidden = state.view === 'chart' || matchedCount === 0 || matchedCount <= shownCount;
         }
 
         if (paginationCount instanceof HTMLElement) {
@@ -1848,11 +2141,11 @@ const hasArchiveItems = archiveItems.length > 0;
         }
 
         if (loadMoreButton instanceof HTMLButtonElement) {
-          loadMoreButton.hidden = matchedCount <= shownCount;
+          loadMoreButton.hidden = state.view === 'chart' || matchedCount <= shownCount;
         }
 
         if (showAllButton instanceof HTMLButtonElement) {
-          showAllButton.hidden = matchedCount <= shownCount;
+          showAllButton.hidden = state.view === 'chart' || matchedCount <= shownCount;
         }
       };
 
@@ -1865,6 +2158,7 @@ const hasArchiveItems = archiveItems.length > 0;
         const periodRangeEnd = selectedStart <= selectedEnd ? selectedEnd : selectedStart;
         let matchedCount = 0;
         let shownCount = 0;
+        const matchedItems = [];
 
         const sortedItems = getSortedItems();
 
@@ -1911,19 +2205,22 @@ const hasArchiveItems = archiveItems.length > 0;
 
           if (isVisible) {
             matchedCount += 1;
+            matchedItems.push(item);
             shouldShow = state.grouping === 'category'
+              || state.view === 'chart'
               ? true
               : matchedCount <= state.visibleLimit;
             if (shouldShow) shownCount += 1;
           }
 
-          item.toggleAttribute('hidden', !shouldShow);
+          item.toggleAttribute('hidden', state.view === 'chart' || !shouldShow);
         });
 
         if (empty instanceof HTMLElement) {
           empty.hidden = matchedCount !== 0;
         }
 
+        renderChartPanel(matchedItems);
         renderItems(sortedItems);
 
         updatePagination(matchedCount, shownCount);
@@ -2115,6 +2412,10 @@ const hasArchiveItems = archiveItems.length > 0;
         });
       });
 
+      if (dateResetButton instanceof HTMLButtonElement) {
+        dateResetButton.addEventListener('click', resetDateRange);
+      }
+
       document.addEventListener('click', (event) => {
         const target = event.target instanceof Element ? event.target : null;
         if (target?.closest('[data-date-trigger], [data-calendar-popover]')) return;
@@ -2252,7 +2553,7 @@ const hasArchiveItems = archiveItems.length > 0;
       updateViewControl();
       resetTagHint();
       ['status', 'category', 'tag', 'projectDomain', 'techTag', 'sortBy', 'sortDirection', 'grouping', 'view'].forEach((group) => setActive(group));
-      setSidebarCollapsed(false);
+      setSidebarCollapsed(true);
       setCategoryCollapsed(false);
       setTagCollapsed(false);
       setProjectFilterCollapsed(true);

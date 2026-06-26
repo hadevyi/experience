@@ -1523,8 +1523,49 @@ html:lang(en) .experience-rail-intro h2 {
   align-items: start;
 }
 
-.experience-filter-date-row .experience-control-title {
+.experience-filter-date-row .experience-control-header {
   margin-bottom: 0.1rem;
+}
+
+.experience-filter-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.55rem;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 78%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--experience-surface-strong) 84%, transparent);
+  padding: 0.22rem 0.55rem;
+  color: var(--experience-ink-faint);
+  font: inherit;
+  font-size: var(--type-micro-size);
+  font-weight: 760;
+  line-height: var(--type-micro-leading);
+  letter-spacing: 0;
+  text-transform: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.experience-filter-reset-button:hover:not(:disabled),
+.experience-filter-reset-button:focus-visible {
+  border-color: color-mix(in srgb, var(--experience-accent) 28%, var(--experience-line));
+  background: var(--experience-accent-soft);
+  color: var(--experience-ink);
+}
+
+.experience-filter-reset-button:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--experience-accent) 44%, transparent);
+  outline-offset: 2px;
+}
+
+.experience-filter-reset-button:disabled {
+  cursor: default;
+  opacity: 0.42;
 }
 
 .experience-select-wrap {
@@ -2017,6 +2058,75 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   white-space: nowrap;
 }
 
+@media (min-width: 1024px) {
+  html:lang(en) .experience-toolbar-card-main {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+  }
+
+  html:lang(en) .experience-toolbar-card-main .experience-toolbar-row {
+    min-height: 2.55rem;
+    gap: 0.32rem;
+    padding: 0.26rem 0.3rem 0.26rem 0.58rem;
+  }
+
+  html:lang(en) .experience-toolbar-card-main .experience-toolbar-label {
+    font-size: calc(var(--type-micro-size) * 0.86);
+    letter-spacing: 0.04em;
+  }
+
+  html:lang(en) .experience-toolbar-card-main .experience-icon-toggle,
+  html:lang(en) .experience-toolbar-select {
+    min-height: 1.95rem;
+  }
+
+  html:lang(en) .experience-toolbar-select-wrap {
+    min-width: 5.9rem;
+  }
+
+  html:lang(en) .experience-toolbar-view-select-wrap {
+    min-width: 6.8rem;
+  }
+
+  html:lang(en) .experience-toolbar-select {
+    padding: 0.38rem 1.65rem 0.38rem 0.62rem;
+    font-size: calc(var(--type-micro-size) * 0.94);
+  }
+
+  html:lang(en) .experience-toolbar-select-icon {
+    right: 0.58rem;
+  }
+
+  html:lang(en) .experience-toolbar-select-value {
+    gap: 0.28rem;
+  }
+
+  html:lang(en) .experience-toolbar-select-value-icon {
+    width: 0.82rem;
+    height: 0.82rem;
+  }
+
+  html:lang(en) .experience-toolbar-card-main .archive-sort-option {
+    min-width: 3.35rem;
+    gap: 0.18rem;
+    padding-inline: 0.38rem 0.44rem;
+    font-size: calc(var(--type-micro-size) * 0.92);
+  }
+
+  html:lang(en) .experience-toolbar-card-main .archive-grouping-option {
+    min-width: 3.75rem;
+    gap: 0.24rem;
+    padding-inline: 0.42rem 0.5rem;
+    font-size: calc(var(--type-micro-size) * 0.92);
+  }
+
+  html:lang(en) .experience-toolbar-card-main .archive-sort-option svg,
+  html:lang(en) .experience-toolbar-card-main .archive-grouping-option svg {
+    width: 0.78rem;
+    height: 0.78rem;
+  }
+}
+
 .experience-toolbar-row {
   display: flex;
   align-items: center;
@@ -2486,6 +2596,233 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.05rem;
   margin-top: 1.15rem;
+}
+
+.experience-chart-panel {
+  margin-top: 1.15rem;
+}
+
+.experience-chart-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.05rem;
+}
+
+.experience-chart-summary-item {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
+    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 10rem);
+  padding: 1rem;
+  box-shadow: 0 14px 30px rgba(49, 43, 72, 0.05);
+}
+
+.experience-chart-summary-item strong {
+  display: block;
+  color: var(--experience-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 780;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.experience-chart-summary-item span {
+  display: block;
+  margin-top: 0.42rem;
+  color: var(--experience-ink-muted);
+  font-size: var(--type-caption-size);
+  font-weight: 700;
+  line-height: var(--type-caption-leading);
+}
+
+.experience-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.05rem;
+}
+
+.experience-chart-card {
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
+    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 13rem);
+  padding: clamp(1.1rem, 2vw, 1.5rem);
+  box-shadow: 0 14px 36px rgba(49, 43, 72, 0.055);
+}
+
+.experience-chart-card-wide {
+  grid-column: 1 / -1;
+}
+
+.experience-chart-card-head {
+  margin-bottom: 1rem;
+}
+
+.experience-chart-kicker {
+  margin: 0;
+  color: var(--experience-ink-faint);
+  font-size: var(--type-caption-size);
+  font-weight: 760;
+  letter-spacing: 0.14em;
+  line-height: var(--type-caption-leading);
+  text-transform: uppercase;
+}
+
+.experience-chart-card h2 {
+  margin: 0.25rem 0 0;
+  color: var(--experience-ink);
+  font-family: var(--font-display);
+  font-size: var(--type-card-title-size);
+  font-weight: 760;
+  line-height: var(--type-card-title-leading);
+  word-break: keep-all;
+}
+
+.experience-chart-bars {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.experience-chart-bars-compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-chart-bar-row {
+  display: grid;
+  grid-template-columns: minmax(6.8rem, 0.9fr) minmax(8rem, 1.6fr) minmax(3.6rem, auto);
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+button.experience-chart-bar-row {
+  width: 100%;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.78rem;
+  background: transparent;
+  padding: 0.16rem;
+  font: inherit;
+  text-align: left;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+button.experience-chart-bar-row:hover,
+button.experience-chart-bar-row:focus-visible {
+  background: color-mix(in srgb, var(--experience-accent-soft) 48%, transparent);
+}
+
+button.experience-chart-bar-row:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--experience-accent) 52%, transparent);
+  outline-offset: 2px;
+}
+
+.experience-chart-bar-label,
+.experience-chart-bar-count {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--experience-ink-muted);
+  font-size: var(--type-caption-size);
+  font-weight: 720;
+  line-height: var(--type-caption-leading);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.experience-chart-bar-count {
+  color: var(--experience-ink-faint);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.experience-chart-bar-track {
+  display: block;
+  height: 0.7rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--experience-line) 62%, transparent);
+}
+
+.experience-chart-bar-fill {
+  display: block;
+  width: var(--chart-value);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--theme-brand-gradient-start), var(--theme-brand-gradient-mid), var(--theme-brand-gradient-end));
+}
+
+.experience-chart-year-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4.6rem, 1fr));
+  gap: 0.58rem;
+}
+
+.experience-chart-year-item {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: 100%;
+  min-height: 4.2rem;
+  align-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--experience-accent) 18%, transparent);
+  border-radius: 0.95rem;
+  background: var(--experience-surface-strong);
+  padding: 0.72rem;
+  font: inherit;
+  text-align: left;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.experience-chart-year-item:hover,
+.experience-chart-year-item:focus-visible {
+  border-color: color-mix(in srgb, var(--experience-accent) 42%, var(--experience-line));
+  box-shadow: 0 12px 28px rgba(49, 43, 72, 0.12);
+  transform: translateY(-1px);
+}
+
+.experience-chart-year-item:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--experience-accent) 52%, transparent);
+  outline-offset: 2px;
+}
+
+.experience-chart-year-item::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--experience-accent);
+  content: '';
+  opacity: var(--chart-alpha);
+}
+
+.experience-chart-year-item span {
+  position: relative;
+  color: var(--experience-ink-muted);
+  font-size: var(--type-caption-size);
+  font-weight: 720;
+  line-height: var(--type-caption-leading);
+}
+
+.experience-chart-year-item strong {
+  position: relative;
+  color: var(--experience-ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 780;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .experience-card {
@@ -3445,6 +3782,28 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 @media (max-width: 720px) {
   .experience-archive-page {
     position: relative;
+  }
+
+  .experience-chart-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-chart-grid,
+  .experience-chart-bars-compact {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-chart-card-wide {
+    grid-column: auto;
+  }
+
+  .experience-chart-bar-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.38rem;
+  }
+
+  .experience-chart-bar-count {
+    text-align: left;
   }
 
   .experience-content-shell {
