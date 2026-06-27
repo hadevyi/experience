@@ -26,41 +26,40 @@
   --type-label-tracking: 0.18em;
   --type-wide-label-tracking: 0.22em;
 
-  --theme-paper: #faf9fd;
-  --theme-ink: #272430;
-  --theme-ink-soft: rgba(39, 36, 48, 0.78);
-  --theme-ink-muted: rgba(39, 36, 48, 0.6);
-  --theme-ink-faint: rgba(39, 36, 48, 0.44);
-  --theme-accent: #8f88b8;
-  --theme-clay: #d7d2e5;
-  --theme-brand-gradient-start: #6a628f;
-  --theme-brand-gradient-mid: #8f88b8;
-  --theme-brand-gradient-end: #b6add9;
+  --theme-paper: #fbfafc;
+  --theme-ink: #282531;
+  --theme-ink-soft: rgba(40, 37, 49, 0.78);
+  --theme-ink-muted: rgba(40, 37, 49, 0.6);
+  --theme-ink-faint: rgba(40, 37, 49, 0.44);
+  --theme-accent: #746f80;
+  --theme-accent-mark: #7872a8;
+  --theme-clay: #d8d3dd;
+  --theme-brand-gradient-start: #625d6d;
+  --theme-brand-gradient-mid: #746f80;
+  --theme-brand-gradient-end: #918a9d;
   --theme-surface: rgba(255, 255, 255, 0.9);
   --theme-surface-strong: rgba(255, 255, 255, 0.97);
   --theme-surface-muted: rgba(248, 247, 251, 0.84);
-  --theme-section-branding: #f4f1f8;
+  --theme-section-branding: #f5f3f7;
   --theme-section-sites: #fbfafc;
   --theme-section-cta: #ffffff;
-  --theme-chip-bg: rgba(143, 136, 184, 0.08);
-  --theme-code-bg: rgba(143, 136, 184, 0.06);
-  --theme-border: rgba(94, 87, 123, 0.1);
-  --theme-border-strong: rgba(94, 87, 123, 0.16);
-  --theme-button-primary-bg: #8f88b8;
-  --theme-button-primary-hover: #7a739f;
+  --theme-chip-bg: rgba(116, 111, 128, 0.08);
+  --theme-code-bg: rgba(116, 111, 128, 0.06);
+  --theme-border: rgba(84, 78, 96, 0.11);
+  --theme-border-strong: rgba(84, 78, 96, 0.18);
+  --theme-button-primary-bg: #746f80;
+  --theme-button-primary-hover: #625d6d;
   --theme-button-primary-text: #ffffff;
   --theme-button-secondary-bg: rgba(255, 255, 255, 0.92);
   --theme-button-secondary-hover: rgba(255, 255, 255, 0.98);
-  --theme-button-secondary-text: rgba(39, 36, 48, 0.76);
+  --theme-button-secondary-text: rgba(40, 37, 49, 0.76);
   --theme-toggle-bg: rgba(255, 255, 255, 0.84);
   --theme-toggle-hover: rgba(255, 255, 255, 0.98);
   --theme-footer-bg: rgba(249, 248, 252, 0.84);
-  --theme-selection-bg: rgba(143, 136, 184, 0.16);
-  --theme-shadow: 0 20px 56px rgba(49, 43, 72, 0.07);
+  --theme-selection-bg: rgba(116, 111, 128, 0.16);
+  --theme-shadow: 0 18px 42px rgba(47, 43, 55, 0.06);
   --theme-backdrop:
-    radial-gradient(circle at top, rgba(201, 194, 228, 0.09), transparent 42%),
-    radial-gradient(circle at 22% 18%, rgba(143, 136, 184, 0.05), transparent 26%),
-    linear-gradient(180deg, #ffffff 0%, #fcfbfe 44%, #ffffff 100%);
+    linear-gradient(180deg, #ffffff 0%, #fbfafc 48%, #ffffff 100%);
 }
 
 html:lang(ja) {
@@ -78,23 +77,24 @@ html[data-theme='dark'] {
   --theme-ink-soft: rgba(244, 244, 246, 0.82);
   --theme-ink-muted: rgba(244, 244, 246, 0.66);
   --theme-ink-faint: rgba(244, 244, 246, 0.44);
-  --theme-accent: #b8afd9;
-  --theme-clay: #ddd7f3;
-  --theme-brand-gradient-start: #847ab5;
-  --theme-brand-gradient-mid: #b8afd9;
-  --theme-brand-gradient-end: #d9d2f5;
+  --theme-accent: #b7b0c2;
+  --theme-accent-mark: #aaa4d8;
+  --theme-clay: #d7d2df;
+  --theme-brand-gradient-start: #9f97ad;
+  --theme-brand-gradient-mid: #b7b0c2;
+  --theme-brand-gradient-end: #cbc5d5;
   --theme-surface: rgba(23, 23, 29, 0.88);
   --theme-surface-strong: rgba(29, 29, 36, 0.94);
   --theme-surface-muted: rgba(17, 17, 22, 0.86);
   --theme-section-branding: #15151a;
   --theme-section-sites: #101014;
   --theme-section-cta: #121217;
-  --theme-chip-bg: rgba(184, 175, 217, 0.09);
+  --theme-chip-bg: rgba(183, 176, 194, 0.09);
   --theme-code-bg: rgba(244, 244, 246, 0.07);
   --theme-border: rgba(244, 244, 246, 0.1);
   --theme-border-strong: rgba(244, 244, 246, 0.16);
-  --theme-button-primary-bg: #b8afd9;
-  --theme-button-primary-hover: #c8c0e8;
+  --theme-button-primary-bg: #b7b0c2;
+  --theme-button-primary-hover: #c6bfd0;
   --theme-button-primary-text: #101014;
   --theme-button-secondary-bg: rgba(29, 29, 36, 0.92);
   --theme-button-secondary-hover: rgba(36, 36, 44, 0.96);
@@ -102,11 +102,10 @@ html[data-theme='dark'] {
   --theme-toggle-bg: rgba(29, 29, 36, 0.84);
   --theme-toggle-hover: rgba(36, 36, 44, 0.96);
   --theme-footer-bg: rgba(16, 16, 20, 0.92);
-  --theme-selection-bg: rgba(184, 175, 217, 0.22);
-  --theme-shadow: 0 24px 68px rgba(0, 0, 0, 0.26);
+  --theme-selection-bg: rgba(183, 176, 194, 0.22);
+  --theme-shadow: 0 22px 58px rgba(0, 0, 0, 0.24);
   --theme-backdrop:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.035), transparent 38%),
-    linear-gradient(180deg, #101014 0%, #121218 48%, #101014 100%);
+    linear-gradient(180deg, #101014 0%, #121217 48%, #101014 100%);
 }
 
 @theme {
@@ -301,11 +300,11 @@ html[data-theme='dark'] {
   .site-header {
     border-bottom: 1px solid var(--theme-border);
     background-color: var(--theme-surface-strong);
-    backdrop-filter: blur(18px);
+    backdrop-filter: none;
   }
 
   .site-header-inner {
-    @apply mx-auto flex w-full max-w-[62rem] flex-col gap-3 px-5 py-5 sm:px-8 lg:px-10 md:flex-row md:items-end md:justify-between;
+    @apply mx-auto flex w-full max-w-[62rem] flex-col gap-3 px-5 py-5 sm:px-8 lg:px-10 md:flex-row md:items-center md:justify-between;
   }
 
   .site-title-link {
@@ -364,7 +363,7 @@ html[data-theme='dark'] {
   .site-footer {
     border-top: 1px solid var(--theme-border);
     background-color: var(--theme-footer-bg);
-    backdrop-filter: blur(18px);
+    backdrop-filter: none;
   }
 
   .footer-inline-link {
@@ -559,6 +558,22 @@ html[data-theme='dark'] {
     transform: translateY(0.35rem);
   }
 
+  body.is-footer-visible [data-floating-controls] {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.35rem);
+  }
+
+  [data-floating-controls] {
+    z-index: 90;
+  }
+
+  body:has(.experience-archive-page[data-mobile-filter-open='true']) [data-floating-controls] {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.35rem);
+  }
+
   @media (min-width: 640px) {
     .floating-control-chip {
       width: 2.75rem;
@@ -685,19 +700,18 @@ html[data-theme='dark'] {
   }
 
   .experience-back-link {
-    @apply inline-flex items-center gap-2 rounded-full border px-4 py-2 font-medium no-underline;
+    @apply inline-flex items-center gap-2 border-b px-1 py-1 font-medium no-underline;
     font-size: var(--type-small-size);
     line-height: var(--type-small-leading);
-    border-color: var(--theme-border);
-    background-color: color-mix(in srgb, var(--theme-surface-strong) 72%, transparent);
+    border-color: transparent;
+    background-color: transparent;
     color: var(--theme-ink-soft);
   }
 
   .experience-back-link:hover {
-    border-color: var(--theme-border-strong);
-    background-color: var(--theme-surface-strong);
+    border-color: var(--theme-accent-mark);
+    background-color: transparent;
     color: var(--theme-ink);
-    transform: translateY(-1px);
   }
 
   .experience-detail-hero {
@@ -711,17 +725,16 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-record-card {
-    @apply self-start rounded-[1.5rem] border p-4 sm:p-5;
+    @apply self-start rounded-md border p-4 sm:p-5;
     border-color: var(--theme-border);
-    background-color: color-mix(in srgb, var(--theme-surface-strong) 84%, transparent);
-    box-shadow: 0 18px 50px rgba(49, 43, 72, 0.06);
+    background-color: transparent;
   }
 
   .experience-detail-image-card {
-    @apply m-0 overflow-hidden rounded-[1.1rem] border p-0;
+    @apply m-0 overflow-hidden rounded border p-0;
     aspect-ratio: 16 / 9;
     border-color: var(--theme-border);
-    background-color: #ffffff;
+    background-color: var(--theme-surface-strong);
   }
 
   .experience-detail-image-card img {
@@ -777,18 +790,18 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-hero-link {
-    @apply inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 font-semibold no-underline transition;
-    border-color: color-mix(in srgb, var(--theme-accent) 24%, var(--theme-border));
-    background-color: color-mix(in srgb, var(--theme-accent) 7%, var(--theme-surface-strong));
-    color: color-mix(in srgb, var(--theme-accent) 78%, var(--theme-ink));
+    @apply inline-flex items-center gap-1.5 rounded border px-3 py-1.5 font-semibold no-underline transition;
+    border-color: var(--theme-border);
+    background-color: transparent;
+    color: color-mix(in srgb, var(--theme-accent-mark) 78%, var(--theme-ink));
     font-size: var(--type-caption-size);
     line-height: var(--type-caption-leading);
   }
 
   .experience-detail-hero-link:hover {
-    border-color: color-mix(in srgb, var(--theme-accent) 44%, var(--theme-border));
-    background-color: color-mix(in srgb, var(--theme-accent) 12%, var(--theme-surface-strong));
-    color: var(--theme-accent);
+    border-color: color-mix(in srgb, var(--theme-accent-mark) 52%, var(--theme-border));
+    background-color: color-mix(in srgb, var(--theme-accent-mark) 6%, transparent);
+    color: var(--theme-ink);
   }
 
   .experience-detail-info {
@@ -821,6 +834,13 @@ html[data-theme='dark'] {
     border-color: var(--theme-border);
   }
 
+  .experience-detail-chip-group .chip {
+    @apply rounded border px-2 py-0.5;
+    border-color: var(--theme-border);
+    background-color: transparent;
+    color: var(--theme-ink-muted);
+  }
+
   .experience-detail-highlight-list {
     @apply mt-7 grid gap-2.5 border-l pl-4;
     font-size: var(--type-small-size);
@@ -834,8 +854,8 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-highlight-list li > span:first-child {
-    @apply mt-2 size-1.5 shrink-0 rounded-full;
-    background-color: color-mix(in srgb, var(--theme-accent) 64%, transparent);
+    @apply mt-2 h-1.5 w-1.5 shrink-0 rounded-full;
+    background-color: var(--theme-accent-mark);
   }
 
   .experience-detail-body {
@@ -945,7 +965,7 @@ html[data-theme='dark'] {
     font-size: var(--type-caption-size);
     line-height: var(--type-caption-leading);
     letter-spacing: var(--type-wide-label-tracking);
-    color: color-mix(in srgb, var(--theme-accent) 58%, var(--theme-ink-muted));
+    color: color-mix(in srgb, var(--theme-accent-mark) 64%, var(--theme-ink-muted));
   }
 
   .experience-detail-section-content {
@@ -997,23 +1017,18 @@ html[data-theme='dark'] {
   }
 
   .experience-work-card {
-    @apply rounded-[1.25rem] border p-4 sm:p-5;
+    @apply rounded-md border p-4 sm:p-5;
     border-color: color-mix(in srgb, var(--theme-border) 82%, transparent);
-    background:
-      linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--theme-accent) 7%, transparent),
-        transparent 58%
-      ),
-      color-mix(in srgb, var(--theme-surface-strong) 76%, transparent);
+    background-color: transparent;
   }
 
   .experience-work-card-label {
-    @apply m-0 inline-flex items-center rounded-full px-3 py-1 font-semibold;
+    @apply m-0 inline-flex items-center rounded border px-2 py-0.5 font-semibold;
     font-size: var(--type-caption-size);
     line-height: var(--type-caption-leading);
-    background-color: var(--theme-chip-bg);
-    color: color-mix(in srgb, var(--theme-accent) 78%, var(--theme-ink));
+    border-color: var(--theme-border);
+    background-color: transparent;
+    color: color-mix(in srgb, var(--theme-accent-mark) 78%, var(--theme-ink));
   }
 
   .experience-work-card-body {
@@ -1038,9 +1053,9 @@ html[data-theme='dark'] {
   }
 
   .experience-detail-tech-card {
-    @apply rounded-[1.25rem] border p-4;
+    @apply rounded-md border p-4;
     border-color: var(--theme-border);
-    background-color: color-mix(in srgb, var(--theme-surface-strong) 72%, transparent);
+    background-color: transparent;
   }
 
   .experience-detail-tech-group-card {
@@ -1052,7 +1067,7 @@ html[data-theme='dark'] {
     font-size: var(--type-micro-size);
     line-height: var(--type-micro-leading);
     letter-spacing: var(--type-label-tracking);
-    color: color-mix(in srgb, var(--theme-accent) 70%, var(--theme-ink-muted));
+    color: color-mix(in srgb, var(--theme-accent-mark) 72%, var(--theme-ink-muted));
   }
 
   .experience-detail-tech-name {
@@ -1092,10 +1107,9 @@ html[data-theme='dark'] {
 
   .experience-detail-link-panel,
   .experience-related-panel {
-    @apply rounded-[1.75rem] border p-6 sm:p-7;
+    @apply border-t px-0 py-6 sm:py-7;
     border-color: var(--theme-border);
-    background-color: color-mix(in srgb, var(--theme-surface-strong) 82%, transparent);
-    box-shadow: 0 18px 50px rgba(49, 43, 72, 0.055);
+    background-color: transparent;
   }
 
   .experience-related-heading {
@@ -1107,9 +1121,9 @@ html[data-theme='dark'] {
   }
 
   .experience-related-card {
-    @apply rounded-2xl border px-4 py-3.5;
+    @apply border-b px-0 py-3.5;
     border-color: var(--theme-border);
-    background-color: color-mix(in srgb, var(--theme-surface-strong) 62%, transparent);
+    background-color: transparent;
   }
 
   .experience-related-link {
@@ -1117,13 +1131,14 @@ html[data-theme='dark'] {
   }
 
   .experience-related-relation {
-    @apply inline-flex shrink-0 items-center rounded-full px-3 py-1 font-semibold;
+    @apply inline-flex shrink-0 items-center rounded border px-2 py-0.5 font-semibold;
     min-width: 3.25rem;
     justify-content: center;
     font-size: var(--type-caption-size);
     line-height: var(--type-caption-leading);
-    background-color: var(--theme-chip-bg);
-    color: color-mix(in srgb, var(--theme-accent) 76%, var(--theme-ink));
+    border-color: var(--theme-border);
+    background-color: transparent;
+    color: color-mix(in srgb, var(--theme-accent-mark) 76%, var(--theme-ink));
   }
 
   .experience-related-title {
@@ -1142,8 +1157,8 @@ html[data-theme='dark'] {
   }
 
   .experience-related-card:has(a):hover {
-    border-color: color-mix(in srgb, var(--theme-accent) 36%, var(--theme-border));
-    background-color: color-mix(in srgb, var(--theme-accent) 8%, var(--theme-surface-strong));
+    border-color: color-mix(in srgb, var(--theme-accent-mark) 42%, var(--theme-border));
+    background-color: color-mix(in srgb, var(--theme-accent-mark) 5%, transparent);
   }
 
   .experience-related-note {
@@ -1159,7 +1174,7 @@ html[data-theme='dark'] {
     }
 
     .experience-back-link {
-      @apply px-3.5 py-2;
+      @apply px-1 py-1;
     }
 
     .experience-detail-hero {
@@ -1170,9 +1185,12 @@ html[data-theme='dark'] {
       max-width: 12.5ch;
     }
 
-    .experience-detail-image-card,
+    .experience-detail-image-card {
+      @apply rounded;
+    }
+
     .experience-detail-record-card {
-      @apply rounded-[1.35rem];
+      @apply rounded-md;
     }
 
     .experience-detail-info div {
@@ -1222,6 +1240,7 @@ html[data-theme='dark'] {
   --experience-ink-muted: var(--theme-ink-muted);
   --experience-ink-faint: var(--theme-ink-faint);
   --experience-accent: var(--theme-accent);
+  --experience-accent-mark: var(--theme-accent-mark);
   --experience-accent-soft: var(--theme-chip-bg);
   --experience-accent-faint: var(--theme-selection-bg);
   --experience-line: var(--theme-border);
@@ -1229,7 +1248,7 @@ html[data-theme='dark'] {
   --experience-surface: var(--theme-surface);
   --experience-surface-strong: var(--theme-surface-strong);
   --experience-shadow: var(--theme-shadow);
-  --experience-ambient-glow: var(--theme-selection-bg);
+  --experience-ambient-glow: transparent;
   display: grid;
   height: 100svh;
   min-height: 100svh;
@@ -1256,10 +1275,8 @@ html.experience-mobile-filter-lock {
   min-height: 0;
   overflow: hidden;
   border-right: 1px solid var(--experience-line);
-  background:
-    linear-gradient(180deg, var(--theme-surface-strong), var(--experience-surface)),
-    radial-gradient(circle at top left, var(--experience-ambient-glow), transparent 15rem);
-  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--experience-surface-strong) 82%, var(--experience-paper));
+  backdrop-filter: none;
 }
 
 html[data-theme='dark'] .experience-archive-page {
@@ -1316,7 +1333,7 @@ html[data-theme='dark'] .experience-archive-page {
   min-height: 2.25rem;
   align-items: center;
   margin: 0;
-  color: var(--experience-accent);
+  color: var(--experience-ink-faint);
   font-size: var(--type-caption-size);
   font-weight: 800;
   line-height: var(--type-caption-leading);
@@ -1367,8 +1384,8 @@ html:lang(en) .experience-rail-intro h2 {
   min-height: 2.25rem;
   cursor: pointer;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.45rem 0.7rem;
   color: var(--experience-ink-muted);
   font: inherit;
@@ -1384,8 +1401,8 @@ html:lang(en) .experience-rail-intro h2 {
 
 .experience-rail-toggle:hover {
   border-color: var(--experience-line-strong);
+  background: color-mix(in srgb, var(--experience-surface-strong) 72%, transparent);
   color: var(--experience-ink);
-  transform: translateY(-1px);
 }
 
 .experience-rail-toggle-icon {
@@ -1477,10 +1494,10 @@ html:lang(en) .experience-rail-intro h2 {
 .experience-toolbar-card {
   display: block;
   border: 1px solid var(--experience-line);
-  border-radius: 1.25rem;
-  background: var(--experience-surface);
+  border-radius: 0.55rem;
+  background: transparent;
   padding: 1rem;
-  box-shadow: 0 12px 34px rgba(49, 43, 72, 0.045);
+  box-shadow: none;
 }
 
 .experience-filter-card {
@@ -1491,11 +1508,11 @@ html:lang(en) .experience-rail-intro h2 {
 
 .experience-filter-row {
   display: grid;
-  grid-template-columns: 3.45rem minmax(0, 1fr);
+  grid-template-columns: 3.15rem minmax(0, 1fr);
   align-items: center;
   column-gap: 0.55rem;
   row-gap: 0.55rem;
-  padding: 0.85rem 1rem;
+  padding: 0.8rem 0.85rem;
 }
 
 .experience-filter-row-stacked {
@@ -1534,8 +1551,8 @@ html:lang(en) .experience-rail-intro h2 {
   min-height: 1.55rem;
   cursor: pointer;
   border: 1px solid color-mix(in srgb, var(--experience-line) 78%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--experience-surface-strong) 84%, transparent);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.22rem 0.55rem;
   color: var(--experience-ink-faint);
   font: inherit;
@@ -1553,13 +1570,13 @@ html:lang(en) .experience-rail-intro h2 {
 
 .experience-filter-reset-button:hover:not(:disabled),
 .experience-filter-reset-button:focus-visible {
-  border-color: color-mix(in srgb, var(--experience-accent) 28%, var(--experience-line));
-  background: var(--experience-accent-soft);
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 34%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-accent-mark) 6%, transparent);
   color: var(--experience-ink);
 }
 
 .experience-filter-reset-button:focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--experience-accent) 44%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--experience-accent-mark) 44%, transparent);
   outline-offset: 2px;
 }
 
@@ -1611,8 +1628,8 @@ html:lang(en) .experience-rail-intro h2 {
   justify-content: space-between;
   gap: 0.45rem;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.35rem;
+  background: transparent;
   padding: 0.46rem 0.68rem 0.46rem 0.84rem;
   color: var(--experience-ink-muted);
   font: inherit;
@@ -1630,13 +1647,13 @@ html:lang(en) .experience-rail-intro h2 {
 
 .experience-date-trigger:hover,
 .experience-date-trigger-active {
-  border-color: color-mix(in srgb, var(--experience-accent) 34%, var(--experience-line));
-  background: color-mix(in srgb, var(--experience-surface-strong) 84%, var(--experience-accent-soft));
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 42%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-accent-mark) 5%, transparent);
   color: var(--experience-ink);
 }
 
 .experience-date-trigger:focus-visible {
-  border-color: color-mix(in srgb, var(--experience-accent) 38%, transparent);
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 44%, transparent);
   color: var(--experience-ink);
   box-shadow: 0 0 0 4px var(--experience-accent-faint);
 }
@@ -1821,8 +1838,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   cursor: pointer;
   appearance: none;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.55rem;
+  background: transparent;
   padding: 0.48rem 2.2rem 0.48rem 0.95rem;
   color: var(--experience-ink);
   font: inherit;
@@ -1878,17 +1895,15 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-toolbar-card-main .experience-toolbar-row {
   display: flex;
-  min-height: 2.85rem;
+  min-height: 2.65rem;
   align-items: center;
   gap: 0.55rem;
   border: 1px solid color-mix(in srgb, var(--experience-line) 86%, transparent);
-  border-radius: 999px;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--experience-surface-strong) 92%, transparent), color-mix(in srgb, var(--experience-surface) 86%, transparent)),
-    radial-gradient(circle at top right, color-mix(in srgb, var(--experience-accent-soft) 64%, transparent), transparent 72%);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--experience-surface-strong) 74%, transparent);
   padding: 0.32rem 0.36rem 0.32rem 0.85rem;
-  box-shadow: 0 12px 30px rgba(49, 43, 72, 0.052);
-  backdrop-filter: blur(16px);
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .experience-toolbar-card-main .experience-toolbar-label {
@@ -1901,7 +1916,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   gap: 0.2rem;
   min-height: 2.1rem;
   align-items: center;
-  background: color-mix(in srgb, var(--experience-accent-soft) 54%, var(--experience-surface-strong));
+  background: transparent;
   padding: 0.18rem;
 }
 
@@ -1925,8 +1940,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   cursor: pointer;
   appearance: none;
   border: 0;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--experience-accent-soft) 54%, var(--experience-surface-strong));
+  border-radius: 0.55rem;
+  background: transparent;
   padding: 0.42rem 2rem 0.42rem 0.78rem;
   color: var(--experience-ink);
   font: inherit;
@@ -2146,8 +2161,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-icon-toggle {
   display: inline-flex;
   gap: 0.35rem;
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.55rem;
+  background: transparent;
   padding: 0.25rem;
 }
 
@@ -2164,7 +2179,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 0.45rem;
   background: transparent;
   color: var(--experience-ink-faint);
   transition:
@@ -2180,9 +2195,9 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .archive-icon-option.archive-option-active {
-  border-color: color-mix(in srgb, var(--experience-accent) 28%, transparent);
-  background: var(--experience-accent-soft);
-  color: color-mix(in srgb, var(--experience-accent) 78%, var(--experience-ink));
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 44%, var(--experience-line-strong));
+  background: color-mix(in srgb, var(--experience-surface-strong) 82%, transparent);
+  color: var(--experience-ink);
 }
 
 .archive-icon-option svg {
@@ -2223,7 +2238,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   min-height: 1.65rem;
   cursor: pointer;
   border: 0;
-  border-radius: 999px;
+  border-radius: 0.35rem;
   background: transparent;
   padding: 0;
   color: var(--experience-ink-muted);
@@ -2251,9 +2266,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .experience-category-toggle:hover,
 .experience-filter-section-toggle:hover {
-  background: var(--experience-accent-soft);
+  background: color-mix(in srgb, var(--experience-accent-mark) 6%, transparent);
   color: var(--experience-ink);
-  transform: translateY(-1px);
 }
 
 .experience-category-toggle-icon,
@@ -2267,7 +2281,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-category-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
 .experience-tag-hint {
@@ -2276,23 +2290,15 @@ html[data-theme='dark'] .experience-calendar-month-selected {
   gap: 0.18rem;
   margin-top: 0.55rem;
   min-height: 4rem;
-  border: 1px solid color-mix(in srgb, var(--experience-line) 72%, transparent);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--experience-surface-strong) 76%, transparent);
-  padding: 0.72rem 0.8rem 0.72rem 0.95rem;
+  border-left: 1px solid color-mix(in srgb, var(--experience-accent-mark) 42%, var(--experience-line));
+  background: transparent;
+  padding: 0.18rem 0 0.18rem 0.75rem;
   color: var(--experience-ink-muted);
   overflow: hidden;
 }
 
 .experience-tag-hint::before {
-  position: absolute;
-  top: 0.78rem;
-  bottom: 0.78rem;
-  left: 0;
-  width: 0.18rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--experience-accent) 52%, transparent);
-  content: '';
+  content: none;
 }
 
 .experience-tag-hint-kicker {
@@ -2434,8 +2440,8 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-project-filter-empty {
   margin: 0;
   border: 1px solid color-mix(in srgb, var(--experience-line) 72%, transparent);
-  border-radius: 1rem;
-  background: color-mix(in srgb, var(--experience-surface-strong) 76%, transparent);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.78rem 0.9rem;
   color: var(--experience-ink-muted);
   font-size: var(--type-caption-size);
@@ -2449,12 +2455,16 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 
 .archive-option,
 .archive-category {
-  min-height: 2rem;
+  position: relative;
+  display: inline-flex;
+  min-height: 1.8rem;
   cursor: pointer;
+  align-items: center;
+  gap: 0.32rem;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
-  padding: 0.42rem 0.68rem;
+  border-radius: 0.35rem;
+  background: transparent;
+  padding: 0.34rem 0.55rem;
   color: var(--experience-ink-muted);
   font: inherit;
   font-size: var(--type-small-size);
@@ -2470,23 +2480,40 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .archive-option:hover,
 .archive-category:hover {
   border-color: var(--experience-line-strong);
+  background: color-mix(in srgb, var(--experience-surface-strong) 72%, transparent);
   color: var(--experience-ink);
-  transform: translateY(-1px);
+}
+
+.archive-option:focus-visible,
+.archive-category:focus-visible,
+.archive-icon-option:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--experience-accent-mark) 46%, transparent);
+  outline-offset: 2px;
 }
 
 .archive-option-active,
 .archive-category-active {
-  border-color: color-mix(in srgb, var(--experience-accent) 42%, transparent);
-  background: var(--experience-accent-soft);
-  color: color-mix(in srgb, var(--experience-accent) 72%, var(--experience-ink));
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 52%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-accent-mark) 7%, transparent);
+  color: var(--experience-ink);
+}
+
+.archive-option-active::before,
+.archive-category-active::before {
+  content: '';
+  width: 0.34rem;
+  height: 0.34rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--experience-accent-mark);
 }
 
 .experience-search-input {
   width: 100%;
   min-height: 2.25rem;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.35rem;
+  background: transparent;
   padding: 0.48rem 0.95rem;
   color: var(--experience-ink);
   font-size: var(--type-small-size);
@@ -2499,7 +2526,7 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 }
 
 .experience-search-input:focus {
-  border-color: color-mix(in srgb, var(--experience-accent) 38%, transparent);
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 44%, transparent);
   box-shadow: 0 0 0 4px var(--experience-accent-faint);
 }
 
@@ -2612,12 +2639,10 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-chart-summary-item {
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
-  border-radius: 1.1rem;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
-    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 10rem);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--theme-surface-strong) 82%, var(--experience-surface));
   padding: 1rem;
-  box-shadow: 0 14px 30px rgba(49, 43, 72, 0.05);
+  box-shadow: none;
 }
 
 .experience-chart-summary-item strong {
@@ -2648,12 +2673,10 @@ html[data-theme='dark'] .experience-calendar-month-selected {
 .experience-chart-card {
   min-width: 0;
   border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
-    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 13rem);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--theme-surface-strong) 82%, var(--experience-surface));
   padding: clamp(1.1rem, 2vw, 1.5rem);
-  box-shadow: 0 14px 36px rgba(49, 43, 72, 0.055);
+  box-shadow: none;
 }
 
 .experience-chart-card-wide {
@@ -2705,7 +2728,7 @@ button.experience-chart-bar-row {
   width: 100%;
   cursor: pointer;
   border: 0;
-  border-radius: 0.78rem;
+  border-radius: 0.45rem;
   background: transparent;
   padding: 0.16rem;
   font: inherit;
@@ -2745,9 +2768,9 @@ button.experience-chart-bar-row:focus-visible {
 
 .experience-chart-bar-track {
   display: block;
-  height: 0.7rem;
+  height: 0.58rem;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 0.35rem;
   background: color-mix(in srgb, var(--experience-line) 62%, transparent);
 }
 
@@ -2756,7 +2779,7 @@ button.experience-chart-bar-row:focus-visible {
   width: var(--chart-value);
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--theme-brand-gradient-start), var(--theme-brand-gradient-mid), var(--theme-brand-gradient-end));
+  background: var(--experience-accent-mark);
 }
 
 .experience-chart-year-grid {
@@ -2774,8 +2797,8 @@ button.experience-chart-bar-row:focus-visible {
   align-content: space-between;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid color-mix(in srgb, var(--experience-accent) 18%, transparent);
-  border-radius: 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--experience-accent-mark) 18%, transparent);
+  border-radius: 0.7rem;
   background: var(--experience-surface-strong);
   padding: 0.72rem;
   font: inherit;
@@ -2788,8 +2811,8 @@ button.experience-chart-bar-row:focus-visible {
 
 .experience-chart-year-item:hover,
 .experience-chart-year-item:focus-visible {
-  border-color: color-mix(in srgb, var(--experience-accent) 42%, var(--experience-line));
-  box-shadow: 0 12px 28px rgba(49, 43, 72, 0.12);
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 42%, var(--experience-line));
+  box-shadow: none;
   transform: translateY(-1px);
 }
 
@@ -2802,7 +2825,7 @@ button.experience-chart-bar-row:focus-visible {
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: var(--experience-accent);
+  background: var(--experience-accent-mark);
   content: '';
   opacity: var(--chart-alpha);
 }
@@ -2830,31 +2853,51 @@ button.experience-chart-bar-row:focus-visible {
 }
 
 .experience-card-link {
+  position: relative;
   display: flex;
   height: 100%;
   min-height: 100%;
   flex-direction: column;
   border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 96%, transparent), var(--experience-surface)),
-    radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 13rem);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--theme-surface-strong) 82%, var(--experience-surface));
   padding: clamp(1.1rem, 2vw, 1.5rem);
   color: inherit;
   text-decoration: none;
-  box-shadow: 0 14px 36px rgba(49, 43, 72, 0.055);
+  box-shadow: none;
   transition:
+    background-color 180ms ease,
     border-color 180ms ease,
-    box-shadow 180ms ease,
     transform 180ms ease;
 }
 
 .experience-card-link:hover {
-  border-color: color-mix(in srgb, var(--experience-accent) 34%, var(--experience-line));
-  box-shadow:
-    var(--experience-shadow),
-    0 0 0 1px color-mix(in srgb, var(--experience-accent) 10%, transparent);
-  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--experience-accent) 24%, var(--experience-line-strong));
+  background-color: color-mix(in srgb, var(--theme-surface-strong) 94%, var(--experience-surface));
+  transform: translateY(-1px);
+}
+
+.experience-card-link::after {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: var(--experience-ink-faint);
+  content: '↗';
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-0.25rem, 0.15rem);
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.experience-card-link:hover::after,
+.experience-card-link:focus-visible::after {
+  color: var(--experience-accent-mark);
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 .experience-card-topline,
@@ -2878,10 +2921,11 @@ button.experience-chart-bar-row:focus-visible {
 }
 
 .experience-card-badge {
-  border-radius: 999px;
-  background: var(--experience-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--experience-line) 88%, transparent);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.38rem 0.65rem;
-  color: color-mix(in srgb, var(--experience-accent) 76%, var(--experience-ink));
+  color: var(--experience-ink-muted);
   font-size: var(--type-caption-size);
   line-height: var(--type-caption-leading);
   font-weight: 700;
@@ -2899,11 +2943,11 @@ button.experience-chart-bar-row:focus-visible {
 .experience-card-employment-badge {
   display: inline-flex;
   align-items: center;
-  border: 1px solid color-mix(in srgb, var(--experience-accent) 18%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--experience-surface-strong) 84%, transparent);
+  border: 1px solid color-mix(in srgb, var(--experience-line) 78%, transparent);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.34rem 0.58rem;
-  color: color-mix(in srgb, var(--experience-ink-muted) 88%, var(--experience-accent));
+  color: var(--experience-ink-faint);
   font-size: calc(var(--type-caption-size) * 0.92);
   line-height: 1;
   font-weight: 720;
@@ -2931,10 +2975,8 @@ button.experience-chart-bar-row:focus-visible {
   height: 100%;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--experience-line-strong) 72%, transparent);
-  border-radius: 1.2rem;
-  background:
-    radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--experience-accent-soft) 72%, transparent), transparent 48%),
-    linear-gradient(145deg, color-mix(in srgb, var(--experience-surface-strong) 86%, #ffffff), color-mix(in srgb, var(--experience-surface) 88%, #ffffff));
+  border-radius: 0.375rem;
+  background: color-mix(in srgb, var(--experience-surface-strong) 92%, #ffffff);
   padding: 0;
 }
 
@@ -3026,8 +3068,8 @@ button.experience-chart-bar-row:focus-visible {
   min-height: 1.85rem;
   align-items: center;
   border: 1px solid var(--experience-line);
-  border-radius: 999px;
-  background: var(--experience-surface-strong);
+  border-radius: 0.45rem;
+  background: transparent;
   padding: 0.32rem 0.56rem;
   color: var(--experience-ink-muted);
   font-size: var(--type-caption-size);
@@ -3045,9 +3087,9 @@ button.experience-chart-bar-row:focus-visible {
 }
 
 .experience-card-more-chip {
-  border-color: color-mix(in srgb, var(--experience-accent) 28%, var(--experience-line));
-  background: var(--experience-accent-soft);
-  color: color-mix(in srgb, var(--experience-accent) 72%, var(--experience-ink));
+  border-color: color-mix(in srgb, var(--experience-accent) 24%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-accent-soft) 54%, transparent);
+  color: var(--experience-ink-muted);
 }
 
 .experience-tag-tooltip {
@@ -3110,18 +3152,15 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   align-items: center;
   column-gap: 0.75rem;
   min-height: 2.85rem;
-  border-radius: 0.82rem;
+  border-radius: 0.62rem;
   padding: 0.54rem 0.72rem;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--theme-surface-strong) 94%, transparent), var(--experience-surface));
+  background: color-mix(in srgb, var(--theme-surface-strong) 84%, var(--experience-surface));
   box-shadow: none;
 }
 
 .experience-card-grid-compact .experience-card-link:hover {
   transform: none;
-  box-shadow:
-    0 8px 18px rgba(49, 43, 72, 0.06),
-    0 0 0 1px color-mix(in srgb, var(--experience-accent) 8%, transparent);
+  box-shadow: none;
 }
 
 .experience-card-grid-compact .experience-card-topline {
@@ -3273,7 +3312,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 .experience-card-grid-list .experience-card-visual-frame {
   aspect-ratio: 16 / 9;
   height: auto;
-  border-radius: 1rem;
+  border-radius: 0.375rem;
   background: color-mix(in srgb, var(--experience-surface-strong) 92%, #ffffff);
 }
 
@@ -3498,7 +3537,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   place-items: center;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--experience-line-strong) 72%, transparent);
-  border-radius: 1.2rem;
+  border-radius: 0.375rem;
   background:
     radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--experience-accent-soft) 72%, transparent), transparent 48%),
     linear-gradient(145deg, color-mix(in srgb, var(--experience-surface-strong) 86%, #ffffff), color-mix(in srgb, var(--experience-surface) 88%, #ffffff));
@@ -3517,7 +3556,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   justify-content: center;
   width: 4rem;
   height: 4rem;
-  border-radius: 1.2rem;
+  border-radius: 0.375rem;
   background: var(--experience-accent-soft);
   color: color-mix(in srgb, var(--experience-accent) 76%, var(--experience-ink));
   font-family: var(--font-display);
@@ -3627,12 +3666,50 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 }
 
 .experience-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
   margin-top: 1.5rem;
-  border: 1px dashed var(--experience-line-strong);
-  border-radius: 1.25rem;
-  padding: 2rem;
+  border: 1px solid var(--experience-line);
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--experience-surface-strong) 66%, transparent);
+  padding: 1rem;
   color: var(--experience-ink-muted);
   text-align: center;
+}
+
+.experience-empty-reset {
+  display: inline-flex;
+  min-height: 2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--experience-accent-mark) 42%, var(--experience-line));
+  border-radius: 0.4rem;
+  background: transparent;
+  padding: 0.36rem 0.72rem;
+  color: var(--experience-ink);
+  font: inherit;
+  font-size: var(--type-small-size);
+  font-weight: 720;
+  line-height: var(--type-small-leading);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.experience-empty-reset:hover,
+.experience-empty-reset:focus-visible {
+  border-color: color-mix(in srgb, var(--experience-accent-mark) 62%, var(--experience-line));
+  background: color-mix(in srgb, var(--experience-accent-mark) 7%, transparent);
+}
+
+.experience-empty-reset:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--experience-accent-mark) 46%, transparent);
+  outline-offset: 2px;
 }
 
 .experience-empty-state {
@@ -3820,9 +3897,8 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
     margin-inline: -1rem;
     padding: 0.85rem 1rem;
     border-bottom: 1px solid color-mix(in srgb, var(--experience-line) 80%, transparent);
-    background:
-      linear-gradient(180deg, var(--experience-surface-strong), color-mix(in srgb, var(--experience-paper) 90%, transparent));
-    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--experience-paper) 94%, var(--experience-surface-strong));
+    backdrop-filter: none;
   }
 
   .experience-mobile-search {
@@ -3838,8 +3914,8 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
     align-items: center;
     justify-content: center;
     border: 1px solid var(--experience-line);
-    border-radius: 999px;
-    background: var(--experience-surface-strong);
+    border-radius: 0.45rem;
+    background: transparent;
     color: var(--experience-ink-muted);
     font: inherit;
     font-size: var(--type-small-size);
@@ -3863,6 +3939,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   .experience-mobile-filter-button:hover,
   .experience-mobile-filter-close:hover {
     border-color: var(--experience-line-strong);
+    background: color-mix(in srgb, var(--experience-surface-strong) 72%, transparent);
     color: var(--experience-ink);
   }
 
@@ -3916,12 +3993,10 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
     overscroll-behavior: contain;
     border: 1px solid var(--experience-line);
     border-bottom: 0;
-    border-radius: 1.35rem 1.35rem 0 0;
-    background:
-      linear-gradient(180deg, var(--experience-surface-strong), var(--experience-surface)),
-      radial-gradient(circle at top right, var(--experience-ambient-glow), transparent 16rem);
+    border-radius: 0.9rem 0.9rem 0 0;
+    background: var(--experience-paper);
     padding: 0;
-    box-shadow: 0 -18px 48px rgba(16, 14, 23, 0.22);
+    box-shadow: 0 -14px 34px rgba(16, 14, 23, 0.16);
     transform: translateY(100%);
     transition: transform 220ms ease;
     scrollbar-gutter: stable;
@@ -3929,6 +4004,23 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 
   .experience-archive-page[data-mobile-filter-open='true'] .experience-rail-inner {
     transform: translateY(0);
+  }
+
+  .experience-archive-page[data-mobile-filter-open='true'][data-sidebar-collapsed='true'] .experience-rail-inner {
+    align-items: stretch;
+    width: 100%;
+    max-height: min(86svh, 44rem);
+    padding: 0;
+  }
+
+  .experience-archive-page[data-mobile-filter-open='true'][data-sidebar-collapsed='true'] .experience-filter-panel {
+    display: flex;
+    max-height: none;
+    max-width: none;
+    overflow: visible;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .experience-rail-header,
@@ -3954,9 +4046,9 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
     justify-content: space-between;
     gap: 1rem;
     border-bottom: 1px solid color-mix(in srgb, var(--experience-line) 82%, transparent);
-    background: color-mix(in srgb, var(--experience-surface-strong) 92%, transparent);
+    background: var(--experience-paper);
     padding: 0.9rem 1rem;
-    backdrop-filter: blur(16px);
+    backdrop-filter: none;
   }
 
   .experience-mobile-filter-drawer-header > span {
@@ -4044,7 +4136,7 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
   }
 
   .experience-card-grid-list .experience-card-visual-frame {
-    border-radius: 1rem;
+    border-radius: 0.375rem;
   }
 
   .experience-card-grid-list .experience-card-topline {
@@ -4135,5 +4227,45 @@ html[data-theme='dark'] .experience-tag-tooltip > span {
 
   .experience-card-grid-group-summary-compact .experience-group-summary-latest {
     text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .experience-content-shell {
+    padding-inline: 0.875rem;
+  }
+
+  .experience-mobile-filter-bar,
+  .experience-list-header-stuck {
+    margin-inline: -0.875rem;
+    padding-inline: 0.875rem;
+  }
+
+  .experience-chart-summary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.55rem;
+  }
+
+  .experience-chart-summary-item,
+  .experience-chart-card,
+  .experience-card-link,
+  .experience-card-group {
+    padding: 0.85rem;
+  }
+
+  .experience-card-grid-list .experience-card[data-has-visual='true'] .experience-card-link,
+  .experience-card-grid-group-summary-list .experience-group-summary-button {
+    grid-template-columns: 5.75rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+
+  .experience-card-grid-list .experience-card h3 {
+    margin-top: 0.35rem;
+    line-height: 1.3;
+  }
+
+  .experience-result-count {
+    flex-wrap: wrap;
+    white-space: normal;
   }
 }

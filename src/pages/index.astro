@@ -1058,14 +1058,24 @@ const hasArchiveItems = archiveItems.length > 0;
 
           {
             hasArchiveItems ? (
-              <p
+              <div
                 class="experience-empty"
                 data-archive-empty
                 hidden
-                {...i18nText('현재 조건에 맞는 경험 기록이 없습니다.', 'No experiences match the current filters.')}
+                role="status"
               >
-                현재 조건에 맞는 경험 기록이 없습니다.
-              </p>
+                <span {...i18nText('현재 조건에 맞는 경험 기록이 없습니다.', 'No experiences match the current filters.')}>
+                  현재 조건에 맞는 경험 기록이 없습니다.
+                </span>
+                <button
+                  type="button"
+                  class="experience-empty-reset"
+                  data-archive-reset-filters
+                  {...i18nText('초기화', 'Reset')}
+                >
+                  초기화
+                </button>
+              </div>
             ) : (
               <div class="experience-empty-state">
                 <p class="experience-empty-kicker" {...i18nText('준비 중', 'Preparing')}>
@@ -1117,6 +1127,7 @@ const hasArchiveItems = archiveItems.length > 0;
       const totalCount = root.querySelector('[data-archive-total-count]');
       const loadMoreButton = root.querySelector('[data-archive-load-more]');
       const showAllButton = root.querySelector('[data-archive-show-all]');
+      const resetFiltersButton = root.querySelector('[data-archive-reset-filters]');
       const sortByTrigger = root.querySelector('[data-archive-sort-by-trigger]');
       const sortByLabel = root.querySelector('[data-archive-sort-by-label]');
       const sortByIcon = root.querySelector('[data-archive-sort-by-icon]');
@@ -1504,6 +1515,24 @@ const hasArchiveItems = archiveItems.length > 0;
         updateDateDisplays();
         closeCalendars();
         trackEvent('experience_date_reset');
+        apply();
+      };
+
+      const resetArchiveFilters = () => {
+        state.periodStart = '';
+        state.periodEnd = '';
+        state.status = 'all';
+        state.category = [];
+        state.tag = [];
+        state.projectDomain = [];
+        state.techTag = [];
+        resetVisibleLimit();
+        syncSearchInputs('', null);
+        updateDateDisplays();
+        closeCalendars();
+        ['status', 'category', 'tag', 'projectDomain', 'techTag'].forEach((group) => setActive(group));
+        resetTagHint();
+        trackEvent('experience_filter_reset_all');
         apply();
       };
 
@@ -2466,6 +2495,10 @@ const hasArchiveItems = archiveItems.length > 0;
           });
           apply();
         });
+      }
+
+      if (resetFiltersButton instanceof HTMLButtonElement) {
+        resetFiltersButton.addEventListener('click', resetArchiveFilters);
       }
 
       root.addEventListener('click', (event) => {
