@@ -1156,9 +1156,8 @@ html[data-theme='dark'] {
     font-variant-numeric: tabular-nums;
   }
 
-  .experience-related-card:has(a):hover {
-    border-color: color-mix(in srgb, var(--theme-accent-mark) 42%, var(--theme-border));
-    background-color: color-mix(in srgb, var(--theme-accent-mark) 5%, transparent);
+  a.experience-related-link:hover .experience-related-title {
+    color: var(--theme-accent);
   }
 
   .experience-related-note {
