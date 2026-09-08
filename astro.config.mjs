@@ -10,6 +10,7 @@ export default defineConfig({
   site: 'https://hadevyi.github.io',
   base: '/experience',
   output: 'static',
+  compressHTML: true,
   vite: {
     plugins: [tailwindcss()]
   },
